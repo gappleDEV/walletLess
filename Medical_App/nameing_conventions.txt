@@ -1,0 +1,4 @@
+Naming Conventions
+
+labels: l_<name>
+buttons: b_<name>

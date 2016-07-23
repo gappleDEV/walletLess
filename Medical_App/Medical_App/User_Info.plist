@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Birth Year</key>
+	<integer>1900</integer>
+	<key>Birth Day</key>
+	<integer>1</integer>
+	<key>Birth Month</key>
+	<integer>1</integer>
+	<key>Last Name</key>
+	<string>last name</string>
+	<key>Middle Name</key>
+	<string>middle name</string>
+	<key>First Name</key>
+	<string>first name</string>
+	<key>Mother First Name</key>
+	<string></string>
+	<key>Mother Middle Name</key>
+	<string></string>
+	<key>Mother Last Name</key>
+	<string></string>
+	<key>Marital Status</key>
+	<string></string>
+	<key>Sex</key>
+	<string></string>
+	<key>Race</key>
+	<string></string>
+	<key>Denomination</key>
+	<string></string>
+	<key>Preferred Language</key>
+	<string></string>
+	<key>Social Security Number</key>
+	<string></string>
+	<key>Address</key>
+	<string></string>
+	<key>ZIP Code</key>
+	<integer>0</integer>
+	<key>County Code</key>
+	<string></string>
+	<key>Home Phone Number</key>
+	<integer>1234567890</integer>
+	<key>Work Phone Number</key>
+	<integer>1234567890</integer>
+	<key>Cell Phone Number</key>
+	<integer>1234567890</integer>
+</dict>
+</plist>

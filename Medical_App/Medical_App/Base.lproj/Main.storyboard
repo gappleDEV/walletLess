@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="WelcomeController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tV7-kZ-4R6" userLabel="Welcome">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1jd-eQ-wLl"/>
+                                    <constraint firstAttribute="height" constant="100" id="JpW-PK-Nwb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1jd-eQ-wLl"/>
+                                        <exclude reference="JpW-PK-Nwb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="1jd-eQ-wLl"/>
+                                        <include reference="JpW-PK-Nwb"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iua-3L-PBq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.60784313729999995" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="79A-lA-CzP"/>
+                                    <constraint firstAttribute="height" constant="50" id="brd-qQ-Ybb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="79A-lA-CzP"/>
+                                        <exclude reference="brd-qQ-Ybb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="79A-lA-CzP"/>
+                                        <include reference="brd-qQ-Ybb"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="backClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jbr-Rk-GWV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clc-qC-bmW">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.60784313729999995" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eze-3R-5Yg"/>
+                                    <constraint firstAttribute="width" constant="100" id="pDb-2g-q2d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <state key="normal" title="Done &gt;">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eze-3R-5Yg"/>
+                                        <exclude reference="pDb-2g-q2d"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="eze-3R-5Yg"/>
+                                        <include reference="pDb-2g-q2d"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="doneClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c5Y-kh-rbN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnV-Tg-P9S" userLabel="PlaceHolder">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="44O-yE-svG"/>
+                                    <constraint firstAttribute="height" constant="100" id="Px0-2s-Hab"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="44O-yE-svG"/>
+                                        <exclude reference="Px0-2s-Hab"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="44O-yE-svG"/>
+                                        <include reference="Px0-2s-Hab"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.22745098039215686" green="0.52941176470588236" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KnV-Tg-P9S" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="MBc-GF-H2d">
+                                <variation key="heightClass=regular" constant="10"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="Clc-qC-bmW" secondAttribute="trailing" constant="20" id="Psp-Lk-ZHl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Clc-qC-bmW" secondAttribute="bottom" constant="20" id="QJl-DD-kBa"/>
+                            <constraint firstItem="tV7-kZ-4R6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vjb-yW-GqD"/>
+                            <constraint firstItem="tV7-kZ-4R6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WP7-Iy-gt1"/>
+                            <constraint firstItem="iua-3L-PBq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="l9I-aD-E1b"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iua-3L-PBq" secondAttribute="bottom" constant="20" id="rAO-ni-ksJ"/>
+                            <constraint firstItem="KnV-Tg-P9S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xzc-zx-wSL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="tV7-kZ-4R6"/>
+                                <exclude reference="iua-3L-PBq"/>
+                                <exclude reference="Clc-qC-bmW"/>
+                                <exclude reference="KnV-Tg-P9S"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="QJl-DD-kBa"/>
+                                <exclude reference="rAO-ni-ksJ"/>
+                                <exclude reference="Psp-Lk-ZHl"/>
+                                <exclude reference="l9I-aD-E1b"/>
+                                <exclude reference="MBc-GF-H2d"/>
+                                <exclude reference="xzc-zx-wSL"/>
+                                <exclude reference="Vjb-yW-GqD"/>
+                                <exclude reference="WP7-Iy-gt1"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="tV7-kZ-4R6"/>
+                                <include reference="iua-3L-PBq"/>
+                                <include reference="Clc-qC-bmW"/>
+                                <include reference="KnV-Tg-P9S"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="QJl-DD-kBa"/>
+                                <include reference="rAO-ni-ksJ"/>
+                                <include reference="Psp-Lk-ZHl"/>
+                                <include reference="l9I-aD-E1b"/>
+                                <include reference="MBc-GF-H2d"/>
+                                <include reference="xzc-zx-wSL"/>
+                                <include reference="Vjb-yW-GqD"/>
+                                <include reference="WP7-Iy-gt1"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="b_back" destination="iua-3L-PBq" id="MFf-ny-f36"/>
+                        <outlet property="b_done" destination="Clc-qC-bmW" id="pmd-3f-feL"/>
+                        <outlet property="l_placeHolder" destination="KnV-Tg-P9S" id="v3c-qI-4kG"/>
+                        <outlet property="l_welcome" destination="tV7-kZ-4R6" id="ioJ-dz-0uM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-38" y="483.75"/>
+        </scene>
+        <!--Decision View Controller-->
+        <scene sceneID="ggj-Wl-AfG">
+            <objects>
+                <viewController id="rcs-8h-jwV" customClass="DecisionViewController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yuK-Tu-6m8"/>
+                        <viewControllerLayoutGuide type="bottom" id="v4O-1q-USL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cnl-eL-PQ0">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.52193597216847254" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3y-3U-l7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="483.75"/>
+        </scene>
+    </scenes>
+</document>

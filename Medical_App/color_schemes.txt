@@ -1,0 +1,14 @@
+Type		Color(RGB)
+
+general	-	58, 135, 118
+private	-	58, 135, 118
+driver	-	58, 135, 118
+
+family	-	73, 176, 203
+community -	73, 176, 203
+
+nature	-	48, 58, 166
+employment -	48, 58, 166
+rehab	-	48, 58, 166
+
+insurance - 	83, 36, 168
