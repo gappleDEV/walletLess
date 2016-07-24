@@ -9,11 +9,11 @@
 	<key>Birth Month</key>
 	<integer>1</integer>
 	<key>Last Name</key>
-	<string>last name</string>
+	<string></string>
 	<key>Middle Name</key>
-	<string>middle name</string>
+	<string></string>
 	<key>First Name</key>
-	<string>first name</string>
+	<string></string>
 	<key>Mother First Name</key>
 	<string></string>
 	<key>Mother Middle Name</key>
@@ -39,10 +39,10 @@
 	<key>County Code</key>
 	<string></string>
 	<key>Home Phone Number</key>
-	<integer>1234567890</integer>
+	<integer>0</integer>
 	<key>Work Phone Number</key>
-	<integer>1234567890</integer>
+	<integer>0</integer>
 	<key>Cell Phone Number</key>
-	<integer>1234567890</integer>
+	<integer>0</integer>
 </dict>
 </plist>

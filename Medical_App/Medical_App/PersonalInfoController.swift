@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 
-class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate
+class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate
 {
     //Programatically create elements****
     @IBOutlet weak var l_welcome: UILabel!
@@ -74,12 +75,17 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
     
     let AddrKey = "Address"
     let ZipKey = "ZIP Code"
+    let CountKey = "County Code"
+    
+    let HomePhoneKey = "Home Phone Number"
+    let WorkPhoneKey = "Work Phone Number"
+    let CellPhoneKey = "Cell Phone Number"
     
     //Corner radius for the buttons in the view
     let cornRad:CGFloat = 25
     
     //Array and index for titles of each promt
-    var prompt:[String] = ["Full Name", "Mother's Maiden Name", "Birthday", "Personal Info", "Personal Info - Cont", "Social Security Number", "Location", "Phone Numbers"];
+    var prompt:[String] = ["Full Name", "Mother's Maiden Name", "Birthday", "Personal Info", "Personal Info - Cont", "Social Security Number", "Location", "Phone Numbers", "All Done!"];
     var promptIndex:Int = 0
     
     override func viewDidLoad()
@@ -90,7 +96,7 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
         self.viewWidth = self.view.frame.width
         
         let screenTap = UITapGestureRecognizer()
-        screenTap.addTarget(self, action: #selector(WelcomeController.resignNumpad))
+        screenTap.addTarget(self, action: #selector(PersonalInfoController.resignNumpad))
         self.view.addGestureRecognizer(screenTap)
         
         moveInWelcome()
@@ -125,6 +131,7 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
         self.b_done.layer.cornerRadius = self.cornRad
         self.b_back.alpha = 0
         self.b_done.alpha = 0
+        self.b_back.enabled = false
     }
     
     //Number of columns in data
@@ -243,9 +250,16 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                 //Fade out all but the back and done buttons
                 for sview in self.view.subviews as [UIView]
                 {
-                    if !(sview is UIButton)
+                    if(self.promptIndex == 8)
                     {
                         sview.alpha = 0
+                    }
+                    else
+                    {
+                        if !(sview is UIButton)
+                        {
+                            sview.alpha = 0
+                        }
                     }
                 }
             },
@@ -332,6 +346,8 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                         self.view.addSubview(self.i_textInputTop)
                         self.view.addSubview(self.i_textInputMiddle)
                         self.view.addSubview(self.i_textInputBottom)
+                        
+                        self.b_back.enabled = false
                     case 1: //Mother's Maiden Name - 3 labels and 3 text inputs
                         let height = self.viewHeight * 0.08     //height of each text input is 8% of view height
                         let labelHeight = height * 0.8          //label height is 80% of each text input height
@@ -350,6 +366,8 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                         self.l_bottom.text = "Last Name"
                         self.i_textInputBottom.text = g_plist!.getMutablePlistFile()![self.MotherLastNameKey] as? String
                         self.l_welcome.font = UIFont.systemFontOfSize(24)
+                        
+                        self.b_back.enabled = true
                     case 2: //Date of Birth - 1 date picker
                         let beginX = self.viewWidth * 0.5       //starts leftmost side at the center
                         let beginY = self.viewHeight * 0.5      //starts the topmost side at the center
@@ -477,6 +495,12 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                         self.i_textInputMiddle.text = ""
                         self.l_bottom.text = "Work Phone"
                         self.i_textInputBottom.text = ""
+                    case 8: //All done
+                        self.l_welcome.removeConstraints(self.l_welcome.constraints)
+                        self.l_welcome.translatesAutoresizingMaskIntoConstraints = false
+                        let xCon = NSLayoutConstraint(item: self.l_welcome, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 0)
+                        let yCon = NSLayoutConstraint(item: self.l_welcome, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1, constant: 0)
+                        NSLayoutConstraint.activateConstraints([xCon, yCon])
                     default:
                         print("Bad index")
                         
@@ -491,7 +515,7 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
     //      Fadein title and set location
     func fadeInTitles() -> Void
     {
-        UIView.animateWithDuration(0.5,
+        UIView.animateWithDuration(self.promptIndex == 8 ? 2 : 0.5,
             delay: 0.0,
             options: .CurveEaseIn,
             animations: {
@@ -520,6 +544,7 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                     self.i_textInputMiddle.alpha = 1
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
+                    self.b_back.alpha = 0.5
                 case 1: //Mother maiden name
                     self.l_top.alpha = 1
                     self.i_textInputTop.alpha = 1
@@ -527,6 +552,7 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                     self.i_textInputMiddle.alpha = 1
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
+                    self.b_back.alpha = 1.0
                 case 2: //Date of birth
                     self.p_dates.alpha = 1
                 case 3: //Marital Status, sex, race
@@ -557,6 +583,8 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                     self.i_textInputMiddle.alpha = 1
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
+                case 8:
+                    print("To move back to main view")
                 default:
                     print("Bad index")
                 }
@@ -564,6 +592,14 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
             completion: { finished in
                 print(g_plist!.getValuesInPlistFile())
                 print("Done moving and fading")
+                
+                if(self.promptIndex == 8)
+                {
+                    print("In here")
+                    
+                    let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier("CollectionView") as! CollectionViewController
+                    self.presentViewController(nextViewController, animated:true, completion:nil)
+                }
             })
     }
     
@@ -613,12 +649,19 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
                 print("case 4")
             case 5:
                 //Social Security Number
+                dict[SocialSecNumKey] = self.i_textInputMiddle!.text
                 print("case 5")
             case 6:
                 //Address - country code
+                dict[AddrKey] = self.i_textInputTop!.text
+                dict[ZipKey] = self.i_textInputMiddle!.text
+                dict[CountKey] = self.i_textInputBottom!.text
                 print("case 6")
             case 7:
                 //Phone numbers (home - work - cell)
+                dict[HomePhoneKey] = self.i_textInputTop!.text
+                dict[CellPhoneKey] = self.i_textInputMiddle!.text
+                dict[WorkPhoneKey] = self.i_textInputBottom!.text
                 print("case 7")
             default:
                 print("stepNum is out of bounds")
@@ -636,6 +679,11 @@ class WelcomeController: UIViewController, UITextFieldDelegate, UIPickerViewData
         
         self.promptIndex += 1
         self.fadeOutTitles()
+    }
+    
+    func sendInfo()
+    {
+        Alamofire.request(.POST, "https://155.264.138.17/data", parameters: ["name": "gregory"])
     }
     
     //Back clicked
