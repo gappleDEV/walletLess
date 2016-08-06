@@ -199,7 +199,7 @@
 				TargetAttributes = {
 					F3AF14E31CBD8711001782EA = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = YLS7UR355F;
+						DevelopmentTeam = 66AG9D3W4L;
 					};
 					F3AF14F71CBD8712001782EA = {
 						CreatedOnToolsVersion = 7.3;
@@ -486,7 +486,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Medical_App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "GAJ.Medical-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "Dev.Medical-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -501,7 +501,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Medical_App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "GAJ.Medical-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "Dev.Medical-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

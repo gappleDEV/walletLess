@@ -58,12 +58,6 @@ class CollectionViewController: UICollectionViewController
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
         cell.backgroundColor = UIColor.blueColor()
         
-       /* let viewWidth = self.view.frame.width
-        let viewHeight = self.view.frame.height
-        let cellWidth = viewWidth * 0.4
-        let cellHeight = viewHeight * 0.1
-        cell.frame = CGRectMake((viewWidth - cellWidth) * 0.5, viewHeight * 0.1 - cellHeight * 0.5 + 100, cellWidth, cellHeight)*/
-        
         // Configure the cell
         
         return cell

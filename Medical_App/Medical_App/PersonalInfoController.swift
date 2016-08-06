@@ -52,30 +52,30 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     var prefLangVal:String!
     
     //Keys for the plist
-    let FirstNameKey = "First Name"
-    let MiddleNameKey = "Middle Name"
-    let LastNameKey = "Last Name"
+    let FirstNameKey = "First_Name"
+    let MiddleNameKey = "Middle_Name"
+    let LastNameKey = "Last_Name"
     
-    let MotherFirstNameKey = "Mother First Name"
-    let MotherMiddleNameKey = "Mother Middle Name"
-    let MotherLastNameKey = "Mother Last Name"
+    let MotherFirstNameKey = "Mother_First_Name"
+    let MotherMiddleNameKey = "Mother_Middle_Name"
+    let MotherLastNameKey = "Mother_Last_Name"
     
-    let BirthYearKey = "Birth Year"
-    let BirthMonthKey = "Birth Month"
-    let BirthDayKey = "Birth Day"
+    let BirthYearKey = "Birth_Year"
+    let BirthMonthKey = "Birth_Month"
+    let BirthDayKey = "Birth_Day"
     
-    let MarStatusKey = "Marital Status"
+    let MarStatusKey = "Marital_Status"
     let SexKey = "Sex"
     let RaceKey = "Race"
     
     let DenomKey = "Denomination"
-    let PrefLangKey = "Preferred Language"
+    let PrefLangKey = "Preferred_Language"
     
-    let SocialSecNumKey = "Social Security Number"
+    let SocialSecNumKey = "Social_Security_Number"
     
     let AddrKey = "Address"
-    let ZipKey = "ZIP Code"
-    let CountKey = "County Code"
+    let ZipKey = "ZIP_Code"
+    let CountKey = "County_Code"
     
     let HomePhoneKey = "Home Phone Number"
     let WorkPhoneKey = "Work Phone Number"
@@ -378,14 +378,14 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.p_dates.datePickerMode = UIDatePickerMode.Date
                         self.p_dates.backgroundColor = UIColor(white: 1, alpha: 0.5)
                         self.p_dates.layer.cornerRadius = self.cornRad
-                        if((g_plist!.getMutablePlistFile()![self.BirthYearKey] as? Int) != 1900)
+                        /*if((g_plist!.getMutablePlistFile()![self.BirthYearKey] as? Int) != 1900)
                         {
                             let dateFormatter = NSDateFormatter()
                             dateFormatter.dateFormat = "M/d/yyyy"
                             let strng = "\(g_plist!.getMutablePlistFile()![self.BirthMonthKey] as! Int)/\(g_plist!.getMutablePlistFile()![self.BirthDayKey] as! Int)/\(g_plist!.getMutablePlistFile()![self.BirthYearKey] as! Int)"
                             let date = dateFormatter.dateFromString(strng)
                             self.p_dates.date = date!
-                        }
+                        }*/
                         self.p_dates.layer.masksToBounds = true
                         self.p_dates.alpha = 0
                         
@@ -585,6 +585,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputBottom.alpha = 1
                 case 8:
                     print("To move back to main view")
+                    self.sendInfo()
                 default:
                     print("Bad index")
                 }
@@ -683,7 +684,53 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func sendInfo()
     {
-        Alamofire.request(.POST, "https://155.264.138.17/data", parameters: ["name": "gregory"])
+        print("called")
+        if(g_plist != nil)
+        {
+            let dict = g_plist!.getMutablePlistFile()!
+            let ipAddr = "http://155.246.138.11:1380/data"
+            var parameters = [
+                FirstNameKey: dict[FirstNameKey]!,
+                MiddleNameKey: dict[MiddleNameKey]!,
+                LastNameKey: dict[LastNameKey]!]
+            Alamofire.request(.POST, ipAddr, parameters: parameters)
+            parameters = [
+                MotherFirstNameKey: dict[MotherFirstNameKey]!,
+                MotherMiddleNameKey: dict[MotherMiddleNameKey]!,
+                MotherLastNameKey: dict[MotherLastNameKey]!]
+                parameters = [
+                BirthYearKey: dict[BirthYearKey]!,
+                BirthMonthKey: dict[BirthMonthKey]!,
+                BirthDayKey: dict[BirthDayKey]!]
+            Alamofire.request(.POST, ipAddr, parameters: parameters)
+            parameters = [
+                MarStatusKey: dict[MarStatusKey]!,
+                SexKey: dict[SexKey]!,
+                RaceKey: dict[RaceKey]!,
+                DenomKey: dict[DenomKey]!,
+                PrefLangKey: dict[PrefLangKey]!,
+                SocialSecNumKey: dict[SocialSecNumKey]!]
+            Alamofire.request(.POST, ipAddr, parameters: parameters)
+            parameters = [
+                AddrKey: dict[AddrKey]!,
+                ZipKey: dict[ZipKey]!,
+                CountKey: dict[CountKey]!,
+                HomePhoneKey: dict[HomePhoneKey]!,
+                WorkPhoneKey: dict[WorkPhoneKey]!,
+                CellPhoneKey: dict[CellPhoneKey]!]
+            Alamofire.request(.POST, ipAddr, parameters: parameters)
+        }
+        /*Alamofire.request(.GET, "https://155.264.138.11/data", parameters: ["name": "bar"])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+        }*/
     }
     
     //Back clicked

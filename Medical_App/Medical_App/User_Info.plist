@@ -2,25 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Birth Year</key>
+	<key>Birth_Year</key>
 	<integer>1900</integer>
-	<key>Birth Day</key>
+	<key>Birth_Day</key>
 	<integer>1</integer>
-	<key>Birth Month</key>
+	<key>Birth_Month</key>
 	<integer>1</integer>
-	<key>Last Name</key>
+	<key>Last_Name</key>
 	<string></string>
-	<key>Middle Name</key>
+	<key>Middle_Name</key>
 	<string></string>
-	<key>First Name</key>
+	<key>First_Name</key>
 	<string></string>
-	<key>Mother First Name</key>
+	<key>Mother_First_Name</key>
 	<string></string>
-	<key>Mother Middle Name</key>
+	<key>Mother_Middle_Name</key>
 	<string></string>
-	<key>Mother Last Name</key>
+	<key>Mother_Last_Name</key>
 	<string></string>
-	<key>Marital Status</key>
+	<key>Marital_Status</key>
 	<string></string>
 	<key>Sex</key>
 	<string></string>
@@ -28,21 +28,21 @@
 	<string></string>
 	<key>Denomination</key>
 	<string></string>
-	<key>Preferred Language</key>
+	<key>Preferred_Language</key>
 	<string></string>
-	<key>Social Security Number</key>
+	<key>Social_Security_Number</key>
 	<string></string>
 	<key>Address</key>
 	<string></string>
-	<key>ZIP Code</key>
+	<key>ZIP_Code</key>
 	<integer>0</integer>
-	<key>County Code</key>
+	<key>County_Code</key>
 	<string></string>
-	<key>Home Phone Number</key>
+	<key>Home_Phone_Number</key>
 	<integer>0</integer>
-	<key>Work Phone Number</key>
+	<key>Work_Phone_Number</key>
 	<integer>0</integer>
-	<key>Cell Phone Number</key>
+	<key>Cell_Phone_Number</key>
 	<integer>0</integer>
 </dict>
 </plist>
