@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="width" constant="100" id="79A-lA-CzP"/>
                                     <constraint firstAttribute="height" constant="50" id="brd-qQ-Ybb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
@@ -66,7 +66,7 @@
                                     <constraint firstAttribute="height" constant="50" id="eze-3R-5Yg"/>
                                     <constraint firstAttribute="width" constant="100" id="pDb-2g-q2d"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
@@ -153,7 +153,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="c2f-8m-tbV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="c2f-8m-tbV">
                                 <rect key="frame" x="20" y="88" width="560" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -164,7 +164,7 @@
                                         <rect key="frame" x="0.0" y="22" width="560" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHs-H1-ACk" id="gXG-eO-fEZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="299"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCD-jP-hLc">
@@ -190,7 +190,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHq-pj-qZs">
-                                                    <rect key="frame" x="160" y="177" width="240" height="72"/>
+                                                    <rect key="frame" x="160" y="185" width="240" height="72"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="72" id="5el-Gc-hZI"/>
@@ -203,7 +203,7 @@
                                                 <constraint firstItem="GHq-pj-qZs" firstAttribute="centerX" secondItem="gXG-eO-fEZ" secondAttribute="centerX" id="8vD-P2-g2y"/>
                                                 <constraint firstItem="vWy-1I-Snv" firstAttribute="top" secondItem="gXG-eO-fEZ" secondAttribute="topMargin" constant="2" id="A4r-BM-sPm"/>
                                                 <constraint firstItem="ZCD-jP-hLc" firstAttribute="centerX" secondItem="gXG-eO-fEZ" secondAttribute="centerX" id="I4q-Fc-Z3x"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="GHq-pj-qZs" secondAttribute="bottom" constant="42" id="Ykf-By-bu6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GHq-pj-qZs" secondAttribute="bottom" constant="35" id="Ykf-By-bu6"/>
                                                 <constraint firstItem="ZCD-jP-hLc" firstAttribute="top" secondItem="gXG-eO-fEZ" secondAttribute="topMargin" constant="22" id="cTY-y2-3ue"/>
                                                 <constraint firstItem="ZCD-jP-hLc" firstAttribute="centerY" secondItem="gXG-eO-fEZ" secondAttribute="centerY" id="p6f-9k-Fmi"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="vWy-1I-Snv" secondAttribute="leading" id="tHi-aF-r6R"/>
@@ -244,7 +244,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" red="0.22615887700000001" green="1" blue="0.96518404879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addCells:" destination="ah8-FK-9AH" eventType="touchUpInside" id="QCd-Sx-PLg"/>

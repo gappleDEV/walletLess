@@ -24,18 +24,28 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func loadData()
     {
-        print("Loading")
-        let img1 = UIImage(named: "data")!
-        let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo")
-        
-        let img2 = UIImage(named: "data")!
-        let cell2 = cellData(title: "Insurance Data", image: img2, storyboardId: "PersonalInfo")
-        
-        let img3 = UIImage(named: "data")!
-        let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo")
-        
-        cells += [cell1, cell2, cell3]
-        cellHeights += [cellDefaultHeight, cellDefaultHeight, cellDefaultHeight]
+        if(cells.count == 0)
+        {
+            print("Loading")
+            let img1 = UIImage(named: "data")!
+            let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo")
+            
+            let img2 = UIImage(named: "data")!
+            let cell2 = cellData(title: "Insurance Data", image: img2, storyboardId: "PersonalInfo")
+            
+            let img3 = UIImage(named: "data")!
+            let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo")
+            
+            cells += [cell1, cell2, cell3]
+            cellHeights += [cellDefaultHeight, cellDefaultHeight, cellDefaultHeight]
+        }
+        else
+        {
+            for i in 0 ..< cells.count
+            {
+                cellHeights[i] = cellDefaultHeight
+            }
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -73,7 +83,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func pushNext(sender:UIButton)
     {
         let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier(cells[sender.tag].storyboardId)
-        self.presentViewController(nextViewController, animated:false, completion:nil)
+        self.presentViewController(nextViewController, animated:true, completion:nil)
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -95,6 +105,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let newButton = UIButton(frame: cell.v_buttonPos.frame)
             newButton.setTitle("Input Info", forState: UIControlState.Normal)
+            newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 20)
             newButton.tag = indexPath.section
             newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), forControlEvents: .TouchUpInside)
             
