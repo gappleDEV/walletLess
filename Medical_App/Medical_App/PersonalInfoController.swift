@@ -45,7 +45,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     var raceVal:String!
     
     var p_denom:UIPickerView!
-    var data_denom = ["Christianity", "Hinduism", "Islam"]
+    var data_denom = ["Christianity", "Hinduism", "Islam", "Athiest"]
     var denomVal:String!
     var p_prefLang:UIPickerView!
     var data_prefLang = ["English", "French", "German", "Spanish", "Italian"]
@@ -77,9 +77,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     let ZipKey = "ZIP_Code"
     let CountKey = "County_Code"
     
-    let HomePhoneKey = "Home Phone Number"
-    let WorkPhoneKey = "Work Phone Number"
-    let CellPhoneKey = "Cell Phone Number"
+    let HomePhoneKey = "Home_Phone_Number"
+    let WorkPhoneKey = "Work_Phone_Number"
+    let CellPhoneKey = "Cell_Phone_Number"
     
     //Corner radius for the buttons in the view
     let cornRad:CGFloat = 25
@@ -598,7 +598,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                 {
                     print("In here")
                     
-                    let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier("CollectionView") as! CollectionViewController
+                    let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MenuScene") as! MenuViewController
                     self.presentViewController(nextViewController, animated:true, completion:nil)
                 }
             })

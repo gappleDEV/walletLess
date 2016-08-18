@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6108CBFBCC669C3E78D9E674 /* Pods_Medical_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCFDDE72D284BC92723785E /* Pods_Medical_App.framework */; };
-		9234A9D61D44334A00F6895E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A9D51D44334A00F6895E /* CollectionViewController.swift */; };
-		92738A881D4473FA00125806 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92738A871D4473FA00125806 /* CollectionHeaderView.swift */; };
 		CB36BA6D9B0CBAD09C1AE990 /* Pods_Medical_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BF493821F6F535142449E /* Pods_Medical_AppTests.framework */; };
+		F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */; };
+		F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA61D6604C8003EBFBB /* Cell_Data.swift */; };
+		F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA81D6607DE003EBFBB /* MenuViewController.swift */; };
 		F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14E71CBD8711001782EA /* AppDelegate.swift */; };
 		F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */; };
 		F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14EB1CBD8711001782EA /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		F3AF14FD1CBD8712001782EA /* Medical_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14FC1CBD8712001782EA /* Medical_AppTests.swift */; };
 		F3AF15081CBD9AD0001782EA /* User_Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3AF15071CBD9AD0001782EA /* User_Info.plist */; };
 		F3AF150A1CBDAB43001782EA /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF15091CBDAB43001782EA /* Plist.swift */; };
-		F3C363901D2F04E900F2A131 /* DecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C3638F1D2F04E900F2A131 /* DecisionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +36,12 @@
 		2F9BF493821F6F535142449E /* Pods_Medical_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medical_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45236CD1F762372F1E8F1766 /* Pods-Medical_AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_AppTests/Pods-Medical_AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48F87AA1F9599C183F2808E2 /* Pods-Medical_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App.release.xcconfig"; sourceTree = "<group>"; };
-		9234A9D51D44334A00F6895E /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		92738A871D4473FA00125806 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		9E51E7666EC019DD56DC70C1 /* Pods-Medical_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App.debug.xcconfig"; sourceTree = "<group>"; };
 		A26138843A7D9EBDFB97DDF4 /* Pods-Medical_AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_AppTests/Pods-Medical_AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ECCFDDE72D284BC92723785E /* Pods_Medical_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medical_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDataTableViewCell.swift; sourceTree = "<group>"; };
+		F3295CA61D6604C8003EBFBB /* Cell_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell_Data.swift; sourceTree = "<group>"; };
+		F3295CA81D6607DE003EBFBB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F3AF14E41CBD8711001782EA /* Medical_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medical_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AF14E71CBD8711001782EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoController.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		F3AF14FE1CBD8712001782EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3AF15071CBD9AD0001782EA /* User_Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User_Info.plist; sourceTree = "<group>"; };
 		F3AF15091CBDAB43001782EA /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
-		F3C3638F1D2F04E900F2A131 /* DecisionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,15 +121,15 @@
 			children = (
 				F3AF14E71CBD8711001782EA /* AppDelegate.swift */,
 				F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */,
-				9234A9D51D44334A00F6895E /* CollectionViewController.swift */,
-				92738A871D4473FA00125806 /* CollectionHeaderView.swift */,
 				F3AF15091CBDAB43001782EA /* Plist.swift */,
 				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
+				F3295CA81D6607DE003EBFBB /* MenuViewController.swift */,
+				F3295CA61D6604C8003EBFBB /* Cell_Data.swift */,
+				F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */,
 				F3AF15071CBD9AD0001782EA /* User_Info.plist */,
 				F3AF14EE1CBD8711001782EA /* Assets.xcassets */,
 				F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */,
 				F3AF14F31CBD8711001782EA /* Info.plist */,
-				F3C3638F1D2F04E900F2A131 /* DecisionViewController.swift */,
 			);
 			path = Medical_App;
 			sourceTree = "<group>";
@@ -345,12 +345,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3C363901D2F04E900F2A131 /* DecisionViewController.swift in Sources */,
 				F3AF150A1CBDAB43001782EA /* Plist.swift in Sources */,
 				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
-				92738A881D4473FA00125806 /* CollectionHeaderView.swift in Sources */,
+				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
+				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
+				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
 				F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */,
-				9234A9D61D44334A00F6895E /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
