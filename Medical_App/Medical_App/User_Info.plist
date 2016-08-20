@@ -35,14 +35,14 @@
 	<key>Address</key>
 	<string></string>
 	<key>ZIP_Code</key>
-	<integer>0</integer>
+	<string></string>
 	<key>County_Code</key>
 	<string></string>
 	<key>Home_Phone_Number</key>
-	<integer>0</integer>
+	<string></string>
 	<key>Work_Phone_Number</key>
-	<integer>0</integer>
+	<string></string>
 	<key>Cell_Phone_Number</key>
-	<integer>0</integer>
+	<string></string>
 </dict>
 </plist>

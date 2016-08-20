@@ -12,6 +12,7 @@
 		F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */; };
 		F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA61D6604C8003EBFBB /* Cell_Data.swift */; };
 		F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA81D6607DE003EBFBB /* MenuViewController.swift */; };
+		F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CAA1D68A25A003EBFBB /* GradientView.swift */; };
 		F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14E71CBD8711001782EA /* AppDelegate.swift */; };
 		F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */; };
 		F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14EB1CBD8711001782EA /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDataTableViewCell.swift; sourceTree = "<group>"; };
 		F3295CA61D6604C8003EBFBB /* Cell_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell_Data.swift; sourceTree = "<group>"; };
 		F3295CA81D6607DE003EBFBB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F3295CAA1D68A25A003EBFBB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F3AF14E41CBD8711001782EA /* Medical_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medical_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AF14E71CBD8711001782EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoController.swift; sourceTree = "<group>"; };
@@ -120,16 +122,17 @@
 			isa = PBXGroup;
 			children = (
 				F3AF14E71CBD8711001782EA /* AppDelegate.swift */,
-				F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */,
-				F3AF15091CBDAB43001782EA /* Plist.swift */,
-				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
-				F3295CA81D6607DE003EBFBB /* MenuViewController.swift */,
-				F3295CA61D6604C8003EBFBB /* Cell_Data.swift */,
-				F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */,
-				F3AF15071CBD9AD0001782EA /* User_Info.plist */,
-				F3AF14EE1CBD8711001782EA /* Assets.xcassets */,
 				F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */,
+				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
+				F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */,
+				F3295CA81D6607DE003EBFBB /* MenuViewController.swift */,
+				F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */,
+				F3295CA61D6604C8003EBFBB /* Cell_Data.swift */,
+				F3AF15071CBD9AD0001782EA /* User_Info.plist */,
+				F3AF15091CBDAB43001782EA /* Plist.swift */,
+				F3AF14EE1CBD8711001782EA /* Assets.xcassets */,
 				F3AF14F31CBD8711001782EA /* Info.plist */,
+				F3295CAA1D68A25A003EBFBB /* GradientView.swift */,
 			);
 			path = Medical_App;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
 				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
 				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
+				F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */,
 				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
 				F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */,
 			);
