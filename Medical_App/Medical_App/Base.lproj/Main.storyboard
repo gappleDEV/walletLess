@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="width" constant="100" id="pDb-2g-q2d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Done">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=regular">

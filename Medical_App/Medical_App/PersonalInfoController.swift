@@ -82,7 +82,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     let CellPhoneKey = "Cell_Phone_Number"
     
     //Corner radius for the buttons in the view
-    let cornRad:CGFloat = 25
+    let cornRad:CGFloat = 50
     
     //Array and index for titles of each promt
     var prompt:[String] = ["Full Name", "Mother's Maiden Name", "Birthday", "Personal Info", "Personal Info - Cont", "Social Security", "Location", "Phone Numbers", "All Done!"];
