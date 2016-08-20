@@ -321,13 +321,13 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.l_middle = UILabel(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight))
                         self.l_middle.textAlignment = NSTextAlignment.Left
                         self.l_middle.font = UIFont.systemFontOfSize(labelFontSize)
-                        self.l_middle.textColor = UIColor(hue: 0, saturation: 0, brightness: 0.8, alpha: 1)
+                        self.l_middle.textColor = UIColor(hue: 0, saturation: 0, brightness: 0.9, alpha: 1)
                         self.l_middle.text = "Middle Name"
                         
                         self.l_bottom = UILabel(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultBottom - labelHeight, width, labelHeight))
                         self.l_bottom.textAlignment = NSTextAlignment.Left
                         self.l_bottom.font = UIFont.systemFontOfSize(labelFontSize)
-                        self.l_bottom.textColor = UIColor(hue: 0, saturation: 0, brightness: 0.8, alpha: 1)
+                        self.l_bottom.textColor = UIColor(hue: 0, saturation: 0, brightness: 0.9, alpha: 1)
                         self.l_bottom.text = "Last Name"
                         
                         self.l_top.alpha = 0
@@ -398,9 +398,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         
                         let beginX = self.viewWidth * 0.5       //starts each subview's leftmost side at the center
                         
-                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.3 - labelHeight, width, labelHeight)
-                        self.l_middle.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.5 - labelHeight, width, labelHeight)
-                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.7 - labelHeight, width, labelHeight)
+                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultTop - labelHeight, width, labelHeight)
+                        self.l_middle.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight)
+                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultBottom - labelHeight, width, labelHeight)
                         
                         self.l_top.text = "Mother's First Name"
                         self.fillTextInput(self.i_textInputTop, key: self.MotherFirstNameKey, placeholder: "Mother's First Name")
@@ -420,8 +420,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         
                         self.p_dates = UIDatePicker(frame: CGRectMake(beginX - 0.5 * width, beginY - 0.5 * height, width, height))
                         self.p_dates.datePickerMode = UIDatePickerMode.Date
-                        self.p_dates.backgroundColor = UIColor(white: 1, alpha: 0.5)
-                        self.p_dates.layer.cornerRadius = self.cornRad
+                        self.p_dates.backgroundColor = UIColor(white: 1, alpha: 0)
+                        //self.p_dates.layer.cornerRadius = self.cornRad
                         if((g_plist!.getMutablePlistFile()![self.BirthYearKey] as? Int) != 1900)
                         {
                             let dateFormatter = NSDateFormatter()
@@ -445,27 +445,27 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.p_marStatus = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultTop, width, height))
                         self.p_marStatus.dataSource = self
                         self.p_marStatus.delegate = self
-                        self.p_marStatus.backgroundColor = UIColor(white: 1, alpha: 0.5)
-                        self.p_marStatus.layer.cornerRadius = self.cornRad
+                        self.p_marStatus.backgroundColor = UIColor(white: 1, alpha: 0)
+                        //self.p_marStatus.layer.cornerRadius = self.cornRad
                         self.p_marStatus.alpha = 0
                         
                         self.p_sex = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultMiddle, width, height))
                         self.p_sex.dataSource = self
                         self.p_sex.delegate = self
-                        self.p_sex.backgroundColor = UIColor(white: 1, alpha: 0.5)
-                        self.p_sex.layer.cornerRadius = self.cornRad
+                        self.p_sex.backgroundColor = UIColor(white: 1, alpha: 0)
+                        //self.p_sex.layer.cornerRadius = self.cornRad
                         self.p_sex.alpha = 0
                         
                         self.p_race = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultBottom, width, height))
                         self.p_race.dataSource = self
                         self.p_race.delegate = self
-                        self.p_race.backgroundColor = UIColor(white: 1, alpha: 0.5)
-                        self.p_race.layer.cornerRadius = self.cornRad
+                        self.p_race.backgroundColor = UIColor(white: 1, alpha: 0)
+                        //self.p_race.layer.cornerRadius = self.cornRad
                         self.p_race.alpha = 0
                         
-                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.3 - labelHeight, width, labelHeight)
-                        self.l_middle.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.5 - labelHeight, width, labelHeight)
-                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.7 - labelHeight, width, labelHeight)
+                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultTop - labelHeight, width, labelHeight)
+                        self.l_middle.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight)
+                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultBottom - labelHeight, width, labelHeight)
                         self.l_top.text = "Marital Status"
                         self.l_middle.text = "Sex"
                         self.l_bottom.text = "Race"
@@ -483,15 +483,15 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.p_denom = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.35, width, height))
                         self.p_denom.dataSource = self
                         self.p_denom.delegate = self
-                        self.p_denom.backgroundColor = UIColor(white: 1, alpha: 0.5)
-                        self.p_denom.layer.cornerRadius = self.cornRad
+                        self.p_denom.backgroundColor = UIColor(white: 1, alpha: 0)
+                        //self.p_denom.layer.cornerRadius = self.cornRad
                         self.p_denom.alpha = 0
                         
                         self.p_prefLang = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.65, width, height))
                         self.p_prefLang.dataSource = self
                         self.p_prefLang.delegate = self
-                        self.p_prefLang.backgroundColor = UIColor(white: 1, alpha: 0.5)
-                        self.p_prefLang.layer.cornerRadius = self.cornRad
+                        self.p_prefLang.backgroundColor = UIColor(white: 1, alpha: 0)
+                        //self.p_prefLang.layer.cornerRadius = self.cornRad
                         self.p_prefLang.alpha = 0
                         
                         self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.35 - labelHeight, width, labelHeight)
@@ -633,6 +633,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputMiddle.alpha = 1
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
+                    
+                    self.b_done.setTitle("Next", forState: UIControlState.Normal)
                 case 7:
                     self.l_top.alpha = 1
                     self.i_textInputTop.alpha = 1
@@ -640,6 +642,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputMiddle.alpha = 1
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
+                    
+                    self.b_done.setTitle("Done", forState: UIControlState.Normal)
                 case 8:
                     print("To move back to main view")
                     self.sendInfo()

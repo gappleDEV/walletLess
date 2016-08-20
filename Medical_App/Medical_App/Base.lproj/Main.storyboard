@@ -38,7 +38,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clc-qC-bmW">
-                                <rect key="frame" x="250" y="430" width="100" height="100"/>
+                                <rect key="frame" x="250" y="450" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="eze-3R-5Yg"/>
@@ -106,7 +106,7 @@
                             <constraint firstItem="tV7-kZ-4R6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vjb-yW-GqD"/>
                             <constraint firstItem="tV7-kZ-4R6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WP7-Iy-gt1"/>
                             <constraint firstItem="iua-3L-PBq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="l9I-aD-E1b"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Clc-qC-bmW" secondAttribute="bottom" constant="70" id="sih-DT-nlK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Clc-qC-bmW" secondAttribute="bottom" constant="50" id="sih-DT-nlK"/>
                             <constraint firstItem="KnV-Tg-P9S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xzc-zx-wSL"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
