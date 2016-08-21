@@ -84,6 +84,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     //Corner radius for the buttons in the view
     let cornRad:CGFloat = 50
+    var topBannerAlpha:CGFloat!
     
     //Array and index for titles of each promt
     var prompt:[String] = ["Full Name", "Mother's Name", "Birthday", "Personal Info", "Personal Info", "Social Security", "Location", "Phone", "All Done!"];
@@ -95,6 +96,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         self.viewHeight = self.view.frame.height
         self.viewWidth = self.view.frame.width
+        
+        self.topBannerAlpha = self.v_topBanner.alpha
         
         let screenTap = UITapGestureRecognizer()
         screenTap.addTarget(self, action: #selector(PersonalInfoController.resignNumpad))
@@ -125,6 +128,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     override func viewWillAppear(animated: Bool)
     {
         //Initial view with everything hidden or off screen. Allows for the starting animation
+        
+        self.v_topBanner.alpha = 0
         self.l_title.alpha = 0
         
         self.b_done.layer.cornerRadius = self.cornRad
@@ -423,9 +428,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         let width = self.viewWidth * 0.8        //width of each picker
                         let height = self.viewHeight * 0.12     //height of each picker
                         let labelHeight = height * 0.5
-                        let pickerMultTop:CGFloat = 0.25
-                        let pickerMultMiddle:CGFloat = 0.38
-                        let pickerMultBottom:CGFloat = 0.51
+                        let pickerMultTop:CGFloat = 0.27
+                        let pickerMultMiddle:CGFloat = 0.40
+                        let pickerMultBottom:CGFloat = 0.53
                         
                         self.p_marStatus = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * pickerMultTop, width, height))
                         self.p_marStatus.dataSource = self
@@ -465,14 +470,14 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         let height = self.viewHeight * 0.12     //height of each picker
                         let labelHeight = height * 0.5
 
-                        self.p_denom = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.25, width, height))
+                        self.p_denom = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.27, width, height))
                         self.p_denom.dataSource = self
                         self.p_denom.delegate = self
                         self.p_denom.backgroundColor = UIColor(white: 1, alpha: 0)
                         //self.p_denom.layer.cornerRadius = self.cornRad
                         self.p_denom.alpha = 0
                         
-                        self.p_prefLang = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.51, width, height))
+                        self.p_prefLang = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.53, width, height))
                         self.p_prefLang.dataSource = self
                         self.p_prefLang.delegate = self
                         self.p_prefLang.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -558,8 +563,13 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
             options: .CurveEaseIn,
             animations: {
                 
-                self.l_welcome.alpha = 0
-                self.l_title.alpha = 1
+                //When finished, top banner should not show
+                if(self.promptIndex < 8)
+                {
+                    self.l_welcome.alpha = 0
+                    self.v_topBanner.alpha = self.topBannerAlpha
+                    self.l_title.alpha = 1
+                }
                 
                 if(self.promptIndex == 0)
                 {
@@ -623,6 +633,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.b_done.setTitle("Done", forState: UIControlState.Normal)
                 case 8:
                     print("To move back to main view")
+                    self.v_topBanner.alpha = 0
+                    self.l_title.alpha = 0
                     self.l_welcome.alpha = 1
                     self.sendInfo()
                 default:
