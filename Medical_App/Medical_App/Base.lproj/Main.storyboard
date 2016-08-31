@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ah8-FK-9AH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ah8-FK-9AH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -62,8 +62,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghB-2r-Kx2">
-                                        <rect key="frame" x="300" y="35" width="0.0" height="30"/>
+                                        <rect key="frame" x="175" y="35" width="250" height="30"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="C9d-z3-8TI"/>
                                             <constraint firstAttribute="height" constant="30" id="s9N-fZ-c7y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -71,9 +72,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eE7-xh-4mD">
-                                        <rect key="frame" x="232" y="35" width="46" height="30"/>
+                                        <rect key="frame" x="15" y="35" width="45" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="hTO-QV-mba"/>
+                                            <constraint firstAttribute="width" constant="45" id="hTO-QV-mba"/>
                                             <constraint firstAttribute="height" constant="30" id="n62-nK-gN4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -85,15 +86,20 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="eE7-xh-4mD" firstAttribute="leading" secondItem="3MO-4e-xYB" secondAttribute="leading" constant="15" id="3Xs-4a-g1g"/>
                                     <constraint firstItem="ghB-2r-Kx2" firstAttribute="centerY" secondItem="3MO-4e-xYB" secondAttribute="centerY" id="Bgo-A3-aFS"/>
-                                    <constraint firstItem="ghB-2r-Kx2" firstAttribute="leading" secondItem="eE7-xh-4mD" secondAttribute="trailing" constant="22" id="IuG-J3-2r9"/>
                                     <constraint firstItem="ghB-2r-Kx2" firstAttribute="centerX" secondItem="3MO-4e-xYB" secondAttribute="centerX" id="TBv-3F-jgK"/>
                                     <constraint firstAttribute="height" constant="100" id="XGV-hg-3Ui"/>
                                     <constraint firstAttribute="width" constant="600" id="cJ1-pz-Imd"/>
                                     <constraint firstItem="eE7-xh-4mD" firstAttribute="centerY" secondItem="3MO-4e-xYB" secondAttribute="centerY" id="fsv-ae-BnO"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cJ1-pz-Imd"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUY-eU-JbW">
                                 <rect key="frame" x="77" y="108" width="446" height="40"/>
@@ -108,7 +114,9 @@
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oUY-eU-JbW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0pG-4z-Vb2"/>
+                            <constraint firstItem="3MO-4e-xYB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="CYJ-3U-aBm"/>
                             <constraint firstItem="Clc-qC-bmW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cfm-63-gBX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3MO-4e-xYB" secondAttribute="trailing" constant="-20" id="M0E-PT-kDz"/>
                             <constraint firstItem="3MO-4e-xYB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="U7K-qf-SeA"/>
                             <constraint firstItem="tV7-kZ-4R6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vjb-yW-GqD"/>
                             <constraint firstItem="tV7-kZ-4R6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WP7-Iy-gt1"/>
@@ -180,7 +188,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="utg-2J-83t"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -239,7 +247,7 @@
                                     <constraint firstAttribute="width" constant="200" id="TDH-MM-jTQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPX-Cv-kVs">
