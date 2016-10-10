@@ -125,7 +125,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
          */
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         //Initial view with everything hidden or off screen. Allows for the starting animation
         
@@ -133,22 +133,22 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         self.l_title.alpha = 0
         
         self.b_done.layer.cornerRadius = self.cornRad
-        self.b_done.layer.shadowColor = UIColor.blackColor().CGColor
-        self.b_done.layer.shadowOffset = CGSizeMake(0, 5)
+        self.b_done.layer.shadowColor = UIColor.black.cgColor
+        self.b_done.layer.shadowOffset = CGSize(width: 0, height: 5)
         self.b_done.layer.shadowRadius = 3
         self.b_done.layer.shadowOpacity = 0.5
         self.b_back.alpha = 0
         self.b_done.alpha = 0
-        self.b_back.enabled = false
+        self.b_back.isEnabled = false
     }
     
     //Number of columns in data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     //Number of rows in data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView
         {
         case p_marStatus:
@@ -167,7 +167,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     //Get value at specific point
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView
         {
         case p_marStatus:
@@ -198,19 +198,19 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     //-----------------------------------------Beginning Animation-----------------------------------------
     
-    func getBorder(textInput:UITextField) -> CALayer
+    func getBorder(_ textInput:UITextField) -> CALayer
     {
         let border = CALayer()                  //the bottom line under the input
         let bwidth = CGFloat(2.0)
-        border.borderColor = UIColor(hue: 0.33, saturation: 0.52, brightness: 0.20, alpha: 1).CGColor
+        border.borderColor = UIColor(hue: 0.33, saturation: 0.52, brightness: 0.20, alpha: 1).cgColor
         border.borderWidth = bwidth
         
-        border.frame = CGRectMake(0, textInput.frame.size.height - bwidth, textInput.frame.size.width, textInput.frame.size.height)
+        border.frame = CGRect(x: 0, y: textInput.frame.size.height - bwidth, width: textInput.frame.size.width, height: textInput.frame.size.height)
         
         return border
     }
     
-    func fillTextInput(textInput:UITextField, key:String, placeholder:String)
+    func fillTextInput(_ textInput:UITextField, key:String, placeholder:String)
     {
         if(g_plist!.getMutablePlistFile()![key] as? String == "") {
             textInput.placeholder = placeholder
@@ -225,9 +225,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     //      Fade in "Let's gather some information"
     func fadeInGatherInfo() -> Void
     {
-        UIView.animateWithDuration(3,
+        UIView.animate(withDuration: 3,
                                    delay: 0,
-                                   options: .CurveEaseIn,
+                                   options: .curveEaseIn,
                                    animations: {
                                     self.l_welcome.alpha = 1
             },
@@ -239,9 +239,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func waitFade() -> Void
     {
-        UIView.animateWithDuration(5,
+        UIView.animate(withDuration: 5,
                                    delay: 0,
-                                   options: .CurveEaseIn,
+                                   options: .curveEaseIn,
                                    animations: {
             },
                                    completion: { finished in
@@ -256,9 +256,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     //      Fadout out title and prepare next title
     func fadeOutTitles() -> Void
     {
-        UIView.animateWithDuration(0.5,
+        UIView.animate(withDuration: 0.5,
             delay: 0.25,
-            options: .CurveEaseIn,
+            options: .curveEaseIn,
             animations: {
                 
                 //Fade out all but the back and done buttons
@@ -300,21 +300,21 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         
                         
                         //Set up labels
-                        self.l_top = UILabel(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultTop - labelHeight, width, labelHeight))
-                        self.l_top.textAlignment = NSTextAlignment.Left
-                        self.l_top.font = UIFont.systemFontOfSize(labelFontSize)
+                        self.l_top = UILabel(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight))
+                        self.l_top.textAlignment = NSTextAlignment.left
+                        self.l_top.font = UIFont.systemFont(ofSize: labelFontSize)
                         self.l_top.textColor = UIColor(hue: 0, saturation: 0, brightness: 0.9, alpha: 1)
                         self.l_top.text = "First Name"
                         
-                        self.l_middle = UILabel(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight))
-                        self.l_middle.textAlignment = NSTextAlignment.Left
-                        self.l_middle.font = UIFont.systemFontOfSize(labelFontSize)
+                        self.l_middle = UILabel(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle - labelHeight, width: width, height: labelHeight))
+                        self.l_middle.textAlignment = NSTextAlignment.left
+                        self.l_middle.font = UIFont.systemFont(ofSize: labelFontSize)
                         self.l_middle.textColor = UIColor(hue: 0, saturation: 0, brightness: 0.9, alpha: 1)
                         self.l_middle.text = "Middle Name"
                         
-                        self.l_bottom = UILabel(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultBottom - labelHeight, width, labelHeight))
-                        self.l_bottom.textAlignment = NSTextAlignment.Left
-                        self.l_bottom.font = UIFont.systemFontOfSize(labelFontSize)
+                        self.l_bottom = UILabel(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom - labelHeight, width: width, height: labelHeight))
+                        self.l_bottom.textAlignment = NSTextAlignment.left
+                        self.l_bottom.font = UIFont.systemFont(ofSize: labelFontSize)
                         self.l_bottom.textColor = UIColor(hue: 0, saturation: 0, brightness: 0.9, alpha: 1)
                         self.l_bottom.text = "Last Name"
                         
@@ -327,46 +327,46 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.view.addSubview(self.l_bottom)
                         
                         //Set up text inputs
-                        self.i_textInputTop = UITextField(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultTop, width, height))
+                        self.i_textInputTop = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop, width: width, height: height))
                         self.fillTextInput(self.i_textInputTop, key: self.FirstNameKey, placeholder: "First Name")
-                        self.i_textInputTop.textAlignment = NSTextAlignment.Left
-                        self.i_textInputTop.font = UIFont.systemFontOfSize(inputFontSize)
-                        self.i_textInputTop.borderStyle = UITextBorderStyle.RoundedRect
-                        self.i_textInputTop.autocorrectionType = UITextAutocorrectionType.No
-                        self.i_textInputTop.keyboardType = UIKeyboardType.Default
-                        self.i_textInputTop.returnKeyType = UIReturnKeyType.Done
-                        self.i_textInputTop.clearButtonMode = UITextFieldViewMode.WhileEditing;
-                        self.i_textInputTop.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+                        self.i_textInputTop.textAlignment = NSTextAlignment.left
+                        self.i_textInputTop.font = UIFont.systemFont(ofSize: inputFontSize)
+                        self.i_textInputTop.borderStyle = UITextBorderStyle.roundedRect
+                        self.i_textInputTop.autocorrectionType = UITextAutocorrectionType.no
+                        self.i_textInputTop.keyboardType = UIKeyboardType.default
+                        self.i_textInputTop.returnKeyType = UIReturnKeyType.done
+                        self.i_textInputTop.clearButtonMode = UITextFieldViewMode.whileEditing;
+                        self.i_textInputTop.contentVerticalAlignment = UIControlContentVerticalAlignment.center
                         self.i_textInputTop.delegate = self
-                        self.i_textInputTop.borderStyle = UITextBorderStyle.None
+                        self.i_textInputTop.borderStyle = UITextBorderStyle.none
                         self.i_textInputTop.layer.addSublayer(self.getBorder(self.i_textInputTop))
                         
-                        self.i_textInputMiddle = UITextField(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultMiddle, width, height))
+                        self.i_textInputMiddle = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle, width: width, height: height))
                         self.fillTextInput(self.i_textInputMiddle, key: self.MiddleNameKey, placeholder: "Middle Name")
-                        self.i_textInputMiddle.textAlignment = NSTextAlignment.Left
-                        self.i_textInputMiddle.font = UIFont.systemFontOfSize(inputFontSize)
-                        self.i_textInputMiddle.borderStyle = UITextBorderStyle.RoundedRect
-                        self.i_textInputMiddle.autocorrectionType = UITextAutocorrectionType.No
-                        self.i_textInputMiddle.keyboardType = UIKeyboardType.Default
-                        self.i_textInputMiddle.returnKeyType = UIReturnKeyType.Done
-                        self.i_textInputMiddle.clearButtonMode = UITextFieldViewMode.WhileEditing;
-                        self.i_textInputMiddle.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+                        self.i_textInputMiddle.textAlignment = NSTextAlignment.left
+                        self.i_textInputMiddle.font = UIFont.systemFont(ofSize: inputFontSize)
+                        self.i_textInputMiddle.borderStyle = UITextBorderStyle.roundedRect
+                        self.i_textInputMiddle.autocorrectionType = UITextAutocorrectionType.no
+                        self.i_textInputMiddle.keyboardType = UIKeyboardType.default
+                        self.i_textInputMiddle.returnKeyType = UIReturnKeyType.done
+                        self.i_textInputMiddle.clearButtonMode = UITextFieldViewMode.whileEditing;
+                        self.i_textInputMiddle.contentVerticalAlignment = UIControlContentVerticalAlignment.center
                         self.i_textInputMiddle.delegate = self
-                        self.i_textInputMiddle.borderStyle = UITextBorderStyle.None
+                        self.i_textInputMiddle.borderStyle = UITextBorderStyle.none
                         self.i_textInputMiddle.layer.addSublayer(self.getBorder(self.i_textInputMiddle))
                         
-                        self.i_textInputBottom = UITextField(frame: CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultBottom, width, height))
+                        self.i_textInputBottom = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height))
                         self.fillTextInput(self.i_textInputBottom, key: self.LastNameKey, placeholder: "Last Name")
-                        self.i_textInputBottom.textAlignment = NSTextAlignment.Left
-                        self.i_textInputBottom.font = UIFont.systemFontOfSize(inputFontSize)
-                        self.i_textInputBottom.borderStyle = UITextBorderStyle.RoundedRect
-                        self.i_textInputBottom.autocorrectionType = UITextAutocorrectionType.No
-                        self.i_textInputBottom.keyboardType = UIKeyboardType.Default
-                        self.i_textInputBottom.returnKeyType = UIReturnKeyType.Done
-                        self.i_textInputBottom.clearButtonMode = UITextFieldViewMode.WhileEditing;
-                        self.i_textInputBottom.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+                        self.i_textInputBottom.textAlignment = NSTextAlignment.left
+                        self.i_textInputBottom.font = UIFont.systemFont(ofSize: inputFontSize)
+                        self.i_textInputBottom.borderStyle = UITextBorderStyle.roundedRect
+                        self.i_textInputBottom.autocorrectionType = UITextAutocorrectionType.no
+                        self.i_textInputBottom.keyboardType = UIKeyboardType.default
+                        self.i_textInputBottom.returnKeyType = UIReturnKeyType.done
+                        self.i_textInputBottom.clearButtonMode = UITextFieldViewMode.whileEditing;
+                        self.i_textInputBottom.contentVerticalAlignment = UIControlContentVerticalAlignment.center
                         self.i_textInputBottom.delegate = self
-                        self.i_textInputBottom.borderStyle = UITextBorderStyle.None
+                        self.i_textInputBottom.borderStyle = UITextBorderStyle.none
                         self.i_textInputBottom.layer.addSublayer(self.getBorder(self.i_textInputBottom))
                         
                         self.i_textInputTop.alpha = 0
@@ -377,7 +377,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.view.addSubview(self.i_textInputMiddle)
                         self.view.addSubview(self.i_textInputBottom)
                         
-                        self.b_back.enabled = false
+                        self.b_back.isEnabled = false
                         
                     case 1: //Mother's Maiden Name - 3 labels and 3 text inputs
                         let height = self.viewHeight * 0.08     //height of each text input is 8% of view height
@@ -386,9 +386,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         
                         let beginX = self.viewWidth * 0.5       //starts each subview's leftmost side at the center
                         
-                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultTop - labelHeight, width, labelHeight)
-                        self.l_middle.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight)
-                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultBottom - labelHeight, width, labelHeight)
+                        self.l_top.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight)
+                        self.l_middle.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultMiddle - labelHeight, width: width, height: labelHeight)
+                        self.l_bottom.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultBottom - labelHeight, width: width, height: labelHeight)
                         
                         self.l_top.text = "Mother's First Name"
                         self.fillTextInput(self.i_textInputTop, key: self.MotherFirstNameKey, placeholder: "Mother's First Name")
@@ -397,7 +397,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.l_bottom.text = "Mother's Maiden Last Name"
                         self.fillTextInput(self.i_textInputBottom, key: self.MotherLastNameKey, placeholder: "Mother's Maiden Last Name")
 
-                        self.b_back.enabled = true
+                        self.b_back.isEnabled = true
                         
                     case 2: //Date of Birth - 1 date picker
                         let beginX = self.viewWidth * 0.5       //starts leftmost side at the center
@@ -405,17 +405,17 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         let width = self.viewWidth * 0.8
                         let height = self.viewHeight * 0.5
                         
-                        self.p_dates = UIDatePicker(frame: CGRectMake(beginX - 0.5 * width, beginY - 0.5 * height, width, height))
-                        self.p_dates.datePickerMode = UIDatePickerMode.Date
+                        self.p_dates = UIDatePicker(frame: CGRect(x: beginX - 0.5 * width, y: beginY - 0.5 * height, width: width, height: height))
+                        self.p_dates.datePickerMode = UIDatePickerMode.date
                         self.p_dates.backgroundColor = UIColor(white: 1, alpha: 0)
                         //self.p_dates.layer.cornerRadius = self.cornRad
                         if((g_plist!.getMutablePlistFile()![self.BirthYearKey] as? Int) != 1900)
                         {
-                            let dateFormatter = NSDateFormatter()
+                            let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "M/dd/yyyy"
                             let strng = "\(g_plist!.getMutablePlistFile()![self.BirthMonthKey] as! Int)/\(g_plist!.getMutablePlistFile()![self.BirthDayKey] as! Int)/\(g_plist!.getMutablePlistFile()![self.BirthYearKey] as! Int)"
                             print(strng)
-                            let date = dateFormatter.dateFromString(strng)
+                            let date = dateFormatter.date(from: strng)
                             self.p_dates.date = date!
                         }
                         self.p_dates.layer.masksToBounds = true
@@ -432,30 +432,30 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         let pickerMultMiddle:CGFloat = 0.40
                         let pickerMultBottom:CGFloat = 0.53
                         
-                        self.p_marStatus = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * pickerMultTop, width, height))
+                        self.p_marStatus = UIPickerView(frame: CGRect(x: beginX - 0.5 * width, y: self.viewHeight * pickerMultTop, width: width, height: height))
                         self.p_marStatus.dataSource = self
                         self.p_marStatus.delegate = self
                         self.p_marStatus.backgroundColor = UIColor(white: 1, alpha: 0)
                         //self.p_marStatus.layer.cornerRadius = self.cornRad
                         self.p_marStatus.alpha = 0
                         
-                        self.p_sex = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * pickerMultMiddle, width, height))
+                        self.p_sex = UIPickerView(frame: CGRect(x: beginX - 0.5 * width, y: self.viewHeight * pickerMultMiddle, width: width, height: height))
                         self.p_sex.dataSource = self
                         self.p_sex.delegate = self
                         self.p_sex.backgroundColor = UIColor(white: 1, alpha: 0)
                         //self.p_sex.layer.cornerRadius = self.cornRad
                         self.p_sex.alpha = 0
                         
-                        self.p_race = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * pickerMultBottom, width, height))
+                        self.p_race = UIPickerView(frame: CGRect(x: beginX - 0.5 * width, y: self.viewHeight * pickerMultBottom, width: width, height: height))
                         self.p_race.dataSource = self
                         self.p_race.delegate = self
                         self.p_race.backgroundColor = UIColor(white: 1, alpha: 0)
                         //self.p_race.layer.cornerRadius = self.cornRad
                         self.p_race.alpha = 0
                         
-                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultTop - labelHeight, width, labelHeight)
-                        self.l_middle.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight)
-                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultBottom - labelHeight, width, labelHeight)
+                        self.l_top.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight)
+                        self.l_middle.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultMiddle - labelHeight, width: width, height: labelHeight)
+                        self.l_bottom.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultBottom - labelHeight, width: width, height: labelHeight)
                         self.l_top.text = "Marital Status"
                         self.l_middle.text = "Sex"
                         self.l_bottom.text = "Race"
@@ -470,22 +470,22 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         let height = self.viewHeight * 0.12     //height of each picker
                         let labelHeight = height * 0.5
 
-                        self.p_denom = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.27, width, height))
+                        self.p_denom = UIPickerView(frame: CGRect(x: beginX - 0.5 * width, y: self.viewHeight * 0.27, width: width, height: height))
                         self.p_denom.dataSource = self
                         self.p_denom.delegate = self
                         self.p_denom.backgroundColor = UIColor(white: 1, alpha: 0)
                         //self.p_denom.layer.cornerRadius = self.cornRad
                         self.p_denom.alpha = 0
                         
-                        self.p_prefLang = UIPickerView(frame: CGRectMake(beginX - 0.5 * width, self.viewHeight * 0.53, width, height))
+                        self.p_prefLang = UIPickerView(frame: CGRect(x: beginX - 0.5 * width, y: self.viewHeight * 0.53, width: width, height: height))
                         self.p_prefLang.dataSource = self
                         self.p_prefLang.delegate = self
                         self.p_prefLang.backgroundColor = UIColor(white: 1, alpha: 0)
                         //self.p_prefLang.layer.cornerRadius = self.cornRad
                         self.p_prefLang.alpha = 0
                         
-                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultTop - labelHeight, width, labelHeight)
-                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultBottom - labelHeight, width, labelHeight)
+                        self.l_top.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight)
+                        self.l_bottom.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultBottom - labelHeight, width: width, height: labelHeight)
                         self.l_top.text = "Denomination"
                         self.l_bottom.text = "Preferred Language"
                         
@@ -494,7 +494,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         
                     case 5: //Social security number - 1 text input
                         self.i_textInputMiddle.text = ""
-                        self.i_textInputMiddle.keyboardType = UIKeyboardType.NumberPad
+                        self.i_textInputMiddle.keyboardType = UIKeyboardType.numberPad
                         self.fillTextInput(self.i_textInputMiddle, key: self.SocialSecNumKey, placeholder: "Social Security Number")
                         
                     case 6: //Address, zip and county code - 3 text inputs and 3 labels
@@ -503,17 +503,17 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         let width = self.viewWidth * 0.8        //width of each text input is 80% of the view width
                         let beginX = self.viewWidth * 0.5       //starts each subview's leftmost side at the center
                         
-                        self.l_top.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultTop - labelHeight, width, labelHeight)
-                        self.l_middle.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight)
-                        self.l_bottom.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultBottom - labelHeight, width, labelHeight)
+                        self.l_top.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight)
+                        self.l_middle.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle - labelHeight, width: width, height: labelHeight)
+                        self.l_bottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom - labelHeight, width: width, height: labelHeight)
                         
                         self.l_top.text = "Address"
                         self.l_middle.text = "ZIP Code"
                         self.l_bottom.text = "County Code"
                         
-                        self.i_textInputTop.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultTop, width, height)
-                        self.i_textInputMiddle.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultMiddle, width, height)
-                        self.i_textInputBottom.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultBottom, width, height)
+                        self.i_textInputTop.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop, width: width, height: height)
+                        self.i_textInputMiddle.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle, width: width, height: height)
+                        self.i_textInputBottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height)
                         
                         self.fillTextInput(self.i_textInputTop, key: self.AddrKey, placeholder: "Address")
                         self.fillTextInput(self.i_textInputMiddle, key: self.ZipKey, placeholder: "ZIP Code")
@@ -526,17 +526,17 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         
                         let beginX = self.viewWidth * 0.5       //starts each subview's leftmost side at the center
                         
-                        self.l_top.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultTop - labelHeight, width, labelHeight)
-                        self.l_middle.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultMiddle - labelHeight, width, labelHeight)
-                        self.l_bottom.frame = CGRectMake(beginX - 0.5 * width, self.viewHeight * heightMultBottom - labelHeight, width, labelHeight)
+                        self.l_top.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight)
+                        self.l_middle.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultMiddle - labelHeight, width: width, height: labelHeight)
+                        self.l_bottom.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultBottom - labelHeight, width: width, height: labelHeight)
                         
                         self.l_top.text = "Home Phone"
                         self.l_middle.text = "Cell Phone"
                         self.l_bottom.text = "Work Phone"
                         
-                        self.i_textInputTop.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultTop, width, height)
-                        self.i_textInputMiddle.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultMiddle, width, height)
-                        self.i_textInputBottom.frame = CGRectMake(beginX - (0.5 * width), self.viewHeight * heightMultBottom, width, height)
+                        self.i_textInputTop.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop, width: width, height: height)
+                        self.i_textInputMiddle.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle, width: width, height: height)
+                        self.i_textInputBottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height)
                         
                         self.fillTextInput(self.i_textInputTop, key: self.HomePhoneKey, placeholder: "Home Phone Number")
                         self.fillTextInput(self.i_textInputMiddle, key: self.CellPhoneKey, placeholder: "Cell Phone Number")
@@ -558,9 +558,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     //      Fadein title and set location
     func fadeInTitles() -> Void
     {
-        UIView.animateWithDuration(self.promptIndex == 8 ? 2 : 0.5,
+        UIView.animate(withDuration: self.promptIndex == 8 ? 2 : 0.5,
             delay: 0.0,
-            options: .CurveEaseIn,
+            options: .curveEaseIn,
             animations: {
                 
                 //When finished, top banner should not show
@@ -621,7 +621,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
                     
-                    self.b_done.setTitle("Next", forState: UIControlState.Normal)
+                    self.b_done.setTitle("Next", for: UIControlState())
                 case 7:
                     self.l_top.alpha = 1
                     self.i_textInputTop.alpha = 1
@@ -630,7 +630,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
                     
-                    self.b_done.setTitle("Done", forState: UIControlState.Normal)
+                    self.b_done.setTitle("Done", for: UIControlState())
                 case 8:
                     print("To move back to main view")
                     self.v_topBanner.alpha = 0
@@ -644,27 +644,27 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
             completion: { finished in
                 print(g_plist!.getValuesInPlistFile())
                 print("Done moving and fading")
-                self.b_done.enabled = true
+                self.b_done.isEnabled = true
                 if(self.promptIndex == 8)
                 {
                     print("In here")
                     
-                    let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MenuScene") as! MenuViewController
-                    self.presentViewController(nextViewController, animated:true, completion:nil)
+                    let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuScene") as! MenuViewController
+                    self.present(nextViewController, animated:true, completion:nil)
                 }
             })
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
     //Done button is clicked
     //Add to plist and then increment promtIndex
-    @IBAction func doneClicked(sender: AnyObject)
+    @IBAction func doneClicked(_ sender: AnyObject)
     {
-        self.b_done.enabled = false
+        self.b_done.isEnabled = false
          if(g_plist != nil)
          {
             let dict = g_plist!.getMutablePlistFile()!
@@ -684,7 +684,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                 print("case 1")
             case 2:
                 //Date of birth (month - day - year)
-                let components = self.p_dates.calendar.components([.Year, .Month, .Day], fromDate: p_dates.date)
+                let components = self.p_dates.calendar.dateComponents([.year, .month, .day], from: p_dates.date)
                 dict[BirthMonthKey] = components.month
                 dict[BirthDayKey] = components.day
                 dict[BirthYearKey] = components.year
@@ -737,7 +737,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     func sendInfo()
     {
         print("called")
-        if(g_plist != nil)
+        /*if(g_plist != nil)
         {
             let dict = g_plist!.getMutablePlistFile()!
             let ipAddr = "http://155.246.138.11:1380/data"
@@ -771,7 +771,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                 WorkPhoneKey: dict[WorkPhoneKey]!,
                 CellPhoneKey: dict[CellPhoneKey]!]
             Alamofire.request(.POST, ipAddr, parameters: parameters)
-        }
+        }*/
         /*Alamofire.request(.GET, "https://155.264.138.11/data", parameters: ["name": "bar"])
             .responseJSON { response in
                 print(response.request)  // original URL request
@@ -786,7 +786,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     //Back clicked
-    @IBAction func backClicked(sender: AnyObject)
+    @IBAction func backClicked(_ sender: AnyObject)
     {
         self.promptIndex -= 1
         self.fadeOutTitles()

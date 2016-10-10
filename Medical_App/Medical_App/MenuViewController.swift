@@ -48,30 +48,30 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return cells.count
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5.0
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return cellHeights[indexPath.section]
+        return cellHeights[(indexPath as NSIndexPath).section]
         
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Number of cells in the section
         return 1
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //cell coding
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MyDataTableViewCell
-        let thisCell = cells[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyDataTableViewCell
+        let thisCell = cells[(indexPath as NSIndexPath).section]
         cell.im_icon = UIImageView(image: thisCell.image)
         cell.l_title.text = thisCell.title
         cell.layer.cornerRadius = 30
@@ -80,34 +80,34 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     //Called when button is pressed when the table view has expanded
-    func pushNext(sender:UIButton)
+    func pushNext(_ sender:UIButton)
     {
-        let nextViewController = self.storyboard!.instantiateViewControllerWithIdentifier(cells[sender.tag].storyboardId)
-        self.presentViewController(nextViewController, animated:true, completion:nil)
+        let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: cells[sender.tag].storyboardId)
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        headerView.backgroundColor = UIColor.clearColor()
+        headerView.backgroundColor = UIColor.clear
         return headerView
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //When selected
-        cellHeights[indexPath.section] = cellHeights[indexPath.section] == self.cellExpandHeight ? cellDefaultHeight : self.cellExpandHeight
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! MyDataTableViewCell
+        cellHeights[(indexPath as NSIndexPath).section] = cellHeights[(indexPath as NSIndexPath).section] == self.cellExpandHeight ? cellDefaultHeight : self.cellExpandHeight
+        let cell = tableView.cellForRow(at: indexPath) as! MyDataTableViewCell
         
         tableView.beginUpdates()
         tableView.endUpdates()
         
-        if(cellHeights[indexPath.section] == cellExpandHeight) //is expanded
+        if(cellHeights[(indexPath as NSIndexPath).section] == cellExpandHeight) //is expanded
         {
             
             let newButton = UIButton(frame: cell.v_buttonPos.frame)
-            newButton.setTitle("Input Info", forState: UIControlState.Normal)
+            newButton.setTitle("Input Info", for: UIControlState())
             newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 20)
-            newButton.tag = indexPath.section
-            newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), forControlEvents: .TouchUpInside)
+            newButton.tag = (indexPath as NSIndexPath).section
+            newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
             
             cell.addSubview(newButton)
         }
@@ -117,7 +117,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    @IBAction func addCells(sender: AnyObject) {
+    @IBAction func addCells(_ sender: AnyObject) {
     
         let img1 = UIImage(named: "data")!
         let newCell = cellData(title: "New Data", image: img1, storyboardId: "PersonalInfo")

@@ -11,14 +11,14 @@ import UIKit
 @IBDesignable class GradientView: UIView {
     
     //The properties for the gradient
-    @IBInspectable var startColor: UIColor = UIColor.redColor()
-    @IBInspectable var endColor: UIColor = UIColor.greenColor()
+    @IBInspectable var startColor: UIColor = UIColor.red
+    @IBInspectable var endColor: UIColor = UIColor.green
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         //Get the current context
         let context = UIGraphicsGetCurrentContext()
-        let colors = [startColor.CGColor, endColor.CGColor]
+        let colors = [startColor.cgColor, endColor.cgColor]
         
         //Set up the color space
         let colorSpace = CGColorSpaceCreateDeviceRGB()
@@ -27,17 +27,16 @@ import UIKit
         let colorLocations:[CGFloat] = [0.0, 1.0]
         
         //Create the gradient
-        let gradient = CGGradientCreateWithColors(colorSpace,
-                                                  colors,
-                                                  colorLocations)
+        let gradient = CGGradient(colorsSpace: colorSpace,
+                                                  colors: colors as CFArray,
+                                                  locations: colorLocations)
         
         //Draw the gradient
         let startPoint = CGPoint.zero
         let endPoint = CGPoint(x:0, y:self.bounds.height)
-        CGContextDrawLinearGradient(context,
-                                    gradient,
-                                    startPoint,
-                                    endPoint,
-                                    [])
+        context?.drawLinearGradient(gradient!,
+                                    start: startPoint,
+                                    end: endPoint,
+                                    options: [])
     }
 }
