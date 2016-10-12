@@ -12,11 +12,13 @@ struct cellData {
     var title:String
     var image:UIImage
     var storyboardId:String
+    var navButtonTitle:String
     
-    init(title:String, image:UIImage, storyboardId:String) {
+    init(title:String, image:UIImage, storyboardId:String, navButtonTitle:String) {
         self.title = title
         self.image = image
         self.storyboardId = storyboardId
+        self.navButtonTitle = navButtonTitle
     }
 }
 

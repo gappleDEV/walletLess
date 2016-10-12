@@ -100,7 +100,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUY-eU-JbW">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="446" id="ZYb-xM-uf9"/>
+                                    <constraint firstAttribute="width" constant="375" id="ZYb-xM-uf9"/>
                                     <constraint firstAttribute="height" constant="40" id="f4L-kI-xeZ"/>
                                 </constraints>
                             </view>
@@ -148,7 +148,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="1235"/>
+            <point key="canvasLocation" x="674" y="1205"/>
+        </scene>
+        <!--Insur Card Pic View Controller-->
+        <scene sceneID="IE9-xP-IO2">
+            <objects>
+                <viewController storyboardIdentifier="InsuranceCardPic" id="oJW-hS-la8" customClass="InsurCardPicViewController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jCQ-Ra-eQ1"/>
+                        <viewControllerLayoutGuide type="bottom" id="MqB-6J-ZxQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ckr-QI-agH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oS-jP-9k4">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="Rz0-x2-Y7U"/>
+                                    <constraint firstAttribute="height" constant="39" id="xxA-IM-h0m"/>
+                                </constraints>
+                                <state key="normal" title="&lt; Menu"/>
+                                <connections>
+                                    <segue destination="ah8-FK-9AH" kind="show" id="isu-Ak-ahK"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TN8-y6-ccH">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="SFk-ul-n0j"/>
+                                    <constraint firstAttribute="height" constant="237" id="jXD-5Y-8ys"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMa-bm-DEY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="HHQ-6J-jAK"/>
+                                    <constraint firstAttribute="height" constant="30" id="fJx-vE-zuQ"/>
+                                </constraints>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="oJW-hS-la8" eventType="touchUpInside" id="Oho-Br-HdR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8oS-jP-9k4" firstAttribute="top" secondItem="jCQ-Ra-eQ1" secondAttribute="bottom" id="Ar6-ie-vtJ"/>
+                            <constraint firstItem="TN8-y6-ccH" firstAttribute="top" secondItem="jCQ-Ra-eQ1" secondAttribute="bottom" constant="70" id="M1x-hS-fdS"/>
+                            <constraint firstItem="TN8-y6-ccH" firstAttribute="centerX" secondItem="ckr-QI-agH" secondAttribute="centerX" id="gOe-ov-aMe"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="8oS-jP-9k4" secondAttribute="leading" id="wjj-8k-On7"/>
+                            <constraint firstItem="MqB-6J-ZxQ" firstAttribute="top" secondItem="XMa-bm-DEY" secondAttribute="bottom" constant="79" id="wsl-CP-g2p"/>
+                            <constraint firstItem="XMa-bm-DEY" firstAttribute="centerX" secondItem="ckr-QI-agH" secondAttribute="centerX" id="ztf-0v-oWr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="im_pic" destination="TN8-y6-ccH" id="d17-hN-6Mf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryr-PO-LxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1437.5999999999999" y="980.95952023988013"/>
         </scene>
         <!--MenuScene-->
         <scene sceneID="XNg-kV-5Bb">
@@ -163,16 +220,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="c2f-8m-tbV">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="492" id="Non-fi-oFj"/>
                                 </constraints>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyDataTableViewCell" rowHeight="300" id="QHs-H1-ACk" customClass="MyDataTableViewCell" customModule="Medical_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="343" height="300"/>
+                                        <rect key="frame" x="0.0" y="22" width="1000" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHs-H1-ACk" id="gXG-eO-fEZ">
-                                            <frame key="frameInset" width="343" height="300"/>
+                                            <frame key="frameInset" width="1000" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCD-jP-hLc">
@@ -195,20 +254,11 @@
                                                         <constraint firstAttribute="width" constant="68" id="fVN-4d-Wnb"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHq-pj-qZs">
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="72" id="5el-Gc-hZI"/>
-                                                        <constraint firstAttribute="width" constant="240" id="keG-gw-Ws5"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="GHq-pj-qZs" firstAttribute="centerX" secondItem="gXG-eO-fEZ" secondAttribute="centerX" id="8vD-P2-g2y"/>
                                                 <constraint firstItem="vWy-1I-Snv" firstAttribute="top" secondItem="gXG-eO-fEZ" secondAttribute="topMargin" constant="2" id="A4r-BM-sPm"/>
                                                 <constraint firstItem="ZCD-jP-hLc" firstAttribute="centerX" secondItem="gXG-eO-fEZ" secondAttribute="centerX" id="I4q-Fc-Z3x"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="GHq-pj-qZs" secondAttribute="bottom" constant="35" id="Ykf-By-bu6"/>
                                                 <constraint firstItem="ZCD-jP-hLc" firstAttribute="top" secondItem="gXG-eO-fEZ" secondAttribute="topMargin" constant="22" id="cTY-y2-3ue"/>
                                                 <constraint firstItem="ZCD-jP-hLc" firstAttribute="centerY" secondItem="gXG-eO-fEZ" secondAttribute="centerY" id="p6f-9k-Fmi"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="vWy-1I-Snv" secondAttribute="leading" id="tHi-aF-r6R"/>
@@ -222,7 +272,6 @@
                                         <connections>
                                             <outlet property="im_icon" destination="vWy-1I-Snv" id="PBN-Bw-rRs"/>
                                             <outlet property="l_title" destination="ZCD-jP-hLc" id="iLo-eX-2q3"/>
-                                            <outlet property="v_buttonPos" destination="GHq-pj-qZs" id="BT4-bA-Eop"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

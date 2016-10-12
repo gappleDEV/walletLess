@@ -28,13 +28,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         {
             print("Loading")
             let img1 = UIImage(named: "data")!
-            let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo")
+            let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Input Info")
             
             let img2 = UIImage(named: "data")!
-            let cell2 = cellData(title: "Insurance Data", image: img2, storyboardId: "PersonalInfo")
+            let cell2 = cellData(title: "Insurance Data", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "Take Pic")
             
             let img3 = UIImage(named: "data")!
-            let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo")
+            let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo", navButtonTitle: "Input Info")
             
             cells += [cell1, cell2, cell3]
             cellHeights += [cellDefaultHeight, cellDefaultHeight, cellDefaultHeight]
@@ -76,6 +76,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.l_title.text = thisCell.title
         cell.layer.cornerRadius = 30
         
+        //Put button in the cell
+        let x = cell.frame.width/2 - 50;
+        let y = self.cellExpandHeight - 75;
+        
+        let buttonFrame = CGRect(x: x, y: y, width: 100, height: 50)
+        
+        let newButton = UIButton(frame: buttonFrame)
+        newButton.setTitle(thisCell.navButtonTitle, for: UIControlState())
+        newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 20)
+        newButton.tag = (indexPath as NSIndexPath).section
+        newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
+        
+        cell.addSubview(newButton)
+
+        
         return cell
     }
     
@@ -92,35 +107,28 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return headerView
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         //When selected
-        cellHeights[(indexPath as NSIndexPath).section] = cellHeights[(indexPath as NSIndexPath).section] == self.cellExpandHeight ? cellDefaultHeight : self.cellExpandHeight
-        let cell = tableView.cellForRow(at: indexPath) as! MyDataTableViewCell
         
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        cellHeights[(indexPath as NSIndexPath).section] = cellHeights[(indexPath as NSIndexPath).section] == self.cellExpandHeight ? cellDefaultHeight : self.cellExpandHeight
         
         if(cellHeights[(indexPath as NSIndexPath).section] == cellExpandHeight) //is expanded
         {
-            
-            let newButton = UIButton(frame: cell.v_buttonPos.frame)
-            newButton.setTitle("Input Info", for: UIControlState())
-            newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 20)
-            newButton.tag = (indexPath as NSIndexPath).section
-            newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
-            
-            cell.addSubview(newButton)
+            tableView.beginUpdates()
+            tableView.endUpdates()
         }
-        
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        else //is normal
+        {
+            tableView.reloadSections(IndexSet(indexPath), with: UITableViewRowAnimation.automatic)
+        }
         
     }
     
     @IBAction func addCells(_ sender: AnyObject) {
     
         let img1 = UIImage(named: "data")!
-        let newCell = cellData(title: "New Data", image: img1, storyboardId: "PersonalInfo")
+        let newCell = cellData(title: "New Data", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Input Info")
         
         cells += [newCell]
         cellHeights += [cellDefaultHeight]

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6108CBFBCC669C3E78D9E674 /* Pods_Medical_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCFDDE72D284BC92723785E /* Pods_Medical_App.framework */; };
 		CB36BA6D9B0CBAD09C1AE990 /* Pods_Medical_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BF493821F6F535142449E /* Pods_Medical_AppTests.framework */; };
+		F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */; };
 		F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */; };
 		F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA61D6604C8003EBFBB /* Cell_Data.swift */; };
 		F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA81D6607DE003EBFBB /* MenuViewController.swift */; };
@@ -40,6 +41,7 @@
 		9E51E7666EC019DD56DC70C1 /* Pods-Medical_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App.debug.xcconfig"; sourceTree = "<group>"; };
 		A26138843A7D9EBDFB97DDF4 /* Pods-Medical_AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_AppTests/Pods-Medical_AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ECCFDDE72D284BC92723785E /* Pods_Medical_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medical_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsurCardPicViewController.swift; sourceTree = "<group>"; };
 		F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDataTableViewCell.swift; sourceTree = "<group>"; };
 		F3295CA61D6604C8003EBFBB /* Cell_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell_Data.swift; sourceTree = "<group>"; };
 		F3295CA81D6607DE003EBFBB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				F3AF14EE1CBD8711001782EA /* Assets.xcassets */,
 				F3AF14F31CBD8711001782EA /* Info.plist */,
 				F3295CAA1D68A25A003EBFBB /* GradientView.swift */,
+				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
 			);
 			path = Medical_App;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				F3AF150A1CBDAB43001782EA /* Plist.swift in Sources */,
 				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
 				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
+				F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */,
 				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
 				F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */,
 				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,

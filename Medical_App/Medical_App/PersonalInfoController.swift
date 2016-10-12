@@ -139,7 +139,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         self.b_done.layer.shadowOpacity = 0.5
         self.b_back.alpha = 0
         self.b_done.alpha = 0
-        self.b_back.isEnabled = false
+        self.b_back.isEnabled = true
     }
     
     //Number of columns in data
@@ -377,7 +377,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.view.addSubview(self.i_textInputMiddle)
                         self.view.addSubview(self.i_textInputBottom)
                         
-                        self.b_back.isEnabled = false
+                        self.b_back.isEnabled = true
                         
                     case 1: //Mother's Maiden Name - 3 labels and 3 text inputs
                         let height = self.viewHeight * 0.08     //height of each text input is 8% of view height
@@ -588,7 +588,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputMiddle.alpha = 1
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
-                    self.b_back.alpha = 0.5
+                    self.b_back.alpha = 1
                 case 1: //Mother maiden name
                     self.l_top.alpha = 1
                     self.i_textInputTop.alpha = 1
@@ -596,7 +596,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputMiddle.alpha = 1
                     self.l_bottom.alpha = 1
                     self.i_textInputBottom.alpha = 1
-                    self.b_back.alpha = 1.0
+                    self.b_back.alpha = 1
                 case 2: //Date of birth
                     self.p_dates.alpha = 1
                 case 3: //Marital Status, sex, race
@@ -788,8 +788,16 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     //Back clicked
     @IBAction func backClicked(_ sender: AnyObject)
     {
-        self.promptIndex -= 1
-        self.fadeOutTitles()
+        if(self.promptIndex == 0)
+        {
+            let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuScene")
+            self.present(nextViewController, animated:true, completion:nil)
+        }
+        else
+        {
+            self.promptIndex -= 1
+            self.fadeOutTitles()
+        }
     }
     
 
