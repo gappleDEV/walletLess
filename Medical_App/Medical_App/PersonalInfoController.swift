@@ -203,9 +203,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         let border = CALayer()                  //the bottom line under the input
         let bwidth = CGFloat(2.0)
         border.borderColor = UIColor(hue: 0.33, saturation: 0.52, brightness: 0.20, alpha: 1).cgColor
+        border.frame = CGRect(x: 0, y: textInput.frame.size.height - bwidth, width: textInput.frame.size.width, height: 2)//textInput.frame.size.height)
         border.borderWidth = bwidth
-        
-        border.frame = CGRect(x: 0, y: textInput.frame.size.height - bwidth, width: textInput.frame.size.width, height: textInput.frame.size.height)
         
         return border
     }
