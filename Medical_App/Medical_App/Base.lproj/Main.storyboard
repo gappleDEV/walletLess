@@ -228,10 +228,10 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyDataTableViewCell" rowHeight="300" id="QHs-H1-ACk" customClass="MyDataTableViewCell" customModule="Medical_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="1000" height="300"/>
+                                        <rect key="frame" x="0.0" y="22" width="343" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHs-H1-ACk" id="gXG-eO-fEZ">
-                                            <frame key="frameInset" width="1000" height="300"/>
+                                            <frame key="frameInset" width="343" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCD-jP-hLc">
@@ -305,12 +305,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="c2f-8m-tbV" firstAttribute="top" secondItem="g99-fF-hqi" secondAttribute="bottom" constant="19" id="HWh-bX-XRT"/>
+                            <constraint firstItem="UPX-Cv-kVs" firstAttribute="top" secondItem="g99-fF-hqi" secondAttribute="bottom" constant="-35" id="9eY-8K-FLr"/>
+                            <constraint firstItem="g99-fF-hqi" firstAttribute="top" secondItem="Jda-WZ-2aA" secondAttribute="bottom" constant="81" id="Jox-De-FTA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c2f-8m-tbV" secondAttribute="trailing" id="Kxt-6x-Aqy"/>
                             <constraint firstItem="UPX-Cv-kVs" firstAttribute="centerY" secondItem="g99-fF-hqi" secondAttribute="centerY" id="TxN-nk-sxG"/>
+                            <constraint firstItem="UPX-Cv-kVs" firstAttribute="leading" secondItem="g99-fF-hqi" secondAttribute="trailing" constant="11.5" id="aOl-CY-gKx"/>
                             <constraint firstAttribute="leadingMargin" secondItem="c2f-8m-tbV" secondAttribute="leading" id="f3b-s8-WK0"/>
-                            <constraint firstItem="UPX-Cv-kVs" firstAttribute="leading" secondItem="c2f-8m-tbV" secondAttribute="trailing" constant="-60" id="gkB-SN-AIc"/>
                             <constraint firstItem="qei-dT-XpS" firstAttribute="top" secondItem="c2f-8m-tbV" secondAttribute="bottom" constant="20" id="hWU-rR-1nK"/>
+                            <constraint firstItem="c2f-8m-tbV" firstAttribute="top" secondItem="Jda-WZ-2aA" secondAttribute="bottom" constant="135" id="htY-mh-iSh"/>
                             <constraint firstItem="c2f-8m-tbV" firstAttribute="centerX" secondItem="AGh-G5-r3Y" secondAttribute="centerX" id="k9r-Vq-nXM"/>
                             <constraint firstItem="g99-fF-hqi" firstAttribute="centerX" secondItem="AGh-G5-r3Y" secondAttribute="centerX" id="xTK-Zd-LiI"/>
                         </constraints>

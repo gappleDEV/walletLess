@@ -13,7 +13,6 @@ class MyDataTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var l_title: UILabel!
     @IBOutlet weak var im_icon: UIImageView!
-    @IBOutlet weak var v_buttonPos: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

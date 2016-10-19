@@ -11,7 +11,6 @@ import UIKit
 class InsurCardPicViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate
 {
     @IBOutlet weak var im_pic: UIImageView!
-    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad()
     {
@@ -20,15 +19,23 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
     
     @IBAction func takePhoto(_ sender: AnyObject)
     {
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        
-        present(imagePicker, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        imagePicker.dismiss(animated: true, completion: nil)
-        im_pic.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        if let myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            im_pic.contentMode = .scaleAspectFit
+            im_pic.image = myImage
+        }
+        dismiss(animated: true, completion: nil)
     }
     
 }
