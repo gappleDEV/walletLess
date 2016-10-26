@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,6 +19,24 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("--------------------------------")
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print("--------------------------------")
+        
+        let pers = PersonalInfo()
+
+        try! realm.write {
+            realm.deleteAll()
+            realm.add(pers)
+        }
+        print("--------------------------------")
+        for p in personInfo
+        {
+            print("->>>\(p.cellPhone)<<<-")
+        }
+        print("--------------------------------")
+        
         tableView.backgroundColor = UIColor(white: 0.0, alpha: 0)        
         loadData()
     }
