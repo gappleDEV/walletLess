@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate
 {
@@ -94,6 +95,15 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     {
         super.viewDidLoad()
         
+        let realm = try! Realm()
+        
+        if realm.objects(PersonalInfo.self).count == 0
+        {
+            try! realm.write {
+                realm.add(PersonalInfo(), update: true)
+            }
+        }
+        
         self.viewHeight = self.view.frame.height
         self.viewWidth = self.view.frame.width
         
@@ -104,25 +114,6 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         self.view.addGestureRecognizer(screenTap)
 
         fadeInGatherInfo()
-        
-       /* To change and retrieve plist info
-        //1
-        if let plist = Plist(name: "User_Info") {
-            //2
-            let dict = plist.getMutablePlistFile()!
-            dict[NameKey] = "Gregory"
-            //3
-            do {
-                try plist.addValuesToPlistFile(dict)
-            } catch {
-                print(error)
-            }
-            //4
-            print(plist.getValuesInPlistFile())
-        } else {
-            print("Unable to get Plist")
-        }
-         */
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -659,6 +650,14 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         return false
     }
     
+    func writeToRealm(myrealm:Realm, personInfo:PersonalInfo)
+    {
+        try! myrealm.write {
+            myrealm.add(personInfo, update:true)
+            print("Edited")
+        }
+    }
+    
     //Done button is clicked
     //Add to plist and then increment promtIndex
     @IBAction func doneClicked(_ sender: AnyObject)
@@ -671,12 +670,41 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
             {
             case 0:
                 //Full name (first - middle - last)
+                let realm = try! Realm()
+                var personInfo = PersonalInfo()
+                if realm.objects(PersonalInfo.self).count > 0
+                {
+                    personInfo = realm.objects(PersonalInfo.self).first!
+                    try! realm.write {
+                        personInfo.firstName = self.i_textInputTop!.text!
+                        personInfo.middleName = self.i_textInputMiddle!.text!
+                        personInfo.lastName = self.i_textInputBottom!.text!
+                    }
+                }
+                else
+                {
+                    personInfo.firstName = self.i_textInputTop!.text!
+                    personInfo.middleName = self.i_textInputMiddle!.text!
+                    personInfo.lastName = self.i_textInputBottom!.text!
+                    try! realm.write {
+                        realm.add(personInfo)
+                    }
+                }
+                
                 dict[FirstNameKey] = self.i_textInputTop!.text
                 dict[MiddleNameKey] = self.i_textInputMiddle!.text
                 dict[LastNameKey] = self.i_textInputBottom!.text
                 print("case 0")
             case 1:
                 //Mother's full maiden name (first - middle - last)
+                let realm = try! Realm()
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
+                    personInfo.motherFirstName = self.i_textInputTop!.text!
+                    personInfo.motherMiddleName = self.i_textInputMiddle!.text!
+                    personInfo.motherLastName = self.i_textInputBottom!.text!
+                }
+                
                 dict[MotherFirstNameKey] = self.i_textInputTop!.text
                 dict[MotherMiddleNameKey] = self.i_textInputMiddle!.text
                 dict[MotherLastNameKey] = self.i_textInputBottom!.text

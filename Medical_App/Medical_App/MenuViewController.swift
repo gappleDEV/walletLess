@@ -24,7 +24,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         print("--------------------------------")
         
-        let pers = PersonalInfo()
+        /*let pers = PersonalInfo()
 
         try! realm.write {
             realm.deleteAll()
@@ -35,7 +35,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         {
             print("->>>\(p.cellPhone)<<<-")
         }
-        print("--------------------------------")
+        print("--------------------------------")*/
         
         tableView.backgroundColor = UIColor(white: 0.0, alpha: 0)        
         loadData()

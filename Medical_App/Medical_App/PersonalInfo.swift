@@ -10,46 +10,49 @@ import RealmSwift
 
 class PersonalInfo: Object {
     
+    dynamic var username:String = "user"
+    
     //View 1
-    var firstName:String = ""
-    var middleName:String = ""
-    var lastName:String = ""
+    dynamic var firstName:String = ""
+    dynamic var middleName:String = ""
+    dynamic var lastName:String = ""
     
     //View 2
-    var motherFirstName:String = ""
-    var motherMiddleName:String = ""
-    var motherLastName:String = ""
+    dynamic var motherFirstName:String = ""
+    dynamic var motherMiddleName:String = ""
+    dynamic var motherLastName:String = ""
     
     //View 3
-    var birthDay:Int = 1
-    var birthMonth:Int = 1
-    var birthYear:Int = 2016
+    dynamic var birthDay:Int = 1
+    dynamic var birthMonth:Int = 1
+    dynamic var birthYear:Int = 2016
     
     //View 4
-    var maritalStatus:String = "Single"
-    var sex:String = "Male"
-    var race:String = "Caucasion"
+    dynamic var maritalStatus:String = "Single"
+    dynamic var sex:String = "Male"
+    dynamic var race:String = "Caucasion"
     
     //View 5
-    var denomination:String = "Christianity"
-    var preferredLanguage:String = "English"
+    dynamic var denomination:String = "Christianity"
+    dynamic var preferredLanguage:String = "English"
     
     //View 6
-    var socialSecurity:String = "123456789"
+    dynamic var socialSecurity:String = "123456789"
     
     //View 7
-    var address:String = "1 street road"
-    var zipCode:String = "12345"
-    var countyCode:String = "town"
+    dynamic var address:String = "1 street road"
+    dynamic var zipCode:String = "12345"
+    dynamic var countyCode:String = "town"
     
     //View 8
-    var homePhone:String = "1234567890"
-    var cellPhone:String = "1234567890"
-    var workPhone:String = "1234567890"
+    dynamic var homePhone:String = "1234567890"
+    dynamic var cellPhone:String = "1234567890"
+    dynamic var workPhone:String = "1234567890"
+    
+    override class func primaryKey() -> String? {
+        return "username"
+    }
     
 }
-
-let realm = try! Realm()
-let personInfo = realm.objects(PersonalInfo.self)
 
 
