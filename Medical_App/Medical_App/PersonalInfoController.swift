@@ -200,7 +200,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         return border
     }
     
-    func fillTextInput(_ textInput:UITextField, key:String, placeholder:String)
+    /*func fillTextInput(_ textInput:UITextField, key:String, placeholder:String)
     {
         if(g_plist!.getMutablePlistFile()![key] as? String == "") {
             textInput.placeholder = placeholder
@@ -209,6 +209,19 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         else {
             textInput.text = g_plist!.getMutablePlistFile()![key] as? String
         }
+    }*/
+    
+    func fillTextInputFromRealm(_ textInput:UITextField, value:String, placeholder:String, realm:Realm)
+    {
+        if value == ""
+        {
+            textInput.placeholder = placeholder
+            textInput.text = ""
+        }
+        else {
+            textInput.text = value
+        }
+        
     }
     
     //Step 1:
@@ -269,6 +282,16 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                 
             },
             completion: { finished in
+                let realm = try! Realm()
+                var personInfo = PersonalInfo()
+                if realm.objects(PersonalInfo.self).count == 0
+                {
+                    try! realm.write {
+                        realm.add(personInfo)
+                    }
+                }
+                personInfo = realm.objects(PersonalInfo.self).first!
+
                 if(g_plist != nil)
                 {
                     self.l_title.text = self.prompt[self.promptIndex]
@@ -318,7 +341,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         
                         //Set up text inputs
                         self.i_textInputTop = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop, width: width, height: height))
-                        self.fillTextInput(self.i_textInputTop, key: self.FirstNameKey, placeholder: "First Name")
+                        self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.firstName, placeholder: "First Name", realm: realm)
                         self.i_textInputTop.textAlignment = NSTextAlignment.left
                         self.i_textInputTop.font = UIFont.systemFont(ofSize: inputFontSize)
                         self.i_textInputTop.borderStyle = UITextBorderStyle.roundedRect
@@ -332,7 +355,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                         self.i_textInputTop.layer.addSublayer(self.getBorder(self.i_textInputTop))
                         
                         self.i_textInputMiddle = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle, width: width, height: height))
-                        self.fillTextInput(self.i_textInputMiddle, key: self.MiddleNameKey, placeholder: "Middle Name")
+                        self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.middleName, placeholder: "Middle Name", realm: realm)
                         self.i_textInputMiddle.textAlignment = NSTextAlignment.left
                         self.i_textInputMiddle.font = UIFont.systemFont(ofSize: inputFontSize)
                         self.i_textInputMiddle.borderStyle = UITextBorderStyle.roundedRect
@@ -671,29 +694,16 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
             case 0:
                 //Full name (first - middle - last)
                 let realm = try! Realm()
-                var personInfo = PersonalInfo()
-                if realm.objects(PersonalInfo.self).count > 0
-                {
-                    personInfo = realm.objects(PersonalInfo.self).first!
-                    try! realm.write {
-                        personInfo.firstName = self.i_textInputTop!.text!
-                        personInfo.middleName = self.i_textInputMiddle!.text!
-                        personInfo.lastName = self.i_textInputBottom!.text!
-                    }
-                }
-                else
-                {
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
                     personInfo.firstName = self.i_textInputTop!.text!
                     personInfo.middleName = self.i_textInputMiddle!.text!
                     personInfo.lastName = self.i_textInputBottom!.text!
-                    try! realm.write {
-                        realm.add(personInfo)
-                    }
                 }
                 
-                dict[FirstNameKey] = self.i_textInputTop!.text
+                /*dict[FirstNameKey] = self.i_textInputTop!.text
                 dict[MiddleNameKey] = self.i_textInputMiddle!.text
-                dict[LastNameKey] = self.i_textInputBottom!.text
+                dict[LastNameKey] = self.i_textInputBottom!.text*/
                 print("case 0")
             case 1:
                 //Mother's full maiden name (first - middle - last)
@@ -705,43 +715,87 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     personInfo.motherLastName = self.i_textInputBottom!.text!
                 }
                 
-                dict[MotherFirstNameKey] = self.i_textInputTop!.text
+                /*dict[MotherFirstNameKey] = self.i_textInputTop!.text
                 dict[MotherMiddleNameKey] = self.i_textInputMiddle!.text
-                dict[MotherLastNameKey] = self.i_textInputBottom!.text
+                dict[MotherLastNameKey] = self.i_textInputBottom!.text*/
                 print("case 1")
             case 2:
                 //Date of birth (month - day - year)
                 let components = self.p_dates.calendar.dateComponents([.year, .month, .day], from: p_dates.date)
-                dict[BirthMonthKey] = components.month
+                let realm = try! Realm()
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
+                    personInfo.birthMonth = components.month!
+                    personInfo.birthDay = components.day!
+                    personInfo.birthYear = components.year!
+                }
+                
+                /*dict[BirthMonthKey] = components.month
                 dict[BirthDayKey] = components.day
-                dict[BirthYearKey] = components.year
+                dict[BirthYearKey] = components.year*/
                 print("case 2")
             case 3:
                 //Marital status - sex - race
-                dict[MarStatusKey] = marStatusVal
+                let realm = try! Realm()
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
+                    personInfo.maritalStatus = marStatusVal
+                    personInfo.sex = sexVal
+                    personInfo.race = raceVal
+                }
+                
+                /*dict[MarStatusKey] = marStatusVal
                 dict[SexKey] = sexVal
-                dict[RaceKey] = raceVal
+                dict[RaceKey] = raceVal*/
                 print("case 3")
             case 4:
                 //Denomination - preferred language
-                dict[DenomKey] = denomVal
-                dict[PrefLangKey] = prefLangVal
+                let realm = try! Realm()
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
+                    personInfo.denomination = denomVal
+                    personInfo.preferredLanguage = prefLangVal
+                }
+                
+                /*dict[DenomKey] = denomVal
+                dict[PrefLangKey] = prefLangVal*/
                 print("case 4")
             case 5:
                 //Social Security Number
-                dict[SocialSecNumKey] = self.i_textInputMiddle!.text
+                let realm = try! Realm()
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
+                    personInfo.socialSecurity = self.i_textInputMiddle!.text!
+                }
+                //dict[SocialSecNumKey] = self.i_textInputMiddle!.text
                 print("case 5")
             case 6:
                 //Address - country code
-                dict[AddrKey] = self.i_textInputTop!.text
+                let realm = try! Realm()
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
+                    personInfo.socialSecurity = self.i_textInputTop!.text!
+                    personInfo.zipCode = self.i_textInputMiddle!.text!
+                    personInfo.countyCode = self.i_textInputBottom!.text!
+                }
+
+                /*dict[AddrKey] = self.i_textInputTop!.text
                 dict[ZipKey] = self.i_textInputMiddle!.text
-                dict[CountKey] = self.i_textInputBottom!.text
+                dict[CountKey] = self.i_textInputBottom!.text*/
                 print("case 6")
             case 7:
                 //Phone numbers (home - work - cell)
-                dict[HomePhoneKey] = self.i_textInputTop!.text
+                let realm = try! Realm()
+                let personInfo = realm.objects(PersonalInfo.self).first!
+                try! realm.write {
+                    personInfo.homePhone = self.i_textInputTop!.text!
+                    personInfo.cellPhone = self.i_textInputMiddle!.text!
+                    personInfo.workPhone = self.i_textInputBottom!.text!
+                }
+                
+                /*dict[HomePhoneKey] = self.i_textInputTop!.text
                 dict[CellPhoneKey] = self.i_textInputMiddle!.text
-                dict[WorkPhoneKey] = self.i_textInputBottom!.text
+                dict[WorkPhoneKey] = self.i_textInputBottom!.text*/
                 print("case 7")
             default:
                 print("stepNum is out of bounds")
