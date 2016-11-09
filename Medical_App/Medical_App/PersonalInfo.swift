@@ -25,7 +25,7 @@ class PersonalInfo: Object {
     //View 3
     dynamic var birthDay:Int = 1
     dynamic var birthMonth:Int = 1
-    dynamic var birthYear:Int = 2016
+    dynamic var birthYear:Int = 1800
     
     //View 4
     dynamic var maritalStatus:String = "Single"
@@ -37,17 +37,17 @@ class PersonalInfo: Object {
     dynamic var preferredLanguage:String = "English"
     
     //View 6
-    dynamic var socialSecurity:String = "123456789"
+    dynamic var socialSecurity:String = ""
     
     //View 7
-    dynamic var address:String = "1 street road"
-    dynamic var zipCode:String = "12345"
-    dynamic var countyCode:String = "town"
+    dynamic var address:String = ""
+    dynamic var zipCode:String = ""
+    dynamic var countyCode:String = ""
     
     //View 8
-    dynamic var homePhone:String = "1234567890"
-    dynamic var cellPhone:String = "1234567890"
-    dynamic var workPhone:String = "1234567890"
+    dynamic var homePhone:String = ""
+    dynamic var cellPhone:String = ""
+    dynamic var workPhone:String = ""
     
     override class func primaryKey() -> String? {
         return "username"
