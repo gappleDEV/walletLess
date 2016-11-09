@@ -14,7 +14,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "MyDataTableViewCell"
-    let cellExpandHeight:CGFloat = 300
+    let cellExpandHeight:CGFloat = 225
     let cellDefaultHeight:CGFloat = 90
     
     override func viewDidLoad() {
@@ -106,10 +106,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 20)
         newButton.tag = (indexPath as NSIndexPath).section
         newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
-        
         cell.addSubview(newButton)
+        print("Added button with title \(thisCell.navButtonTitle)")
 
-        
         return cell
     }
     
@@ -132,14 +131,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cellHeights[(indexPath as NSIndexPath).section] = cellHeights[(indexPath as NSIndexPath).section] == self.cellExpandHeight ? cellDefaultHeight : self.cellExpandHeight
         
-        if(cellHeights[(indexPath as NSIndexPath).section] == cellExpandHeight) //is expanded
+        if(cellHeights[(indexPath as NSIndexPath).section] == cellExpandHeight) //is to be expanded
         {
             tableView.beginUpdates()
             tableView.endUpdates()
         }
         else //is normal
         {
-            tableView.reloadSections(IndexSet(indexPath), with: UITableViewRowAnimation.automatic)
+            print("IndexPath: \(indexPath)")
+            for b in (tableView.cellForRow(at: indexPath)!.subviews)
+            {
+                if b is UIButton
+                {
+                    b.removeFromSuperview()
+                    print("Removed button with tag: \(b.tag)")
+                }
+            }
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
         
     }
