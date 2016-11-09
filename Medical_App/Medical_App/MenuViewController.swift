@@ -47,13 +47,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         {
             print("Loading")
             let img1 = UIImage(named: "data")!
-            let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Input Info")
+            let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             
             let img2 = UIImage(named: "data")!
-            let cell2 = cellData(title: "Insurance Data", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "Take Pic")
+            let cell2 = cellData(title: "Insurance Data", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "My Card")
             
             let img3 = UIImage(named: "data")!
-            let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo", navButtonTitle: "Input Info")
+            let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             
             cells += [cell1, cell2, cell3]
             cellHeights += [cellDefaultHeight, cellDefaultHeight, cellDefaultHeight]
@@ -96,14 +96,22 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.layer.cornerRadius = 30
         
         //Put button in the cell
-        let x = cell.frame.width/2 - 50;
-        let y = self.cellExpandHeight - 75;
+        let buttonWidth:CGFloat = 64
+        let buttonHeight:CGFloat = buttonWidth
+        let x = cell.frame.width/2 - buttonWidth/2;
+        let y = self.cellExpandHeight - 80;
         
-        let buttonFrame = CGRect(x: x, y: y, width: 100, height: 50)
+        let buttonFrame = CGRect(x: x, y: y, width: buttonWidth, height: buttonHeight)
         
         let newButton = UIButton(frame: buttonFrame)
+        newButton.layer.backgroundColor = UIColor(red: 50/255, green: 125/255, blue: 200/255, alpha: 1).cgColor
+        newButton.layer.cornerRadius = buttonWidth/2
+        newButton.layer.shadowColor = UIColor.black.cgColor
+        newButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        newButton.layer.shadowRadius = 2
+        newButton.layer.shadowOpacity = 0.5
         newButton.setTitle(thisCell.navButtonTitle, for: UIControlState())
-        newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 20)
+        newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 14)
         newButton.tag = (indexPath as NSIndexPath).section
         newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
         cell.addSubview(newButton)
@@ -139,6 +147,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         else //is normal
         {
             print("IndexPath: \(indexPath)")
+            
+            //Removes all buttons in the table element. This way the element can be recreated without any zombie subviews
             for b in (tableView.cellForRow(at: indexPath)!.subviews)
             {
                 if b is UIButton
