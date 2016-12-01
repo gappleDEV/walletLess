@@ -46,13 +46,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(cells.count == 0)
         {
             print("Loading")
-            let img1 = UIImage(named: "data")!
+            let img1 = UIImage(named: "MyInfo")!
             let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             
-            let img2 = UIImage(named: "data")!
+            let img2 = UIImage(named: "Insurance")!
             let cell2 = cellData(title: "Insurance Data", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "My Card")
             
-            let img3 = UIImage(named: "data")!
+            let img3 = UIImage(named: "NextOfKin")!
             let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             
             cells += [cell1, cell2, cell3]
@@ -91,7 +91,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         //cell coding
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyDataTableViewCell
         let thisCell = cells[(indexPath as NSIndexPath).section]
-        cell.im_icon = UIImageView(image: thisCell.image)
+        cell.im_icon.image = thisCell.image
+        cell.im_icon.backgroundColor = UIColor(red: 0, green: 135/255.0, blue: 160/255.0, alpha: 1)
+        cell.im_icon.layer.cornerRadius = cell.im_icon.frame.width/2
         cell.l_title.text = thisCell.title
         cell.layer.cornerRadius = 30
         

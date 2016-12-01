@@ -262,7 +262,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="data" translatesAutoresizingMaskIntoConstraints="NO" id="vWy-1I-Snv">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vWy-1I-Snv">
                                                     <rect key="frame" x="8" y="10" width="68" height="69"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="69" id="Fye-9D-nfR"/>
@@ -351,7 +351,4 @@
             <point key="canvasLocation" x="675" y="538"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="data" width="78" height="79"/>
-    </resources>
 </document>
