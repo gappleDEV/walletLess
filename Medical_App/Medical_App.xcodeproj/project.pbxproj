@@ -20,8 +20,6 @@
 		F3AF14EF1CBD8711001782EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14EE1CBD8711001782EA /* Assets.xcassets */; };
 		F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */; };
 		F3AF14FD1CBD8712001782EA /* Medical_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14FC1CBD8712001782EA /* Medical_AppTests.swift */; };
-		F3AF15081CBD9AD0001782EA /* User_Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3AF15071CBD9AD0001782EA /* User_Info.plist */; };
-		F3AF150A1CBDAB43001782EA /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF15091CBDAB43001782EA /* Plist.swift */; };
 		F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +55,6 @@
 		F3AF14F81CBD8712001782EA /* Medical_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Medical_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AF14FC1CBD8712001782EA /* Medical_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medical_AppTests.swift; sourceTree = "<group>"; };
 		F3AF14FE1CBD8712001782EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3AF15071CBD9AD0001782EA /* User_Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User_Info.plist; sourceTree = "<group>"; };
-		F3AF15091CBDAB43001782EA /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,8 +130,6 @@
 				F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */,
 				F3295CA61D6604C8003EBFBB /* Cell_Data.swift */,
 				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
-				F3AF15071CBD9AD0001782EA /* User_Info.plist */,
-				F3AF15091CBDAB43001782EA /* Plist.swift */,
 				F3AF14EE1CBD8711001782EA /* Assets.xcassets */,
 				F3AF14F31CBD8711001782EA /* Info.plist */,
 				F3295CAA1D68A25A003EBFBB /* GradientView.swift */,
@@ -246,7 +240,6 @@
 				F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */,
 				F3AF14EF1CBD8711001782EA /* Assets.xcassets in Resources */,
 				F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */,
-				F3AF15081CBD9AD0001782EA /* User_Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +350,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3AF150A1CBDAB43001782EA /* Plist.swift in Sources */,
 				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
 				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
 				F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */,
