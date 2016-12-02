@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 57.852 102.07 L 57.514 102.07 Z" style="stroke: black; fill: none;"/>
+  <g transform="matrix(0.948276, 0, 0, 0.948333, 5.172407, 5.166678)">
+    <ellipse cx="100" cy="72.239" rx="31.231" ry="32.239" style="fill: rgb(255, 255, 255);"/>
+    <path d="M 42 160 C 42 128.093 67.967 102.229 100 102.229 C 132.033 102.229 158 128.093 158 160 Z" style="fill: rgb(255, 255, 255);"/>
+    <rect x="86.616" y="97.314" width="26.769" height="16.119" style="fill: rgb(255, 255, 255);"/>
+  </g>
+</svg>
