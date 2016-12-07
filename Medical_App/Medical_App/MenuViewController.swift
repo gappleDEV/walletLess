@@ -13,6 +13,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // MARK: Properties
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var b_moreInfo: UIButton!
     let cellIdentifier = "MyDataTableViewCell"
     let cellExpandHeight:CGFloat = 225
     let cellDefaultHeight:CGFloat = 90
@@ -37,6 +38,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         print("--------------------------------")*/
         
+        gl_data.helpText = "This menu allows you to choose which compartment of your wallet you'd like to enter. Click a compartment's title to have it expand and see its options."
+        
+        self.b_moreInfo.layer.borderColor = UIColor.gray.cgColor
+        self.b_moreInfo.layer.borderWidth = 2
+        self.b_moreInfo.layer.cornerRadius = self.b_moreInfo.frame.width/2
         tableView.backgroundColor = UIColor(white: 0.0, alpha: 0)        
         loadData()
     }
@@ -159,9 +165,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print("Removed button with tag: \(b.tag)")
                 }
             }
+            
             tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            
         }
         
+    }
+    @IBAction func showHelp(_ sender: Any)
+    {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "helpPopUpID") as! HelpPopupViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
     }
     
     @IBAction func addCells(_ sender: AnyObject) {
