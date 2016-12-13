@@ -52,6 +52,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(cells.count == 0)
         {
             print("Loading")
+            
             let img1 = UIImage(named: "MyInfo")!
             let cell1 = cellData(title: "Personal Data", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             
@@ -61,8 +62,29 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let img3 = UIImage(named: "NextOfKin")!
             let cell3 = cellData(title: "Next of Kin Data", image: img3, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             
-            cells += [cell1, cell2, cell3]
-            cellHeights += [cellDefaultHeight, cellDefaultHeight, cellDefaultHeight]
+            let img4 = UIImage(named: "data")!
+            let cell4 = cellData(title: "Credit Cards", image: img4, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            
+            let img5 = UIImage(named: "data")!
+            let cell5 = cellData(title: "Prescriptions", image: img5, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            
+            let img6 = UIImage(named: "data")!
+            let cell6 = cellData(title: "Membership", image: img6, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            
+            let img7 = UIImage(named: "data")!
+            let cell7 = cellData(title: "Employee Info", image: img7, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            
+            let img8 = UIImage(named: "data")!
+            let cell8 = cellData(title: "Tickets", image: img8, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            
+            let img9 = UIImage(named: "data")!
+            let cell9 = cellData(title: "Identification", image: img9, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            
+            let img10 = UIImage(named: "data")!
+            let cell10 = cellData(title: "PBA Cards", image: img10, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            
+            cells += [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9, cell10]
+            cellHeights += [cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight]
         }
         else
         {
