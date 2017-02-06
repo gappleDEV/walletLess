@@ -8,14 +8,21 @@
 
 import UIKit
 
-class InsurCardPicViewController: UIViewController, UINavigationControllerDelegate,UIImagePickerControllerDelegate
+class InsurCardPicViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate
 {
     @IBOutlet weak var im_pic: UIImageView!
     @IBOutlet weak var b_moreInfo: UIButton!
+    @IBOutlet weak var scroll_view: UIScrollView!
+    @IBOutlet weak var b_takePicture: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "table.jpg")!)
+        
+        scroll_view.layer.cornerRadius = 20
+        scroll_view.layer.borderWidth = 1.0
+        scroll_view.layer.borderColor = UIColor.white.cgColor
         
         if gl_data.insuranceCardPic != nil
         {
@@ -23,11 +30,19 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
             im_pic.image = gl_data.insuranceCardPic
         }
         
-        self.b_moreInfo.layer.borderColor = UIColor.gray.cgColor
-        self.b_moreInfo.layer.borderWidth = 2
-        self.b_moreInfo.layer.cornerRadius = self.b_moreInfo.frame.width/2
+        gl_data.helpText = "Tap the \"Take Picture\" button at the bottom to access your camera and take a picture of your insurance card. When finished you will be able to see the image you took displayed on this page"
         
-        gl_data.helpText = "Tap the \"Take Pic\" button at the bottom to access your camera and take a picture of your insurance card. When finished you will be able to see the image you took displayed on this page"
+        self.scroll_view.minimumZoomScale = 1.0
+        self.scroll_view.maximumZoomScale = 6.0
+        
+        b_takePicture.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
+        b_takePicture.layer.borderWidth = 1.0
+        b_takePicture.layer.borderColor = UIColor.white.cgColor
+        
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.im_pic
     }
     
     @IBAction func takePhoto(_ sender: AnyObject)
