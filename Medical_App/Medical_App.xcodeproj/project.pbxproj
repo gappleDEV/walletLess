@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6108CBFBCC669C3E78D9E674 /* Pods_Medical_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCFDDE72D284BC92723785E /* Pods_Medical_App.framework */; };
+		920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9202528F1E492EAF00DC979A /* InsuranceInfo.swift */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
 		CB36BA6D9B0CBAD09C1AE990 /* Pods_Medical_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BF493821F6F535142449E /* Pods_Medical_AppTests.framework */; };
@@ -39,6 +40,7 @@
 		2F9BF493821F6F535142449E /* Pods_Medical_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medical_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45236CD1F762372F1E8F1766 /* Pods-Medical_AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_AppTests/Pods-Medical_AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48F87AA1F9599C183F2808E2 /* Pods-Medical_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App.release.xcconfig"; sourceTree = "<group>"; };
+		9202528F1E492EAF00DC979A /* InsuranceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsuranceInfo.swift; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		9E51E7666EC019DD56DC70C1 /* Pods-Medical_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
 				924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */,
 				F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */,
+				9202528F1E492EAF00DC979A /* InsuranceInfo.swift */,
 				F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */,
 				F3295CA81D6607DE003EBFBB /* MenuViewController.swift */,
 				F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */,
@@ -365,6 +368,7 @@
 				924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */,
 				F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */,
 				924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */,
+				920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */,
 				F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

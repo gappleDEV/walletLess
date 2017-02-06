@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class InsurCardPicViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate
 {
@@ -39,6 +40,21 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
         b_takePicture.layer.borderWidth = 1.0
         b_takePicture.layer.borderColor = UIColor.white.cgColor
         
+        let realm = try! Realm()
+        
+        if realm.objects(InsuranceInfo.self).count == 0
+        {
+            try! realm.write {
+                realm.add(InsuranceInfo(), update: true)
+            }
+        }
+        else {
+            
+            let insInfo = realm.objects(InsuranceInfo.self).first!
+            im_pic.contentMode = .scaleAspectFit
+            im_pic.image = UIImage(data: insInfo.insuranceCard as Data,scale: 1.0)
+        }
+        
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -63,6 +79,15 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
             im_pic.contentMode = .scaleAspectFit
             im_pic.image = myImage
             gl_data.insuranceCardPic = myImage
+            
+            let data = NSData(data: UIImageJPEGRepresentation(myImage, 1.0)!)
+            
+            let realm = try! Realm()
+            let insuranceInfo = realm.objects(InsuranceInfo.self).first!
+            try! realm.write {
+                insuranceInfo.insuranceCard = data
+            }
+            
         }
         dismiss(animated: true, completion: nil)
     }
