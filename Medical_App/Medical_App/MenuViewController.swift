@@ -25,11 +25,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var b_moreInfo: UIButton!
     let cellIdentifier = "MyDataTableViewCell"
-    let cellExpandHeight:CGFloat = 225
-    let cellDefaultHeight:CGFloat = 90
+    var cellExpandHeight:CGFloat = 225
+    let cellDefaultHeight:CGFloat = 80
+    @IBOutlet weak var titleView: UIView!
+    var selectedIndex = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cellExpandHeight = self.view.frame.height - titleView.frame.height
         
         //Sets up background image
         let bgView:UIView = UIView(frame: self.view.frame)
@@ -43,6 +47,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         blackTint.backgroundColor = UIColor.black
         blackTint.layer.opacity = 0.2
         bgView.addSubview(blackTint)
+        
+        tableView.backgroundColor = UIColor(white: 0.0, alpha: 0)
+        //tableView.estimatedRowHeight = 90
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 200
         
         self.view.backgroundColor = UIColor.init(patternImage: UIImage(view: bgView))
         
@@ -66,10 +75,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         gl_data.helpText = "This menu allows you to choose which compartment of your wallet you'd like to enter. Tap a compartment's title to have it expand and see its options."
         
-        //self.b_moreInfo.layer.borderColor = UIColor.gray.cgColor
-        //self.b_moreInfo.layer.borderWidth = 2
         self.b_moreInfo.layer.cornerRadius = self.b_moreInfo.frame.width/2
-        tableView.backgroundColor = UIColor(white: 0.0, alpha: 0)        
         loadData()
     }
     
@@ -107,52 +113,45 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell9 = cellData(title: "Tickets/Vouchers", image: img9, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             
             cells += [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9]
-            cellHeights += [cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight, cellDefaultHeight]
         }
-        else
-        {
-            for i in 0 ..< cells.count
-            {
-                cellHeights[i] = cellDefaultHeight
-            }
-        }
-    }
-    
-    //number of cells
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return cells.count
-    }
-    
-    //header height
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 7.0
-    }
-    
-    //height for cell
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return cellHeights[(indexPath as NSIndexPath).section]
-        
     }
     
     //number of sections
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Number of cells in the section
-        return 1
+        return cells.count
+    }
+    
+    //header height
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    //height for cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if(selectedIndex == indexPath.row) {
+            return cellExpandHeight
+        } else {
+            return cellDefaultHeight
+        }
+        
     }
     
     //create the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //cell coding
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyDataTableViewCell
-        let thisCell = cells[(indexPath as NSIndexPath).section]
+        let thisCell = cells[(indexPath as NSIndexPath).row]
         cell.im_icon.image = thisCell.image
         cell.im_icon.backgroundColor = UIColor(red: 30/255.0, green: 144/255.0, blue: 255/255.0, alpha: 1)
         cell.im_icon.layer.cornerRadius = cell.im_icon.frame.width/2
         cell.l_title.text = thisCell.title
         cell.contentView.backgroundColor = UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 0.6)
+        
         cell.backgroundColor = UIColor.clear
-        //cell.layer.cornerRadius = 30
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.layer.borderColor = UIColor(red:0, green:0, blue:0, alpha:0.5).cgColor
         
         //Put button in the cell
         let buttonWidth:CGFloat = 64
@@ -165,10 +164,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let newButton = UIButton(frame: buttonFrame)
         newButton.layer.backgroundColor = UIColor(red: 50/255, green: 125/255, blue: 200/255, alpha: 1).cgColor
         newButton.layer.cornerRadius = buttonWidth/2
-        //newButton.layer.shadowColor = UIColor.black.cgColor
-        //newButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        //newButton.layer.shadowRadius = 2
-        //newButton.layer.shadowOpacity = 0.5
         newButton.setTitle(thisCell.navButtonTitle, for: UIControlState())
         newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 14)
         newButton.tag = (indexPath as NSIndexPath).section
@@ -179,13 +174,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    //Called when button is pressed when the table view has expanded
-    func pushNext(_ sender:UIButton)
-    {
-        let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: cells[sender.tag].storyboardId)
-        self.present(nextViewController, animated:true, completion:nil)
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
@@ -194,33 +182,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        //When selected
-        
-        cellHeights[(indexPath as NSIndexPath).section] = cellHeights[(indexPath as NSIndexPath).section] == self.cellExpandHeight ? cellDefaultHeight : self.cellExpandHeight
-        
-        if(cellHeights[(indexPath as NSIndexPath).section] == cellExpandHeight) //is to be expanded
-        {
-            tableView.beginUpdates()
-            tableView.endUpdates()
+        if(selectedIndex == indexPath.row) {
+            selectedIndex = -1
+        } else {
+            selectedIndex = indexPath.row
         }
-        else //is normal
-        {
-            print("IndexPath: \(indexPath)")
-            
-            //Removes all buttons in the table element. This way the element can be recreated without any zombie subviews
-            for b in (tableView.cellForRow(at: indexPath)!.subviews)
-            {
-                if b is UIButton
-                {
-                    b.removeFromSuperview()
-                    print("Removed button with tag: \(b.tag)")
-                }
-            }
-            
-            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            
-        }
-        
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic )
+        self.tableView.endUpdates()
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     @IBAction func showHelp(_ sender: Any)
     {
@@ -237,9 +207,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let newCell = cellData(title: "New Data", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Input Info")
         
         cells += [newCell]
-        cellHeights += [cellDefaultHeight]
         
         tableView.reloadData()
+    }
+    
+    //Called when button is pressed when the table view has expanded
+    func pushNext(_ sender:UIButton)
+    {
+        let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: cells[sender.tag].storyboardId)
+        self.present(nextViewController, animated:true, completion:nil)
     }
 
     override func didReceiveMemoryWarning() {
