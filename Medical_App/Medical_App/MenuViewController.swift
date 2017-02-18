@@ -166,7 +166,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         newButton.layer.cornerRadius = buttonWidth/2
         newButton.setTitle(thisCell.navButtonTitle, for: UIControlState())
         newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 14)
-        newButton.tag = (indexPath as NSIndexPath).section
+        newButton.tag = (indexPath as NSIndexPath).row
         newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
         cell.addSubview(newButton)
         print("Added button with title \(thisCell.navButtonTitle)")
