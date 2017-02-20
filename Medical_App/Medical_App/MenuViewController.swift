@@ -87,39 +87,78 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let img1 = UIImage(named: "MyInfo")!
             let cell1 = cellData(title: "Personal and Employement Information", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub1_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
             
             let img2 = UIImage(named: "Insurance")!
             let cell2 = cellData(title: "Insurance Information", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "My Card")
+            let sub2_1 = subCellData(text: "Health", storyboardId: "InsuranceCardPic")
+            let sub2_2 = subCellData(text: "Motor Vehicle", storyboardId: "InsuranceCardPic")
+            let sub2_3 = subCellData(text: "Home", storyboardId: "InsuranceCardPic")
+            let sub2_4 = subCellData(text: "Cards", storyboardId: "InsuranceCardPic")
+            let sub2_5 = subCellData(text: "Other", storyboardId: "PersonalInfo")
+
             
             let img3 = UIImage(named: "data")!
             let cell3 = cellData(title: "Motor Vehicle Information", image: img3, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub3_1 = subCellData(text: "License Picture", storyboardId: "InsuranceCardPic")
+            let sub3_2 = subCellData(text: "Auto Insurance Picture", storyboardId: "InsuranceCardPic")
+            let sub3_3 = subCellData(text: "Registration Picture", storyboardId: "InsuranceCardPic")
             
             let img4 = UIImage(named: "data")!
             let cell4 = cellData(title: "Credit/Debit Cards", image: img4, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub4_1 = subCellData(text: "Visa", storyboardId: "PersonalInfo")
+            let sub4_2 = subCellData(text: "Mastercard", storyboardId: "PersonalInfo")
+            let sub4_3 = subCellData(text: "American Express", storyboardId: "PersonalInfo")
+            let sub4_4 = subCellData(text: "Store Credit Cards", storyboardId: "PersonalInfo")
             
             let img5 = UIImage(named: "data")!
             let cell5 = cellData(title: "Bank Information", image: img5, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub5_1 = subCellData(text: "Checking", storyboardId: "PersonalInfo")
+            let sub5_2 = subCellData(text: "Savings", storyboardId: "PersonalInfo")
+            let sub5_3 = subCellData(text: "Other", storyboardId: "PersonalInfo")
             
             let img6 = UIImage(named: "data")!
             let cell6 = cellData(title: "Allergies/Prescriptions", image: img6, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub6_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
             
             let img7 = UIImage(named: "data")!
             let cell7 = cellData(title: "Identification Documents/Credentials", image: img7, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub7_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
             
             let img8 = UIImage(named: "data")!
             let cell8 = cellData(title: "Store Memberships/Discount Tags", image: img8, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub8_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
             
             let img9 = UIImage(named: "data")!
             let cell9 = cellData(title: "Tickets/Vouchers", image: img9, storyboardId: "PersonalInfo", navButtonTitle: "Info")
+            let sub9_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
             
             cells += [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9]
+            
+            let sub1 = [sub1_1]
+            let sub2 = [sub2_1, sub2_2, sub2_3, sub2_4, sub2_5]
+            let sub3 = [sub3_1, sub3_2, sub3_3]
+            let sub4 = [sub4_1, sub4_2, sub4_3, sub4_4]
+            let sub5 = [sub5_1, sub5_2, sub5_3]
+            let sub6 = [sub6_1]
+            let sub7 = [sub7_1]
+            let sub8 = [sub8_1]
+            let sub9 = [sub9_1]
+            
+            subCells += [sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sub9]
         }
     }
     
     //number of sections
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Number of cells in the section
-        return cells.count
+        
+        if(tableView.isEqual(self.tableView)) {
+            return cells.count
+        }
+        else {
+            return subCells[tableView.tag].count
+        }
     }
     
     //header height
@@ -130,48 +169,64 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     //height for cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if(selectedIndex == indexPath.row) {
-            return cellExpandHeight
-        } else {
-            return cellDefaultHeight
+        if(tableView.isEqual(self.tableView)) {
+            if(selectedIndex == indexPath.row) {
+                return cellExpandHeight
+            } else {
+                return cellDefaultHeight
+            }
+        }
+        else {
+            return 40
         }
         
     }
     
     //create the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //cell coding
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyDataTableViewCell
-        let thisCell = cells[(indexPath as NSIndexPath).row]
-        cell.im_icon.image = thisCell.image
-        cell.im_icon.backgroundColor = UIColor(red: 30/255.0, green: 144/255.0, blue: 255/255.0, alpha: 1)
-        cell.im_icon.layer.cornerRadius = cell.im_icon.frame.width/2
-        cell.l_title.text = thisCell.title
-        cell.contentView.backgroundColor = UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 0.6)
         
-        cell.backgroundColor = UIColor.clear
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor(red:0, green:0, blue:0, alpha:0.5).cgColor
+        if(tableView.isEqual(self.tableView)) {
+            //cell coding
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyDataTableViewCell
+            let thisCell = cells[(indexPath as NSIndexPath).row]
+            cell.im_icon.image = thisCell.image
+            cell.im_icon.backgroundColor = UIColor(red: 30/255.0, green: 144/255.0, blue: 255/255.0, alpha: 1)
+            cell.im_icon.layer.cornerRadius = cell.im_icon.frame.width/2
+            cell.l_title.text = thisCell.title
+            cell.contentView.backgroundColor = UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 0.6)
+            
+            cell.backgroundColor = UIColor.clear
+            cell.contentView.layer.borderWidth = 1.0
+            cell.contentView.layer.borderColor = UIColor(red:0, green:0, blue:0, alpha:0.5).cgColor
+            
+            
+            // 0) Placement of table
+            let tableWidth:CGFloat = tableView.frame.width * 0.8
+            let tableHeight:CGFloat = tableView.frame.height * 0.7
+            let x = tableView.frame.width * 0.1
+            let y = (cellExpandHeight - cellDefaultHeight - tableHeight) / 2 + cellDefaultHeight
+            // 1) Create UITableView
+            let cellTableView = UITableView(frame: CGRect(x: x, y: y, width: tableWidth, height: tableHeight))
+            cellTableView.delegate = self
+            cellTableView.dataSource = self
+            // 2) Set tag to allow identification between sub tables
+            cellTableView.tag = indexPath.row
+            // 3) Register the cell class for the table
+            cellTableView.register(SubCompartmentCell.self, forCellReuseIdentifier: "subCompCell")
+            // 4) Styling the table
+            cellTableView.layer.cornerRadius = 20
         
-        //Put button in the cell
-        let buttonWidth:CGFloat = 64
-        let buttonHeight:CGFloat = buttonWidth
-        let x = cell.frame.width/2 - buttonWidth/2;
-        let y = self.cellExpandHeight - 80;
-        
-        let buttonFrame = CGRect(x: x, y: y, width: buttonWidth, height: buttonHeight)
-        
-        let newButton = UIButton(frame: buttonFrame)
-        newButton.layer.backgroundColor = UIColor(red: 50/255, green: 125/255, blue: 200/255, alpha: 1).cgColor
-        newButton.layer.cornerRadius = buttonWidth/2
-        newButton.setTitle(thisCell.navButtonTitle, for: UIControlState())
-        newButton.titleLabel!.font = UIFont(name: (newButton.titleLabel!.font?.fontName)!, size: 14)
-        newButton.tag = (indexPath as NSIndexPath).row
-        newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
-        cell.addSubview(newButton)
-        print("Added button with title \(thisCell.navButtonTitle)")
+            
+            cell.addSubview(cellTableView)
 
-        return cell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subCompCell", for: indexPath) as! SubCompartmentCell
+            let thisCell = subCells[tableView.tag][(indexPath as NSIndexPath).row]
+            cell.textField.text = thisCell.text
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -182,15 +237,26 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if(selectedIndex == indexPath.row) {
-            selectedIndex = -1
+        if(tableView.isEqual(self.tableView)) {
+            if(selectedIndex == indexPath.row) {
+                selectedIndex = -1
+            } else {
+                selectedIndex = indexPath.row
+            }
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic )
+            self.tableView.endUpdates()
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         } else {
-            selectedIndex = indexPath.row
+            pushNext(subCells[tableView.tag][indexPath.row].storyboardId)
         }
-        self.tableView.beginUpdates()
-        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic )
-        self.tableView.endUpdates()
-        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        
+        /*
+         let newButton = UIButton(frame: buttonFrame)
+         newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
+         cell.addSubview(newButton)
+         print("Added button with title \(thisCell.navButtonTitle)")
+        */
     }
     @IBAction func showHelp(_ sender: Any)
     {
@@ -212,12 +278,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     //Called when button is pressed when the table view has expanded
-    func pushNext(_ sender:UIButton)
+    func pushNext(_ storyId:String)
     {
-        let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: cells[sender.tag].storyboardId)
+        let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: storyId)
         self.present(nextViewController, animated:true, completion:nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

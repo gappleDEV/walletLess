@@ -24,6 +24,7 @@
 		F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */; };
 		F3AF14FD1CBD8712001782EA /* Medical_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14FC1CBD8712001782EA /* Medical_AppTests.swift */; };
 		F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */; };
+		F3FF57071E5A26FA000EA17B /* SubCompartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FF57061E5A26FA000EA17B /* SubCompartmentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		F3AF14FC1CBD8712001782EA /* Medical_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medical_AppTests.swift; sourceTree = "<group>"; };
 		F3AF14FE1CBD8712001782EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
+		F3FF57061E5A26FA000EA17B /* SubCompartmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCompartmentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				F3AF14F31CBD8711001782EA /* Info.plist */,
 				F3295CAA1D68A25A003EBFBB /* GradientView.swift */,
 				924EEE4F1DF7C23700791FCB /* GlobalData.swift */,
+				F3FF57061E5A26FA000EA17B /* SubCompartmentCell.swift */,
 			);
 			path = Medical_App;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */,
 				920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */,
 				F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */,
+				F3FF57071E5A26FA000EA17B /* SubCompartmentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

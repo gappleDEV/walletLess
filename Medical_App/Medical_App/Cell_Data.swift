@@ -24,3 +24,15 @@ struct cellData {
 
 var cells = [cellData]()
 var cellHeights:[CGFloat] = []
+
+struct subCellData {
+    var text:String
+    var storyboardId:String
+    
+    init(text:String, storyboardId:String) {
+        self.text = text
+        self.storyboardId = storyboardId
+    }
+}
+
+var subCells = [[subCellData]]()
