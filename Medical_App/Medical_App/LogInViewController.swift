@@ -23,8 +23,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         i_password.isSecureTextEntry = true
         
-        i_email.layer.borderWidth = 0
-        i_password.layer.borderWidth = 0
+        i_email.layer.borderWidth = 1
+        i_email.layer.borderColor = UIColor.white.cgColor
+        i_password.layer.borderWidth = 1
+        i_password.layer.borderColor = UIColor.white.cgColor
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

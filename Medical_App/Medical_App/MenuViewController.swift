@@ -27,6 +27,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     let cellIdentifier = "MyDataTableViewCell"
     var cellExpandHeight:CGFloat = 225
     let cellDefaultHeight:CGFloat = 80
+    let subCellHeight:CGFloat = 40
     @IBOutlet weak var titleView: UIView!
     var selectedIndex = -1
     
@@ -171,13 +172,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if(tableView.isEqual(self.tableView)) {
             if(selectedIndex == indexPath.row) {
+                tableView.isScrollEnabled = false
                 return cellExpandHeight
             } else {
+                tableView.isScrollEnabled = true
                 return cellDefaultHeight
             }
         }
         else {
-            return 40
+            return subCellHeight
         }
         
     }
@@ -199,7 +202,18 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.contentView.layer.borderWidth = 1.0
             cell.contentView.layer.borderColor = UIColor(red:0, green:0, blue:0, alpha:0.5).cgColor
             
-            
+            let currCell = cell.subviews
+            print("Count for row \(indexPath.row): \(currCell.count)")
+            if(currCell.count > 2) {
+                for s in currCell {
+                    if (s is UITableView) {
+                        s.removeFromSuperview()
+                        print("deleted: \(s)")
+                    } else {
+                        print("Keeping: \(s)")
+                    }
+                }
+            }
             // 0) Placement of table
             let tableWidth:CGFloat = tableView.frame.width * 0.8
             let tableHeight:CGFloat = tableView.frame.height * 0.7
@@ -214,17 +228,26 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             // 3) Register the cell class for the table
             cellTableView.register(SubCompartmentCell.self, forCellReuseIdentifier: "subCompCell")
             // 4) Styling the table
-            cellTableView.layer.cornerRadius = 15
+            //cellTableView.layer.cornerRadius = 15
+            cellTableView.backgroundColor = UIColor(white: 1, alpha: 0.5)
+            cellTableView.layer.borderWidth = 1.0
+            cellTableView.layer.borderColor = UIColor(red:0, green:0, blue:0, alpha:0.5).cgColor
         
-            
+            print("subview added/n")
             cell.addSubview(cellTableView)
 
             return cell
         } else {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "subCompCell", for: indexPath) as! SubCompartmentCell
             let thisCell = subCells[tableView.tag][(indexPath as NSIndexPath).row]
             cell.textField.text = thisCell.text
-            cell.textField.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40)
+            cell.textField.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: subCellHeight)
+            cell.textField.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+            
+            cell.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+            cell.contentView.layer.borderWidth = 1.0
+            cell.contentView.layer.borderColor = UIColor(red:0, green:0, blue:0, alpha:0.5).cgColor
             
             cell.separatorInset = UIEdgeInsets.zero
             cell.layoutMargins = UIEdgeInsets.zero
@@ -247,6 +270,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 selectedIndex = indexPath.row
             }
+            
+            print(indexPath)
+            /*for i in 0 ..< cells.count {
+                let thisCell = tableView.cellForRow(at: IndexPath(row: i, section: 0))
+                if(thisCell != nil) {
+                    let subs = thisCell!.subviews
+                    for s in subs {
+                        if (s is UITableView) {
+                            s.removeFromSuperview()
+                            print("deleted: \(s)")
+                        } else {
+                            print("Keeping: \(s)")
+                        }
+                    }
+                }
+            }*/
+            
             self.tableView.beginUpdates()
             self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic )
             self.tableView.endUpdates()
