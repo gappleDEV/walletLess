@@ -202,7 +202,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // 0) Placement of table
             let tableWidth:CGFloat = tableView.frame.width * 0.8
-            print("Table width: \(tableWidth)")
             let tableHeight:CGFloat = tableView.frame.height * 0.7
             let x = tableView.frame.width * 0.1
             let y = (cellExpandHeight - cellDefaultHeight - tableHeight) / 2 + cellDefaultHeight
@@ -225,6 +224,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "subCompCell", for: indexPath) as! SubCompartmentCell
             let thisCell = subCells[tableView.tag][(indexPath as NSIndexPath).row]
             cell.textField.text = thisCell.text
+            cell.textField.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40)
             
             cell.separatorInset = UIEdgeInsets.zero
             cell.layoutMargins = UIEdgeInsets.zero
