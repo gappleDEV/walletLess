@@ -87,7 +87,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let img1 = UIImage(named: "MyInfo")!
             let cell1 = cellData(title: "Personal and Employement Information", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub1_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
+            let sub1_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
             let img2 = UIImage(named: "Insurance")!
             let cell2 = cellData(title: "Insurance Information", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "My Card")
@@ -119,19 +119,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let img6 = UIImage(named: "data")!
             let cell6 = cellData(title: "Allergies/Prescriptions", image: img6, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub6_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
+            let sub6_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
             let img7 = UIImage(named: "data")!
             let cell7 = cellData(title: "Identification Documents/Credentials", image: img7, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub7_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
+            let sub7_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
             let img8 = UIImage(named: "data")!
             let cell8 = cellData(title: "Store Memberships/Discount Tags", image: img8, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub8_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
+            let sub8_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
             let img9 = UIImage(named: "data")!
             let cell9 = cellData(title: "Tickets/Vouchers", image: img9, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub9_1 = subCellData(text: "Info", storyboardId: "PersonalInfo")
+            let sub9_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
             cells += [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9]
             
@@ -202,6 +202,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // 0) Placement of table
             let tableWidth:CGFloat = tableView.frame.width * 0.8
+            print("Table width: \(tableWidth)")
             let tableHeight:CGFloat = tableView.frame.height * 0.7
             let x = tableView.frame.width * 0.1
             let y = (cellExpandHeight - cellDefaultHeight - tableHeight) / 2 + cellDefaultHeight
@@ -214,7 +215,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             // 3) Register the cell class for the table
             cellTableView.register(SubCompartmentCell.self, forCellReuseIdentifier: "subCompCell")
             // 4) Styling the table
-            cellTableView.layer.cornerRadius = 20
+            cellTableView.layer.cornerRadius = 15
         
             
             cell.addSubview(cellTableView)
@@ -224,6 +225,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "subCompCell", for: indexPath) as! SubCompartmentCell
             let thisCell = subCells[tableView.tag][(indexPath as NSIndexPath).row]
             cell.textField.text = thisCell.text
+            
+            cell.separatorInset = UIEdgeInsets.zero
+            cell.layoutMargins = UIEdgeInsets.zero
             
             return cell
         }
@@ -251,12 +255,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             pushNext(subCells[tableView.tag][indexPath.row].storyboardId)
         }
         
-        /*
-         let newButton = UIButton(frame: buttonFrame)
-         newButton.addTarget(self, action: #selector(MenuViewController.pushNext(_:)), for: .touchUpInside)
-         cell.addSubview(newButton)
-         print("Added button with title \(thisCell.navButtonTitle)")
-        */
     }
     @IBAction func showHelp(_ sender: Any)
     {

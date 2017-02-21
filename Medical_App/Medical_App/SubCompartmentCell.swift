@@ -18,7 +18,8 @@ class SubCompartmentCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         //Initialize Text Field
-        self.textField = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        self.textField = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width - 20, height: self.frame.height))
+        print(self.frame.width)
         self.textField.textAlignment = .center
         
         //Add TextField to SubView

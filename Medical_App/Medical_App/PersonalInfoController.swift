@@ -729,53 +729,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func sendInfo()
     {
-        print("called")
-        /*if(g_plist != nil)
-        {
-            let dict = g_plist!.getMutablePlistFile()!
-            let ipAddr = "http://155.246.138.11:1380/data"
-            var parameters = [
-                FirstNameKey: dict[FirstNameKey]!,
-                MiddleNameKey: dict[MiddleNameKey]!,
-                LastNameKey: dict[LastNameKey]!]
-            Alamofire.request(.POST, ipAddr, parameters: parameters)
-            parameters = [
-                MotherFirstNameKey: dict[MotherFirstNameKey]!,
-                MotherMiddleNameKey: dict[MotherMiddleNameKey]!,
-                MotherLastNameKey: dict[MotherLastNameKey]!]
-                parameters = [
-                BirthYearKey: dict[BirthYearKey]!,
-                BirthMonthKey: dict[BirthMonthKey]!,
-                BirthDayKey: dict[BirthDayKey]!]
-            Alamofire.request(.POST, ipAddr, parameters: parameters)
-            parameters = [
-                MarStatusKey: dict[MarStatusKey]!,
-                SexKey: dict[SexKey]!,
-                RaceKey: dict[RaceKey]!,
-                DenomKey: dict[DenomKey]!,
-                PrefLangKey: dict[PrefLangKey]!,
-                SocialSecNumKey: dict[SocialSecNumKey]!]
-            Alamofire.request(.POST, ipAddr, parameters: parameters)
-            parameters = [
-                AddrKey: dict[AddrKey]!,
-                ZipKey: dict[ZipKey]!,
-                CountKey: dict[CountKey]!,
-                HomePhoneKey: dict[HomePhoneKey]!,
-                WorkPhoneKey: dict[WorkPhoneKey]!,
-                CellPhoneKey: dict[CellPhoneKey]!]
-            Alamofire.request(.POST, ipAddr, parameters: parameters)
-        }*/
-        /*Alamofire.request(.GET, "https://155.264.138.11/data", parameters: ["name": "bar"])
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
-        }*/
+        /*print("called")
+        let postInfo = ["user_id":"gregoryjohnson008@gmail.com", "password":"1234"]
+        Alamofire.request("http://155.246.138.144:3000/users", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON { response in debugPrint(response) }*/
     }
     
     //Back clicked
