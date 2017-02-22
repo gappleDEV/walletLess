@@ -36,7 +36,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signIn(_ sender: Any) {
         
-        Alamofire.request("http://155.246.138.144:3000/users").responseString {
+        Alamofire.request("http://155.246.138.185:3000/users").responseString {
             response in
             
             switch (response.result) {
@@ -62,7 +62,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func register(_ sender: Any) {
         let postInfo = ["user_id":i_email.text, "password":i_password.text]
-        Alamofire.request("http://155.246.138.144:3000/users", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request("http://155.246.138.185:3000/users", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON {
             response in
             
             debugPrint(response)

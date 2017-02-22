@@ -41,14 +41,21 @@
 using namespace realm;
 
 void RLMRealmCreateAccessors(RLMSchema *schema) {
+    const size_t bufferSize = sizeof("RLM:Managed  ") // includes null terminator
+                            + std::numeric_limits<unsigned long long>::digits10
+                            + realm::Group::max_table_name_length;
+
+    char className[bufferSize] = "RLM:Managed ";
+    char *const start = className + strlen(className);
+
     for (RLMObjectSchema *objectSchema in schema.objectSchema) {
         if (objectSchema.accessorClass != objectSchema.objectClass) {
             continue;
         }
 
         static unsigned long long count = 0;
-        NSString *prefix = [NSString stringWithFormat:@"RLMAccessor_%llu_", count++];
-        objectSchema.accessorClass = RLMAccessorClassForObjectClass(objectSchema.objectClass, objectSchema, prefix);
+        sprintf(start, "%llu %s", count++, objectSchema.className.UTF8String);
+        objectSchema.accessorClass = RLMManagedAccessorClassForObjectClass(objectSchema.objectClass, objectSchema, className);
     }
 }
 
@@ -198,7 +205,7 @@ static NSUInteger createRowForObjectWithPrimaryKey(RLMClassInfo const& info, id 
                     row.set_null(primaryColumnIndex); // FIXME: Use `set_null_unique` once Core supports it
                 }
                 break;
-                
+
             default:
                 REALM_UNREACHABLE();
         }
@@ -262,7 +269,7 @@ static NSUInteger createOrGetRowForObject(RLMClassInfo const& info, F valueForPr
 }
 
 void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
-                         __unsafe_unretained RLMRealm *const realm, 
+                         __unsafe_unretained RLMRealm *const realm,
                          bool createOrUpdate) {
     RLMVerifyInWriteTransaction(realm);
 
@@ -301,6 +308,10 @@ void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
 
     // populate all properties
     for (RLMProperty *prop in info.rlmObjectSchema.properties) {
+        // skip primary key when updating since it doesn't change
+        if (prop.isPrimary)
+            continue;
+
         // get object from ivar using key value coding
         id value = nil;
         if (prop.swiftIvar) {
@@ -330,10 +341,6 @@ void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
                 ((void(*)(id, SEL, id))objc_msgSend)(object, prop.setterSel, nil);
             }
         }
-
-        // skip primary key when updating since it doesn't change
-        if (prop.isPrimary)
-            continue;
 
         // set in table with out validation
         RLMDynamicSet(object, prop, RLMCoerceToNil(value), creationOptions);

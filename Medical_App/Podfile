@@ -6,7 +6,7 @@ target 'Medical_App' do
   use_frameworks!
 
   # Pods for Medical_App
-  pod 'Alamofire', '~> 4.0’
+  pod 'Alamofire', '~> 4.3’
   pod ‘RealmSwift’
 
   target 'Medical_AppTests' do
