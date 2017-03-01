@@ -13,7 +13,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
-//var routes = require('./routes/index');
 var users = require('./routes/users');
 var user_info = require('./routes/user_info');
 
@@ -30,7 +29,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public'))); //using Web_App foler instead
 app.use(express.static(path.join(__dirname + '/Web_App'))); //serves webapp that greg made
 app.use('/users', users); //url for requests to users table in db
 
