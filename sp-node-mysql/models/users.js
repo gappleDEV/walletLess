@@ -2,6 +2,7 @@
 ** WALLETLESS LLC
 ** DATE LAST EDITED: 3/1/2017
 ** NOTES: MODEL CREATED TO DEFINE FUNCTIONS TO QUERY USERS TABLE IN walletlessDB
+** TODO: WANT TO USE MD5 TO ENCRYPT PASSWORD, NOT OK TO STORE RAW PASSWORD IN DB
 */
 
 var db = require('../dbconn'); //reference to dbconn.js file to conenct to database
