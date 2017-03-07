@@ -13,6 +13,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
+//require routes written in routes directory
 var users = require('./routes/users');
 var user_info = require('./routes/user_info');
 
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname + '/Web_App'))); //serves webapp that greg made
 app.use('/users', users); //url for requests to users table in db
+app.use('/user_info', user_info); //url for requests to user_info table in db
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
