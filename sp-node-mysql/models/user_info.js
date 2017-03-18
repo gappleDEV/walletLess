@@ -10,7 +10,7 @@ var user_info={
   //function to add user_info to user_info table
   //this will only work if the user_id (PK and FK) matches an existing user_id in the users table
   addUserInfo:function(Info, callback){
-    return db.query("insert into users values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[
+    return db.query("insert into user_info values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[
       Info.user_id,
       Info.first_name,
       Info.last_name,
@@ -23,7 +23,6 @@ var user_info={
       Info.sex,
       Info.race,
       Info.religion,
-      Info.user_infocol,
       Info.ssn,
       Info.address,
       Info.city,
@@ -49,7 +48,7 @@ var user_info={
       Info.emergency_contact_phone,
       Info.guarantor_name,
       Info.guarantor_addr,
-      Info.uarantor_phone,
+      Info.guarantor_phone,
       Info.guarantor_relationship,
       Info.guarantor_ssn,
       Info.guarantor_dob,
@@ -66,7 +65,7 @@ var user_info={
   },
   //function to query user_info table to update data by id
   updateUserInfo:function(id, Info, callback){
-    return db.query("update user_info set first_name=?, last_name=?, middle_name=?, dob=?, mom_first_name=?, mom_middle_name=?, mom_last_name=?, marital_status=?, sex=?, race=?, religion=?, user_infocol=?, ssn=?, address=?, city=?, county=?, state=?, country=?, zip_code=?, county_code=?, home_phone=?, cell_phone=?, work_phone=?, prim_care_phys_name=?, prim_care_phys_addr=?, prim_care_phys_phone=?, nok_first_name=?, nok_last_name=?, nok_relationship=?, nok_cell_phone=?, nok_home_phone=?, emergency_contact_name=?, emergency_contact_addr=?, emergency_contact_relationship=?, emergency_contact_phone=?, guarantor_name=?, guarantor_addr=?, uarantor_phone=?, guarantor_relationship=?, guarantor_ssn=?, guarantor_dob=?, employer_company=?, employer_addr=?, employer_phone=?, employee_title=?, employer_hr_contact_name=?, Info.employer_hr_contact_phone where user_id=?",
+    return db.query("update user_info set first_name=?, last_name=?, middle_name=?, dob=?, mom_first_name=?, mom_middle_name=?, mom_last_name=?, marital_status=?, sex=?, race=?, religion=?, ssn=?, address=?, city=?, county=?, state=?, country=?, zip_code=?, county_code=?, home_phone=?, cell_phone=?, work_phone=?, prim_care_phys_name=?, prim_care_phys_addr=?, prim_care_phys_phone=?, nok_first_name=?, nok_last_name=?, nok_relationship=?, nok_cell_phone=?, nok_home_phone=?, emergency_contact_name=?, emergency_contact_addr=?, emergency_contact_relationship=?, emergency_contact_phone=?, guarantor_name=?, guarantor_addr=?, uarantor_phone=?, guarantor_relationship=?, guarantor_ssn=?, guarantor_dob=?, employer_company=?, employer_addr=?, employer_phone=?, employee_title=?, employer_hr_contact_name=?, Info.employer_hr_contact_phone where user_id=?",
                     [Info.first_name,
                     Info.last_name,
                     Info.middle_name,
@@ -78,7 +77,6 @@ var user_info={
                     Info.sex,
                     Info.race,
                     Info.religion,
-                    Info.user_infocol,
                     Info.ssn,
                     Info.address,
                     Info.city,
