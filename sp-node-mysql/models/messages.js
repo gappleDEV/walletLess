@@ -18,19 +18,26 @@ var messages = {
       Message.body,
       Message.creat_date,
       Message.is_read], callback);
-  }
-
+  },
   //select * from messages table by either message sender or receiver
-  //getMsgBySndr
-  //getMsgbyRcvr
+  getMsgBySndr:function(id, callback){
+    return db.query("select * from messages where sender_id=?", [id], callback);
+  },
+  getMsgByRcvr:function(id, callback){
+    return db.query("select * from messages where receiver_id=?", [id], callback);
+  },
 
   //update the is_read column of the messages table once the message is read
-  //updateIsRead
+  updateIsRead:function(id, Message, callback){
+    return db.query("update messages set is_read=? where message_id=?", [Message.is_read, id], callback);
+  },
 
   //delete message from the database
   //not really so sure about this one cause if both/all parties dont delete the message we dont want to delete it from the db table
-  //deleteMessage
-
+  //just gonna write the function to delete it anyway
+  deleteMessage:function(id, callback){
+    return db.query("delete from messages where message_id=?", [id], callback);
+  }
 }
 
 module.exports = messages; //export function definitions for use in route definitions
