@@ -9,14 +9,14 @@ var express = require('express'),
     messages = require('../models/messages.js'); //reference to messages function models in models directory
 
 //router.get for both sender and receiver columns, getting all columns from db (select *)
-router.get('/sender/id', function(req, res, next){
+router.get('/sender/:id', function(req, res, next){
   //should only be getting by id, we dont want to get all from user_info table
   messages.getMsgBySndr(req.params.id, function(err, rows){
     if(err){res.json(err);}
     else{res.json(rows);}
   });
 });
-router.get('/receiver/id', function(req, res, next){
+router.get('/receiver/:id', function(req, res, next){
   //should only be getting by id, we dont want to get all from user_info table
   messages.getMsgByRcvr(req.params.id, function(err, rows){
     if(err){res.json(err);}
