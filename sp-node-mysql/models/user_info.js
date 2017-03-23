@@ -59,6 +59,10 @@ var user_info={
       Info.employer_hr_contact_name,
       Info.employer_hr_contact_phone], callback);
   },
+  //get all users in user_info table cause greg sux
+  getAllUserInfo:function(callback){
+    return db.query("select * from user_info", callback);
+  },
   //function to query user_info table for data by id
   getUserInfo:function(id, callback){
     return db.query("select * from user_info where user_id=?", [id], callback);

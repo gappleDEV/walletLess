@@ -9,12 +9,20 @@ var express = require('express'),
     user_info = require('../models/user_info'); //reference to user_info models in models folder
 
 //get route to get info from user_info table
-router.get('/:id', function(req, res, next){
+router.get('/:id?', function(req, res, next){
   //should only be getting by id, we dont want to get all from user_info table
-  user_info.getUserInfo(req.params.id, function(err, rows){
-    if(err){res.json(err);}
-    else{res.json(rows);}
-  });
+  if(req.params.id){
+    user_info.getUserInfo(req.params.id, function(err, rows){
+      if(err){res.json(err);}
+      else{res.json(rows);}
+    });
+  }
+  else{
+    user_info.getAllUserInfo(function(err, rows){
+      if(err){res.json(err);}
+      else{res.json(rows);}
+    });
+  }
 });
 
 router.post('/', function(req, res, next){
