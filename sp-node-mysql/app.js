@@ -31,7 +31,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname + '/Web_App'))); //serves webapp that greg made
+app.use(express.static(path.join(__dirname + '/Web_App/Web_Portal/WebContent'))); //serves webapp that greg made
 app.use('/users', users); //url for requests to users table in db
 app.use('/user_info', user_info); //url for requests to user_info table in db
 app.use('/messages', messages); //url for requests to messages table in db
