@@ -61,14 +61,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func register(_ sender: Any) {
-        let postInfo = ["user_id":i_email.text, "password":i_password.text]
+        /*let postInfo = ["user_id":i_email.text, "password":i_password.text]
         Alamofire.request("http://155.246.138.185:3000/users", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON {
             response in
             
-            debugPrint(response)
+            debugPrint(response)*/
             let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuScene")
             self.present(nextViewController, animated:true, completion:nil)
-        }
+        //}
     }
     
     override func didReceiveMemoryWarning() {
