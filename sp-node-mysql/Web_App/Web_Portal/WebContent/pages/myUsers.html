@@ -93,7 +93,7 @@
 			<!-- /.navbar-static-side -->
 		</nav>
 
-		<div id="page-wrapper" ng-app="usersApp">
+		<div id="page-wrapper" ng-app="usersApp" ng-controller="usersListCrtl">
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">My Users</h1>
@@ -119,10 +119,11 @@
 										<th>Cell Number</th>
 									</tr>
 								</thead>
-								<tbody ng:repeat="i in userData">
+								<tbody ng-repeat="i in userData">
 									<tr>
+									  
 										<td>{{i.user_id}}</td>
-										<td>"{{i.last_name}},{{i.first_name}} {{i.middle_name}}"</td>
+										<td>{{i.last_name}},{{i.first_name}} {{i.middle_name}}</td>
 										<td>{{i.dob}}</td>
 										<td>{{i.race}}</td>
 										<td>{{i.cell_phone}}</td>
@@ -145,6 +146,7 @@
 
 	<!-- AngularJS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 
 	<!-- jQuery -->
 	<script src="../vendor/jquery/jquery.min.js"></script>
