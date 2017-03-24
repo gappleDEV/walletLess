@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 struct messageInfo {
     var from:String = ""
@@ -30,19 +31,25 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
             response in
             //print(response)
             switch response.result {
-            case .success(let data):
+            case .success(_):
                 print("Success")
-                if let json = response.result.value as? [String: Any] {
-                    print(json)
-                    
-                    for item in json {
-                        print("Item: \(item)")
+                let myJson = JSON(response.result.value!)
+                let count = myJson.count
+                for i in 0...count {
+                    if myJson[i]["sender_id"].string != nil {
+                        let from = myJson[i]["sender_id"].string!
+                        let subject = myJson[i]["subject"].string!
+                        let body = myJson[i]["body"].string!
+                        
+                        let m:messageInfo = messageInfo(from: from, subject: subject, body: body)
+                        
+                        self.myMessages += [m]
                     }
-                } else {
-                    print("Can't make json")
                 }
-            case .failure(let error):
-                print("Request failed with error: \(error)")
+                print(self.myMessages)
+                self.table_messages.reloadData()
+            case .failure(_):
+                print("Request failed")
             }
             
         }

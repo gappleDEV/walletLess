@@ -8,6 +8,7 @@ target 'Medical_App' do
   # Pods for Medical_App
   pod 'Alamofire', '~> 4.3’
   pod ‘RealmSwift’
+  pod 'SwiftyJSON'
 
   target 'Medical_AppTests' do
     inherit! :search_paths

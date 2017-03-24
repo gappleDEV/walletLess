@@ -86,11 +86,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         {
             print("Loading")
             
-            let img1 = UIImage(named: "MyInfo")!
+            let img1 = UIImage(named: "personalInfo")!
             let cell1 = cellData(title: "Personal and Employement Information", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub1_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
-            let img2 = UIImage(named: "Insurance")!
+            let img2 = UIImage(named: "insurance")!
             let cell2 = cellData(title: "Insurance Information", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "My Card")
             let sub2_1 = subCellData(text: "Health", storyboardId: "InsuranceCardPic")
             let sub2_2 = subCellData(text: "Motor Vehicle", storyboardId: "InsuranceCardPic")
@@ -99,38 +99,38 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let sub2_5 = subCellData(text: "Other", storyboardId: "PersonalInfo")
 
             
-            let img3 = UIImage(named: "data")!
+            let img3 = UIImage(named: "motorVehicleInformation")!
             let cell3 = cellData(title: "Motor Vehicle Information", image: img3, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub3_1 = subCellData(text: "License Picture", storyboardId: "InsuranceCardPic")
             let sub3_2 = subCellData(text: "Auto Insurance Picture", storyboardId: "InsuranceCardPic")
             let sub3_3 = subCellData(text: "Registration Picture", storyboardId: "InsuranceCardPic")
             
-            let img4 = UIImage(named: "data")!
+            let img4 = UIImage(named: "creditCards")!
             let cell4 = cellData(title: "Credit/Debit Cards", image: img4, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub4_1 = subCellData(text: "Visa", storyboardId: "PersonalInfo")
             let sub4_2 = subCellData(text: "Mastercard", storyboardId: "PersonalInfo")
             let sub4_3 = subCellData(text: "American Express", storyboardId: "PersonalInfo")
             let sub4_4 = subCellData(text: "Store Credit Cards", storyboardId: "PersonalInfo")
             
-            let img5 = UIImage(named: "data")!
+            let img5 = UIImage(named: "bank")!
             let cell5 = cellData(title: "Bank Information", image: img5, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub5_1 = subCellData(text: "Checking", storyboardId: "PersonalInfo")
             let sub5_2 = subCellData(text: "Savings", storyboardId: "PersonalInfo")
             let sub5_3 = subCellData(text: "Other", storyboardId: "PersonalInfo")
             
-            let img6 = UIImage(named: "data")!
+            let img6 = UIImage(named: "allergies")!
             let cell6 = cellData(title: "Allergies/Prescriptions", image: img6, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub6_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
-            let img7 = UIImage(named: "data")!
+            let img7 = UIImage(named: "idDoc")!
             let cell7 = cellData(title: "Identification Documents/Credentials", image: img7, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub7_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
-            let img8 = UIImage(named: "data")!
+            let img8 = UIImage(named: "discountTag")!
             let cell8 = cellData(title: "Store Memberships/Discount Tags", image: img8, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub8_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
-            let img9 = UIImage(named: "data")!
+            let img9 = UIImage(named: "tickets")!
             let cell9 = cellData(title: "Tickets/Vouchers", image: img9, storyboardId: "PersonalInfo", navButtonTitle: "Info")
             let sub9_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
             
