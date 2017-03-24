@@ -41,8 +41,8 @@ class PersonalInfo: Object {
     
     //View 7
     dynamic var address:String = ""
-    dynamic var zipCode:String = ""
-    dynamic var countyCode:String = ""
+    dynamic var zipCode:Int = 12345
+    dynamic var countyCode:Int = 12345
     
     //View 8
     dynamic var homePhone:String = ""

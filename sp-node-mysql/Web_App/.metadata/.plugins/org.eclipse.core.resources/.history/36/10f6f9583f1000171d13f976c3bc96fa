@@ -5,8 +5,8 @@ postApp.controller('sendMessageController', function($scope, $http) {
 	// calling our submit function.
 	$scope.submitForm = function() {
 		var myData = {};
-		myData["message_id"] = 8;
-		myData["sender_id"] = "admin@admin.com";
+		myData["message_id"] = 13;
+		myData["sender_id"] = "newEmail";
 		myData["receiver_id"] = document.getElementById("username").value;
 		myData["subject"] = document.getElementById("subject").value;
 		myData["body"] = document.getElementById("messageBody").value;

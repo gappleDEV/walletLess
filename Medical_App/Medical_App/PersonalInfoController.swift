@@ -485,8 +485,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputBottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height)
                     
                     self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.address, placeholder: "Address", realm: realm)
-                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.zipCode, placeholder: "ZIP Code", realm: realm)
-                    self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.countyCode, placeholder: "County Code", realm: realm)
+                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: "\(personInfo.zipCode)", placeholder: "ZIP Code", realm: realm)
+                    self.fillTextInputFromRealm(self.i_textInputBottom, value: "\(personInfo.countyCode)", placeholder: "County Code", realm: realm)
                     
                 case 7: //Home phone, cell phone and work phone - 3 text input and 3 labels
                     let height = self.viewHeight * 0.07     //height of each text input is 8% of view height
@@ -494,6 +494,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     let width = self.viewWidth * 0.8        //width of each text input is 80% of the view width
                     
                     let beginX = self.viewWidth * 0.5       //starts each subview's leftmost side at the center
+                    
+                    self.i_textInputBottom.keyboardType = UIKeyboardType.numberPad
                     
                     self.l_top.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight)
                     self.l_middle.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultMiddle - labelHeight, width: width, height: labelHeight)
@@ -706,8 +708,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
             let personInfo = realm.objects(PersonalInfo.self).first!
             try! realm.write {
                 personInfo.address = self.i_textInputTop!.text!
-                personInfo.zipCode = self.i_textInputMiddle!.text!
-                personInfo.countyCode = self.i_textInputBottom!.text!
+                personInfo.zipCode = Int(self.i_textInputMiddle!.text!)!
+                personInfo.countyCode = Int(self.i_textInputBottom!.text!)!
             }
             print("case 6")
         case 7:
@@ -729,9 +731,36 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func sendInfo()
     {
-        /*print("called")
-        let postInfo = ["user_id":"gregoryjohnson008@gmail.com", "password":"1234"]
-        Alamofire.request("http://155.246.138.144:3000/users", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON { response in debugPrint(response) }*/
+        print("called")
+        let realm = try! Realm()
+        let personInfo = realm.objects(PersonalInfo.self).first!
+        
+        let postInfo = [
+            "user_id":gl_data.myUsername,
+            "first_name": personInfo.firstName,
+            "last_name": personInfo.lastName,
+            "middle_name": personInfo.middleName,
+            //"dob": "\(personInfo.birthMonth)/\(personInfo.birthDay)/\(personInfo.birthYear)",
+            "mom_first_name": personInfo.motherFirstName,
+            "mom_middle_name": personInfo.motherMiddleName,
+            "mom_last_name": personInfo.motherLastName,
+            "marital_status": personInfo.maritalStatus,
+            "sex": personInfo.sex,
+            "religion": personInfo.denomination,
+            "ssn": personInfo.socialSecurity,
+            "address": personInfo.address,
+            //"state": personInfo.state,
+            //"country": personInfo.firstName,
+            "zip_code": personInfo.zipCode,
+            "county_code": personInfo.countyCode,
+            "home_phone": personInfo.homePhone,
+            "cell_phone": personInfo.cellPhone,
+            "work_phone": personInfo.workPhone
+        ] as [String : Any]
+        Alamofire.request("http://155.246.138.85:3000/user_info", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON {
+            response in
+            
+            debugPrint(response) }
     }
     
     //Back clicked
