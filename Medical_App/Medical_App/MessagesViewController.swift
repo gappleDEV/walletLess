@@ -76,7 +76,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     //height for cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 125
     }
     
     //create the cell
