@@ -358,6 +358,10 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.l_bottom.text = "Mother's Maiden Last Name"
                     self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.motherLastName, placeholder: "Mother's Maiden Last Name", realm: realm)
 
+                    self.i_textInputTop.keyboardType = UIKeyboardType.default
+                    self.i_textInputMiddle.keyboardType = UIKeyboardType.default
+                    self.i_textInputBottom.keyboardType = UIKeyboardType.default
+                    
                     self.b_back.isEnabled = true
                     
                 case 2: //Date of Birth - 1 date picker
@@ -483,10 +487,22 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputTop.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop, width: width, height: height)
                     self.i_textInputMiddle.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle, width: width, height: height)
                     self.i_textInputBottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height)
+                    self.i_textInputBottom.keyboardType = UIKeyboardType.numberPad
                     
                     self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.address, placeholder: "Address", realm: realm)
-                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: "\(personInfo.zipCode)", placeholder: "ZIP Code", realm: realm)
-                    self.fillTextInputFromRealm(self.i_textInputBottom, value: "\(personInfo.countyCode)", placeholder: "County Code", realm: realm)
+                    if personInfo.zipCode != 12345 {
+                        self.fillTextInputFromRealm(self.i_textInputMiddle, value: "\(personInfo.zipCode)", placeholder: "ZIP Code", realm: realm)
+                    } else {
+                        self.i_textInputMiddle.placeholder = "ZIP Code"
+                        self.i_textInputMiddle.text = ""
+                    }
+                    if personInfo.zipCode != 12345 {
+                        self.fillTextInputFromRealm(self.i_textInputBottom, value: "\(personInfo.countyCode)", placeholder: "County Code", realm: realm)
+                    } else {
+                        self.i_textInputBottom.placeholder = "County Code"
+                        self.i_textInputBottom.text = ""
+                    }
+                    
                     
                 case 7: //Home phone, cell phone and work phone - 3 text input and 3 labels
                     let height = self.viewHeight * 0.07     //height of each text input is 8% of view height
@@ -495,7 +511,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     
                     let beginX = self.viewWidth * 0.5       //starts each subview's leftmost side at the center
                     
-                    self.i_textInputBottom.keyboardType = UIKeyboardType.numberPad
+                    
                     
                     self.l_top.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultTop - labelHeight, width: width, height: labelHeight)
                     self.l_middle.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultMiddle - labelHeight, width: width, height: labelHeight)
@@ -506,8 +522,10 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.l_bottom.text = "Work Phone"
                     
                     self.i_textInputTop.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop, width: width, height: height)
+                    self.i_textInputTop.keyboardType = UIKeyboardType.numberPad
                     self.i_textInputMiddle.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle, width: width, height: height)
                     self.i_textInputBottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height)
+                    self.i_textInputBottom.keyboardType = UIKeyboardType.numberPad
                     
                     self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.homePhone, placeholder: "Home Phone Number", realm: realm)
                     self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.cellPhone, placeholder: "Cell Phone Number", realm: realm)
