@@ -1,0 +1,20 @@
+$("#submit").submit(function() {
+	console.log("Submitting...");
+	$.post(
+		'http://155.246.138.85:3000/messages',
+		[
+			{
+				message_id: 1,
+				sender_id: 123,
+				receiver_id: $("#username").val(),
+				subject: $("#subject").val(),
+				body: $("#messageBody").val(),
+				create_date: new Date(),
+				is_read: 0
+			}
+		],
+		function(data, status) {
+			console.log(data);
+		}
+	);
+});

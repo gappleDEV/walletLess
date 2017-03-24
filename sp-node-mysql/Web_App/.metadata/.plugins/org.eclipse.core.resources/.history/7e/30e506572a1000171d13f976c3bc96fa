@@ -1,0 +1,24 @@
+$("#messageForm").submit(function(event) {
+	console.log("Submitting...");
+	console.log("Username: " + docuement.getElementByClassName("username").value);
+	console.log("Subject: " + $("#subject").val());
+	console.log("Body: " + $("#messageBody").val());
+	$.post(
+		'http://155.246.138.85:3000/messages',
+		[
+			{
+				message_id: 1,
+				sender_id: 123,
+				receiver_id: docuement.getElementByClassName("username").value,
+				subject: $("#subject").val(),
+				body: $("#messageBody").val(),
+				create_date: new Date(),
+				is_read: 0
+			}
+		],
+		function(data, status) {
+			console.log(data);
+		}
+	);
+	event.preventDefault();
+});

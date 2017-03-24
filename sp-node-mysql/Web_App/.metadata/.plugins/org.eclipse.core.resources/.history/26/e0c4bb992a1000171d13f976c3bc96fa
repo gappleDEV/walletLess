@@ -1,0 +1,23 @@
+$("#messageForm").submit(function(event) {
+	console.log("Submitting...");
+	console.log("Username: " + document.getElementByClassName("username").value);
+	console.log("Subject: " + document.getElementByClassName("subject").value);
+	console.log("Body: " + document.getElementByClassName("messageBody").value);
+	$.post(
+		'http://155.246.138.85:3000/messages',
+		[
+			{
+				message_id: 1,
+				sender_id: 123,
+				receiver_id: document.getElementByClassName("username").value,
+				subject: document.getElementByClassName("subject").value,
+				body: document.getElementByClassName("messageBody").value,
+				create_date: new Date(),
+				is_read: 0
+			}
+		],
+		function(data, status) {
+			console.log(data);
+		}
+	);
+});

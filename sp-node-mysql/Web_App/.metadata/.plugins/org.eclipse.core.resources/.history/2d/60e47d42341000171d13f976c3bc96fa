@@ -1,0 +1,65 @@
+$("#messageForm").submit(function(event) {
+	event.preventDefault();
+	console.log("Submitting...");
+	
+	var myData = {};
+	myData["message_id"] = 2;
+	myData["sender_id"] = "newEmail";
+	myData["receiver_id"] = document.getElementById("username").value;
+	myData["subject"] = document.getElementById("subject").value;
+	myData["body"] = document.getElementById("messageBody").value;
+	myData["create_date"] = null;
+	myData["is_read"] = 0;
+	
+	//console.log(JSON.stringify(myData));
+	
+	// Defining angularjs application.
+    var postApp = angular.module('sendMessage', []);
+    // Controller function and passing $http service and $scope var.
+    postApp.controller('sendMessageController', function($scope, $http) {
+      // create a blank object to handle form data.
+        $scope.user = {};
+      // calling our submit function.
+        $scope.submitForm = function() {
+        // Posting data to php file
+        $http({
+          method  : 'POST',
+          url     : 'http://155.246.138.85:3000/messages',
+          data    : $scope.user, //forms user object
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+         })
+          .success(function(data) {
+            if (data.errors) {
+              // Showing errors.
+              console.log(data);
+            } else {
+              $scope.message = data.message;
+            }
+          });
+        };
+    });
+	
+	/*$.ajax({
+		type: "POST",
+		beforeSend: function(request) {
+		    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		  },
+		url: 'http://155.246.138.85:3000/messages',
+		data: JSON.stringify(myData),
+		success: function(response){
+			  console.log("Success");
+			  console.log(response);
+			  },
+		error: function(response){
+			  console.log("Error");
+			  console.log(response);
+			  },
+		dataType: "json"
+	});*/
+	
+	/*$.post('http://155.246.138.85:3000/messages', JSON.stringify(myData), function(data, status) {
+			console.log(status);
+			console.log(data);
+		},
+	"json");*/
+});

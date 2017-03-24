@@ -1,0 +1,20 @@
+$("#messageForm").submit(function(event) {
+	event.preventDefault();
+	console.log("Submitting...");
+	
+	var data = {};
+	data["message_id"] = 2;
+	data["sender_id"] = "newEmail";
+	data["receiver_id"] = document.getElementById("username").value;
+	data["subject"] = document.getElementById("subject").value;
+	data["body"] = document.getElementById("messageBody").value;
+	data["create_date"] = null;
+	data["is_read"] = 0;
+	
+	console.log(JSON.stringify(data));
+	
+	$.post('http://155.246.138.85:3000/messages', JSON.stringify(data),	function(data, status) {
+			console.log(data);
+		}
+	);
+});
