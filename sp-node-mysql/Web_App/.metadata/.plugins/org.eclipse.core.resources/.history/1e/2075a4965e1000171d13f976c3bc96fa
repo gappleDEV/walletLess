@@ -5,7 +5,7 @@ postApp.controller('sendMessageController', function($scope, $http) {
 	// calling our submit function.
 	$scope.submitForm = function() {
 		var myData = {};
-		myData["message_id"] = Math.random() * 500 + 1;
+		myData["message_id"] = 8;
 		myData["sender_id"] = "admin@admin.com";
 		myData["receiver_id"] = document.getElementById("username").value;
 		myData["subject"] = document.getElementById("subject").value;

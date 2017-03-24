@@ -114,7 +114,7 @@
 									<tr>
 										<th>Username</th>
 										<th>Full Name</th>
-										<th>Sex</th>
+										<th>Birthday</th>
 										<th>Race</th>
 										<th>Cell Number</th>
 									</tr>
@@ -124,7 +124,7 @@
 									  
 										<td>{{i.user_id}}</td>
 										<td>{{i.last_name}},{{i.first_name}} {{i.middle_name}}</td>
-										<td>{{i.sex}}</td>
+										<td>{{i.dob}}</td>
 										<td>{{i.race}}</td>
 										<td>{{i.cell_phone}}</td>
 									</tr>

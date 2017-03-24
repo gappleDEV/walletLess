@@ -764,6 +764,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
             "mom_last_name": personInfo.motherLastName,
             "marital_status": personInfo.maritalStatus,
             "sex": personInfo.sex,
+            "race": personInfo.race,
             "religion": personInfo.denomination,
             "ssn": personInfo.socialSecurity,
             "address": personInfo.address,
