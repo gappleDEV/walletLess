@@ -1,4 +1,0 @@
-$.ajax({
-	type:"POST",
-	url:'http://155.246.138.85:3000/messages'
-})

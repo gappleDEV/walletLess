@@ -6,8 +6,8 @@ target 'Medical_App' do
   use_frameworks!
 
   # Pods for Medical_App
-  pod 'Alamofire', '~> 4.3’
-  pod ‘RealmSwift’
+  pod 'Alamofire', '~> 4.4’
+  pod 'RealmSwift'
   pod 'SwiftyJSON'
 
   target 'Medical_AppTests' do
@@ -15,12 +15,4 @@ target 'Medical_App' do
     # Pods for testing
   end
 
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
-    end
-  end
 end

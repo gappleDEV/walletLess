@@ -6,4 +6,3 @@ usersApp.controller('usersListCrtl', function($scope, $http) {
 		$scope.userData = data;
 	});
 });
-
