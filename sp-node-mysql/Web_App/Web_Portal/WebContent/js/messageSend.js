@@ -16,7 +16,7 @@ postApp.controller('sendMessageController', function($scope, $http) {
 		// Posting data to php file
 		$http({
 			method : 'POST',
-			url : 'http://172.17.10.14:3000/messages',
+			url : 'http://155.246.213.124:3000/messages',
 			data : myData
 		}).success(function(data) {
 			if (data.errors) {

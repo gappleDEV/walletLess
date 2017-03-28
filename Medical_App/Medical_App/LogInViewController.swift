@@ -61,7 +61,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func register(_ sender: Any) {
-        let postInfo = ["user_id":i_email.text!, "password":i_password.text!]
+        let postInfo = ["user_id":i_email.text!,
+                        "password":i_password.text!
+            ] as [String: Any]
         Alamofire.request("http://155.246.213.124:3000/users", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON {
             response in
             gl_data.myUsername = self.i_email.text!
