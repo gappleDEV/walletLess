@@ -6,6 +6,6 @@ import walletless.UserAccounts;
 
 //this should be auto implemented by spring into bean called userAccountsRepository
 
-public interface UserAccountsRepository extends CrudRepository<User, Long>{
+public interface UserAccountsRepository extends CrudRepository<UserAccounts, Long>{
     
 }
