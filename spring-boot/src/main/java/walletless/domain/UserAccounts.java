@@ -1,28 +1,29 @@
-package walletless;
+package walletless.domain;
 
-import javax.persistance.Entity;
-import javax.persistance.GeneratedValue;
-import javax.persistance.GeneratedType;
-improt javax.persistance.Id;
+import java.util.Date;
+import javax.persistence.*;
 
 @Entity
 public class UserAccounts {
 
-    @Id@GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
-    
+    /*@Id@GeneratedValue(strategy=GenerationType.AUTO)
+    private long id;*/
+    @Id
     private String username;
+    
     private String password;
-    private int acctType;
+    private Integer acctType;
     private Date createDate;
-    private int isActive;
+    private Integer isActive;
 
-    public long getId(){
-        return id;
-    }
-
-    public void setId(long id){
-        this.id = id
+    public UserAccounts() {}
+    
+    public UserAccounts(String username, String password, Integer acctType, Date createDate, Integer isActive) {
+    		this.username = username;
+    		this.password = password;
+    		this.acctType = acctType;
+    		this.createDate = createDate;
+    		this.isActive = isActive;
     }
 
     public String getUsername(){
