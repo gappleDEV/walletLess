@@ -11,5 +11,10 @@ namespace WalletLessWebAPI.Entities
         }
 
         public DbSet<UserAccount> UserAccount { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserAccount>().ToTable("UserAccount");
+        }
     }
 }

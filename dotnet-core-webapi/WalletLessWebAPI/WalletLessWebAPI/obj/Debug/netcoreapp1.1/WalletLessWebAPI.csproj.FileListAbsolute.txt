@@ -8,3 +8,12 @@
 /Users/matthewaquiles/Documents/Programming/walletLess/dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/bin/Debug/netcoreapp1.1/WalletLessWebAPI.pdb
 /Users/matthewaquiles/Documents/Programming/walletLess/dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp1.1/WalletLessWebAPI.dll
 /Users/matthewaquiles/Documents/Programming/walletLess/dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp1.1/WalletLessWebAPI.pdb
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\bin\Debug\netcoreapp1.1\WalletLessWebAPI.deps.json
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\bin\Debug\netcoreapp1.1\WalletLessWebAPI.runtimeconfig.json
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\bin\Debug\netcoreapp1.1\WalletLessWebAPI.runtimeconfig.dev.json
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\bin\Debug\netcoreapp1.1\WalletLessWebAPI.dll
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\bin\Debug\netcoreapp1.1\WalletLessWebAPI.pdb
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.csprojResolveAssemblyReference.cache
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.AssemblyInfo.cs
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.dll
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.pdb
