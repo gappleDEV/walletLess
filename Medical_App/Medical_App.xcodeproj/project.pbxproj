@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6108CBFBCC669C3E78D9E674 /* Pods_Medical_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCFDDE72D284BC92723785E /* Pods_Medical_App.framework */; };
 		920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9202528F1E492EAF00DC979A /* InsuranceInfo.swift */; };
+		92094F561F3BEBDE00DCC1C3 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F551F3BEBDE00DCC1C3 /* CategoryTableViewCell.swift */; };
+		92094F581F3BED8100DCC1C3 /* ValuesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F571F3BED8100DCC1C3 /* ValuesTableViewCell.swift */; };
+		92094F5A1F3BEE0600DCC1C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F591F3BEE0600DCC1C3 /* HomeViewController.swift */; };
+		92094F5D1F3BF3A000DCC1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F5C1F3BF3A000DCC1C3 /* User.swift */; };
 		920FCC851E5C00C500A79E7D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920FCC841E5C00C500A79E7D /* LogInViewController.swift */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
@@ -45,6 +49,10 @@
 		45236CD1F762372F1E8F1766 /* Pods-Medical_AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_AppTests/Pods-Medical_AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48F87AA1F9599C183F2808E2 /* Pods-Medical_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App.release.xcconfig"; sourceTree = "<group>"; };
 		9202528F1E492EAF00DC979A /* InsuranceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsuranceInfo.swift; sourceTree = "<group>"; };
+		92094F551F3BEBDE00DCC1C3 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		92094F571F3BED8100DCC1C3 /* ValuesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuesTableViewCell.swift; sourceTree = "<group>"; };
+		92094F591F3BEE0600DCC1C3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		92094F5C1F3BF3A000DCC1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		920FCC841E5C00C500A79E7D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
@@ -112,6 +120,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		92094F541F3BEB7600DCC1C3 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				92094F551F3BEBDE00DCC1C3 /* CategoryTableViewCell.swift */,
+				92094F571F3BED8100DCC1C3 /* ValuesTableViewCell.swift */,
+				92094F591F3BEE0600DCC1C3 /* HomeViewController.swift */,
+			);
+			name = MenuView;
+			sourceTree = "<group>";
+		};
+		92094F5B1F3BF37700DCC1C3 /* DataClasses */ = {
+			isa = PBXGroup;
+			children = (
+				92094F5C1F3BF3A000DCC1C3 /* User.swift */,
+			);
+			name = DataClasses;
+			sourceTree = "<group>";
+		};
 		F3AF14DB1CBD8711001782EA = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +161,8 @@
 		F3AF14E61CBD8711001782EA /* Medical_App */ = {
 			isa = PBXGroup;
 			children = (
+				92094F5B1F3BF37700DCC1C3 /* DataClasses */,
+				92094F541F3BEB7600DCC1C3 /* MenuView */,
 				F3AF14E71CBD8711001782EA /* AppDelegate.swift */,
 				F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */,
 				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
@@ -280,13 +308,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Medical_AppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		27BAD05F3E07E80B2E5157B2 /* [CP] Copy Pods Resources */ = {
@@ -340,9 +371,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -355,13 +395,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Medical_App-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -376,8 +419,11 @@
 				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
 				F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */,
 				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
+				92094F5A1F3BEE0600DCC1C3 /* HomeViewController.swift in Sources */,
 				F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */,
+				92094F581F3BED8100DCC1C3 /* ValuesTableViewCell.swift in Sources */,
 				92E630DC1E84BF70004E8434 /* MessagesTableViewCell.swift in Sources */,
+				92094F561F3BEBDE00DCC1C3 /* CategoryTableViewCell.swift in Sources */,
 				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
 				920FCC851E5C00C500A79E7D /* LogInViewController.swift in Sources */,
 				924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */,
@@ -386,6 +432,7 @@
 				920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */,
 				F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */,
 				F3FF57071E5A26FA000EA17B /* SubCompartmentCell.swift in Sources */,
+				92094F5D1F3BF3A000DCC1C3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
