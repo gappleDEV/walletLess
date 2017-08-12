@@ -9,7 +9,7 @@
 import UIKit
 
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var t_categories: UITableView!
     
@@ -20,21 +20,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         t_categories.delegate = self
         t_categories.dataSource = self
         print("In view")
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+}
+
+extension HomeViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = t_categories.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
-        
-        cell.l_title.text = names[indexPath.row]
-        cell.setParams(categoryTitle: names[indexPath.row], fields: ["Email", "First Name", "Middle Name", "Last Name"], values: user.toArray())
-        
-        return cell
+    // Number of sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     // Number of rows in section
@@ -42,25 +46,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return names.count
     }
     
-    // Number of sections
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = t_categories.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
+        
+        cell.l_title.text = names[indexPath.row]
+        //cell.setParams(categoryTitle: names[indexPath.row], fields: ["Email", "First Name", "Middle Name", "Last Name"], values: user.toArray())
+        
+        return cell
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

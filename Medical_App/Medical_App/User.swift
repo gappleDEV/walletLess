@@ -12,20 +12,16 @@ import RealmSwift
 class User: Object {
     
     dynamic var email:String = ""
-    dynamic var firstName:String = ""
-    dynamic var middleName:String = ""
-    dynamic var lastName:String = ""
+    dynamic var password:String = ""
     
     required init() {
         super.init()
     }
     
-    init(email: String, firstName:String, middleName:String, lastName:String) {
+    init(email: String, password: String) {
         super.init()
         self.email = email
-        self.firstName = firstName
-        self.middleName = middleName
-        self.lastName = lastName
+        self.password = password
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
@@ -39,10 +35,16 @@ class User: Object {
     override class func primaryKey() -> String? {
         return "email"
     }
-    
-    func toArray() -> [String] {
-        return [email, firstName, middleName, lastName]
-    }
+
 }
 
-var user:User = User(email: "something@gmail.com", firstName: "Gregory", middleName: "Aaron", lastName: "Johnson")
+typealias UserData = (title: String, value: String)
+
+extension User {
+    var userRepresentation: [UserData] {
+        return [
+            ("Email", email),
+            ("Password", password),
+        ]
+    }
+}

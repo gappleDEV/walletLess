@@ -479,6 +479,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TTW-w3-pIA" id="7nK-vM-dnh"/>
+                                </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Urh-0W-dhE">
                                 <rect key="frame" x="62" y="95" width="250" height="180"/>
@@ -536,6 +539,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TTW-w3-pIA" id="68H-a3-w1r"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glR-Xj-uzc">
                                 <rect key="frame" x="209" y="580" width="150" height="49"/>
@@ -576,8 +582,8 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="i_email" destination="y31-la-1qb" id="Qki-bv-qxD"/>
-                        <outlet property="i_password" destination="qLZ-5O-7HL" id="LfQ-Jh-yKI"/>
+                        <outlet property="i_email" destination="y31-la-1qb" id="kQ2-5K-UgI"/>
+                        <outlet property="i_password" destination="qLZ-5O-7HL" id="afF-Md-Ka7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3u0-cL-J8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
