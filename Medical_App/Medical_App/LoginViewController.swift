@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Alamofire
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var i_email: UITextField!
     @IBOutlet weak var i_password: UITextField!
     @IBOutlet weak var b_touchId: UIButton!
@@ -19,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         i_password.isSecureTextEntry = true
         
@@ -29,6 +28,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         i_password.layer.borderColor = UIColor.white.cgColor
         
         b_touchId.isHidden = !touchMe.canEvaluatePolicy()
+        
+        guard let userEntry = UserRepository.userRep.getUser() else {
+            return
+        }
+        DispatchQueue.main.async() {
+            self.i_email.text = userEntry.rememberMe ? userEntry.email : ""
+        }
+        
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -37,6 +45,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func touchIdLogin(_ sender: UIButton) {
+        //We need to have a user to sign in with
+        guard UserRepository.userRep.getUser() != nil else {
+            let alertView = UIAlertController(title: "Error",
+                                              message: "No user to sign in as.",
+                                              preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alertView.addAction(okAction)
+            self.present(alertView, animated: true)
+            return
+        }
+        
         touchMe.authenticateUser() { message in
             
             if let message = message {
@@ -57,32 +76,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signIn(_ sender: Any) {
         
         if correctLogin(username: i_email.text!, password: i_password.text!) {
-            self.performSegue(withIdentifier: "loginUser", sender: self)
+            print("Login correct")
+        } else {
+            let alertView = UIAlertController(title: "Error", message: "Email or password incorrect.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alertView.addAction(okAction)
+            self.present(alertView, animated: true)
         }
         
-        /*Alamofire.request("http://155.246.138.185:3000/users").responseString {
-            response in
-            
-            switch (response.result) {
-            case .success:
-                print(response)
-                let nextViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuScene")
-                self.present(nextViewController, animated:true, completion:nil)
-                break
-            case .failure(let error):
-                if error._code == NSURLErrorTimedOut {
-                    //timeout
-                    print("There was a timout")
-                }
-                break
-            }
-            print(response)
-        } */
-        
-        
-        
     }
-
+    
     @IBAction func register(_ sender: Any) {
         if(UserRepository.userRep.addUser(user: User(email: i_email.text!, password: i_password.text!))) {
             print("User saved")
@@ -92,11 +95,35 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func correctLogin(username: String, password: String) -> Bool {
-        guard let userEntry = UserRepository.userRep.getUserInfo(about: username) else {
+        guard let userEntry = UserRepository.userRep.getUser() else {
             return false
         }
         
         if(userEntry.email == username && userEntry.password == password) {
+            if(!userEntry.rememberMe) {
+                let alertView = UIAlertController(title: userEntry.email, message: "Would you like WalletLess to remember your email for future logins?", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in
+                    //Update to be remembered
+                    let thisUser = User(email: userEntry.email, password: userEntry.password)
+                    thisUser.rememberMe = true
+                    if UserRepository.userRep.updateUser(user: thisUser) {
+                        //Move to next controller
+                        self.performSegue(withIdentifier: "loginUser", sender: self)
+                    }
+                })
+                let noAction = UIAlertAction(title: "No", style: .default, handler: { (UIAlertAction) in
+                    //Move to next controller
+                    self.performSegue(withIdentifier: "loginUser", sender: self)
+                })
+                
+                alertView.addAction(yesAction)
+                alertView.addAction(noAction)
+                alertView.preferredAction = yesAction
+                self.present(alertView, animated: true)
+            } else {
+                //Move to next controller
+                self.performSegue(withIdentifier: "loginUser", sender: self)
+            }
             return true
         } else {
             return false
@@ -107,5 +134,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

@@ -16,6 +16,11 @@ final class UserRepository: Repository {
         super.init()
     }
     
+    /**
+     Add a user to the table. Maintains constraint that there is only 1 User active at a time on the device
+     - Parameter user: User object to be added
+     - Returns: boolean representing if the add worked
+     */
     func addUser(user: User) -> Bool {
         
         do {
@@ -23,7 +28,7 @@ final class UserRepository: Repository {
                 //Delete all users (only 1 active on device at a time)
                 realm.delete(realm.objects(User.self))
                 //Add the new user
-                realm.add(user)
+                realm.add(user, update: true)
             }
             return true
         } catch {
@@ -32,19 +37,15 @@ final class UserRepository: Repository {
         
     }
     
-    func getUserInfoForTouchID() -> User {
-        return realm.objects(User.self).first!
-    }
-    
-    func getUserInfo(about email: String) -> User? {
-        return realm.objects(User.self).filter("email = \(email)").first
+    func getUser() -> User? {
+        return realm.objects(User.self).first
     }
     
     func updateUser(user: User) -> Bool {
         
         //See if the user is in the DB
-        let user = realm.objects(User.self).filter("email = \(user.email)")
-        if(user.count > 0) {
+        let foundUser = realm.objects(User.self).filter("email = \(user.email)")
+        if(foundUser.count > 0) {
             do {
                 //Attempt to update
                 try realm.write {

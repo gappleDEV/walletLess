@@ -12,6 +12,7 @@ class User: Object {
     
     dynamic var email:String = ""
     dynamic var password:String = ""
+    dynamic var rememberMe:Bool = false
     
     convenience public init(email: String, password: String) {
         self.init()

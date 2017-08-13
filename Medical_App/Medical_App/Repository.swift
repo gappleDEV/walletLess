@@ -18,9 +18,16 @@ class Repository {
     
     internal init() {
         configuration = Realm.Configuration(encryptionKey: self.getKey() as Data)
-        realm = try! Realm(configuration: configuration)
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        print("Key: \(self.getKey())")
+        do {
+            realm = try Realm(configuration: configuration)
+            print("Realm successfully setup")
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
+            let key = "\(self.getKey())".replacingOccurrences(of: " ", with: "")
+            print("Key: \(key)")
+        } catch let e as NSError{
+            //Catch and print any error
+            print("Error: \(e)")
+        }
     }
     
     func getKey() -> NSData {
