@@ -20,6 +20,9 @@ final class UserRepository: Repository {
         
         do {
             try realm.write {
+                //Delete all users (only 1 active on device at a time)
+                realm.delete(realm.objects(User.self))
+                //Add the new user
                 realm.add(user)
             }
             return true
@@ -27,6 +30,14 @@ final class UserRepository: Repository {
             return false;
         }
         
+    }
+    
+    func getUserInfoForTouchID() -> User {
+        return realm.objects(User.self).first!
+    }
+    
+    func getUserInfo(about email: String) -> User? {
+        return realm.objects(User.self).filter("email = \(email)").first
     }
     
     func updateUser(user: User) -> Bool {

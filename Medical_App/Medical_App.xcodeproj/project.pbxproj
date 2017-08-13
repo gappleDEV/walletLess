@@ -15,7 +15,8 @@
 		92094F5D1F3BF3A000DCC1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F5C1F3BF3A000DCC1C3 /* User.swift */; };
 		92094F631F3FA72600DCC1C3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F621F3FA72600DCC1C3 /* Repository.swift */; };
 		92094F651F3FAD3D00DCC1C3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F641F3FAD3D00DCC1C3 /* UserRepository.swift */; };
-		920FCC851E5C00C500A79E7D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920FCC841E5C00C500A79E7D /* LogInViewController.swift */; };
+		92094F671F3FE5A800DCC1C3 /* TouchIDAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */; };
+		920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920FCC841E5C00C500A79E7D /* LoginViewController.swift */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
 		92E630DC1E84BF70004E8434 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E630DB1E84BF70004E8434 /* MessagesTableViewCell.swift */; };
@@ -57,7 +58,8 @@
 		92094F5C1F3BF3A000DCC1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		92094F621F3FA72600DCC1C3 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		92094F641F3FAD3D00DCC1C3 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
-		920FCC841E5C00C500A79E7D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuth.swift; sourceTree = "<group>"; };
+		920FCC841E5C00C500A79E7D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		92E630DB1E84BF70004E8434 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				92094F5C1F3BF3A000DCC1C3 /* User.swift */,
+				92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 		92094F601F3F9EE600DCC1C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				920FCC841E5C00C500A79E7D /* LoginViewController.swift */,
 				92094F591F3BEE0600DCC1C3 /* HomeViewController.swift */,
 			);
 			name = Controller;
@@ -202,7 +206,6 @@
 				F3295CAA1D68A25A003EBFBB /* GradientView.swift */,
 				924EEE4F1DF7C23700791FCB /* GlobalData.swift */,
 				F3FF57061E5A26FA000EA17B /* SubCompartmentCell.swift */,
-				920FCC841E5C00C500A79E7D /* LogInViewController.swift */,
 				92E630DD1E84C12C004E8434 /* MessagesViewController.swift */,
 			);
 			path = Medical_App;
@@ -444,10 +447,11 @@
 				92094F5A1F3BEE0600DCC1C3 /* HomeViewController.swift in Sources */,
 				F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */,
 				92094F581F3BED8100DCC1C3 /* ValuesTableCell.swift in Sources */,
+				92094F671F3FE5A800DCC1C3 /* TouchIDAuth.swift in Sources */,
 				92E630DC1E84BF70004E8434 /* MessagesTableViewCell.swift in Sources */,
 				92094F561F3BEBDE00DCC1C3 /* CategoryTableCell.swift in Sources */,
 				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
-				920FCC851E5C00C500A79E7D /* LogInViewController.swift in Sources */,
+				920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */,
 				924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */,
 				F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */,
 				924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */,
