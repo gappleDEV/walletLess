@@ -44,8 +44,8 @@ final class UserRepository: Repository {
     func updateUser(user: User) -> Bool {
         
         //See if the user is in the DB
-        let foundUser = realm.objects(User.self).filter("email = \(user.email)")
-        if(foundUser.count > 0) {
+        let foundUser = realm.object(ofType: User.self, forPrimaryKey: user.email as AnyObject)
+        if(foundUser != nil) {
             do {
                 //Attempt to update
                 try realm.write {
