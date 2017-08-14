@@ -13,12 +13,12 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var t_categories: UITableView!
     
-    internal let cellDefaultHeight:CGFloat = 60.0
-    internal let cellExpandedHeight:CGFloat = 225.0
+    internal let cellDefaultHeight:CGFloat = 200.0
+    internal var cellExpandedHeight:CGFloat!
     
-    internal var categories = ["Health Insurance", "Car Insurance", "Prescription"]
+    internal var categories = ["Personal Information", "Insurance Information", "Motor Vehicle Information", "Credit/Debit Cards", "Bank Information", "Allergies/Prescriptions", "Identification Documents/Credentials", "Store Memberships/Discount Tags", "Tickets/Vouchers"]
     internal var heights:[CGFloat] = []
-    internal var subArrTypes = [User(email: "email@gmail.com", password: "pass"), User(), User()]
+    internal var subArrTypes = [User(email: "email@gmail.com", password: "pass"), User(), User(), User(), User(), User(), User(), User(), User(), User()]
     
     internal let cellIdentifier = "CategoryTableViewCell"
     
@@ -30,6 +30,9 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         
         t_categories.delegate = self
         t_categories.dataSource = self
+        
+        t_categories.backgroundColor = self.view.backgroundColor
+        self.cellExpandedHeight = t_categories.frame.height
         
         print("In view")
     }
@@ -45,12 +48,23 @@ extension HomeViewController: UITableViewDataSource {
     
     // Number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 10))
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
     }
     
     // Number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return 1
     }
     
     //Creates the cell
@@ -58,25 +72,32 @@ extension HomeViewController: UITableViewDataSource {
         
         let cell = t_categories.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         
-        cell.l_title.text = categories[indexPath.row]
-        cell.setTableData(tableData: subArrTypes[indexPath.row])
+        cell.l_title.text = categories[indexPath.section]
+        cell.setTableData(tableData: subArrTypes[indexPath.section])
         
         return cell
     }
     
     //Height for a given cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return heights[indexPath.row]
+        return heights[indexPath.section]
     }
     
     //Selecting a specific row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Begin animated updates
         self.t_categories.beginUpdates()
-        //Change of of selected row
-        heights[indexPath.row] = heights[indexPath.row] == cellDefaultHeight ? cellExpandedHeight : cellDefaultHeight
+        //Change height of selected row
+        for i in 0...(categories.count - 1) {
+            if(i == indexPath.section) {
+                heights[indexPath.section] = heights[indexPath.section] == cellDefaultHeight ? cellExpandedHeight : cellDefaultHeight
+            } else {
+                heights[i] = cellDefaultHeight
+            }
+        }
         //End the animated updates
         self.t_categories.endUpdates()
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
 }
