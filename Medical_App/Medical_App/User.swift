@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class User: Object {
+class User: TableData {
     
     dynamic var email:String = ""
     dynamic var password:String = ""
@@ -23,18 +23,13 @@ class User: Object {
     override class func primaryKey() -> String? {
         return "email"
     }
-
-}
-
-typealias UserData = (title: String, value: String)
-
-extension User {
-    var userRepresentation: [UserData] {
+    
+    override var tableRepresentation: [MyTableData] {
         return [
             ("Email", email),
             ("Password", password),
+            ("Remember Me", "\(rememberMe)")
         ]
     }
-}
 
-var user = User(email: "", password: "")
+}

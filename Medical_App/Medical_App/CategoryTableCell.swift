@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
 
-class CategoryTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
-
+class CategoryTableViewCell: UITableViewCell, UITableViewDelegate {
+    
     //Properties
     @IBOutlet weak var l_title: UILabel!
     @IBOutlet weak var b_help: UIButton!
@@ -18,27 +19,38 @@ class CategoryTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDa
     
     let cellIdentifier = "ValuesTableViewCell"
     
-    var categoryTitle = ""
-    var fields:[String] = []
-    var values:[String] = []
+    var tableData:TableData = TableData()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         t_values.delegate = self
         t_values.dataSource = self
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
-    func setParams(categoryTitle: String, fields: [String], values: [String]) {
-        self.categoryTitle = categoryTitle
-        self.fields = fields
-        self.values = values
+    func setTableData(tableData: TableData) {
+        self.tableData = tableData
+    }
+    
+}
+
+extension CategoryTableViewCell: UITableViewDataSource {
+    
+    // Number of sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // Number of rows in section
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData.tableRepresentation.count
     }
     
     // Created the cell to put at an index
@@ -46,19 +58,11 @@ class CategoryTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDa
         
         let cell = t_values.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ValuesTableViewCell
         
-        cell.l_field.text = fields[indexPath.row]
-        cell.l_value.text = values[indexPath.row]
+        let tableRep = tableData.tableRepresentation
+        
+        cell.l_field.text = tableRep[indexPath.row].title
+        cell.l_value.text = tableRep[indexPath.row].value
         
         return cell
-    }
-    
-    // Number of rows in section
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fields.count
-    }
-    
-    // Number of sections
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
 }

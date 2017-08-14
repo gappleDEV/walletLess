@@ -42,7 +42,11 @@ class TouchIDAuth {
                                     case LAError.userCancel?:
                                         message = "Cancel pressed. Please input email and password."
                                     case LAError.userFallback?:
-                                        message = "Password pressed. Please input email and password"
+                                        message = "Password pressed. Please input email and password."
+                                    case LAError.touchIDNotAvailable?:
+                                        message = "Device is not Touch-ID compatible."
+                                    case LAError.touchIDNotEnrolled?:
+                                        message = "There are no fingerprints stored."
                                     default:
                                         message = "Touch ID may not be configured"
                                     }
