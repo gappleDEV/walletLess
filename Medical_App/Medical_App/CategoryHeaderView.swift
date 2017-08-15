@@ -10,15 +10,18 @@ import UIKit
 
 class CategoryHeaderView: UIView {
 
-    //var imageView:UIImageView!
     var colorView:UIView!
-    var bgColor = UIColor(red: 235/255, green: 96/255, blue: 91/255, alpha: 1)
+    var bgColor = UIColor(red:0.13, green:0.59, blue:0.95, alpha:1.0)
     var titleLabel = UILabel()
-    var articleIcon:UIImageView!
+    var logoIcon:UIImageView!
+    var mailButton:UIButton!
+    var collapseButton:UIButton!
+    
+    var logoIconTopConstraint: NSLayoutConstraint!
     
     init(frame:CGRect,title: String) {
-        self.titleLabel.text = title.uppercased()
         super.init(frame: frame)
+        self.titleLabel.text = title
         setUpView()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -26,7 +29,10 @@ class CategoryHeaderView: UIView {
     }
     
     func setUpView() {
+        
         self.backgroundColor = UIColor.white
+        
+        //Background of the view
         colorView = UIView()
         colorView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(colorView)
@@ -38,51 +44,92 @@ class CategoryHeaderView: UIView {
         ]
         NSLayoutConstraint.activate(constraints)
         colorView.backgroundColor = bgColor
-        colorView.alpha = 0.6
+        //Title text in view
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(titleLabel)
         let titlesConstraints:[NSLayoutConstraint] = [
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 28),
+            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
             ]
         NSLayoutConstraint.activate(titlesConstraints)
-        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.textColor = .white
         titleLabel.textAlignment = .center
-        articleIcon = UIImageView()
-        articleIcon.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(articleIcon)
+        //Logo icon in view
+        logoIcon = UIImageView()
+        logoIcon.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(logoIcon)
+        logoIconTopConstraint = logoIcon.topAnchor.constraint(equalTo: self.topAnchor, constant: 20)
         let imageConstraints:[NSLayoutConstraint] = [
-            articleIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            articleIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 6),
-            articleIcon.widthAnchor.constraint(equalToConstant: 40),
-            articleIcon.heightAnchor.constraint(equalToConstant: 40)
+            logoIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            logoIconTopConstraint,
+            logoIcon.widthAnchor.constraint(equalToConstant: 65),
+            logoIcon.heightAnchor.constraint(equalToConstant: 65)
         ]
         NSLayoutConstraint.activate(imageConstraints)
-        articleIcon.image = UIImage(named: "Logo")
+        logoIcon.image = UIImage(named: "Logo")
+        logoIcon.contentMode = .scaleAspectFit
+        //Mail button to the left of the title to bring to mail page
+        mailButton = UIButton()
+        mailButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(mailButton)
+        let mailConstraints:[NSLayoutConstraint] = [
+            mailButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            mailButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            mailButton.widthAnchor.constraint(equalToConstant: 40),
+            mailButton.heightAnchor.constraint(equalToConstant: 40)
+        ]
+        NSLayoutConstraint.activate(mailConstraints)
+        mailButton.setImage(UIImage(named: "mail"), for: .normal)
+        mailButton.contentMode = .scaleAspectFit
+        //Button at bottom to collapse view
+        collapseButton = UIButton()
+        collapseButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(collapseButton)
+        let collapseConstraints:[NSLayoutConstraint] = [
+            collapseButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5),
+            collapseButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            collapseButton.widthAnchor.constraint(equalToConstant: 40),
+            collapseButton.heightAnchor.constraint(equalToConstant: 40)
+        ]
+        NSLayoutConstraint.activate(collapseConstraints)
+        collapseButton.setTitle("^", for: .normal)
+        collapseButton.titleLabel!.textColor = .white
+        collapseButton.titleLabel!.font = UIFont.systemFont(ofSize: 20)
+        collapseButton.titleLabel!.textAlignment = .center
     }
     
-    func decrementColorAlpha(offset: CGFloat) {
-        if self.colorView.alpha <= 1 {
-            let alphaOffset = (offset/500)/85
-            self.colorView.alpha += alphaOffset
-        }
-    }
     func decrementArticleAlpha(offset: CGFloat) {
-        if self.articleIcon.alpha >= 0 {
+        if self.logoIcon.alpha >= 0 {
             let alphaOffset = max((offset - 65)/85.0, 0)
-            self.articleIcon.alpha = alphaOffset
+            self.logoIcon.alpha = alphaOffset
         }
     }
-    func incrementColorAlpha(offset: CGFloat) {
-        if self.colorView.alpha >= 0.6 {
-            let alphaOffset = (offset/200)/85
-            self.colorView.alpha -= alphaOffset
-        }
-    }
+    
     func incrementArticleAlpha(offset: CGFloat) {
-        if self.articleIcon.alpha <= 1 {
+        if self.logoIcon.alpha <= 1 {
             let alphaOffset = max((offset - 65)/85, 0)
-            self.articleIcon.alpha = alphaOffset
+            self.logoIcon.alpha = alphaOffset
+        }
+    }
+    
+    func decrementTitleAlpha(offset: CGFloat) {
+        if self.titleLabel.alpha >= 0 {
+            let alphaOffset = min(1, max((offset - 65)/85.0, 0))
+            self.titleLabel.alpha = alphaOffset
+            self.collapseButton.alpha = alphaOffset
+            logoIconTopConstraint.constant = 20 * alphaOffset
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func incrementTitleAlpha(offset: CGFloat) {
+        if self.titleLabel.alpha <= 1 {
+            let alphaOffset = min(1, max((offset - 65)/85, 0))
+            self.titleLabel.alpha = alphaOffset
+            self.collapseButton.alpha = alphaOffset
+            logoIconTopConstraint.constant = 20 * alphaOffset
+            self.layoutIfNeeded()
         }
     }
 

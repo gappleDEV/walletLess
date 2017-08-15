@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import RealmSwift
 
 class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate
 {
@@ -59,15 +57,6 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        let realm = try! Realm()
-        
-        if realm.objects(PersonalInfo.self).count == 0
-        {
-            try! realm.write {
-                realm.add(PersonalInfo(), update: true)
-            }
-        }
         
         self.viewHeight = self.view.frame.height
         self.viewWidth = self.view.frame.width
@@ -161,18 +150,18 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         return border
     }
     
-    func fillTextInputFromRealm(_ textInput:UITextField, value:String, placeholder:String, realm:Realm)
-    {
-        if value == ""
-        {
-            textInput.placeholder = placeholder
-            textInput.text = ""
-        }
-        else {
-            textInput.text = value
-        }
-        
-    }
+//    func fillTextInputFromRealm(_ textInput:UITextField, value:String, placeholder:String, realm:Realm)
+//    {
+//        if value == ""
+//        {
+//            textInput.placeholder = placeholder
+//            textInput.text = ""
+//        }
+//        else {
+//            textInput.text = value
+//        }
+//        
+//    }
     
     //Step 1:
     //      Fade in "Let's gather some information"
@@ -232,15 +221,15 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                 
             },
             completion: { finished in
-                let realm = try! Realm()
-                var personInfo = PersonalInfo()
-                if realm.objects(PersonalInfo.self).count == 0
-                {
-                    try! realm.write {
-                        realm.add(personInfo)
-                    }
-                }
-                personInfo = realm.objects(PersonalInfo.self).first!
+//                let realm = try! Realm()
+//                var personInfo = PersonalInfo()
+//                if realm.objects(PersonalInfo.self).count == 0
+//                {
+//                    try! realm.write {
+//                        realm.add(personInfo)
+//                    }
+//                }
+//                personInfo = realm.objects(PersonalInfo.self).first!
 
                 self.l_title.text = self.prompt[self.promptIndex]
                 let heightMultTop:CGFloat = 0.3
@@ -289,7 +278,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     
                     //Set up text inputs
                     self.i_textInputTop = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultTop, width: width, height: height))
-                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.firstName, placeholder: "First Name", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.firstName, placeholder: "First Name", realm: realm)
                     self.i_textInputTop.textAlignment = NSTextAlignment.left
                     self.i_textInputTop.font = UIFont.systemFont(ofSize: inputFontSize)
                     self.i_textInputTop.borderStyle = UITextBorderStyle.roundedRect
@@ -303,7 +292,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputTop.layer.addSublayer(self.getBorder(self.i_textInputTop))
                     
                     self.i_textInputMiddle = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultMiddle, width: width, height: height))
-                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.middleName, placeholder: "Middle Name", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.middleName, placeholder: "Middle Name", realm: realm)
                     self.i_textInputMiddle.textAlignment = NSTextAlignment.left
                     self.i_textInputMiddle.font = UIFont.systemFont(ofSize: inputFontSize)
                     self.i_textInputMiddle.borderStyle = UITextBorderStyle.roundedRect
@@ -317,7 +306,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputMiddle.layer.addSublayer(self.getBorder(self.i_textInputMiddle))
                     
                     self.i_textInputBottom = UITextField(frame: CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height))
-                    self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.lastName, placeholder: "Last Name", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.lastName, placeholder: "Last Name", realm: realm)
                     self.i_textInputBottom.textAlignment = NSTextAlignment.left
                     self.i_textInputBottom.font = UIFont.systemFont(ofSize: inputFontSize)
                     self.i_textInputBottom.borderStyle = UITextBorderStyle.roundedRect
@@ -352,11 +341,11 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.l_bottom.frame = CGRect(x: beginX - 0.5 * width, y: self.viewHeight * heightMultBottom - labelHeight, width: width, height: labelHeight)
                     
                     self.l_top.text = "Mother's First Name"
-                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.motherFirstName, placeholder: "Mother's First Name", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.motherFirstName, placeholder: "Mother's First Name", realm: realm)
                     self.l_middle.text = "Mother's Middle Name"
-                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.motherMiddleName, placeholder: "Mother's Middle Name", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.motherMiddleName, placeholder: "Mother's Middle Name", realm: realm)
                     self.l_bottom.text = "Mother's Maiden Last Name"
-                    self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.motherLastName, placeholder: "Mother's Maiden Last Name", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.motherLastName, placeholder: "Mother's Maiden Last Name", realm: realm)
 
                     self.i_textInputTop.keyboardType = UIKeyboardType.default
                     self.i_textInputMiddle.keyboardType = UIKeyboardType.default
@@ -374,15 +363,15 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.p_dates.datePickerMode = UIDatePickerMode.date
                     self.p_dates.backgroundColor = UIColor(white: 1, alpha: 0)
                     //self.p_dates.layer.cornerRadius = self.cornRad
-                    if(personInfo.birthYear != 1800) //not the default date
-                    {
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "M/dd/yyyy"
-                        let strng = "\(personInfo.birthMonth)/\(personInfo.birthDay)/\(personInfo.birthYear)"
-                        print(strng)
-                        let date = dateFormatter.date(from: strng)
-                        self.p_dates.date = date!
-                    }
+//                    if(personInfo.birthYear != 1800) //not the default date
+//                    {
+//                        let dateFormatter = DateFormatter()
+//                        dateFormatter.dateFormat = "M/dd/yyyy"
+//                        let strng = "\(personInfo.birthMonth)/\(personInfo.birthDay)/\(personInfo.birthYear)"
+//                        print(strng)
+//                        let date = dateFormatter.date(from: strng)
+//                        self.p_dates.date = date!
+//                    }
                     self.p_dates.layer.masksToBounds = true
                     self.p_dates.alpha = 0
                     
@@ -403,7 +392,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.p_marStatus.backgroundColor = UIColor(white: 1, alpha: 0)
                     //self.p_marStatus.layer.cornerRadius = self.cornRad
                     self.p_marStatus.alpha = 0
-                    self.p_marStatus.selectRow(self.data_marStatus.index(of: personInfo.maritalStatus)!, inComponent: 0, animated: false)
+//                    self.p_marStatus.selectRow(self.data_marStatus.index(of: personInfo.maritalStatus)!, inComponent: 0, animated: false)
                     
                     self.p_sex = UIPickerView(frame: CGRect(x: beginX - 0.5 * width, y: self.viewHeight * pickerMultMiddle, width: width, height: height))
                     self.p_sex.dataSource = self
@@ -426,8 +415,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.l_middle.text = "Sex"
                     self.l_bottom.text = "Race"
                     
-                    self.p_sex.selectRow(self.data_sex.index(of: personInfo.sex)!, inComponent: 0, animated: false)
-                    self.p_race.selectRow(self.data_race.index(of: personInfo.race)!, inComponent: 0, animated: false)
+//                    self.p_sex.selectRow(self.data_sex.index(of: personInfo.sex)!, inComponent: 0, animated: false)
+//                    self.p_race.selectRow(self.data_race.index(of: personInfo.race)!, inComponent: 0, animated: false)
                     
                     self.view.addSubview(self.p_marStatus)
                     self.view.addSubview(self.p_sex)
@@ -458,8 +447,8 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.l_top.text = "Denomination"
                     self.l_bottom.text = "Preferred Language"
                     
-                    self.p_denom.selectRow(self.data_denom.index(of: personInfo.denomination)!, inComponent: 0, animated: false)
-                    self.p_prefLang.selectRow(self.data_prefLang.index(of: personInfo.preferredLanguage)!, inComponent: 0, animated: false)
+//                    self.p_denom.selectRow(self.data_denom.index(of: personInfo.denomination)!, inComponent: 0, animated: false)
+//                    self.p_prefLang.selectRow(self.data_prefLang.index(of: personInfo.preferredLanguage)!, inComponent: 0, animated: false)
                     
                     self.view.addSubview(self.p_denom)
                     self.view.addSubview(self.p_prefLang)
@@ -468,7 +457,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputMiddle.text = ""
                     self.i_textInputMiddle.keyboardType = UIKeyboardType.numberPad
                     
-                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.socialSecurity, placeholder: "Social Security Number", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.socialSecurity, placeholder: "Social Security Number", realm: realm)
                     
                 case 6: //Address, zip and county code - 3 text inputs and 3 labels
                     let height = self.viewHeight * 0.07     //height of each text input is 8% of view height
@@ -489,19 +478,19 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputBottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height)
                     self.i_textInputBottom.keyboardType = UIKeyboardType.numberPad
                     
-                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.address, placeholder: "Address", realm: realm)
-                    if personInfo.zipCode != 12345 {
-                        self.fillTextInputFromRealm(self.i_textInputMiddle, value: "\(personInfo.zipCode)", placeholder: "ZIP Code", realm: realm)
-                    } else {
+//                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.address, placeholder: "Address", realm: realm)
+//                    if personInfo.zipCode != 12345 {
+//                        self.fillTextInputFromRealm(self.i_textInputMiddle, value: "\(personInfo.zipCode)", placeholder: "ZIP Code", realm: realm)
+//                    } else {
                         self.i_textInputMiddle.placeholder = "ZIP Code"
                         self.i_textInputMiddle.text = ""
-                    }
-                    if personInfo.zipCode != 12345 {
-                        self.fillTextInputFromRealm(self.i_textInputBottom, value: "\(personInfo.countyCode)", placeholder: "County Code", realm: realm)
-                    } else {
+//                    }
+//                    if personInfo.zipCode != 12345 {
+//                        self.fillTextInputFromRealm(self.i_textInputBottom, value: "\(personInfo.countyCode)", placeholder: "County Code", realm: realm)
+//                    } else {
                         self.i_textInputBottom.placeholder = "County Code"
                         self.i_textInputBottom.text = ""
-                    }
+//                    }
                     
                     
                 case 7: //Home phone, cell phone and work phone - 3 text input and 3 labels
@@ -527,10 +516,9 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
                     self.i_textInputBottom.frame = CGRect(x: beginX - (0.5 * width), y: self.viewHeight * heightMultBottom, width: width, height: height)
                     self.i_textInputBottom.keyboardType = UIKeyboardType.numberPad
                     
-                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.homePhone, placeholder: "Home Phone Number", realm: realm)
-                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.cellPhone, placeholder: "Cell Phone Number", realm: realm)
-                    self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.workPhone, placeholder: "Work Phone Number", realm: realm)
-                    
+//                    self.fillTextInputFromRealm(self.i_textInputTop, value: personInfo.homePhone, placeholder: "Home Phone Number", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputMiddle, value: personInfo.cellPhone, placeholder: "Cell Phone Number", realm: realm)
+//                    self.fillTextInputFromRealm(self.i_textInputBottom, value: personInfo.workPhone, placeholder: "Work Phone Number", realm: realm)
                 case 8: //All done
                     self.l_welcome.text = "All Done"
                     print("done")
@@ -647,139 +635,139 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
         return false
     }
     
-    func writeToRealm(myrealm:Realm, personInfo:PersonalInfo)
-    {
-        try! myrealm.write {
-            myrealm.add(personInfo, update:true)
-            print("Edited")
-        }
-    }
+//    func writeToRealm(myrealm:Realm, personInfo:PersonalInfo)
+//    {
+//        try! myrealm.write {
+//            myrealm.add(personInfo, update:true)
+//            print("Edited")
+//        }
+//    }
     
     //Done button is clicked
     //Add to realm and then increment promtIndex
     @IBAction func doneClicked(_ sender: AnyObject)
     {
         self.b_done.isEnabled = false
-        switch promptIndex
-        {
-        case 0:
-            //Full name (first - middle - last)
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.firstName = self.i_textInputTop!.text!
-                personInfo.middleName = self.i_textInputMiddle!.text!
-                personInfo.lastName = self.i_textInputBottom!.text!
-            }
-            print("case 0")
-        case 1:
-            //Mother's full maiden name (first - middle - last)
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.motherFirstName = self.i_textInputTop!.text!
-                personInfo.motherMiddleName = self.i_textInputMiddle!.text!
-                personInfo.motherLastName = self.i_textInputBottom!.text!
-            }
-            print("case 1")
-        case 2:
-            //Date of birth (month - day - year)
-            let components = self.p_dates.calendar.dateComponents([.year, .month, .day], from: p_dates.date)
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.birthMonth = components.month!
-                personInfo.birthDay = components.day!
-                personInfo.birthYear = components.year!
-            }
-            print("case 2")
-        case 3:
-            //Marital status - sex - race
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.maritalStatus = self.data_marStatus[p_marStatus.selectedRow(inComponent: 0)]
-                personInfo.sex = self.data_sex[p_sex.selectedRow(inComponent: 0)]
-                personInfo.race = self.data_race[p_race.selectedRow(inComponent: 0)]
-            }
-            print("case 3")
-        case 4:
-            //Denomination - preferred language
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.denomination = self.data_denom[p_denom.selectedRow(inComponent: 0)]
-                personInfo.preferredLanguage = self.data_prefLang[p_prefLang.selectedRow(inComponent: 0)]
-            }
-            print("case 4")
-        case 5:
-            //Social Security Number
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.socialSecurity = self.i_textInputMiddle!.text!
-            }
-            print("case 5")
-        case 6:
-            //Address - Zip Code - county code
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.address = self.i_textInputTop!.text!
-                personInfo.zipCode = Int(self.i_textInputMiddle!.text!)!
-                personInfo.countyCode = Int(self.i_textInputBottom!.text!)!
-            }
-            print("case 6")
-        case 7:
-            //Phone numbers (home - work - cell)
-            let realm = try! Realm()
-            let personInfo = realm.objects(PersonalInfo.self).first!
-            try! realm.write {
-                personInfo.homePhone = self.i_textInputTop!.text!
-                personInfo.cellPhone = self.i_textInputMiddle!.text!
-                personInfo.workPhone = self.i_textInputBottom!.text!
-            }
-            print("case 7")
-        default:
-            print("stepNum is out of bounds")
-        }
+//        switch promptIndex
+//        {
+//        case 0:
+//            //Full name (first - middle - last)
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.firstName = self.i_textInputTop!.text!
+//                personInfo.middleName = self.i_textInputMiddle!.text!
+//                personInfo.lastName = self.i_textInputBottom!.text!
+//            }
+//            print("case 0")
+//        case 1:
+//            //Mother's full maiden name (first - middle - last)
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.motherFirstName = self.i_textInputTop!.text!
+//                personInfo.motherMiddleName = self.i_textInputMiddle!.text!
+//                personInfo.motherLastName = self.i_textInputBottom!.text!
+//            }
+//            print("case 1")
+//        case 2:
+//            //Date of birth (month - day - year)
+//            let components = self.p_dates.calendar.dateComponents([.year, .month, .day], from: p_dates.date)
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.birthMonth = components.month!
+//                personInfo.birthDay = components.day!
+//                personInfo.birthYear = components.year!
+//            }
+//            print("case 2")
+//        case 3:
+//            //Marital status - sex - race
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.maritalStatus = self.data_marStatus[p_marStatus.selectedRow(inComponent: 0)]
+//                personInfo.sex = self.data_sex[p_sex.selectedRow(inComponent: 0)]
+//                personInfo.race = self.data_race[p_race.selectedRow(inComponent: 0)]
+//            }
+//            print("case 3")
+//        case 4:
+//            //Denomination - preferred language
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.denomination = self.data_denom[p_denom.selectedRow(inComponent: 0)]
+//                personInfo.preferredLanguage = self.data_prefLang[p_prefLang.selectedRow(inComponent: 0)]
+//            }
+//            print("case 4")
+//        case 5:
+//            //Social Security Number
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.socialSecurity = self.i_textInputMiddle!.text!
+//            }
+//            print("case 5")
+//        case 6:
+//            //Address - Zip Code - county code
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.address = self.i_textInputTop!.text!
+//                personInfo.zipCode = Int(self.i_textInputMiddle!.text!)!
+//                personInfo.countyCode = Int(self.i_textInputBottom!.text!)!
+//            }
+//            print("case 6")
+//        case 7:
+//            //Phone numbers (home - work - cell)
+//            let realm = try! Realm()
+//            let personInfo = realm.objects(PersonalInfo.self).first!
+//            try! realm.write {
+//                personInfo.homePhone = self.i_textInputTop!.text!
+//                personInfo.cellPhone = self.i_textInputMiddle!.text!
+//                personInfo.workPhone = self.i_textInputBottom!.text!
+//            }
+//            print("case 7")
+//        default:
+//            print("stepNum is out of bounds")
+//        }
         self.promptIndex += 1
         self.fadeOutTitles()
     }
     
     func sendInfo()
     {
-        print("called")
-        let realm = try! Realm()
-        let personInfo = realm.objects(PersonalInfo.self).first!
-        
-        let postInfo = [
-            "user_id":gl_data.myUsername,
-            "first_name": personInfo.firstName,
-            "last_name": personInfo.lastName,
-            "middle_name": personInfo.middleName,
-            //"dob": "\(personInfo.birthMonth)/\(personInfo.birthDay)/\(personInfo.birthYear)",
-            "mom_first_name": personInfo.motherFirstName,
-            "mom_middle_name": personInfo.motherMiddleName,
-            "mom_last_name": personInfo.motherLastName,
-            "marital_status": personInfo.maritalStatus,
-            "sex": personInfo.sex,
-            "race": personInfo.race,
-            "religion": personInfo.denomination,
-            "ssn": personInfo.socialSecurity,
-            "address": personInfo.address,
-            //"state": personInfo.state,
-            //"country": personInfo.firstName,
-            "zip_code": personInfo.zipCode,
-            "county_code": personInfo.countyCode,
-            "home_phone": personInfo.homePhone,
-            "cell_phone": personInfo.cellPhone,
-            "work_phone": personInfo.workPhone
-        ] as [String : Any]
-        Alamofire.request("http://155.246.138.85:3000/user_info", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON {
-            response in
-            
-            debugPrint(response) }
+        print("send called")
+//        let realm = try! Realm()
+//        let personInfo = realm.objects(PersonalInfo.self).first!
+//        
+//        let postInfo = [
+//            "user_id":gl_data.myUsername,
+//            "first_name": personInfo.firstName,
+//            "last_name": personInfo.lastName,
+//            "middle_name": personInfo.middleName,
+//            //"dob": "\(personInfo.birthMonth)/\(personInfo.birthDay)/\(personInfo.birthYear)",
+//            "mom_first_name": personInfo.motherFirstName,
+//            "mom_middle_name": personInfo.motherMiddleName,
+//            "mom_last_name": personInfo.motherLastName,
+//            "marital_status": personInfo.maritalStatus,
+//            "sex": personInfo.sex,
+//            "race": personInfo.race,
+//            "religion": personInfo.denomination,
+//            "ssn": personInfo.socialSecurity,
+//            "address": personInfo.address,
+//            //"state": personInfo.state,
+//            //"country": personInfo.firstName,
+//            "zip_code": personInfo.zipCode,
+//            "county_code": personInfo.countyCode,
+//            "home_phone": personInfo.homePhone,
+//            "cell_phone": personInfo.cellPhone,
+//            "work_phone": personInfo.workPhone
+//        ] as [String : Any]
+//        Alamofire.request("http://155.246.138.85:3000/user_info", method: .post, parameters: postInfo, encoding: JSONEncoding.default).responseJSON {
+//            response in
+//            
+//            debugPrint(response) }
     }
     
     //Back clicked

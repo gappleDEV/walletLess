@@ -16,6 +16,8 @@ class CategoryTableViewCell: UITableViewCell, UITableViewDelegate {
     @IBOutlet weak var b_help: UIButton!
     @IBOutlet weak var b_edit: UIButton!
     @IBOutlet weak var t_values: UITableView!
+    @IBOutlet weak var i_icon: UIImageView!
+
     
     let cellIdentifier = "ValuesTableViewCell"
     

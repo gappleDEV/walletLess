@@ -14,8 +14,6 @@ class HelpPopupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.l_helpText.text = gl_data.helpText
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.boxView.layer.cornerRadius = self.boxView.frame.width/8

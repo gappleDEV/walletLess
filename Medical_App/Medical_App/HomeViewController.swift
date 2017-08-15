@@ -17,12 +17,21 @@ class HomeViewController: UIViewController {
     
     internal let cellDefaultHeight:CGFloat = 200.0
     internal var cellExpandedHeight:CGFloat!
-    let maxHeaderHeight: CGFloat = 88
-    let minHeaderHeight: CGFloat = 44
     
-    var previousScrollOffset:CGFloat = 0 //negative scrolling up, positive scrolling down
+    var headerExpandedMax:CGFloat = 200
     
-    internal var categories = ["Personal Information", "Insurance Information", "Motor Vehicle Information", "Credit/Debit Cards", "Bank Information", "Allergies/Prescriptions", "Identification Documents/Credentials", "Store Memberships/Discount Tags", "Tickets/Vouchers"]
+    internal var panels: [PanelHeader] = [
+        PanelHeader(icon: "MyInfo", help: "Basic personal information", title: "Personal Information", edit: "personalInfo"),
+        PanelHeader(icon: "insurance", help: "Medical insurance information", title: "Insurance Information", edit: "personalInfo"),
+        PanelHeader(icon: "motorVehicleInformation", help: "Car and other automotive information.", title: "Motor Vehicle Information", edit: "personalInfo"),
+        PanelHeader(icon: "creditCards", help: "Card information", title: "Credit/Debit Cards", edit: "personalInfo"),
+        PanelHeader(icon: "bank", help: "Banking information", title: "Bank Information", edit: "personalInfo"),
+        PanelHeader(icon: "allergies", help: "Allergies and prescription information", title: "Allergies/Prescriptions", edit: "personalInfo"),
+        PanelHeader(icon: "idDoc", help: "Document information", title: "Identification Documents/Credentials", edit: "personalInfo"),
+        PanelHeader(icon: "discountTag", help: "Store membership information", title: "Store Memberships/Discount Tags", edit: "personalInfo"),
+        PanelHeader(icon: "tickets", help: "Ticket information", title: "Tickets/Vouchers", edit: "personalInfo")
+    ]
+    
     internal var heights:[CGFloat] = []
     internal var subArrTypes = [User(email: "email@gmail.com", password: "pass"), User(), User(), User(), User(), User(), User(), User(), User(), User()]
     
@@ -32,13 +41,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        heights = Array(repeating: cellDefaultHeight, count: categories.count)
+        heights = Array(repeating: cellDefaultHeight, count: panels.count)
         
         t_categories.delegate = self
         t_categories.dataSource = self
         
         t_categories.backgroundColor = self.view.backgroundColor
-        self.cellExpandedHeight = t_categories.frame.height
         
         setUpHeader()
         setUpTableView()
@@ -52,15 +60,14 @@ class HomeViewController: UIViewController {
         //Make status bar light colored
         UIApplication.shared.statusBarStyle = .lightContent
         
-        //Make sure that initial height of header is expanded
-        self.headerHeightConstraint.constant = self.maxHeaderHeight
     }
     
     func setUpHeader() {
-        headerView = CategoryHeaderView(frame: .zero, title: "Articles")
+        //Sets header view to the custom view that was created
+        headerView = CategoryHeaderView(frame: .zero, title: "WalletLess LLC")
         headerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerView)
-        headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: 150)
+        headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: headerExpandedMax)
         headerHeightConstraint.isActive = true
         let constraints:[NSLayoutConstraint] = [
             headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
@@ -73,7 +80,7 @@ class HomeViewController: UIViewController {
     func setUpTableView() {
         t_categories.translatesAutoresizingMaskIntoConstraints = false
         let constraints:[NSLayoutConstraint] = [
-            t_categories.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 2),
+            t_categories.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
             t_categories.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             t_categories.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             t_categories.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -82,11 +89,26 @@ class HomeViewController: UIViewController {
     }
     
     func animateHeader() {
-        self.headerHeightConstraint.constant = 150
+        self.headerHeightConstraint.constant = headerExpandedMax
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    func showHelp(sender:UIButton)
+    {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "helpPopUpID") as! HelpPopupViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.l_helpText.text = panels[sender.tag].help
+        popOverVC.didMove(toParentViewController: self)
+    }
+    
+    func moveWithSegue(sender:UIButton) {
+        self.performSegue(withIdentifier: panels[sender.tag].edit, sender: self)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -99,7 +121,7 @@ extension HomeViewController: UITableViewDataSource {
     
     // Number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.count
+        return panels.count
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
@@ -124,11 +146,14 @@ extension HomeViewController: UITableViewDataSource {
         //Create cell
         let cell = t_categories.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         //Set properties
-        cell.l_title.text = categories[indexPath.section]
-        cell.setTableData(tableData: subArrTypes[indexPath.section])
-        //Set visual
-        cell.layer.cornerRadius = 10
+        cell.l_title.text = panels[indexPath.section].title
+        cell.i_icon.image = UIImage(named: panels[indexPath.section].icon)
+        cell.b_help.tag = indexPath.section
+        cell.b_help.addTarget(self, action: #selector(showHelp), for: .touchUpInside)
+        cell.b_edit.tag = indexPath.section
+        cell.b_edit.addTarget(self, action: #selector(moveWithSegue), for: .touchUpInside)
         
+        cell.setTableData(tableData: subArrTypes[indexPath.section])
         
         return cell
     }
@@ -140,10 +165,12 @@ extension HomeViewController: UITableViewDataSource {
     
     //Selecting a specific row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Get correct expanded height
+        self.cellExpandedHeight = t_categories.frame.height
         //Begin animated updates
         self.t_categories.beginUpdates()
         //Change height of selected row
-        for i in 0...(categories.count - 1) {
+        for i in 0...(panels.count - 1) {
             if(i == indexPath.section) {
                 heights[indexPath.section] = heights[indexPath.section] == cellDefaultHeight ? cellExpandedHeight : cellDefaultHeight
             } else {
@@ -162,24 +189,22 @@ extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < 0 {
             self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
-            headerView.incrementColorAlpha(offset: self.headerHeightConstraint.constant)
-            headerView.incrementArticleAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.incrementTitleAlpha(offset: self.headerHeightConstraint.constant)
         } else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= 65 {
             self.headerHeightConstraint.constant -= scrollView.contentOffset.y/100
-            headerView.decrementColorAlpha(offset: scrollView.contentOffset.y)
-            headerView.decrementArticleAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.decrementTitleAlpha(offset: self.headerHeightConstraint.constant)
             if self.headerHeightConstraint.constant < 65 {
                 self.headerHeightConstraint.constant = 65
             }
         }
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if self.headerHeightConstraint.constant > 150 {
+        if self.headerHeightConstraint.constant > headerExpandedMax {
             animateHeader()
         }
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if self.headerHeightConstraint.constant > 150 {
+        if self.headerHeightConstraint.constant > headerExpandedMax {
             animateHeader()
         }
     }
