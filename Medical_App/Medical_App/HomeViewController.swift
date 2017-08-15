@@ -37,6 +37,11 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         print("In view")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,10 +75,14 @@ extension HomeViewController: UITableViewDataSource {
     //Creates the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //Create cell
         let cell = t_categories.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
-        
+        //Set properties
         cell.l_title.text = categories[indexPath.section]
         cell.setTableData(tableData: subArrTypes[indexPath.section])
+        //Set visual
+        cell.layer.cornerRadius = 10
+        
         
         return cell
     }

@@ -63,6 +63,8 @@ extension CategoryTableViewCell: UITableViewDataSource {
         cell.l_field.text = tableRep[indexPath.row].title
         cell.l_value.text = tableRep[indexPath.row].value
         
+        cell.backgroundColor = self.t_values.backgroundColor
+        
         return cell
     }
 }
