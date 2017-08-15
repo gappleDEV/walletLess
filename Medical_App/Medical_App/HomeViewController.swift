@@ -21,15 +21,15 @@ class HomeViewController: UIViewController {
     var headerExpandedMax:CGFloat = 200
     
     internal var panels: [PanelHeader] = [
-        PanelHeader(icon: "MyInfo", help: "Basic personal information", title: "Personal Information", edit: "personalInfo"),
-        PanelHeader(icon: "insurance", help: "Medical insurance information", title: "Insurance Information", edit: "personalInfo"),
-        PanelHeader(icon: "motorVehicleInformation", help: "Car and other automotive information.", title: "Motor Vehicle Information", edit: "personalInfo"),
-        PanelHeader(icon: "creditCards", help: "Card information", title: "Credit/Debit Cards", edit: "personalInfo"),
-        PanelHeader(icon: "bank", help: "Banking information", title: "Bank Information", edit: "personalInfo"),
-        PanelHeader(icon: "allergies", help: "Allergies and prescription information", title: "Allergies/Prescriptions", edit: "personalInfo"),
-        PanelHeader(icon: "idDoc", help: "Document information", title: "Identification Documents/Credentials", edit: "personalInfo"),
-        PanelHeader(icon: "discountTag", help: "Store membership information", title: "Store Memberships/Discount Tags", edit: "personalInfo"),
-        PanelHeader(icon: "tickets", help: "Ticket information", title: "Tickets/Vouchers", edit: "personalInfo")
+        PanelHeader(icon: "MyInfo", help: "Basic personal information", title: "Personal Information", edit: "PersonalInfo"),
+        PanelHeader(icon: "insurance", help: "Medical insurance information", title: "Insurance Information", edit: "PersonalInfo"),
+        PanelHeader(icon: "motorVehicleInformation", help: "Car and other automotive information.", title: "Motor Vehicle Information", edit: "PersonalInfo"),
+        PanelHeader(icon: "creditCards", help: "Card information", title: "Credit/Debit Cards", edit: "PersonalInfo"),
+        PanelHeader(icon: "bank", help: "Banking information", title: "Bank Information", edit: "PersonalInfo"),
+        PanelHeader(icon: "allergies", help: "Allergies and prescription information", title: "Allergies/Prescriptions", edit: "PersonalInfo"),
+        PanelHeader(icon: "idDoc", help: "Document information", title: "Identification Documents/Credentials", edit: "PersonalInfo"),
+        PanelHeader(icon: "discountTag", help: "Store membership information", title: "Store Memberships/Discount Tags", edit: "PersonalInfo"),
+        PanelHeader(icon: "tickets", help: "Ticket information", title: "Tickets/Vouchers", edit: "PersonalInfo")
     ]
     
     internal var heights:[CGFloat] = []
@@ -41,6 +41,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = self
+        
         heights = Array(repeating: cellDefaultHeight, count: panels.count)
         
         t_categories.delegate = self
@@ -105,8 +108,10 @@ class HomeViewController: UIViewController {
         popOverVC.didMove(toParentViewController: self)
     }
     
-    func moveWithSegue(sender:UIButton) {
-        self.performSegue(withIdentifier: panels[sender.tag].edit, sender: self)
+    func moveToStoryboard(sender:UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: panels[sender.tag].edit, bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: panels[sender.tag].edit)
+        self.present(newViewController, animated: true, completion: nil)
     }
 
     
@@ -151,7 +156,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.b_help.tag = indexPath.section
         cell.b_help.addTarget(self, action: #selector(showHelp), for: .touchUpInside)
         cell.b_edit.tag = indexPath.section
-        cell.b_edit.addTarget(self, action: #selector(moveWithSegue), for: .touchUpInside)
+        cell.b_edit.addTarget(self, action: #selector(moveToStoryboard(sender:)), for: .touchUpInside)
         
         cell.setTableData(tableData: subArrTypes[indexPath.section])
         

@@ -152,7 +152,7 @@
         <!--Home View Controller-->
         <scene sceneID="nJB-nS-euV">
             <objects>
-                <viewController storyboardIdentifier="HomeView" id="PQP-oL-k7j" customClass="HomeViewController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeView" modalTransitionStyle="crossDissolve" id="PQP-oL-k7j" customClass="HomeViewController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fw2-oc-sQ3"/>
                         <viewControllerLayoutGuide type="bottom" id="9w1-Qt-2oL"/>

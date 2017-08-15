@@ -23,6 +23,8 @@
 		92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */; };
 		92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2E1F4380810085B143 /* PanelHeader.swift */; };
 		92DDAA311F4391F60085B143 /* PersonalInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DDAA301F4391F60085B143 /* PersonalInfo.storyboard */; };
+		92DDAA341F4396570085B143 /* PersonalInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA331F4396570085B143 /* PersonalInfoHeaderView.swift */; };
+		92DDAA361F4398940085B143 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA351F4398940085B143 /* PersonalInfoViewController.swift */; };
 		92E630DC1E84BF70004E8434 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E630DB1E84BF70004E8434 /* MessagesTableViewCell.swift */; };
 		92E630DE1E84C12C004E8434 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E630DD1E84C12C004E8434 /* MessagesViewController.swift */; };
 		CB36BA6D9B0CBAD09C1AE990 /* Pods_Medical_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BF493821F6F535142449E /* Pods_Medical_AppTests.framework */; };
@@ -70,6 +72,8 @@
 		92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA2E1F4380810085B143 /* PanelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelHeader.swift; sourceTree = "<group>"; };
 		92DDAA301F4391F60085B143 /* PersonalInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfo.storyboard; sourceTree = "<group>"; };
+		92DDAA331F4396570085B143 /* PersonalInfoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoHeaderView.swift; sourceTree = "<group>"; };
+		92DDAA351F4398940085B143 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		92E630DB1E84BF70004E8434 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		92E630DD1E84C12C004E8434 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		9E51E7666EC019DD56DC70C1 /* Pods-Medical_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				92094F551F3BEBDE00DCC1C3 /* CategoryTableCell.swift */,
 				92094F571F3BED8100DCC1C3 /* ValuesTableCell.swift */,
 				92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */,
+				92DDAA331F4396570085B143 /* PersonalInfoHeaderView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				920FCC841E5C00C500A79E7D /* LoginViewController.swift */,
 				92094F591F3BEE0600DCC1C3 /* HomeViewController.swift */,
+				92DDAA351F4398940085B143 /* PersonalInfoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -470,6 +476,8 @@
 				92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */,
 				92094F581F3BED8100DCC1C3 /* ValuesTableCell.swift in Sources */,
 				92094F671F3FE5A800DCC1C3 /* TouchIDAuth.swift in Sources */,
+				92DDAA341F4396570085B143 /* PersonalInfoHeaderView.swift in Sources */,
+				92DDAA361F4398940085B143 /* PersonalInfoViewController.swift in Sources */,
 				92E630DC1E84BF70004E8434 /* MessagesTableViewCell.swift in Sources */,
 				92094F561F3BEBDE00DCC1C3 /* CategoryTableCell.swift in Sources */,
 				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
