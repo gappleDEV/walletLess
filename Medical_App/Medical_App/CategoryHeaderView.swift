@@ -13,15 +13,17 @@ class CategoryHeaderView: UIView {
     var colorView:UIView!
     var bgColor = UIColor(red:0.13, green:0.59, blue:0.95, alpha:1.0)
     var titleLabel = UILabel()
+    var nameLabel = UILabel()
     var logoIcon:UIImageView!
     var mailButton:UIButton!
     var collapseButton:UIButton!
     
     var logoIconTopConstraint: NSLayoutConstraint!
     
-    init(frame:CGRect,title: String) {
+    init(frame:CGRect,title: String, name:String) {
         super.init(frame: frame)
         self.titleLabel.text = title
+        self.nameLabel.text = name
         setUpView()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -55,6 +57,17 @@ class CategoryHeaderView: UIView {
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
+        //Name text in view
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(nameLabel)
+        let nameConstraints:[NSLayoutConstraint] = [
+            nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 40)
+        ]
+        NSLayoutConstraint.activate(nameConstraints)
+        nameLabel.font = UIFont.systemFont(ofSize: 16)
+        nameLabel.textColor = .white
+        nameLabel.textAlignment = .center
         //Logo icon in view
         logoIcon = UIImageView()
         logoIcon.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +112,7 @@ class CategoryHeaderView: UIView {
         collapseButton.titleLabel!.textAlignment = .center
     }
     
-    func decrementArticleAlpha(offset: CGFloat) {
+    /*func decrementArticleAlpha(offset: CGFloat) {
         if self.logoIcon.alpha >= 0 {
             let alphaOffset = max((offset - 65)/85.0, 0)
             self.logoIcon.alpha = alphaOffset
@@ -111,12 +124,13 @@ class CategoryHeaderView: UIView {
             let alphaOffset = max((offset - 65)/85, 0)
             self.logoIcon.alpha = alphaOffset
         }
-    }
+    }*/
     
     func decrementTitleAlpha(offset: CGFloat) {
         if self.titleLabel.alpha >= 0 {
             let alphaOffset = min(1, max((offset - 65)/85.0, 0))
             self.titleLabel.alpha = alphaOffset
+            self.nameLabel.alpha = alphaOffset
             self.collapseButton.alpha = alphaOffset
             logoIconTopConstraint.constant = 20 * alphaOffset
             self.layoutIfNeeded()
@@ -127,6 +141,7 @@ class CategoryHeaderView: UIView {
         if self.titleLabel.alpha <= 1 {
             let alphaOffset = min(1, max((offset - 65)/85, 0))
             self.titleLabel.alpha = alphaOffset
+            self.nameLabel.alpha = alphaOffset
             self.collapseButton.alpha = alphaOffset
             logoIconTopConstraint.constant = 20 * alphaOffset
             self.layoutIfNeeded()

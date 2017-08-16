@@ -13,7 +13,7 @@
         <!--Personal Info Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="PersonalInfo" id="BYZ-38-t0r" customClass="PersonalInfoController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalInfoXX" id="BYZ-38-t0r" customClass="PersonalInfoController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -297,11 +297,12 @@
                     <connections>
                         <outlet property="t_categories" destination="oq3-0o-BJZ" id="S4o-wn-hdn"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="personalInfo" id="beT-Fe-lSB"/>
+                        <segue destination="NeG-RN-ed2" kind="show" identifier="showPersonalInfo" id="0cc-LD-XJ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Lz-Np-YH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-430" y="1329"/>
+            <point key="canvasLocation" x="-1762" y="1280"/>
         </scene>
         <!--Insur Card Pic View Controller-->
         <scene sceneID="IE9-xP-IO2">
@@ -815,6 +816,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuj-Nl-Rav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1448.8" y="537.48125937031489"/>
+        </scene>
+        <!--Personal Info View Controller-->
+        <scene sceneID="GFp-VB-tgy">
+            <objects>
+                <viewController storyboardIdentifier="PersonalInfo" modalTransitionStyle="crossDissolve" id="NeG-RN-ed2" customClass="PersonalInfoViewController" customModule="Medical_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="afQ-m4-WXj"/>
+                        <viewControllerLayoutGuide type="bottom" id="zCX-uj-wfb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uLe-A4-49I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqc-IV-CIE">
+                                <rect key="frame" x="137" y="496" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPressed:" destination="NeG-RN-ed2" eventType="touchUpInside" id="SW6-45-XKW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.58823529409999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="b_next" destination="Mqc-IV-CIE" id="2k8-FN-Q7K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S9A-O4-6Xk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1762" y="362"/>
         </scene>
     </scenes>
     <resources>

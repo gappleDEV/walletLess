@@ -57,7 +57,5 @@ class PersonalInfoHeaderView: UIView {
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
     }
-    
-    //func attachFunctionToBack(
 
 }

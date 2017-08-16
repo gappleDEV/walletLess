@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
     
     func setUpHeader() {
         //Sets header view to the custom view that was created
-        headerView = CategoryHeaderView(frame: .zero, title: "WalletLess LLC")
+        headerView = CategoryHeaderView(frame: .zero, title: "WalletLess LLC", name: "Gregory Johnson")
         headerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerView)
         headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: headerExpandedMax)
@@ -109,9 +109,10 @@ class HomeViewController: UIViewController {
     }
     
     func moveToStoryboard(sender:UIButton) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: panels[sender.tag].edit, bundle: nil)
+        /*let storyBoard: UIStoryboard = UIStoryboard(name: panels[sender.tag].edit, bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: panels[sender.tag].edit)
-        self.present(newViewController, animated: true, completion: nil)
+        self.present(newViewController, animated: true, completion: nil)*/
+        self.performSegue(withIdentifier: "showPersonalInfo", sender: self)
     }
 
     
