@@ -19,6 +19,7 @@
 		920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920FCC841E5C00C500A79E7D /* LoginViewController.swift */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
+		927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */; };
 		92DDAA2B1F411AD60085B143 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2A1F411AD60085B143 /* TableData.swift */; };
 		92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */; };
 		92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2E1F4380810085B143 /* PanelHeader.swift */; };
@@ -72,6 +73,7 @@
 		920FCC841E5C00C500A79E7D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InsuranceCardPic.storyboard; sourceTree = "<group>"; };
 		92DDAA2A1F411AD60085B143 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
 		92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA2E1F4380810085B143 /* PanelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelHeader.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		92094F5E1F3F9ED200DCC1C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
 				92094F5C1F3BF3A000DCC1C3 /* User.swift */,
 				92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */,
 				92DDAA2A1F411AD60085B143 /* TableData.swift */,
@@ -197,6 +200,7 @@
 				92DDAA301F4391F60085B143 /* PersonalInfo.storyboard */,
 				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
 				F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */,
+				927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -237,7 +241,6 @@
 				F3295CA81D6607DE003EBFBB /* MenuViewController.swift */,
 				F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */,
 				F3295CA61D6604C8003EBFBB /* Cell_Data.swift */,
-				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
 				92E630DB1E84BF70004E8434 /* MessagesTableViewCell.swift */,
 				F3AF14EE1CBD8711001782EA /* Assets.xcassets */,
 				F3AF14F31CBD8711001782EA /* Info.plist */,
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */,
 				F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */,
 				F3AF14EF1CBD8711001782EA /* Assets.xcassets in Resources */,
 				92DDAA311F4391F60085B143 /* PersonalInfo.storyboard in Resources */,

@@ -19,17 +19,18 @@ class HomeViewController: UIViewController {
     internal var cellExpandedHeight:CGFloat!
     
     var headerExpandedMax:CGFloat = 200
+    var headerExpandedMin:CGFloat = 65
     
     internal var panels: [PanelHeader] = [
-        PanelHeader(icon: "MyInfo", help: "Basic personal information", title: "Personal Information", edit: "PersonalInfo"),
-        PanelHeader(icon: "insurance", help: "Medical insurance information", title: "Insurance Information", edit: "PersonalInfo"),
-        PanelHeader(icon: "motorVehicleInformation", help: "Car and other automotive information.", title: "Motor Vehicle Information", edit: "PersonalInfo"),
-        PanelHeader(icon: "creditCards", help: "Card information", title: "Credit/Debit Cards", edit: "PersonalInfo"),
-        PanelHeader(icon: "bank", help: "Banking information", title: "Bank Information", edit: "PersonalInfo"),
-        PanelHeader(icon: "allergies", help: "Allergies and prescription information", title: "Allergies/Prescriptions", edit: "PersonalInfo"),
-        PanelHeader(icon: "idDoc", help: "Document information", title: "Identification Documents/Credentials", edit: "PersonalInfo"),
-        PanelHeader(icon: "discountTag", help: "Store membership information", title: "Store Memberships/Discount Tags", edit: "PersonalInfo"),
-        PanelHeader(icon: "tickets", help: "Ticket information", title: "Tickets/Vouchers", edit: "PersonalInfo")
+        PanelHeader(icon: "MyInfo", help: "Basic personal information", title: "Personal Information", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "insurance", help: "Medical insurance information", title: "Insurance Information", edit: "InsuranceCardPic", storyboard: "InsuranceCardPic"),
+        PanelHeader(icon: "motorVehicleInformation", help: "Car and other automotive information.", title: "Motor Vehicle Information", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "creditCards", help: "Card information", title: "Credit/Debit Cards", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "bank", help: "Banking information", title: "Bank Information", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "allergies", help: "Allergies and prescription information", title: "Allergies/Prescriptions", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "idDoc", help: "Document information", title: "Identification Documents/Credentials", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "discountTag", help: "Store membership information", title: "Store Memberships/Discount Tags", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "tickets", help: "Ticket information", title: "Tickets/Vouchers", edit: "PersonalInfo", storyboard: "PersonalInfo")
     ]
     
     internal var heights:[CGFloat] = []
@@ -69,6 +70,7 @@ class HomeViewController: UIViewController {
         //Sets header view to the custom view that was created
         headerView = CategoryHeaderView(frame: .zero, title: "WalletLess LLC", name: "Gregory Johnson")
         headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.collapseButton.addTarget(self, action: #selector(collapsePressed), for: .touchUpInside)
         view.addSubview(headerView)
         headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: headerExpandedMax)
         headerHeightConstraint.isActive = true
@@ -91,6 +93,14 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
+    func collapsePressed() {
+        self.headerHeightConstraint.constant = headerExpandedMin
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            self.headerView.incrementTitleAlpha(offset: self.headerHeightConstraint.constant)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     func animateHeader() {
         self.headerHeightConstraint.constant = headerExpandedMax
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
@@ -109,10 +119,10 @@ class HomeViewController: UIViewController {
     }
     
     func moveToStoryboard(sender:UIButton) {
-        /*let storyBoard: UIStoryboard = UIStoryboard(name: panels[sender.tag].edit, bundle: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: panels[sender.tag].storyboard, bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: panels[sender.tag].edit)
-        self.present(newViewController, animated: true, completion: nil)*/
-        self.performSegue(withIdentifier: "showPersonalInfo", sender: self)
+        self.present(newViewController, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "showPersonalInfo", sender: self)
     }
 
     

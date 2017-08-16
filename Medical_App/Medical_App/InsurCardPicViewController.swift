@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class InsurCardPicViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate
 {
@@ -40,7 +40,7 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
         b_takePicture.layer.borderWidth = 1.0
         b_takePicture.layer.borderColor = UIColor.white.cgColor
         
-        let realm = try! Realm()
+        /*let realm = try! Realm()
         
         if realm.objects(InsuranceInfo.self).count == 0
         {
@@ -53,7 +53,7 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
             let insInfo = realm.objects(InsuranceInfo.self).first!
             im_pic.contentMode = .scaleAspectFit
             im_pic.image = UIImage(data: insInfo.insuranceCard as Data,scale: 1.0)
-        }
+        }*/
         
     }
     
@@ -72,6 +72,10 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
+    @IBAction func toHome(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         if let myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -80,13 +84,13 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
             im_pic.image = myImage
             gl_data.insuranceCardPic = myImage
             
-            let data = NSData(data: UIImageJPEGRepresentation(myImage, 1.0)!)
+            /*let data = NSData(data: UIImageJPEGRepresentation(myImage, 1.0)!)
             
             let realm = try! Realm()
             let insuranceInfo = realm.objects(InsuranceInfo.self).first!
             try! realm.write {
                 insuranceInfo.insuranceCard = data
-            }
+            }*/
             
         }
         dismiss(animated: true, completion: nil)
@@ -98,6 +102,7 @@ class InsurCardPicViewController: UIViewController, UINavigationControllerDelega
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
+        popOverVC.l_helpText.text = gl_data.helpText
         popOverVC.didMove(toParentViewController: self)
     }
 }
