@@ -21,6 +21,7 @@
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
 		927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */; };
 		927E8C7F1F44C9AA008092DE /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E8C7E1F44C9AA008092DE /* CustomPickerView.swift */; };
+		927E8C811F44F3D8008092DE /* PersonalInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E8C801F44F3D8008092DE /* PersonalInfoRepository.swift */; };
 		92DDAA2B1F411AD60085B143 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2A1F411AD60085B143 /* TableData.swift */; };
 		92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */; };
 		92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2E1F4380810085B143 /* PanelHeader.swift */; };
@@ -76,6 +77,7 @@
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InsuranceCardPic.storyboard; sourceTree = "<group>"; };
 		927E8C7E1F44C9AA008092DE /* CustomPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		927E8C801F44F3D8008092DE /* PersonalInfoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoRepository.swift; sourceTree = "<group>"; };
 		92DDAA2A1F411AD60085B143 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
 		92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA2E1F4380810085B143 /* PanelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelHeader.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		92094F5E1F3F9ED200DCC1C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */,
 				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
 				92094F5C1F3BF3A000DCC1C3 /* User.swift */,
 				92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */,
@@ -193,6 +196,7 @@
 			children = (
 				92094F621F3FA72600DCC1C3 /* Repository.swift */,
 				92094F641F3FAD3D00DCC1C3 /* UserRepository.swift */,
+				927E8C801F44F3D8008092DE /* PersonalInfoRepository.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -238,7 +242,6 @@
 				92094F5E1F3F9ED200DCC1C3 /* Model */,
 				F3AF14E71CBD8711001782EA /* AppDelegate.swift */,
 				924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */,
-				F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */,
 				9202528F1E492EAF00DC979A /* InsuranceInfo.swift */,
 				F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */,
 				F3295CA81D6607DE003EBFBB /* MenuViewController.swift */,
@@ -490,6 +493,7 @@
 				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
 				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
 				F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */,
+				927E8C811F44F3D8008092DE /* PersonalInfoRepository.swift in Sources */,
 				927E8C7F1F44C9AA008092DE /* CustomPickerView.swift in Sources */,
 				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
 				92094F5A1F3BEE0600DCC1C3 /* HomeViewController.swift in Sources */,

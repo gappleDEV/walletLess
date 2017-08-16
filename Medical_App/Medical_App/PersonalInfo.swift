@@ -8,9 +8,9 @@
 
 import RealmSwift
 
-class PersonalInfo: Object {
+class PersonalInfo: TableData {
     
-    dynamic var username:String = "user"
+    dynamic var email:String = ""
     
     //View 1
     dynamic var firstName:String = ""
@@ -28,29 +28,54 @@ class PersonalInfo: Object {
     dynamic var birthYear:Int = 1800
     
     //View 4
-    dynamic var maritalStatus:String = "Single"
-    dynamic var sex:String = "Male"
-    dynamic var race:String = "Caucasion"
+    dynamic var maritalStatus:String = ""
+    dynamic var sex:String = ""
+    dynamic var race:String = ""
     
     //View 5
-    dynamic var denomination:String = "Christianity"
-    dynamic var preferredLanguage:String = "English"
+    dynamic var denomination:String = ""
+    dynamic var preferredLanguage:String = ""
     
     //View 6
     dynamic var socialSecurity:String = ""
     
     //View 7
     dynamic var address:String = ""
-    dynamic var zipCode:Int = 12345
-    dynamic var countyCode:Int = 12345
+    dynamic var zipCode:Int = 00000
+    dynamic var countyCode:Int = 00000
     
     //View 8
     dynamic var homePhone:String = ""
     dynamic var cellPhone:String = ""
     dynamic var workPhone:String = ""
     
+    convenience public init(email: String) {
+        self.init()
+        self.email = email
+    }
+    
     override class func primaryKey() -> String? {
-        return "username"
+        return "email"
+    }
+    
+    override var tableRepresentation: [MyTableData] {
+        return [
+            ("Mother's First Name", motherFirstName),
+            ("Mother's Middle Name", motherMiddleName),
+            ("Mother's Maiden Name", motherLastName),
+            ("Birthday", "\(birthMonth)/\(birthDay)/\(birthYear)"),
+            ("Marital Status", maritalStatus),
+            ("Sex", sex),
+            ("Race", race),
+            ("Denomination", denomination),
+            ("Preferred Language", preferredLanguage),
+            ("Address", address),
+            ("Zip Code", "\(zipCode)"),
+            ("County Code", "\(countyCode)"),
+            ("Home Phone", homePhone),
+            ("Cell Phone", cellPhone),
+            ("Work Phone", workPhone)
+        ]
     }
     
 }

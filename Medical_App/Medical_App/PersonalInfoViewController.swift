@@ -43,7 +43,7 @@ class PersonalInfoViewController: UIViewController {
         setUpProgressBar()
         setUpBody()
         reloadPage()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +76,7 @@ class PersonalInfoViewController: UIViewController {
             progressBar.widthAnchor.constraint(equalToConstant: self.view.frame.width/2),
             progressBar.heightAnchor.constraint(equalToConstant: 10),
             progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ]
+        ]
         NSLayoutConstraint.activate(constraints)
     }
     
@@ -89,7 +89,7 @@ class PersonalInfoViewController: UIViewController {
         let constraints:[NSLayoutConstraint] = [
             bodyView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             bodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-            ]
+        ]
         NSLayoutConstraint.activate(constraints)
     }
     
@@ -201,8 +201,30 @@ class PersonalInfoViewController: UIViewController {
     }
     
     @IBAction func nextPressed(_ sender: Any) {
+        let user = PersonalInfoRepository.persRep.getUser()
+        switch pageIndex {
+        case 0:
+            let values = getValuesFromTextInput()
+            let _ = PersonalInfoRepository.persRep.updateMotherInfo(user: user!, first: values[0], middle: values[1], last: values[2])
+        default:
+            print("Saving for \(pageIndex) not implemented yet")
+        }
         pageIndex = pageIndex + 1
         reloadPage()
+    }
+    
+    func getValuesFromTextInput() -> [String] {
+        var toRet:[String] = []
+        for e in bodyView.arrangedSubviews {
+            if e is UIStackView {
+                for l in (e as! UIStackView).arrangedSubviews {
+                    if l is UITextField {
+                        toRet.append((l as! UITextField).text!)
+                    }
+                }
+            }
+        }
+        return toRet
     }
     
     func decrementPageIndex() {
@@ -226,6 +248,12 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         print("Should Edit")
         return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        self.view.endEditing(true)
+        return false
     }
 }
 

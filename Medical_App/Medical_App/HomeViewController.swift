@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     internal var panels: [PanelHeader] = [
         PanelHeader(icon: "MyInfo", help: "Basic personal information", title: "Personal Information", edit: "PersonalInfo", storyboard: "PersonalInfo"),
         PanelHeader(icon: "insurance", help: "Medical insurance information", title: "Insurance Information", edit: "InsuranceCardPic", storyboard: "InsuranceCardPic"),
-        PanelHeader(icon: "motorVehicleInformation", help: "Car and other automotive information.", title: "Motor Vehicle Information", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "motorVehicleInformation", help: "Car and other automotive information.", title: "Motor Vehicle Information", edit: "InsuranceCardPic", storyboard: "InsuranceCardPic"),
         PanelHeader(icon: "creditCards", help: "Card information", title: "Credit/Debit Cards", edit: "PersonalInfo", storyboard: "PersonalInfo"),
         PanelHeader(icon: "bank", help: "Banking information", title: "Bank Information", edit: "PersonalInfo", storyboard: "PersonalInfo"),
         PanelHeader(icon: "allergies", help: "Allergies and prescription information", title: "Allergies/Prescriptions", edit: "PersonalInfo", storyboard: "PersonalInfo"),
@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     ]
     
     internal var heights:[CGFloat] = []
-    internal var subArrTypes = [User(email: "email@gmail.com", password: "pass"), User(), User(), User(), User(), User(), User(), User(), User(), User()]
+    internal var subArrTypes = [PersonalInfoRepository.persRep.getUser()!, User(), User(), User(), User(), User(), User(), User(), User(), User()]
     
     internal let cellIdentifier = "CategoryTableViewCell"
     
@@ -44,8 +44,6 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = self
-        
-        heights = Array(repeating: cellDefaultHeight, count: panels.count)
         
         t_categories.delegate = self
         t_categories.dataSource = self
@@ -61,14 +59,23 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("View will appear")
+        
         //Make status bar light colored
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        subArrTypes = [PersonalInfoRepository.persRep.getUser()!, User(), User(), User(), User(), User(), User(), User(), User(), User()]
+        
+        DispatchQueue.main.async{
+            self.t_categories.reloadData()
+        }
+        
         
     }
     
     func setUpHeader() {
         //Sets header view to the custom view that was created
-        headerView = CategoryHeaderView(frame: .zero, title: "WalletLess LLC", name: "Gregory Johnson")
+        headerView = CategoryHeaderView(frame: .zero, title: "WalletLess LLC", name: "Michael Harrison")
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.collapseButton.addTarget(self, action: #selector(collapsePressed), for: .touchUpInside)
         view.addSubview(headerView)
@@ -158,7 +165,7 @@ extension HomeViewController: UITableViewDataSource {
     
     //Creates the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print("Cell for row at called")
         //Create cell
         let cell = t_categories.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         //Set properties
@@ -171,11 +178,16 @@ extension HomeViewController: UITableViewDataSource {
         
         cell.setTableData(tableData: subArrTypes[indexPath.section])
         
+        DispatchQueue.main.async{
+            cell.t_values.reloadData()
+        }
+        
         return cell
     }
     
     //Height for a given cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        heights = Array(repeating: cellDefaultHeight, count: panels.count)
         return heights[indexPath.section]
     }
     

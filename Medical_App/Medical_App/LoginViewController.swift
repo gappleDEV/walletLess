@@ -39,6 +39,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func setupTables() {
+        let within = PersonalInfoRepository.persRep.getUser()
+        if within == nil || within!.email != i_email.text! {
+            let _ = PersonalInfoRepository.persRep.addUser(user: PersonalInfo(email: i_email.text!))
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -68,6 +75,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.present(alertView, animated: true)
                 
             } else {
+                self.setupTables()
                 self.performSegue(withIdentifier: "loginUser", sender: self)
             }
         }
@@ -108,11 +116,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     thisUser.rememberMe = true
                     if UserRepository.userRep.updateUser(user: thisUser) {
                         //Move to next controller
+                        self.setupTables()
                         self.performSegue(withIdentifier: "loginUser", sender: self)
                     }
                 })
                 let noAction = UIAlertAction(title: "No", style: .default, handler: { (UIAlertAction) in
                     //Move to next controller
+                    self.setupTables()
                     self.performSegue(withIdentifier: "loginUser", sender: self)
                 })
                 
@@ -122,6 +132,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.present(alertView, animated: true)
             } else {
                 //Move to next controller
+                setupTables()
                 self.performSegue(withIdentifier: "loginUser", sender: self)
             }
             return true
