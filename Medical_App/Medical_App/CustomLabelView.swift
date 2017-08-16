@@ -12,10 +12,14 @@ class CustomLabelView: UILabel {
     
     let labelFontSize:CGFloat = 14
     
-    init(frame:CGRect, title:String) {
+    init(frame:CGRect, title:String, top:Bool) {
         super.init(frame: frame)
         self.text = title
-        setUpView()
+        if top {
+            setUpView()
+        } else {
+            setUpSideView()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +39,19 @@ class CustomLabelView: UILabel {
         self.font = UIFont.systemFont(ofSize: labelFontSize)
         self.textColor = .white
         
+    }
+    
+    func setUpSideView() {
+        //Field title
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let titlesConstraints:[NSLayoutConstraint] = [
+            self.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.topAnchor.constraint(equalTo: self.topAnchor),
+            self.widthAnchor.constraint(equalToConstant: 100)
+        ]
+        NSLayoutConstraint.activate(titlesConstraints)
+        self.font = UIFont.systemFont(ofSize: labelFontSize)
+        self.textColor = .white
     }
     
 }

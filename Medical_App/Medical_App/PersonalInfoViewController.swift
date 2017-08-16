@@ -24,6 +24,10 @@ class PersonalInfoViewController: UIViewController {
     let titles:[String] = ["Mother's Name", "My Birthday", "Basic Information", "Basic Information", "Social Security #", "Location", "Phone"]
     var pageIndex:Int = 0
     
+    var data_marStatus = ["Single", "Married", "Divorced", "Widowed"]
+    var data_sex = ["Male", "Female"]
+    var data_race = ["Caucasion", "Black", "Native American"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,19 +123,79 @@ class PersonalInfoViewController: UIViewController {
         })
     }
     
+    func reloadPage() {
+        if(pageIndex == -1) {
+            moveToHomeView()
+        } else if (pageIndex == titles.count) {
+            moveToHomeView()
+        } else {
+            headerView.titleLabel.text = titles[pageIndex]
+            fadeOutBody(completion: { finished in
+                switch self.pageIndex {
+                case 0:
+                    self.loadMotherName()
+                case 1:
+                    self.loadBirthday()
+                case 2:
+                    self.loadBasicInformationOne()
+                default:
+                    print("Page \(self.pageIndex) not implemented yet")
+                }
+                self.fadeInBody(completion: { finished in
+                    //nothing to do
+                })
+            })
+            
+        }
+    }
+    
     func loadMotherName() {
         bodyView.addArrangedSubview(getStack(text: "", placeholder: "Mother's First Name"))
         bodyView.addArrangedSubview(getStack(text: "", placeholder: "Mother's Middle Name"))
         bodyView.addArrangedSubview(getStack(text: "", placeholder: "Mother's Maiden Last Name"))
     }
     
+    func loadBirthday() {
+        //Create date picker
+        let datePicker: UIDatePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: bodyView.frame.height))
+        // Set some of UIDatePicker properties
+        datePicker.timeZone = NSTimeZone.local
+        datePicker.datePickerMode = .date
+        datePicker.backgroundColor = UIColor(red:0.56, green:0.79, blue:0.98, alpha:1.0)
+        // Add DataPicker to the view
+        bodyView.addArrangedSubview(datePicker)
+        let constraints:[NSLayoutConstraint] = [
+            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func loadBasicInformationOne() {
+        bodyView.addArrangedSubview(getPickerStack(text: "Marital Status", tagStart: 0))
+        bodyView.addArrangedSubview(getPickerStack(text: "Sex", tagStart: 1))
+        bodyView.addArrangedSubview(getPickerStack(text: "Race", tagStart: 2))
+        
+    }
+    
     func getStack(text:String, placeholder:String) -> UIStackView {
-        let label = CustomLabelView(frame: .zero, title: placeholder)
+        let label = CustomLabelView(frame: .zero, title: placeholder, top: true)
         let input = CustomTextInputView(frame: CGRect(x: 0, y: 0, width: 300, height: 50), text: text, placeholder: placeholder, del: self)
         let stack:UIStackView = UIStackView()
         stack.axis = .vertical
         stack.addArrangedSubview(label)
         stack.addArrangedSubview(input)
+        
+        return stack
+    }
+    
+    func getPickerStack(text:String, tagStart:Int) -> UIStackView {
+        let label = CustomLabelView(frame: .zero, title: text, top: false)
+        let picker:CustomPickerView = CustomPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 75), del: self, dat: self)
+        picker.tag = tagStart
+        let stack:UIStackView = UIStackView()
+        stack.axis = .horizontal
+        stack.addArrangedSubview(label)
+        stack.addArrangedSubview(picker)
         
         return stack
     }
@@ -144,28 +208,6 @@ class PersonalInfoViewController: UIViewController {
     func decrementPageIndex() {
         pageIndex = pageIndex - 1
         reloadPage()
-    }
-    
-    func reloadPage() {
-        if(pageIndex == -1) {
-            moveToHomeView()
-        } else if (pageIndex == titles.count) {
-            moveToHomeView()
-        } else {
-            headerView.titleLabel.text = titles[pageIndex]
-            fadeOutBody(completion: { finished in
-                switch self.pageIndex {
-                case 0:
-                    self.loadMotherName()
-                default:
-                    print("Page \(self.pageIndex) not implemented yet")
-                }
-                self.fadeInBody(completion: { finished in
-                    //nothing to do
-                })
-            })
-            
-        }
     }
     
     func moveToHomeView() {
@@ -184,5 +226,44 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         print("Should Edit")
         return true
+    }
+}
+
+extension PersonalInfoViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    //Number of columns in data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        switch pickerView.tag
+        {
+        case 0:
+            return data_marStatus.count
+        case 1:
+            return data_sex.count
+        case 2:
+            return data_race.count
+        default:
+            return 1
+        }
+    }
+    
+    //Get value at specific point to fill each element of the picker
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        switch pickerView.tag
+        {
+        case 0:
+            return data_marStatus[row]
+        case 1:
+            return data_sex[row]
+        case 2:
+            return data_race[row]
+        default:
+            return nil
+        }
     }
 }
