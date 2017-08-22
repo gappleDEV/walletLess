@@ -12,7 +12,7 @@ namespace WalletLessWebAPI.Services
         UserAccount GetUserAccount(string username);
         IEnumerable<UserAccount> GetAllUserAccounts();
         IEnumerable<UserAccount> GetUserAccounts(IEnumerable<string> usernames);
-        void UpdateUserAccount(UserAccount user);
+        void UpdateUserAccount(String id, UserAccount user);
         bool Save();
     }
 }

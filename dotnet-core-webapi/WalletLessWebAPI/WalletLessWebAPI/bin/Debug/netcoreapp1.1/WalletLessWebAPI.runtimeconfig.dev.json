@@ -1,7 +1,7 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/matthewaquiles/.nuget/packages"
+      "C:\\Users\\Matthew Aquiles\\.nuget\\packages"
     ]
   }
 }

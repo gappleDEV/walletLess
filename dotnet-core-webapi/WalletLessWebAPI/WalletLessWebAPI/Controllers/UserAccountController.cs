@@ -36,6 +36,7 @@ namespace WalletLessWebAPI.Controllers
             return new JsonResult(user);
         }
 
+        //should this use Dto and convert from Dto class?
         [HttpPost()]
         public IActionResult CreateUser(UserAccount user)
         {
@@ -44,9 +45,14 @@ namespace WalletLessWebAPI.Controllers
             return new JsonResult(user);
         }
 
-        //put
-        //[HttpPut("{id}")]
-        //public IActionResult UpdateUser(UserAccount user, )
+        //same question as above here
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser(String id, UserAccount user)
+        {
+            _userAccountRepository.UpdateUserAccount(id, user);
+            _userAccountRepository.Save();
+            return new JsonResult(user);
+        }
 
         //patch
 
