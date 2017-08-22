@@ -35,5 +35,33 @@ namespace WalletLessWebAPI.Controllers
             var user = Mapper.Map<UserAccountDto>(usersFropRepo);
             return new JsonResult(user);
         }
+
+        //should this use Dto and convert from Dto class?
+        [HttpPost()]
+        public IActionResult CreateUser(UserAccount user)
+        {
+            _userAccountRepository.AddUserAccount(user);
+            _userAccountRepository.Save();
+            return new JsonResult(user);
+        }
+
+        //same question as above here
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser(String id, UserAccount user)
+        {
+            _userAccountRepository.UpdateUserAccount(id, user);
+            _userAccountRepository.Save();
+            return new JsonResult(user);
+        }
+
+        //patch
+
+        [HttpDelete()]
+        public IActionResult DeleteUser(UserAccount user)
+        {
+            _userAccountRepository.DeleteUserAccount(user);
+            _userAccountRepository.Save();
+            return new JsonResult(user);
+        }
     }
 }
