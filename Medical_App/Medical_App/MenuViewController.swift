@@ -88,7 +88,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let img1 = UIImage(named: "personalInfo")!
             let cell1 = cellData(title: "Personal and Employement Information", image: img1, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub1_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
+            let sub1_1 = subCellData(text: "Information", storyboardId: "PersonalInfoXX")
             
             let img2 = UIImage(named: "insurance")!
             let cell2 = cellData(title: "Insurance Information", image: img2, storyboardId: "InsuranceCardPic", navButtonTitle: "My Card")
@@ -96,7 +96,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let sub2_2 = subCellData(text: "Motor Vehicle", storyboardId: "InsuranceCardPic")
             let sub2_3 = subCellData(text: "Home", storyboardId: "InsuranceCardPic")
             let sub2_4 = subCellData(text: "Cards", storyboardId: "InsuranceCardPic")
-            let sub2_5 = subCellData(text: "Other", storyboardId: "PersonalInfo")
+            let sub2_5 = subCellData(text: "Other", storyboardId: "PersonalInfoXX")
 
             
             let img3 = UIImage(named: "motorVehicleInformation")!
@@ -106,35 +106,41 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let sub3_3 = subCellData(text: "Registration Picture", storyboardId: "InsuranceCardPic")
             
             let img4 = UIImage(named: "creditCards")!
-            let cell4 = cellData(title: "Credit/Debit Cards", image: img4, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub4_1 = subCellData(text: "Visa", storyboardId: "PersonalInfo")
-            let sub4_2 = subCellData(text: "Mastercard", storyboardId: "PersonalInfo")
-            let sub4_3 = subCellData(text: "American Express", storyboardId: "PersonalInfo")
-            let sub4_4 = subCellData(text: "Store Credit Cards", storyboardId: "PersonalInfo")
+            let cell4 = cellData(title: "Credit/Debit Cards", image: img4, storyboardId: "PersonalInfoXX", navButtonTitle: "Info")
+            let sub4_1 = subCellData(text: "Visa", storyboardId: "PersonalInfoXX")
+            let sub4_2 = subCellData(text: "Mastercard", storyboardId: "PersonalInfoXX")
+            let sub4_3 = subCellData(text: "American Express", storyboardId: "PersonalInfoXX")
+            let sub4_4 = subCellData(text: "Store Credit Cards", storyboardId: "PersonalInfoXX")
             
             let img5 = UIImage(named: "bank")!
-            let cell5 = cellData(title: "Bank Information", image: img5, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub5_1 = subCellData(text: "Checking", storyboardId: "PersonalInfo")
-            let sub5_2 = subCellData(text: "Savings", storyboardId: "PersonalInfo")
-            let sub5_3 = subCellData(text: "Other", storyboardId: "PersonalInfo")
+            let cell5 = cellData(title: "Bank Information", image: img5, storyboardId: "PersonalInfoXX", navButtonTitle: "Info")
+            let sub5_1 = subCellData(text: "Checking", storyboardId: "PersonalInfoXX")
+            let sub5_2 = subCellData(text: "Savings", storyboardId: "PersonalInfoXX")
+            let sub5_3 = subCellData(text: "Other", storyboardId: "PersonalInfoXX")
             
             let img6 = UIImage(named: "allergies")!
-            let cell6 = cellData(title: "Allergies/Prescriptions", image: img6, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub6_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
+            let cell6 = cellData(title: "Allergies/Prescriptions", image: img6, storyboardId: "PersonalInfoXX", navButtonTitle: "Info")
+            let sub6_1 = subCellData(text: "Information", storyboardId: "PersonalInfoXX")
             
             let img7 = UIImage(named: "idDoc")!
-            let cell7 = cellData(title: "Identification Documents/Credentials", image: img7, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub7_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
+            let cell7 = cellData(title: "Identification Documents/Credentials", image: img7, storyboardId: "PersonalInfoXX", navButtonTitle: "Info")
+            let sub7_1 = subCellData(text: "Information", storyboardId: "PersonalInfoXX")
             
             let img8 = UIImage(named: "discountTag")!
-            let cell8 = cellData(title: "Store Memberships/Discount Tags", image: img8, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub8_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
+            let cell8 = cellData(title: "Store Memberships/Discount Tags", image: img8, storyboardId: "PersonalInfoXX", navButtonTitle: "Info")
+            let sub8_1 = subCellData(text: "Information", storyboardId: "PersonalInfoXX")
             
             let img9 = UIImage(named: "tickets")!
-            let cell9 = cellData(title: "Tickets/Vouchers", image: img9, storyboardId: "PersonalInfo", navButtonTitle: "Info")
-            let sub9_1 = subCellData(text: "Information", storyboardId: "PersonalInfo")
+            let cell9 = cellData(title: "Tickets/Vouchers", image: img9, storyboardId: "PersonalInfoXX", navButtonTitle: "Info")
+            let sub9_1 = subCellData(text: "Information", storyboardId: "PersonalInfoXX")
             
-            cells += [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9]
+            let img10 = UIImage(named: "police")!
+            let cell10 = cellData(title: "Police Search", image: img10, storyboardId: "PersonalInfoXX", navButtonTitle: "Info")
+            let sub10_1 = subCellData(text: "License", storyboardId: "PersonalInfoXX")
+            let sub10_2 = subCellData(text: "Registration", storyboardId: "PersonalInfoXX")
+            let sub10_3 = subCellData(text: "Auto Insurance", storyboardId: "PersonalInfoXX")
+            
+            cells += [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9, cell10]
             
             let sub1 = [sub1_1]
             let sub2 = [sub2_1, sub2_2, sub2_3, sub2_4, sub2_5]
@@ -145,8 +151,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let sub7 = [sub7_1]
             let sub8 = [sub8_1]
             let sub9 = [sub9_1]
+            let sub10 = [sub10_1, sub10_2, sub10_3]
             
-            subCells += [sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sub9]
+            subCells += [sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sub9, sub10]
         }
     }
     

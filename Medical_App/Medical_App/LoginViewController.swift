@@ -95,11 +95,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func register(_ sender: Any) {
-        if(UserRepository.userRep.addUser(user: User(email: i_email.text!, password: i_password.text!))) {
+        let storyBoard = UIStoryboard(name: "Register", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "register")
+        self.present(nextViewController, animated: true, completion: nil)
+        /*if(UserRepository.userRep.addUser(user: User(email: i_email.text!, password: i_password.text!))) {
             print("User saved")
         } else {
             print("Didn't save User correctly")
-        }
+        }*/
     }
     
     func correctLogin(username: String, password: String) -> Bool {
@@ -107,12 +110,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        if(userEntry.email == username && userEntry.password == password) {
+        if(userEntry.email == username.uppercased() && userEntry.password == password) {
             if(!userEntry.rememberMe) {
                 let alertView = UIAlertController(title: userEntry.email, message: "Would you like WalletLess to remember your email for future logins?", preferredStyle: .alert)
                 let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in
                     //Update to be remembered
-                    let thisUser = User(email: userEntry.email, password: userEntry.password)
+                    let thisUser = User(firstName: userEntry.firstName, middleName: userEntry.middleName, lastName: userEntry.lastName, email: userEntry.email, password: userEntry.password)
                     thisUser.rememberMe = true
                     if UserRepository.userRep.updateUser(user: thisUser) {
                         //Move to next controller

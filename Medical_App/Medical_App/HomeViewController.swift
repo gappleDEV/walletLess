@@ -30,13 +30,20 @@ class HomeViewController: UIViewController {
         PanelHeader(icon: "allergies", help: "Allergies and prescription information", title: "Allergies/Prescriptions", edit: "PersonalInfo", storyboard: "PersonalInfo"),
         PanelHeader(icon: "idDoc", help: "Document information", title: "Identification Documents/Credentials", edit: "PersonalInfo", storyboard: "PersonalInfo"),
         PanelHeader(icon: "discountTag", help: "Store membership information", title: "Store Memberships/Discount Tags", edit: "PersonalInfo", storyboard: "PersonalInfo"),
-        PanelHeader(icon: "tickets", help: "Ticket information", title: "Tickets/Vouchers", edit: "PersonalInfo", storyboard: "PersonalInfo")
+        PanelHeader(icon: "tickets", help: "Ticket information", title: "Tickets/Vouchers", edit: "PersonalInfo", storyboard: "PersonalInfo"),
+        PanelHeader(icon: "police", help: "Documents for a police search", title: "Police Search", edit: "PersonalInfo", storyboard: "PersonalInfo")
     ]
     
-    internal var heights:[CGFloat] = []
     internal var subArrTypes = [PersonalInfoRepository.persRep.getUser()!, User(), User(), User(), User(), User(), User(), User(), User(), User()]
     
+    internal var heights:[CGFloat] = []
+    
     internal let cellIdentifier = "CategoryTableViewCell"
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        heights = Array(repeating: cellDefaultHeight, count: panels.count)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,7 +194,6 @@ extension HomeViewController: UITableViewDataSource {
     
     //Height for a given cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        heights = Array(repeating: cellDefaultHeight, count: panels.count)
         return heights[indexPath.section]
     }
     
@@ -195,6 +201,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Get correct expanded height
         self.cellExpandedHeight = t_categories.frame.height
+        print("Height to be: \(t_categories.frame.height)")
         //Begin animated updates
         self.t_categories.beginUpdates()
         //Change height of selected row

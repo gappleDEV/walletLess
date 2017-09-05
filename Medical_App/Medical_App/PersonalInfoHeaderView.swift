@@ -12,6 +12,7 @@ class PersonalInfoHeaderView: UIView {
 
     var backButton:UIButton!
     var titleLabel = UILabel()
+    var homeButton:UIButton!
     
     var bgColor = UIColor(red:0.05, green:0.28, blue:0.63, alpha:1.0)
     
@@ -56,6 +57,22 @@ class PersonalInfoHeaderView: UIView {
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
+        
+        //Button to go home
+        homeButton = UIButton()
+        homeButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(homeButton)
+        let homeConstraints:[NSLayoutConstraint] = [
+            homeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
+            homeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10),
+            homeButton.widthAnchor.constraint(equalToConstant: 100),
+            homeButton.heightAnchor.constraint(equalToConstant: 40)
+        ]
+        NSLayoutConstraint.activate(homeConstraints)
+        homeButton.setTitle("Home", for: .normal)
+        homeButton.titleLabel!.textColor = .white
+        homeButton.titleLabel!.font = UIFont.systemFont(ofSize: 20)
+        homeButton.titleLabel!.textAlignment = .center
     }
 
 }

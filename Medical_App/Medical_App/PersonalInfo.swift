@@ -41,8 +41,8 @@ class PersonalInfo: TableData {
     
     //View 7
     dynamic var address:String = ""
-    dynamic var zipCode:Int = 00000
-    dynamic var countyCode:Int = 00000
+    dynamic var zipCode:String = ""
+    dynamic var countyCode:String = ""
     
     //View 8
     dynamic var homePhone:String = ""
@@ -69,9 +69,10 @@ class PersonalInfo: TableData {
             ("Race", race),
             ("Denomination", denomination),
             ("Preferred Language", preferredLanguage),
+            ("Social Security", "\(socialSecurity.characters.count == 9 ? "*****" + socialSecurity.substring(from: socialSecurity.index(socialSecurity.startIndex, offsetBy: min(socialSecurity.characters.count, 5))) : "")"),
             ("Address", address),
-            ("Zip Code", "\(zipCode)"),
-            ("County Code", "\(countyCode)"),
+            ("Zip Code", zipCode),
+            ("County Code", countyCode),
             ("Home Phone", homePhone),
             ("Cell Phone", cellPhone),
             ("Work Phone", workPhone)
