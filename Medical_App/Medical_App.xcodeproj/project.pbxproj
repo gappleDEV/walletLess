@@ -160,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */,
-				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
 				92094F5C1F3BF3A000DCC1C3 /* User.swift */,
 				92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */,
 				92DDAA2A1F411AD60085B143 /* TableData.swift */,
@@ -247,6 +246,7 @@
 				92094F5F1F3F9EE200DCC1C3 /* View */,
 				92094F5E1F3F9ED200DCC1C3 /* Model */,
 				F3AF14E71CBD8711001782EA /* AppDelegate.swift */,
+				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
 				924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */,
 				9202528F1E492EAF00DC979A /* InsuranceInfo.swift */,
 				F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */,
@@ -454,6 +454,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -461,6 +462,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",

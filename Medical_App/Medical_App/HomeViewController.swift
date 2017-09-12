@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     var headerView:CategoryHeaderView!
     var headerHeightConstraint:NSLayoutConstraint!
     
-    internal let cellDefaultHeight:CGFloat = 200.0
+    internal let cellDefaultHeight:CGFloat = 75.0
     internal var cellExpandedHeight:CGFloat!
     
     var headerExpandedMax:CGFloat = 200

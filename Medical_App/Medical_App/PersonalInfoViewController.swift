@@ -77,6 +77,7 @@ class PersonalInfoViewController: UIViewController {
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ]
         headerView.backButton.addTarget(self, action: #selector(decrementPageIndex), for: .touchUpInside)
+        headerView.homeButton.addTarget(self, action: #selector(moveToHomeView), for: .touchUpInside)
         NSLayoutConstraint.activate(constraints)
     }
     

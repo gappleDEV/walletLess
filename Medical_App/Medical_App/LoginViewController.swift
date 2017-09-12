@@ -98,11 +98,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let storyBoard = UIStoryboard(name: "Register", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "register")
         self.present(nextViewController, animated: true, completion: nil)
-        /*if(UserRepository.userRep.addUser(user: User(email: i_email.text!, password: i_password.text!))) {
-            print("User saved")
-        } else {
-            print("Didn't save User correctly")
-        }*/
     }
     
     func correctLogin(username: String, password: String) -> Bool {

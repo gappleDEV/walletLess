@@ -9,6 +9,7 @@ target 'Medical_App' do
   pod 'Alamofire', '~> 4.4’
   pod 'RealmSwift'
   pod 'SwiftyJSON'
+  pod 'IQKeyboardManagerSwift', '4.0.10'
 
   target 'Medical_AppTests' do
     inherit! :search_paths
