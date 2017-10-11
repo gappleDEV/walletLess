@@ -14,7 +14,7 @@ class PersonalInfoHeaderView: UIView {
     var titleLabel = UILabel()
     var homeButton:UIButton!
     
-    var bgColor = UIColor(red:0.05, green:0.28, blue:0.63, alpha:1.0)
+    var bgColor = UIColor(red:0.31, green:0.20, blue:0.18, alpha:1.0)
     
     init(frame:CGRect, title:String) {
         super.init(frame: frame)

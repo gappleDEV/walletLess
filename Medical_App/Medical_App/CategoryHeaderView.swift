@@ -11,7 +11,7 @@ import UIKit
 class CategoryHeaderView: UIView {
 
     var colorView:UIView!
-    var bgColor = UIColor(red:0.13, green:0.59, blue:0.95, alpha:1.0)
+    var bgColor = UIColor(red:0.31, green:0.20, blue:0.18, alpha:1.0)
     var titleLabel = UILabel()
     var nameLabel = UILabel()
     var logoIcon:UIImageView!

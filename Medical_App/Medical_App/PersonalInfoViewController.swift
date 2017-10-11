@@ -38,6 +38,8 @@ class PersonalInfoViewController: UIViewController {
     var denom:String = ""
     var prefLang:String = ""
     
+    var personalInfo:PersonalInfo = PersonalInfoRepository.persRep.getUser()!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -181,9 +183,9 @@ class PersonalInfoViewController: UIViewController {
     
     //Mother first name, middle name, maiden name
     func loadMotherName() {
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Mother's First Name"))
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Mother's Middle Name"))
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Mother's Maiden Last Name"))
+        bodyView.addArrangedSubview(getInputStack(text: personalInfo.motherFirstName, placeholder: "Mother's First Name"))
+        bodyView.addArrangedSubview(getInputStack(text: personalInfo.motherMiddleName, placeholder: "Mother's Middle Name"))
+        bodyView.addArrangedSubview(getInputStack(text: personalInfo.motherLastName, placeholder: "Mother's Maiden Last Name"))
     }
     
     //Birthday
@@ -232,15 +234,15 @@ class PersonalInfoViewController: UIViewController {
     
     //Location
     func loadLocation() {
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Address"))
-        var stack = getInputStack(text: "", placeholder: "Zip Code")
+        bodyView.addArrangedSubview(getInputStack(text: personalInfo.address, placeholder: "Address"))
+        var stack = getInputStack(text: personalInfo.zipCode, placeholder: "Zip Code")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
             }
         }
         bodyView.addArrangedSubview(stack)
-        stack = getInputStack(text: "", placeholder: "County Code")
+        stack = getInputStack(text: personalInfo.countyCode, placeholder: "County Code")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
@@ -251,21 +253,21 @@ class PersonalInfoViewController: UIViewController {
     
     //Phone Numbers
     func loadPhone() {
-        var stack = getInputStack(text: "", placeholder: "Home Phone #")
+        var stack = getInputStack(text: personalInfo.homePhone, placeholder: "Home Phone #")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
             }
         }
         bodyView.addArrangedSubview(stack)
-        stack = getInputStack(text: "", placeholder: "Cell Phone #")
+        stack = getInputStack(text: personalInfo.cellPhone, placeholder: "Cell Phone #")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
             }
         }
         bodyView.addArrangedSubview(stack)
-        stack = getInputStack(text: "", placeholder: "Work Phone #")
+        stack = getInputStack(text: personalInfo.workPhone, placeholder: "Work Phone #")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
