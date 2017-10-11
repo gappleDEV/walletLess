@@ -18,9 +18,9 @@ namespace WalletLessWebAPI.Entities
 
             var users = new UserAccount[]
             {
-                new UserAccount{Username="mattaquiles@gmail.com",Password="password",AcctType=1,CreateDate=DateTime.Now,IsActive=1},
-                new UserAccount{Username="gregjohnson@gmail.com",Password="gregpass",AcctType=1,CreateDate=DateTime.Now,IsActive=1},
-                new UserAccount{Username="testymctesterson@hotmail.com",Password="123pass!",AcctType=2,CreateDate=DateTime.Now,IsActive=1}
+                new UserAccount{Id="a",Username="mattaquiles@gmail.com",Password="password",AcctType=1,CreateDate=DateTime.Now,IsActive=1},
+                new UserAccount{Id="b",Username="gregjohnson@gmail.com",Password="gregpass",AcctType=1,CreateDate=DateTime.Now,IsActive=1},
+                new UserAccount{Id="c",Username="testymctesterson@hotmail.com",Password="123pass!",AcctType=2,CreateDate=DateTime.Now,IsActive=1}
             };
 
             foreach (UserAccount u in users)
