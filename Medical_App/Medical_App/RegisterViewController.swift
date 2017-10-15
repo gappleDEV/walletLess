@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController {
     
     var headerView:PersonalInfoHeaderView!
     var bodyView:UIStackView!
@@ -19,10 +19,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let screenTap = UITapGestureRecognizer()
+        screenTap.addTarget(self, action: #selector(resignKeyboard))
+        self.view.addGestureRecognizer(screenTap)
+        
         setUpHeader()
         setUpBody()
         setUpContent()
+    }
+    
+    //Called when screen is tapped
+    func resignKeyboard(){
+        self.view.endEditing(true)
     }
     
     func setUpHeader() {
@@ -112,6 +120,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+extension RegisterViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }

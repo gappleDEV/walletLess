@@ -29,7 +29,7 @@ class CustomPickerView: UIPickerView {
     }
     
     func setUpView() {
-        self.backgroundColor = UIColor(red:0.56, green:0.79, blue:0.98, alpha:1.0)
+        self.backgroundColor = UIColor(red:0.74, green:0.67, blue:0.64, alpha:1.0)
         self.translatesAutoresizingMaskIntoConstraints = false
         let inputConstraints:[NSLayoutConstraint] = [
             self.leadingAnchor.constraint(equalTo: self.leadingAnchor),

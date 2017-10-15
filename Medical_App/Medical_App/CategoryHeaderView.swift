@@ -93,7 +93,7 @@ class CategoryHeaderView: UIView {
             mailButton.heightAnchor.constraint(equalToConstant: 40)
         ]
         NSLayoutConstraint.activate(mailConstraints)
-        mailButton.setImage(UIImage(named: "mail"), for: .normal)
+        mailButton.setImage(UIImage(named: "Mail-Filled"), for: .normal)
         mailButton.contentMode = .scaleAspectFit
         //Button at bottom to collapse view
         collapseButton = UIButton()

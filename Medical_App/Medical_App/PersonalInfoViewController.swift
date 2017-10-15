@@ -195,7 +195,13 @@ class PersonalInfoViewController: UIViewController {
         // Set some of UIDatePicker properties
         datePicker.timeZone = NSTimeZone.local
         datePicker.datePickerMode = .date
-        datePicker.backgroundColor = UIColor(red:0.56, green:0.79, blue:0.98, alpha:1.0)
+        datePicker.backgroundColor = UIColor(red:0.74, green:0.67, blue:0.64, alpha:1.0)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M/dd/yyyy"
+        let strng = "\(personalInfo.birthMonth)/\(personalInfo.birthDay)/\(personalInfo.birthYear)"
+        print(strng)
+        let date = dateFormatter.date(from: strng)
+        datePicker.date = date!
         // Add DataPicker to the view
         bodyView.addArrangedSubview(datePicker)
         let constraints:[NSLayoutConstraint] = [
@@ -292,6 +298,7 @@ class PersonalInfoViewController: UIViewController {
     func getPickerStack(text:String, tagStart:Int) -> UIStackView {
         let label = CustomLabelView(frame: .zero, title: text, top: false)
         let picker:CustomPickerView = CustomPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 75), del: self, dat: self)
+        //picker.selectRow(self.data_marStatus.index(of: personInfo.maritalStatus)!, inComponent: 0, animated: false)
         picker.tag = tagStart
         let stack:UIStackView = UIStackView()
         stack.axis = .horizontal
