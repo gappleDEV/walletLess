@@ -107,10 +107,10 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
-    func collapsePressed() {
+    @objc func collapsePressed() {
         self.headerHeightConstraint.constant = headerExpandedMin
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-            self.headerView.incrementTitleAlpha(offset: self.headerHeightConstraint.constant)
+            self.headerView.incrementTitleAlpha(self.headerHeightConstraint.constant)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -122,7 +122,7 @@ class HomeViewController: UIViewController {
         }, completion: nil)
     }
     
-    func showHelp(sender:UIButton)
+    @objc func showHelp(_ sender:UIButton)
     {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "helpPopUpID") as! HelpPopupViewController
         self.addChildViewController(popOverVC)
@@ -132,7 +132,7 @@ class HomeViewController: UIViewController {
         popOverVC.didMove(toParentViewController: self)
     }
     
-    func moveToStoryboard(sender:UIButton) {
+    @objc func moveToStoryboard(_ sender:UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: panels[sender.tag].storyboard, bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: panels[sender.tag].edit)
         self.present(newViewController, animated: true, completion: nil)
@@ -181,9 +181,9 @@ extension HomeViewController: UITableViewDataSource {
         cell.b_help.tag = indexPath.section
         cell.b_help.addTarget(self, action: #selector(showHelp), for: .touchUpInside)
         cell.b_edit.tag = indexPath.section
-        cell.b_edit.addTarget(self, action: #selector(moveToStoryboard(sender:)), for: .touchUpInside)
+        cell.b_edit.addTarget(self, action: #selector(HomeViewController.moveToStoryboard(_:)), for: .touchUpInside)
         
-        cell.setTableData(tableData: subArrTypes[indexPath.section])
+        cell.setTableDataWith(subArrTypes[indexPath.section])
         
         DispatchQueue.main.async{
             cell.t_values.reloadData()
@@ -224,10 +224,10 @@ extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < 0 {
             self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
-            headerView.incrementTitleAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.incrementTitleAlpha(self.headerHeightConstraint.constant)
         } else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= 65 {
             self.headerHeightConstraint.constant -= scrollView.contentOffset.y/100
-            headerView.decrementTitleAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.decrementTitleAlpha(self.headerHeightConstraint.constant)
             if self.headerHeightConstraint.constant < 65 {
                 self.headerHeightConstraint.constant = 65
             }

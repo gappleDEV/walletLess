@@ -10,44 +10,44 @@ import RealmSwift
 
 class PersonalInfo: TableData {
     
-    dynamic var email:String = ""
+    @objc dynamic var email:String = ""
     
     //View 1
-    dynamic var firstName:String = ""
-    dynamic var middleName:String = ""
-    dynamic var lastName:String = ""
+    @objc dynamic var firstName:String = ""
+    @objc dynamic var middleName:String = ""
+    @objc dynamic var lastName:String = ""
     
     //View 2
-    dynamic var motherFirstName:String = ""
-    dynamic var motherMiddleName:String = ""
-    dynamic var motherLastName:String = ""
+    @objc dynamic var motherFirstName:String = ""
+    @objc dynamic var motherMiddleName:String = ""
+    @objc dynamic var motherLastName:String = ""
     
     //View 3
-    dynamic var birthDay:Int = 1
-    dynamic var birthMonth:Int = 1
-    dynamic var birthYear:Int = 1800
+    @objc dynamic var birthDay:Int = 1
+    @objc dynamic var birthMonth:Int = 1
+    @objc dynamic var birthYear:Int = 1800
     
     //View 4
-    dynamic var maritalStatus:String = ""
-    dynamic var sex:String = ""
-    dynamic var race:String = ""
+    @objc dynamic var maritalStatus:String = ""
+    @objc dynamic var sex:String = ""
+    @objc dynamic var race:String = ""
     
     //View 5
-    dynamic var denomination:String = ""
-    dynamic var preferredLanguage:String = ""
+    @objc dynamic var denomination:String = ""
+    @objc dynamic var preferredLanguage:String = ""
     
     //View 6
-    dynamic var socialSecurity:String = ""
+    @objc dynamic var socialSecurity:String = ""
     
     //View 7
-    dynamic var address:String = ""
-    dynamic var zipCode:String = ""
-    dynamic var countyCode:String = ""
+    @objc dynamic var address:String = ""
+    @objc dynamic var zipCode:String = ""
+    @objc dynamic var countyCode:String = ""
     
     //View 8
-    dynamic var homePhone:String = ""
-    dynamic var cellPhone:String = ""
-    dynamic var workPhone:String = ""
+    @objc dynamic var homePhone:String = ""
+    @objc dynamic var cellPhone:String = ""
+    @objc dynamic var workPhone:String = ""
     
     convenience public init(email: String) {
         self.init()
@@ -69,7 +69,7 @@ class PersonalInfo: TableData {
             ("Race", race),
             ("Denomination", denomination),
             ("Preferred Language", preferredLanguage),
-            ("Social Security", "\(socialSecurity.characters.count == 9 ? "*****" + socialSecurity.substring(from: socialSecurity.index(socialSecurity.startIndex, offsetBy: min(socialSecurity.characters.count, 5))) : "")"),
+            ("Social Security", "\(socialSecurity.count == 9 ? "*****" + socialSecurity.substring(from: socialSecurity.index(socialSecurity.startIndex, offsetBy: min(socialSecurity.count, 5))) : "")"),
             ("Address", address),
             ("Zip Code", zipCode),
             ("County Code", countyCode),

@@ -10,10 +10,10 @@ import RealmSwift
 
 class InsuranceInfo: Object {
     
-    dynamic var username:String = "user"
+    @objc dynamic var username:String = "user"
     
     //View 1
-    dynamic var insuranceCard:NSData = NSData()
+    @objc dynamic var insuranceCard:NSData = NSData()
     
     override class func primaryKey() -> String? {
         return "username"

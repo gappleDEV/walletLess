@@ -37,7 +37,7 @@ class CategoryTableViewCell: UITableViewCell, UITableViewDelegate {
         // Configure the view for the selected state
     }
     
-    func setTableData(tableData: TableData) {
+    func setTableDataWith(_ tableData: TableData) {
         self.tableData = tableData
     }
     

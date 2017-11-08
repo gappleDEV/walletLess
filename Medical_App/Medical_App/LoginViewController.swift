@@ -42,7 +42,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setupTables() {
         let within = PersonalInfoRepository.persRep.getUser()
         if within == nil || within!.email != i_email.text! {
-            let _ = PersonalInfoRepository.persRep.addUser(user: PersonalInfo(email: i_email.text!))
+            let _ = PersonalInfoRepository.persRep.addUser(PersonalInfo(email: i_email.text!))
         }
     }
     
@@ -83,7 +83,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signIn(_ sender: Any) {
         
-        if correctLogin(username: i_email.text!, password: i_password.text!) {
+        if correctLogin(i_email.text!, password: i_password.text!) {
             print("Login correct")
         } else {
             let alertView = UIAlertController(title: "Error", message: "Email or password incorrect.", preferredStyle: .alert)
@@ -100,7 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(nextViewController, animated: true, completion: nil)
     }
     
-    func correctLogin(username: String, password: String) -> Bool {
+    func correctLogin(_ username: String, password: String) -> Bool {
         guard let userEntry = UserRepository.userRep.getUser() else {
             return false
         }
@@ -112,7 +112,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     //Update to be remembered
                     let thisUser = User(firstName: userEntry.firstName, middleName: userEntry.middleName, lastName: userEntry.lastName, email: userEntry.email, password: userEntry.password)
                     thisUser.rememberMe = true
-                    if UserRepository.userRep.updateUser(user: thisUser) {
+                    if UserRepository.userRep.updateUser(thisUser) {
                         //Move to next controller
                         self.setupTables()
                         self.performSegue(withIdentifier: "loginUser", sender: self)

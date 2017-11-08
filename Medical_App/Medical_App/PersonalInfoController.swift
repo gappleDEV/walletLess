@@ -132,7 +132,7 @@ class PersonalInfoController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     //Resign the number pad whenever the screen is tapped
-    func resignNumpad()
+    @objc func resignNumpad()
     {
         self.view.endEditing(true)
     }

@@ -17,7 +17,7 @@ class TouchIDAuth {
         return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
     }
     
-    func authenticateUser(completion: @escaping (String?) -> Void) {
+    func authenticateUser(_ completion: @escaping (String?) -> Void) {
         
         //Leave function if touchID isn't supported
         guard canEvaluatePolicy() else {

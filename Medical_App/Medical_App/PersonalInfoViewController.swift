@@ -113,11 +113,11 @@ class PersonalInfoViewController: UIViewController {
     }
     
     //Called when screen is tapped
-    func resignKeyboard(){
+    @objc func resignKeyboard(){
         self.view.endEditing(true)
     }
     
-    func fadeInBody(completion: @escaping (Bool) -> ()) {
+    func fadeInBody(_ completion: @escaping (Bool) -> ()) {
         UIView.animate(withDuration: 0.5, animations: {
             self.bodyView.alpha = 1
         }, completion: {
@@ -130,7 +130,7 @@ class PersonalInfoViewController: UIViewController {
         })
     }
     
-    func fadeOutBody(completion: @escaping (Bool) -> ()) {
+    func fadeOutBody(_ completion: @escaping (Bool) -> ()) {
         b_next.isEnabled = false
         b_next.alpha = bDisAlpha
         UIView.animate(withDuration: 0.5, animations: {
@@ -154,7 +154,7 @@ class PersonalInfoViewController: UIViewController {
             moveToHomeView()
         } else {
             headerView.titleLabel.text = titles[pageIndex]
-            fadeOutBody(completion: { finished in
+            fadeOutBody({ finished in
                 switch self.pageIndex {
                 case 0:
                     self.loadMotherName()
@@ -173,7 +173,7 @@ class PersonalInfoViewController: UIViewController {
                 default:
                     print("Page \(self.pageIndex) not implemented yet")
                 }
-                self.fadeInBody(completion: { finished in
+                self.fadeInBody({ finished in
                     //nothing to do
                 })
             })
@@ -183,9 +183,9 @@ class PersonalInfoViewController: UIViewController {
     
     //Mother first name, middle name, maiden name
     func loadMotherName() {
-        bodyView.addArrangedSubview(getInputStack(text: personalInfo.motherFirstName, placeholder: "Mother's First Name"))
-        bodyView.addArrangedSubview(getInputStack(text: personalInfo.motherMiddleName, placeholder: "Mother's Middle Name"))
-        bodyView.addArrangedSubview(getInputStack(text: personalInfo.motherLastName, placeholder: "Mother's Maiden Last Name"))
+        bodyView.addArrangedSubview(getInputStack(personalInfo.motherFirstName, placeholder: "Mother's First Name"))
+        bodyView.addArrangedSubview(getInputStack(personalInfo.motherMiddleName, placeholder: "Mother's Middle Name"))
+        bodyView.addArrangedSubview(getInputStack(personalInfo.motherLastName, placeholder: "Mother's Maiden Last Name"))
     }
     
     //Birthday
@@ -193,7 +193,7 @@ class PersonalInfoViewController: UIViewController {
         //Create date picker
         let datePicker: UIDatePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: bodyView.frame.height))
         // Set some of UIDatePicker properties
-        datePicker.timeZone = NSTimeZone.local
+        datePicker.timeZone = TimeZone.ReferenceType.local
         datePicker.datePickerMode = .date
         datePicker.backgroundColor = UIColor(red:0.74, green:0.67, blue:0.64, alpha:1.0)
         let dateFormatter = DateFormatter()
@@ -212,21 +212,21 @@ class PersonalInfoViewController: UIViewController {
     
     //Marital status, sex, race
     func loadBasicInformationOne() {
-        bodyView.addArrangedSubview(getPickerStack(text: "Marital Status", tagStart: 0))
-        bodyView.addArrangedSubview(getPickerStack(text: "Sex", tagStart: 1))
-        bodyView.addArrangedSubview(getPickerStack(text: "Race", tagStart: 2))
+        bodyView.addArrangedSubview(getPickerStack("Marital Status", tagStart: 0))
+        bodyView.addArrangedSubview(getPickerStack("Sex", tagStart: 1))
+        bodyView.addArrangedSubview(getPickerStack("Race", tagStart: 2))
         
     }
     
     //Denomination, preferred language
     func loadBasicInformationTwo() {
-        bodyView.addArrangedSubview(getPickerStack(text: "Denomination", tagStart: 3))
-        bodyView.addArrangedSubview(getPickerStack(text: "Preferred Language", tagStart: 4))
+        bodyView.addArrangedSubview(getPickerStack("Denomination", tagStart: 3))
+        bodyView.addArrangedSubview(getPickerStack("Preferred Language", tagStart: 4))
     }
     
     //Social Security
     func loadSocialSecurity() {
-        let myStackView = getInputStack(text: "", placeholder: "Social Security #")
+        let myStackView = getInputStack("", placeholder: "Social Security #")
         for e in myStackView.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).isSecureTextEntry = true
@@ -240,15 +240,15 @@ class PersonalInfoViewController: UIViewController {
     
     //Location
     func loadLocation() {
-        bodyView.addArrangedSubview(getInputStack(text: personalInfo.address, placeholder: "Address"))
-        var stack = getInputStack(text: personalInfo.zipCode, placeholder: "Zip Code")
+        bodyView.addArrangedSubview(getInputStack(personalInfo.address, placeholder: "Address"))
+        var stack = getInputStack(personalInfo.zipCode, placeholder: "Zip Code")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
             }
         }
         bodyView.addArrangedSubview(stack)
-        stack = getInputStack(text: personalInfo.countyCode, placeholder: "County Code")
+        stack = getInputStack(personalInfo.countyCode, placeholder: "County Code")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
@@ -259,21 +259,21 @@ class PersonalInfoViewController: UIViewController {
     
     //Phone Numbers
     func loadPhone() {
-        var stack = getInputStack(text: personalInfo.homePhone, placeholder: "Home Phone #")
+        var stack = getInputStack(personalInfo.homePhone, placeholder: "Home Phone #")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
             }
         }
         bodyView.addArrangedSubview(stack)
-        stack = getInputStack(text: personalInfo.cellPhone, placeholder: "Cell Phone #")
+        stack = getInputStack(personalInfo.cellPhone, placeholder: "Cell Phone #")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
             }
         }
         bodyView.addArrangedSubview(stack)
-        stack = getInputStack(text: personalInfo.workPhone, placeholder: "Work Phone #")
+        stack = getInputStack(personalInfo.workPhone, placeholder: "Work Phone #")
         for e in stack.arrangedSubviews {
             if e is UITextField {
                 (e as! UITextField).keyboardType = .numberPad
@@ -283,7 +283,7 @@ class PersonalInfoViewController: UIViewController {
     }
     
     //Stackview with text input
-    func getInputStack(text:String, placeholder:String) -> UIStackView {
+    func getInputStack(_ text:String, placeholder:String) -> UIStackView {
         let label = CustomLabelView(frame: .zero, title: placeholder, top: true)
         let input = CustomTextInputView(frame: CGRect(x: 0, y: 0, width: 300, height: 50), text: text, placeholder: placeholder, del: self)
         let stack:UIStackView = UIStackView()
@@ -295,7 +295,7 @@ class PersonalInfoViewController: UIViewController {
     }
     
     //Stackview with picker
-    func getPickerStack(text:String, tagStart:Int) -> UIStackView {
+    func getPickerStack(_ text:String, tagStart:Int) -> UIStackView {
         let label = CustomLabelView(frame: .zero, title: text, top: false)
         let picker:CustomPickerView = CustomPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 75), del: self, dat: self)
         //picker.selectRow(self.data_marStatus.index(of: personInfo.maritalStatus)!, inComponent: 0, animated: false)
@@ -313,23 +313,23 @@ class PersonalInfoViewController: UIViewController {
         switch pageIndex {
         case 0: //mother
             let values = getValuesFromTextInput()
-            let _ = PersonalInfoRepository.persRep.updateMotherInfo(user: user!, first: values[0], middle: values[1], last: values[2])
+            let _ = PersonalInfoRepository.persRep.updateMotherInfo(user!, first: values[0], middle: values[1], last: values[2])
         case 1: //DOB
             let components = getDatePicker().calendar.dateComponents([.year, .month, .day], from: getDatePicker().date)
-            let _ = PersonalInfoRepository.persRep.updateDOBInfo(user: user!, month: components.month!, day: components.day!, year: components.year!)
+            let _ = PersonalInfoRepository.persRep.updateDOBInfo(user!, month: components.month!, day: components.day!, year: components.year!)
         case 2: //marry, sex, race
-            let _ = PersonalInfoRepository.persRep.updateBasicInfoOne(user: user!, maritalStatus: marStatus, sex: sex, race: race)
+            let _ = PersonalInfoRepository.persRep.updateBasicInfoOne(user!, maritalStatus: marStatus, sex: sex, race: race)
         case 3: //denomination, preferred language
-            let _ = PersonalInfoRepository.persRep.updateBasicInfoTwo(user: user!, denomination: denom, preferredLanguage: prefLang)
+            let _ = PersonalInfoRepository.persRep.updateBasicInfoTwo(user!, denomination: denom, preferredLanguage: prefLang)
         case 4: //social security
             let values = getValuesFromTextInput()
-            let _ = PersonalInfoRepository.persRep.updateSocialSecurity(user: user!, socialSecurity: values[0])
+            let _ = PersonalInfoRepository.persRep.updateSocialSecurity(user!, socialSecurity: values[0])
         case 5: //address, zip code, county code
             let values = getValuesFromTextInput()
-            let _ = PersonalInfoRepository.persRep.updateLocation(user: user!, address: values[0], zipCode: values[1], countyCode: values[2])
+            let _ = PersonalInfoRepository.persRep.updateLocation(user!, address: values[0], zipCode: values[1], countyCode: values[2])
         case 6: //home, cell, work phones
             let values = getValuesFromTextInput()
-            let _ = PersonalInfoRepository.persRep.updatePhone(user: user!, home: values[0], cell: values[1], work: values[2])
+            let _ = PersonalInfoRepository.persRep.updatePhone(user!, home: values[0], cell: values[1], work: values[2])
         default:
             print("Saving for \(pageIndex) not implemented yet")
         }
@@ -362,12 +362,12 @@ class PersonalInfoViewController: UIViewController {
         return toRet
     }
     
-    func decrementPageIndex() {
+    @objc func decrementPageIndex() {
         pageIndex = pageIndex - 1
         reloadPage()
     }
     
-    func moveToHomeView() {
+    @objc func moveToHomeView() {
         self.dismiss(animated: true, completion: nil)
     }
     

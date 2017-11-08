@@ -47,7 +47,7 @@ class CustomTextInputView: UITextField {
 
     }
     
-    private func getBorder(_ textInput:UITextField) -> CALayer
+    fileprivate func getBorder(_ textInput:UITextField) -> CALayer
     {
         let border = CALayer()                  //the bottom line under the input
         let bwidth = CGFloat(2.0)

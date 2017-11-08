@@ -12,11 +12,11 @@ final class PersonalInfoRepository: Repository {
     
     static let persRep = PersonalInfoRepository()
     
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
     
-    func addUser(user: PersonalInfo) -> Bool {
+    func addUser(_ user: PersonalInfo) -> Bool {
         print("Adding personal info user")
         do {
             try realm.write {
@@ -36,7 +36,7 @@ final class PersonalInfoRepository: Repository {
         return realm.objects(PersonalInfo.self).first
     }
     
-    func updateMotherInfo(user: PersonalInfo, first: String, middle: String, last: String) -> Bool{
+    func updateMotherInfo(_ user: PersonalInfo, first: String, middle: String, last: String) -> Bool{
         
         do {
             //Attempt to update
@@ -54,7 +54,7 @@ final class PersonalInfoRepository: Repository {
         }
     }
     
-    func updateDOBInfo(user: PersonalInfo, month: Int, day: Int, year: Int) -> Bool{
+    func updateDOBInfo(_ user: PersonalInfo, month: Int, day: Int, year: Int) -> Bool{
         
         do {
             //Attempt to update
@@ -72,7 +72,7 @@ final class PersonalInfoRepository: Repository {
         }
     }
     
-    func updateBasicInfoOne(user: PersonalInfo, maritalStatus: String, sex: String, race: String) -> Bool{
+    func updateBasicInfoOne(_ user: PersonalInfo, maritalStatus: String, sex: String, race: String) -> Bool{
         
         do {
             //Attempt to update
@@ -90,7 +90,7 @@ final class PersonalInfoRepository: Repository {
         }
     }
     
-    func updateBasicInfoTwo(user: PersonalInfo, denomination: String, preferredLanguage: String) -> Bool {
+    func updateBasicInfoTwo(_ user: PersonalInfo, denomination: String, preferredLanguage: String) -> Bool {
         do {
             //Attempt to update
             try realm.write {
@@ -106,7 +106,7 @@ final class PersonalInfoRepository: Repository {
         }
     }
     
-    func updateSocialSecurity(user: PersonalInfo, socialSecurity: String) -> Bool {
+    func updateSocialSecurity(_ user: PersonalInfo, socialSecurity: String) -> Bool {
         do {
             //Attempt to update
             try realm.write {
@@ -121,7 +121,7 @@ final class PersonalInfoRepository: Repository {
         }
     }
     
-    func updateLocation(user: PersonalInfo, address: String, zipCode: String, countyCode: String) -> Bool {
+    func updateLocation(_ user: PersonalInfo, address: String, zipCode: String, countyCode: String) -> Bool {
         do {
             //Attempt to update
             try realm.write {
@@ -138,7 +138,7 @@ final class PersonalInfoRepository: Repository {
         }
     }
     
-    func updatePhone(user: PersonalInfo, home: String, cell: String, work: String) -> Bool {
+    func updatePhone(_ user: PersonalInfo, home: String, cell: String, work: String) -> Bool {
         do {
             //Attempt to update
             try realm.write {

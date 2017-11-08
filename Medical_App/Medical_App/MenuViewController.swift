@@ -250,7 +250,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let thisCell = subCells[tableView.tag][(indexPath as NSIndexPath).row]
             cell.textField.text = thisCell.text
             cell.textField.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: subCellHeight)
-            cell.textField.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+            cell.textField.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
             
             cell.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
             cell.contentView.layer.borderWidth = 1.0

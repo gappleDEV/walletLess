@@ -29,7 +29,7 @@ class RegisterViewController: UIViewController {
     }
     
     //Called when screen is tapped
-    func resignKeyboard(){
+    @objc func resignKeyboard(){
         self.view.endEditing(true)
     }
     
@@ -67,17 +67,17 @@ class RegisterViewController: UIViewController {
     }
     
     func setUpContent() {
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "First Name"))
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Middle Name"))
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Last Name"))
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Email"))
-        bodyView.addArrangedSubview(getInputStack(text: "", placeholder: "Password"))
+        bodyView.addArrangedSubview(getInputStack("", placeholder: "First Name"))
+        bodyView.addArrangedSubview(getInputStack("", placeholder: "Middle Name"))
+        bodyView.addArrangedSubview(getInputStack("", placeholder: "Last Name"))
+        bodyView.addArrangedSubview(getInputStack("", placeholder: "Email"))
+        bodyView.addArrangedSubview(getInputStack("", placeholder: "Password"))
         
         ((bodyView.arrangedSubviews[4] as! UIStackView).arrangedSubviews[1] as! CustomTextInputView).isSecureTextEntry = true
     }
     
     //Stackview with text input
-    func getInputStack(text:String, placeholder:String) -> UIStackView {
+    func getInputStack(_ text:String, placeholder:String) -> UIStackView {
         let label = CustomLabelView(frame: .zero, title: placeholder, top: true)
         let input = CustomTextInputView(frame: CGRect(x: 0, y: 0, width: 300, height: 50), text: text, placeholder: placeholder, del: self)
         let stack:UIStackView = UIStackView()
@@ -102,14 +102,14 @@ class RegisterViewController: UIViewController {
         return toRet
     }
     
-    func toHomeView() {
+    @objc func toHomeView() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func doneRegister() {
+    @objc func doneRegister() {
         print("Finished")
         let values = getValuesFromTextInput()
-        if(UserRepository.userRep.addUser(user: User(firstName: values[0], middleName: values[1], lastName: values[2], email: values[3].uppercased(), password: values[4]))) {
+        if(UserRepository.userRep.addUser(User(firstName: values[0], middleName: values[1], lastName: values[2], email: values[3].uppercased(), password: values[4]))) {
             print("User saved")
         } else {
             print("Didn't save User correctly")

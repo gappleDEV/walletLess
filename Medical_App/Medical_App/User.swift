@@ -10,12 +10,12 @@ import RealmSwift
 
 class User: TableData {
     
-    dynamic var firstName:String = ""
-    dynamic var middleName:String = ""
-    dynamic var lastName:String = ""
-    dynamic var email:String = ""
-    dynamic var password:String = ""
-    dynamic var rememberMe:Bool = false
+    @objc dynamic var firstName:String = ""
+    @objc dynamic var middleName:String = ""
+    @objc dynamic var lastName:String = ""
+    @objc dynamic var email:String = ""
+    @objc dynamic var password:String = ""
+    @objc dynamic var rememberMe:Bool = false
     
     convenience public init(firstName: String, middleName: String, lastName: String, email: String, password: String) {
         self.init()

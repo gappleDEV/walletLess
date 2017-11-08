@@ -12,7 +12,7 @@ final class UserRepository: Repository {
     
     static let userRep = UserRepository()
     
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
     
@@ -21,7 +21,7 @@ final class UserRepository: Repository {
      - Parameter user: User object to be added
      - Returns: boolean representing if the add worked
      */
-    func addUser(user: User) -> Bool {
+    func addUser(_ user: User) -> Bool {
         
         do {
             try realm.write {
@@ -41,7 +41,7 @@ final class UserRepository: Repository {
         return realm.objects(User.self).first
     }
     
-    func updateUser(user: User) -> Bool {
+    func updateUser(_ user: User) -> Bool {
         
         //See if the user is in the DB
         let foundUser = realm.object(ofType: User.self, forPrimaryKey: user.email as AnyObject)

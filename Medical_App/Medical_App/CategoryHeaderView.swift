@@ -126,7 +126,7 @@ class CategoryHeaderView: UIView {
         }
     }*/
     
-    func decrementTitleAlpha(offset: CGFloat) {
+    func decrementTitleAlpha(_ offset: CGFloat) {
         if self.titleLabel.alpha >= 0 {
             let alphaOffset = min(1, max((offset - 65)/85.0, 0))
             self.titleLabel.alpha = alphaOffset
@@ -137,7 +137,7 @@ class CategoryHeaderView: UIView {
         }
     }
     
-    func incrementTitleAlpha(offset: CGFloat) {
+    func incrementTitleAlpha(_ offset: CGFloat) {
         if self.titleLabel.alpha <= 1 {
             let alphaOffset = min(1, max((offset - 65)/85, 0))
             self.titleLabel.alpha = alphaOffset

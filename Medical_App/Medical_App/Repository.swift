@@ -30,7 +30,7 @@ class Repository {
         }
     }
     
-    func getKey() -> NSData {
+    func getKey() -> Data {
         // Identifier for our keychain entry - should be unique for your application
         let keychainIdentifier = "io.Realm.WalletLess"
         let keychainIdentifierData = keychainIdentifier.data(using: String.Encoding.utf8, allowLossyConversion: false)!
@@ -47,7 +47,7 @@ class Repository {
         var dataTypeRef: AnyObject?
         var status = withUnsafeMutablePointer(to: &dataTypeRef) { SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer($0)) }
         if status == errSecSuccess {
-            return dataTypeRef as! NSData
+            return dataTypeRef as! Data
         }
         
         // No pre-existing key from this application, so generate a new one
@@ -66,6 +66,6 @@ class Repository {
         status = SecItemAdd(query as CFDictionary, nil)
         assert(status == errSecSuccess, "Failed to insert the new key in the keychain")
         
-        return keyData
+        return keyData as Data
     }
 }

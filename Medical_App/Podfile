@@ -6,10 +6,13 @@ target 'Medical_App' do
   use_frameworks!
 
   # Pods for Medical_App
-  pod 'Alamofire', '~> 4.4’
+  pod 'Alamofire'
   pod 'RealmSwift'
   pod 'SwiftyJSON'
-  pod 'IQKeyboardManagerSwift', '4.0.10'
+  pod 'IQKeyboardManagerSwift'
+  pod 'TextFieldEffects'
+  pod 'CircleMenu'
+  pod 'FoldingCell'
 
   target 'Medical_AppTests' do
     inherit! :search_paths

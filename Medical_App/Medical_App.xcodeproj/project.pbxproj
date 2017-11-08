@@ -21,6 +21,13 @@
 		9243FCD41F55DE420055A8E4 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9243FCD31F55DE420055A8E4 /* Register.storyboard */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
+		9262EA121FB2B3C600082249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262EA111FB2B3C600082249 /* ViewController.swift */; };
+		9262EA151FB2B53300082249 /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262EA131FB2B53300082249 /* View1.swift */; };
+		9262EA161FB2B53300082249 /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9262EA141FB2B53300082249 /* View1.xib */; };
+		9262EA191FB2B54000082249 /* View2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262EA171FB2B54000082249 /* View2.swift */; };
+		9262EA1A1FB2B54000082249 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9262EA181FB2B54000082249 /* View2.xib */; };
+		9262EA1D1FB2B72B00082249 /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262EA1B1FB2B72B00082249 /* View3.swift */; };
+		9262EA1E1FB2B72B00082249 /* View3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9262EA1C1FB2B72B00082249 /* View3.xib */; };
 		927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */; };
 		927E8C7F1F44C9AA008092DE /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E8C7E1F44C9AA008092DE /* CustomPickerView.swift */; };
 		927E8C811F44F3D8008092DE /* PersonalInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E8C801F44F3D8008092DE /* PersonalInfoRepository.swift */; };
@@ -79,6 +86,13 @@
 		9243FCD31F55DE420055A8E4 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		9262EA111FB2B3C600082249 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9262EA131FB2B53300082249 /* View1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
+		9262EA141FB2B53300082249 /* View1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
+		9262EA171FB2B54000082249 /* View2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
+		9262EA181FB2B54000082249 /* View2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View2.xib; sourceTree = "<group>"; };
+		9262EA1B1FB2B72B00082249 /* View3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View3.swift; sourceTree = "<group>"; };
+		9262EA1C1FB2B72B00082249 /* View3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View3.xib; sourceTree = "<group>"; };
 		927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InsuranceCardPic.storyboard; sourceTree = "<group>"; };
 		927E8C7E1F44C9AA008092DE /* CustomPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		927E8C801F44F3D8008092DE /* PersonalInfoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoRepository.swift; sourceTree = "<group>"; };
@@ -205,6 +219,20 @@
 			name = DAO;
 			sourceTree = "<group>";
 		};
+		9262EA101FB2B39600082249 /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				9262EA111FB2B3C600082249 /* ViewController.swift */,
+				9262EA131FB2B53300082249 /* View1.swift */,
+				9262EA141FB2B53300082249 /* View1.xib */,
+				9262EA171FB2B54000082249 /* View2.swift */,
+				9262EA181FB2B54000082249 /* View2.xib */,
+				9262EA1B1FB2B72B00082249 /* View3.swift */,
+				9262EA1C1FB2B72B00082249 /* View3.xib */,
+			);
+			name = Nib;
+			sourceTree = "<group>";
+		};
 		92DDAA321F4392070085B143 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +268,7 @@
 		F3AF14E61CBD8711001782EA /* Medical_App */ = {
 			isa = PBXGroup;
 			children = (
+				9262EA101FB2B39600082249 /* Nib */,
 				92DDAA321F4392070085B143 /* Storyboard */,
 				92094F611F3F9FB100DCC1C3 /* DAO */,
 				92094F601F3F9EE600DCC1C3 /* Controller */,
@@ -330,12 +359,12 @@
 					F3AF14E31CBD8711001782EA = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 7QWR6CR34U;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					F3AF14F71CBD8712001782EA = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0910;
 						TestTargetID = F3AF14E31CBD8711001782EA;
 					};
 				};
@@ -366,10 +395,13 @@
 			files = (
 				927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */,
 				F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */,
+				9262EA1E1FB2B72B00082249 /* View3.xib in Resources */,
 				F3AF14EF1CBD8711001782EA /* Assets.xcassets in Resources */,
 				92DDAA311F4391F60085B143 /* PersonalInfo.storyboard in Resources */,
+				9262EA161FB2B53300082249 /* View1.xib in Resources */,
 				F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */,
 				9243FCD41F55DE420055A8E4 /* Register.storyboard in Resources */,
+				9262EA1A1FB2B54000082249 /* View2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,18 +486,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Medical_App/Pods-Medical_App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CircleMenu/CircleMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -507,6 +545,7 @@
 				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
 				92094F5A1F3BEE0600DCC1C3 /* HomeViewController.swift in Sources */,
 				F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */,
+				9262EA191FB2B54000082249 /* View2.swift in Sources */,
 				92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */,
 				92F4738B1F4478BE006A513F /* CustomTextInputView.swift in Sources */,
 				92094F581F3BED8100DCC1C3 /* ValuesTableCell.swift in Sources */,
@@ -519,9 +558,12 @@
 				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
 				920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */,
 				92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */,
+				9262EA151FB2B53300082249 /* View1.swift in Sources */,
 				924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */,
 				F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */,
 				924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */,
+				9262EA121FB2B3C600082249 /* ViewController.swift in Sources */,
+				9262EA1D1FB2B72B00082249 /* View3.swift in Sources */,
 				92F4738D1F448E70006A513F /* CustomProgressBar.swift in Sources */,
 				92DDAA381F43AE8D0085B143 /* MotherNameBodyView.swift in Sources */,
 				920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */,
@@ -681,7 +723,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				jhv = YES;
 			};
 			name = Debug;
@@ -701,7 +744,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				jhv = YES;
 			};
 			name = Release;
@@ -715,7 +759,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "GAJ.Medical-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Medical_App.app/Medical_App";
 			};
 			name = Debug;
@@ -729,7 +774,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "GAJ.Medical-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Medical_App.app/Medical_App";
 			};
 			name = Release;

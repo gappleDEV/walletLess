@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View2" customModule="Medical_App" customModuleProvider="target">
+            <connections>
+                <outlet property="cameraView" destination="LdG-uw-Q9N" id="8Km-AU-YB1"/>
+                <outlet property="tempImageView" destination="zAI-lc-fFb" id="GoZ-U0-nPB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdG-uw-Q9N">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zAI-lc-fFb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.46966594830000002" green="0.51031788789999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LdG-uw-Q9N" secondAttribute="bottom" id="83j-jI-R6G"/>
+                <constraint firstItem="zAI-lc-fFb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bqt-j6-hWg"/>
+                <constraint firstAttribute="trailing" secondItem="zAI-lc-fFb" secondAttribute="trailing" id="Dhw-ll-BZ2"/>
+                <constraint firstItem="zAI-lc-fFb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="P2G-qh-GZv"/>
+                <constraint firstItem="LdG-uw-Q9N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SY8-9z-AEd"/>
+                <constraint firstItem="LdG-uw-Q9N" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XFd-UY-3Ud"/>
+                <constraint firstItem="zAI-lc-fFb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bCu-ny-Qbj"/>
+                <constraint firstItem="LdG-uw-Q9N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dYu-On-gUD"/>
+                <constraint firstItem="zAI-lc-fFb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kDe-uT-1sq"/>
+                <constraint firstItem="LdG-uw-Q9N" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qFI-nz-mxt"/>
+                <constraint firstAttribute="bottom" secondItem="zAI-lc-fFb" secondAttribute="bottom" id="t9E-zh-IX3"/>
+                <constraint firstAttribute="trailing" secondItem="LdG-uw-Q9N" secondAttribute="trailing" id="xqg-lF-VQe"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
