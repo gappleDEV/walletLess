@@ -39,6 +39,7 @@ namespace WalletLessWebAPI
 
             //register repos
             services.AddScoped<IUserAccountRepository, UserAccountRepository>();
+            services.AddScoped<IBankInfoRepository, BankInfoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +60,7 @@ namespace WalletLessWebAPI
             AutoMapper.Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Entities.UserAccount, Models.UserAccountDto>();
+                cfg.CreateMap<Entities.BankInfo, Models.BankInfoDto>();
             });
 
             //WalletLessDBContext.EnsureSeedDataForContext();

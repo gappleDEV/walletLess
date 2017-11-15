@@ -16,3 +16,6 @@ E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\bin\
 E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.AssemblyInfo.cs
 E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.dll
 E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.pdb
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.csprojResolveAssemblyReference.cache
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.csproj.CoreCompileInputs.cache
+E:\projects\walletLess\dotnet-core-webapi\WalletLessWebAPI\WalletLessWebAPI\obj\Debug\netcoreapp1.1\WalletLessWebAPI.AssemblyInfoInputs.cache

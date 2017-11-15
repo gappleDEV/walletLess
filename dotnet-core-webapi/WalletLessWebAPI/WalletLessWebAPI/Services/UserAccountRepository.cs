@@ -5,7 +5,7 @@ using WalletLessWebAPI.Entities;
 
 namespace WalletLessWebAPI.Services
 {
-    //need to update all rountes to check if user exists already and to check if input is valid
+    //need to update all routes to check if user exists already and to check if input is valid
     public class UserAccountRepository : IUserAccountRepository
     {
         private WalletLessDBContext _context;
