@@ -39,6 +39,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let v1: LoginViewController_v2 = LoginViewController_v2(nibName: "LoginViewController_v2", bundle: nil)
+        self.present(v1, animated: true) {
+            print("Done moving to nib")
+        }
+    }
+    
     func setupTables() {
         let within = PersonalInfoRepository.persRep.getUser()
         if within == nil || within!.email != i_email.text! {

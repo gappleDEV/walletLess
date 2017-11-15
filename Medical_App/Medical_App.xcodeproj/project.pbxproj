@@ -31,6 +31,11 @@
 		927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */; };
 		927E8C7F1F44C9AA008092DE /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E8C7E1F44C9AA008092DE /* CustomPickerView.swift */; };
 		927E8C811F44F3D8008092DE /* PersonalInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E8C801F44F3D8008092DE /* PersonalInfoRepository.swift */; };
+		928E5E741FBBBCA500D50794 /* LoginViewController_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E721FBBBCA500D50794 /* LoginViewController_v2.swift */; };
+		928E5E751FBBBCA500D50794 /* LoginViewController_v2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E731FBBBCA500D50794 /* LoginViewController_v2.xib */; };
+		928E5E771FBBFBC300D50794 /* DirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E761FBBFBC300D50794 /* DirectViewController.swift */; };
+		928E5E7A1FBC03A800D50794 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E781FBC03A800D50794 /* SignUpViewController.swift */; };
+		928E5E7B1FBC03A800D50794 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E791FBC03A800D50794 /* SignUpViewController.xib */; };
 		92DDAA2B1F411AD60085B143 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2A1F411AD60085B143 /* TableData.swift */; };
 		92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */; };
 		92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2E1F4380810085B143 /* PanelHeader.swift */; };
@@ -96,6 +101,11 @@
 		927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InsuranceCardPic.storyboard; sourceTree = "<group>"; };
 		927E8C7E1F44C9AA008092DE /* CustomPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		927E8C801F44F3D8008092DE /* PersonalInfoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoRepository.swift; sourceTree = "<group>"; };
+		928E5E721FBBBCA500D50794 /* LoginViewController_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController_v2.swift; sourceTree = "<group>"; };
+		928E5E731FBBBCA500D50794 /* LoginViewController_v2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController_v2.xib; sourceTree = "<group>"; };
+		928E5E761FBBFBC300D50794 /* DirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectViewController.swift; sourceTree = "<group>"; };
+		928E5E781FBC03A800D50794 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		928E5E791FBC03A800D50794 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		92DDAA2A1F411AD60085B143 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
 		92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA2E1F4380810085B143 /* PanelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelHeader.swift; sourceTree = "<group>"; };
@@ -205,6 +215,7 @@
 				92094F591F3BEE0600DCC1C3 /* HomeViewController.swift */,
 				92DDAA351F4398940085B143 /* PersonalInfoViewController.swift */,
 				9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */,
+				928E5E761FBBFBC300D50794 /* DirectViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -229,6 +240,10 @@
 				9262EA181FB2B54000082249 /* View2.xib */,
 				9262EA1B1FB2B72B00082249 /* View3.swift */,
 				9262EA1C1FB2B72B00082249 /* View3.xib */,
+				928E5E721FBBBCA500D50794 /* LoginViewController_v2.swift */,
+				928E5E731FBBBCA500D50794 /* LoginViewController_v2.xib */,
+				928E5E781FBC03A800D50794 /* SignUpViewController.swift */,
+				928E5E791FBC03A800D50794 /* SignUpViewController.xib */,
 			);
 			name = Nib;
 			sourceTree = "<group>";
@@ -353,7 +368,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Gregory Johnson";
 				TargetAttributes = {
 					F3AF14E31CBD8711001782EA = {
@@ -393,10 +408,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928E5E751FBBBCA500D50794 /* LoginViewController_v2.xib in Resources */,
 				927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */,
 				F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */,
 				9262EA1E1FB2B72B00082249 /* View3.xib in Resources */,
 				F3AF14EF1CBD8711001782EA /* Assets.xcassets in Resources */,
+				928E5E7B1FBC03A800D50794 /* SignUpViewController.xib in Resources */,
 				92DDAA311F4391F60085B143 /* PersonalInfo.storyboard in Resources */,
 				9262EA161FB2B53300082249 /* View1.xib in Resources */,
 				F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */,
@@ -536,12 +553,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DDAA3A1F43B0580085B143 /* CustomLabelView.swift in Sources */,
+				928E5E741FBBBCA500D50794 /* LoginViewController_v2.swift in Sources */,
 				92E630DE1E84C12C004E8434 /* MessagesViewController.swift in Sources */,
 				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
 				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
 				F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */,
 				927E8C811F44F3D8008092DE /* PersonalInfoRepository.swift in Sources */,
 				927E8C7F1F44C9AA008092DE /* CustomPickerView.swift in Sources */,
+				928E5E7A1FBC03A800D50794 /* SignUpViewController.swift in Sources */,
 				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
 				92094F5A1F3BEE0600DCC1C3 /* HomeViewController.swift in Sources */,
 				F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */,
@@ -557,6 +576,7 @@
 				92094F561F3BEBDE00DCC1C3 /* CategoryTableCell.swift in Sources */,
 				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
 				920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */,
+				928E5E771FBBFBC300D50794 /* DirectViewController.swift in Sources */,
 				92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */,
 				9262EA151FB2B53300082249 /* View1.swift in Sources */,
 				924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */,
@@ -624,14 +644,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -674,14 +700,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
