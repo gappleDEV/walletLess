@@ -83,7 +83,7 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        if(userEntry.email == username.uppercased() && userEntry.password == password) {
+        if(userEntry.email == username.lowercased() && userEntry.password == password) {
             if(!userEntry.rememberMe) {
                 let alertView = UIAlertController(title: userEntry.email, message: "Would you like WalletLess to remember your email for future logins?", preferredStyle: .alert)
                 let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in
@@ -93,13 +93,13 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
                     if UserRepository.userRep.updateUser(thisUser) {
                         //Move to next controller
                         self.setupTables()
-                        self.performSegue(withIdentifier: "loginUser", sender: self)
+                        //TBD
                     }
                 })
                 let noAction = UIAlertAction(title: "No", style: .default, handler: { (UIAlertAction) in
                     //Move to next controller
                     self.setupTables()
-                    self.performSegue(withIdentifier: "loginUser", sender: self)
+                    //TBD
                 })
                 
                 alertView.addAction(yesAction)
@@ -109,7 +109,7 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
             } else {
                 //Move to next controller
                 setupTables()
-                self.performSegue(withIdentifier: "loginUser", sender: self)
+                //TBD
             }
             return true
         } else {
@@ -142,7 +142,7 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
                 
             } else {
                 self.setupTables()
-                self.performSegue(withIdentifier: "loginUser", sender: self)
+                //TBD
             }
         }
     }

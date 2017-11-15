@@ -119,7 +119,75 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             print("Done moving to nib")
         }
     }
-
+    
+    func getValuesFromTextInput() -> [String] {
+        var toRet:[String] = []
+        
+        toRet.append(firstName.text!)
+        toRet.append(middleName.text!)
+        toRet.append(lastName.text!)
+        toRet.append(email.text!)
+        toRet.append(password.text!)
+        toRet.append(confirmPassword.text!)
+        
+        return toRet
+    }
+    
+    func inputIsGood() -> Bool {
+        var check:Bool = true
+        
+        if firstName.text! == "" {
+            underline_firstName.backgroundColor = redNeedsMore
+            check = false
+        }
+        
+        if middleName.text! == "" {
+            underline_middleName.backgroundColor = redNeedsMore
+            check = false
+        }
+        
+        if lastName.text! == "" {
+            underline_lastName.backgroundColor = redNeedsMore
+            check = false
+        }
+        
+        if email.text! == "" {
+            underline_email.backgroundColor = redNeedsMore
+            check = false
+        }
+        
+        if password.text! == "" { //Needs to include regex for to require stronger passwords
+            underline_password.backgroundColor = redNeedsMore
+            check = false
+        }
+        
+        if confirmPassword.text == "" || confirmPassword.text! != password.text!{
+            underline_confirmPassword.backgroundColor = redNeedsMore
+            check = false
+        }
+        
+        return check
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        
+        if(inputIsGood()) {
+            let values = getValuesFromTextInput()
+            if(UserRepository.userRep.addUser(User(firstName: values[0], middleName: values[1], lastName: values[2], email: values[3].lowercased(), password: values[4]))) {
+                print("User saved")
+            } else {
+                print("Didn't save User correctly")
+            }
+            cancelToLogin(UIButton())
+        } else {
+            let message = "Please finish entering credentials and confirm password."
+            let alertView = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alertView.addAction(okAction)
+            self.present(alertView, animated: true)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
