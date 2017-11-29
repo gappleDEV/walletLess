@@ -57,6 +57,7 @@ class TabBarController: UIViewController {
         }, completion: { _ in
             switch sender.tag {
             case 0: // mail
+                self.clearSubViewControllers()
                 let v1: View1 = View1(nibName: "View1", bundle: nil)
                 self.addChildViewController(v1)
                 v1.view.frame = CGRect(x: 0, y: 0, width: self.areaView.frame.width, height: self.areaView.frame.height)
@@ -65,31 +66,32 @@ class TabBarController: UIViewController {
                 
             case 1:
                 print("home")
-                if self.childViewControllers.count > 0 {
-                    let controllers:[UIViewController] = self.childViewControllers
-                    for vc in controllers {
-                        vc.willMove(toParentViewController: nil)
-                        vc.view.removeFromSuperview()
-                        vc.removeFromParentViewController()
-                    }
-                }
+                self.clearSubViewControllers()
+                let v1: MenuCollectionViewController = MenuCollectionViewController(nibName: "MenuCollectionViewController", bundle: nil)
+                self.addChildViewController(v1)
+                self.areaView.addSubview(v1.view)
+                v1.didMove(toParentViewController: self)
                 
             case 2:
                 print("cards")
-                if self.childViewControllers.count > 0 {
-                    let controllers:[UIViewController] = self.childViewControllers
-                    for vc in controllers {
-                        vc.willMove(toParentViewController: nil)
-                        vc.view.removeFromSuperview()
-                        vc.removeFromParentViewController()
-                    }
-                }
+                self.clearSubViewControllers()
             default:
                 print("Something went wrong")
             }
         })
         
         
+    }
+    
+    func clearSubViewControllers() {
+        if self.childViewControllers.count > 0 {
+            let controllers:[UIViewController] = self.childViewControllers
+            for vc in controllers {
+                vc.willMove(toParentViewController: nil)
+                vc.view.removeFromSuperview()
+                vc.removeFromParentViewController()
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

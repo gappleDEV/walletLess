@@ -38,6 +38,10 @@
 		928E5E7B1FBC03A800D50794 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E791FBC03A800D50794 /* SignUpViewController.xib */; };
 		928E5E7E1FCE537500D50794 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E7C1FCE537400D50794 /* TabBarController.swift */; };
 		928E5E7F1FCE537500D50794 /* TabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E7D1FCE537400D50794 /* TabBarController.xib */; };
+		928E5E8C1FCF6C2E00D50794 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E8A1FCF6C2E00D50794 /* MenuCollectionViewCell.swift */; };
+		928E5E8D1FCF6C2E00D50794 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */; };
+		928E5E921FCF79E700D50794 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */; };
+		928E5E931FCF79E700D50794 /* MenuCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */; };
 		92DDAA2B1F411AD60085B143 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2A1F411AD60085B143 /* TableData.swift */; };
 		92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */; };
 		92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2E1F4380810085B143 /* PanelHeader.swift */; };
@@ -110,6 +114,10 @@
 		928E5E791FBC03A800D50794 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		928E5E7C1FCE537400D50794 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		928E5E7D1FCE537400D50794 /* TabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarController.xib; sourceTree = "<group>"; };
+		928E5E8A1FCF6C2E00D50794 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
+		928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewController.xib; sourceTree = "<group>"; };
 		92DDAA2A1F411AD60085B143 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
 		92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA2E1F4380810085B143 /* PanelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelHeader.swift; sourceTree = "<group>"; };
@@ -250,6 +258,10 @@
 				928E5E791FBC03A800D50794 /* SignUpViewController.xib */,
 				928E5E7C1FCE537400D50794 /* TabBarController.swift */,
 				928E5E7D1FCE537400D50794 /* TabBarController.xib */,
+				928E5E8A1FCF6C2E00D50794 /* MenuCollectionViewCell.swift */,
+				928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */,
+				928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */,
+				928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */,
 			);
 			name = Nib;
 			sourceTree = "<group>";
@@ -416,6 +428,7 @@
 			files = (
 				928E5E751FBBBCA500D50794 /* LoginViewController_v2.xib in Resources */,
 				928E5E7F1FCE537500D50794 /* TabBarController.xib in Resources */,
+				928E5E931FCF79E700D50794 /* MenuCollectionViewController.xib in Resources */,
 				927E8C7D1F44BB41008092DE /* InsuranceCardPic.storyboard in Resources */,
 				F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */,
 				9262EA1E1FB2B72B00082249 /* View3.xib in Resources */,
@@ -425,6 +438,7 @@
 				9262EA161FB2B53300082249 /* View1.xib in Resources */,
 				F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */,
 				9243FCD41F55DE420055A8E4 /* Register.storyboard in Resources */,
+				928E5E8D1FCF6C2E00D50794 /* MenuCollectionViewCell.xib in Resources */,
 				9262EA1A1FB2B54000082249 /* View2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +576,7 @@
 				92DDAA3A1F43B0580085B143 /* CustomLabelView.swift in Sources */,
 				928E5E741FBBBCA500D50794 /* LoginViewController_v2.swift in Sources */,
 				92E630DE1E84C12C004E8434 /* MessagesViewController.swift in Sources */,
+				928E5E8C1FCF6C2E00D50794 /* MenuCollectionViewCell.swift in Sources */,
 				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
 				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
 				F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */,
@@ -591,6 +606,7 @@
 				924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */,
 				9262EA121FB2B3C600082249 /* ViewController.swift in Sources */,
 				9262EA1D1FB2B72B00082249 /* View3.swift in Sources */,
+				928E5E921FCF79E700D50794 /* MenuCollectionViewController.swift in Sources */,
 				92F4738D1F448E70006A513F /* CustomProgressBar.swift in Sources */,
 				92DDAA381F43AE8D0085B143 /* MotherNameBodyView.swift in Sources */,
 				920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */,
