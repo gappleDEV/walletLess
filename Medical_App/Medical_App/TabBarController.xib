@@ -16,13 +16,13 @@
                 <outlet property="b_cards" destination="94L-9Z-uLO" id="Wg7-sw-vEp"/>
                 <outlet property="b_home" destination="7Da-fP-51u" id="Pl4-eQ-BMu"/>
                 <outlet property="b_mail" destination="VNe-lC-n1d" id="HdJ-if-LFi"/>
-                <outlet property="l_cards" destination="Y3A-tc-PGc" id="YP9-k9-6hY"/>
                 <outlet property="l_date" destination="aMx-sk-CV8" id="wkk-7e-zR7"/>
-                <outlet property="l_home" destination="xSQ-JV-I1E" id="OCt-5E-498"/>
-                <outlet property="l_mail" destination="Aro-xk-ux7" id="pio-eK-uc3"/>
                 <outlet property="l_title" destination="ru8-hj-Up3" id="qKA-be-5fs"/>
                 <outlet property="tabHolder" destination="EDf-pe-Xbj" id="TcI-Q1-cnB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="buttonLabels" destination="Aro-xk-ux7" collectionClass="NSMutableArray" id="HEo-ua-Y94"/>
+                <outletCollection property="buttonLabels" destination="xSQ-JV-I1E" collectionClass="NSMutableArray" id="Wt5-7L-UbC"/>
+                <outletCollection property="buttonLabels" destination="Y3A-tc-PGc" collectionClass="NSMutableArray" id="MNb-WB-1iT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

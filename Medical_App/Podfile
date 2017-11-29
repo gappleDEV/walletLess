@@ -12,8 +12,7 @@ target 'Medical_App' do
   pod 'IQKeyboardManagerSwift'
   pod 'TextFieldEffects'
   pod 'CircleMenu'
-  pod 'FoldingCell'
-  pod 'RAMAnimatedTabBarController'
+  pod 'expanding-collection'
 
   target 'Medical_AppTests' do
     inherit! :search_paths

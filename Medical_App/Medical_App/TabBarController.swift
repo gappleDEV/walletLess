@@ -18,14 +18,18 @@ class TabBarController: UIViewController {
     @IBOutlet weak var b_home: UIButton!
     @IBOutlet weak var b_cards: UIButton!
     
-    @IBOutlet weak var l_mail: UILabel!
-    @IBOutlet weak var l_home: UILabel!
-    @IBOutlet weak var l_cards: UILabel!
+    //holds the labels for each button [mail, home, cards]
+    @IBOutlet var buttonLabels: Array<UILabel>!
     
+    //view that is filled depending on which tab is selected
     @IBOutlet var areaView: UIView!
     
     let greenSelected:UIColor = UIColor(red:0.09, green:0.63, blue:0.52, alpha:1.0)
     let greyUnselected:UIColor = UIColor(red:0.50, green:0.50, blue:0.50, alpha:1.0)
+    
+    private let backImageView: [UIImageView] = [UIImageView(image: UIImage(named: "tab_mailSelected")), UIImageView(image: UIImage(named: "tab_homeSelected")), UIImageView(image: UIImage(named: "tab_cardSelected"))]
+    private let frontImageView: [UIImageView] = [UIImageView(image: UIImage(named: "tab_mail")), UIImageView(image: UIImage(named: "tab_home")), UIImageView(image: UIImage(named: "tab_card"))]
+    private var showingBack: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,38 +44,52 @@ class TabBarController: UIViewController {
     }
     
     @IBAction func tabButtonPressed(_ sender: UIButton) {
-        switch sender.tag {
-        case 0: // mail
-            b_mail.setImage(UIImage(named: "tab_mailSelected"), for: .normal)
-            l_mail.textColor = greenSelected
-            b_home.setImage(UIImage(named: "tab_home"), for: .normal)
-            l_home.textColor = greyUnselected
-            b_cards.setImage(UIImage(named: "tab_card"), for: .normal)
-            l_cards.textColor = greyUnselected
-            
-            let v1: View1 = View1(nibName: "View1", bundle: nil)
-            self.addChildViewController(v1)
-            v1.view.frame = CGRect(x: 0, y: 0, width: areaView.frame.width, height: areaView.frame.height)
-            self.areaView.addSubview(v1.view)
-            v1.didMove(toParentViewController: self)
-            
-        case 1:
-            b_home.setImage(UIImage(named: "tab_homeSelected"), for: .normal)
-            l_home.textColor = greenSelected
-            b_mail.setImage(UIImage(named: "tab_mail"), for: .normal)
-            l_mail.textColor = greyUnselected
-            b_cards.setImage(UIImage(named: "tab_card"), for: .normal)
-            l_cards.textColor = greyUnselected
-        case 2:
-            b_cards.setImage(UIImage(named: "tab_cardSelected"), for: .normal)
-            l_cards.textColor = greenSelected
-            b_mail.setImage(UIImage(named: "tab_mail"), for: .normal)
-            l_mail.textColor = greyUnselected
-            b_home.setImage(UIImage(named: "tab_home"), for: .normal)
-            l_home.textColor = greyUnselected
-        default:
-            print("Something went wrong")
-        }
+        b_mail.setImage(UIImage(named: "tab_mail"), for: .normal)
+        buttonLabels[0].textColor = greyUnselected
+        b_home.setImage(UIImage(named: "tab_home"), for: .normal)
+        buttonLabels[1].textColor = greyUnselected
+        b_cards.setImage(UIImage(named: "tab_card"), for: .normal)
+        buttonLabels[2].textColor = greyUnselected
+        
+        UIView.transition(with: sender, duration: 0.25, options: .transitionFlipFromLeft, animations: {
+            sender.setImage(self.backImageView[sender.tag].image, for: .normal)
+            self.buttonLabels[sender.tag].textColor = self.greenSelected
+        }, completion: { _ in
+            switch sender.tag {
+            case 0: // mail
+                let v1: View1 = View1(nibName: "View1", bundle: nil)
+                self.addChildViewController(v1)
+                v1.view.frame = CGRect(x: 0, y: 0, width: self.areaView.frame.width, height: self.areaView.frame.height)
+                self.areaView.addSubview(v1.view)
+                v1.didMove(toParentViewController: self)
+                
+            case 1:
+                print("home")
+                if self.childViewControllers.count > 0 {
+                    let controllers:[UIViewController] = self.childViewControllers
+                    for vc in controllers {
+                        vc.willMove(toParentViewController: nil)
+                        vc.view.removeFromSuperview()
+                        vc.removeFromParentViewController()
+                    }
+                }
+                
+            case 2:
+                print("cards")
+                if self.childViewControllers.count > 0 {
+                    let controllers:[UIViewController] = self.childViewControllers
+                    for vc in controllers {
+                        vc.willMove(toParentViewController: nil)
+                        vc.view.removeFromSuperview()
+                        vc.removeFromParentViewController()
+                    }
+                }
+            default:
+                print("Something went wrong")
+            }
+        })
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
