@@ -93,13 +93,13 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
                     if UserRepository.userRep.updateUser(thisUser) {
                         //Move to next controller
                         self.setupTables()
-                        //TBD
+                        self.moveToMenu()
                     }
                 })
                 let noAction = UIAlertAction(title: "No", style: .default, handler: { (UIAlertAction) in
                     //Move to next controller
                     self.setupTables()
-                    //TBD
+                    self.moveToMenu()
                 })
                 
                 alertView.addAction(yesAction)
@@ -109,7 +109,7 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
             } else {
                 //Move to next controller
                 setupTables()
-                //TBD
+                moveToMenu()
             }
             return true
         } else {
@@ -142,8 +142,16 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
                 
             } else {
                 self.setupTables()
-                //TBD
+                self.moveToMenu()
             }
+        }
+    }
+    
+    func moveToMenu() {
+        let v1: TabBarController = TabBarController(nibName: "TabBarController", bundle: nil)
+        v1.modalTransitionStyle = .crossDissolve
+        self.present(v1, animated: true) {
+            print("Done moving to nib")
         }
     }
     
