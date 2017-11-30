@@ -130,6 +130,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         toRet.append(password.text!)
         toRet.append(confirmPassword.text!)
         
+        print(toRet)
+        
         return toRet
     }
     
@@ -173,6 +175,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         if(inputIsGood()) {
             let values = getValuesFromTextInput()
+            print(values)
             if(UserRepository.userRep.addUser(User(firstName: values[0], middleName: values[1], lastName: values[2], email: values[3].lowercased(), password: values[4]))) {
                 print("User saved")
             } else {

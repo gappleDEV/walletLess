@@ -40,6 +40,9 @@ class TabBarController: UIViewController {
         dateFormatterPrint.dateFormat = "MMMM dd, yyyy"
         l_date.text = dateFormatterPrint.string(from: Date())
         
+        print(PersonalInfoRepository.persRep.getUser()!)
+        //l_title.text = PersonalInfoRepository.persRep.getUser()!.firstName
+        
         self.tabButtonPressed(b_home)
     }
     

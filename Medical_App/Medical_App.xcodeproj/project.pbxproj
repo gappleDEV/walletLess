@@ -42,6 +42,7 @@
 		928E5E8D1FCF6C2E00D50794 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */; };
 		928E5E921FCF79E700D50794 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */; };
 		928E5E931FCF79E700D50794 /* MenuCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */; };
+		928E5E991FD0B8C900D50794 /* PersonalInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E981FD0B8C900D50794 /* PersonalInfoTableViewController.swift */; };
 		92DDAA2B1F411AD60085B143 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2A1F411AD60085B143 /* TableData.swift */; };
 		92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */; };
 		92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2E1F4380810085B143 /* PanelHeader.swift */; };
@@ -118,6 +119,7 @@
 		928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewController.xib; sourceTree = "<group>"; };
+		928E5E981FD0B8C900D50794 /* PersonalInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoTableViewController.swift; sourceTree = "<group>"; };
 		92DDAA2A1F411AD60085B143 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
 		92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA2E1F4380810085B143 /* PanelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelHeader.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */,
 				928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */,
 				928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */,
+				928E5E981FD0B8C900D50794 /* PersonalInfoTableViewController.swift */,
 			);
 			name = Nib;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */,
 				92094F651F3FAD3D00DCC1C3 /* UserRepository.swift in Sources */,
 				F3FF57071E5A26FA000EA17B /* SubCompartmentCell.swift in Sources */,
+				928E5E991FD0B8C900D50794 /* PersonalInfoTableViewController.swift in Sources */,
 				92094F631F3FA72600DCC1C3 /* Repository.swift in Sources */,
 				928E5E7E1FCE537500D50794 /* TabBarController.swift in Sources */,
 				92094F5D1F3BF3A000DCC1C3 /* User.swift in Sources */,

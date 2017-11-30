@@ -11,6 +11,8 @@ import expanding_collection
 
 class MenuCollectionViewCell: BasePageCollectionCell {
     
+    @IBOutlet weak var l_title: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

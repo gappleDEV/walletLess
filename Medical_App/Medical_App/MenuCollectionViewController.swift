@@ -12,6 +12,7 @@ import expanding_collection
 class MenuCollectionViewController: ExpandingViewController {
     
     fileprivate let items: [UIColor] = [.black, .blue, .red]
+    fileprivate let titles: [String] = ["Personal Information", "Insurance Information", "Police Search"]
     fileprivate var cellsIsOpen = [Bool]()
     
     override func viewDidLoad() {
@@ -55,6 +56,13 @@ extension MenuCollectionViewController {
     fileprivate func fillCellIsOpenArray() {
         cellsIsOpen = Array(repeating: false, count: items.count)
     }
+    
+    fileprivate func getViewController() -> ExpandingTableViewController {
+        print("called")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let toViewController: PersonalInfoTableViewController = storyboard.instantiateViewController(withIdentifier: "PersonalInfoTableViewController") as! PersonalInfoTableViewController
+        return toViewController
+    }
 }
 
 /// MARK: Gesture
@@ -75,7 +83,7 @@ extension MenuCollectionViewController {
         guard let cell = collectionView?.cellForItem(at: indexPath) as? MenuCollectionViewCell else { return }
         // double swipe Up transition
         if cell.isOpened == true && sender.direction == .up {
-            //pushToViewController(getViewController())
+            pushToViewController(getViewController())
             print("open fully")
             
             /*if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
@@ -103,8 +111,10 @@ extension MenuCollectionViewController {
         
         let index = indexPath.row % items.count
         let info = items[index]
+        let title = titles[index]
         //set up cell
         cell.frontContainerView.backgroundColor = info
+        cell.l_title.text = title
         cell.cellIsOpen(cellsIsOpen[index], animated: false)
     }
     
@@ -120,7 +130,12 @@ extension MenuCollectionViewController {
             cell.cellIsOpen(true)
         } else {
             //pushToViewController(getViewController())
-            print("open fully")
+            let v1: View3 = View3(nibName: "View3", bundle: nil)
+            v1.modalTransitionStyle = .crossDissolve
+            self.present(v1, animated: true) {
+                print("Done moving to nib")
+            }
+            print("open fully - here")
             
             /*if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
              rightButton.animationSelected(true)
