@@ -12,6 +12,7 @@ import expanding_collection
 class MenuCollectionViewCell: BasePageCollectionCell {
     
     @IBOutlet weak var l_title: UILabel!
+    @IBOutlet weak var i_icon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

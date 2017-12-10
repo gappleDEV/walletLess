@@ -11,13 +11,18 @@ import expanding_collection
 
 class MenuCollectionViewController: ExpandingViewController {
     
-    fileprivate let items: [UIColor] = [.black, .blue, .red]
+    let greenBrand:UIColor = UIColor(red:0.09, green:0.63, blue:0.52, alpha:1.0)
+    fileprivate var bgColor: [UIColor] = []
+    fileprivate let icons: [UIImage] = [UIImage(named: "user_grey")!, UIImage(named: "health_book_grey")!, UIImage(named: "police_grey")!]
     fileprivate let titles: [String] = ["Personal Information", "Insurance Information", "Police Search"]
     fileprivate var cellsIsOpen = [Bool]()
     
     override func viewDidLoad() {
-        itemSize = CGSize(width: 225, height: 300)
+        itemSize = CGSize(width: 225, height: 275)
         super.viewDidLoad()
+        
+        // initialize background colors
+        self.bgColor = Array(repeating: greenBrand, count: titles.count)
         
         // register cell
         registerCell()
@@ -54,7 +59,7 @@ extension MenuCollectionViewController {
     }
     
     fileprivate func fillCellIsOpenArray() {
-        cellsIsOpen = Array(repeating: false, count: items.count)
+        cellsIsOpen = Array(repeating: false, count: titles.count)
     }
     
     fileprivate func getViewController() -> ExpandingTableViewController {
@@ -102,18 +107,20 @@ extension MenuCollectionViewController {
 extension MenuCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return titles.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
         guard let cell = cell as? MenuCollectionViewCell else { return }
         
-        let index = indexPath.row % items.count
-        let info = items[index]
+        let index = indexPath.row % titles.count
+        let bg = bgColor[index]
+        let icon = icons[index]
         let title = titles[index]
         //set up cell
-        cell.frontContainerView.backgroundColor = info
+        cell.frontContainerView.backgroundColor = bg
+        cell.i_icon.image = icon
         cell.l_title.text = title
         cell.cellIsOpen(cellsIsOpen[index], animated: false)
     }
