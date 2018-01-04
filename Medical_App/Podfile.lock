@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (4.5.1)
+  - Alamofire (4.6.0)
   - CircleMenu (3.0.0)
   - expanding-collection (1.1.1)
-  - IQKeyboardManagerSwift (5.0.6)
+  - IQKeyboardManagerSwift (5.0.7)
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
@@ -21,10 +21,10 @@ DEPENDENCIES:
   - TextFieldEffects
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   CircleMenu: 63d02351f5cb550777b47aa19cc336e09fec2a98
   expanding-collection: b345a597665ed4a133d6e3f9b79e0f6091d7114c
-  IQKeyboardManagerSwift: 02bfbb0dff71c66d0ab77d80d25dfce0c3717735
+  IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa

@@ -158,6 +158,7 @@ class LoginViewController_v2: UIViewController, UITextFieldDelegate {
     func setupTables() {
         let within = PersonalInfoRepository.persRep.getUser()
         if within == nil || within!.email != i_email.text! {
+            print("within came back nil")
             let _ = PersonalInfoRepository.persRep.addUser(PersonalInfo(email: i_email.text!))
         }
     }

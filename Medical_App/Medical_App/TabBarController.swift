@@ -40,8 +40,8 @@ class TabBarController: UIViewController {
         dateFormatterPrint.dateFormat = "MMMM dd, yyyy"
         l_date.text = dateFormatterPrint.string(from: Date())
         
-        print(PersonalInfoRepository.persRep.getUser()!)
-        //l_title.text = PersonalInfoRepository.persRep.getUser()!.firstName
+        print(UserRepository.userRep.getUser()!)
+        l_title.text = "Welcome back, \(UserRepository.userRep.getUser()!.firstName)"
         
         self.tabButtonPressed(b_home)
     }
