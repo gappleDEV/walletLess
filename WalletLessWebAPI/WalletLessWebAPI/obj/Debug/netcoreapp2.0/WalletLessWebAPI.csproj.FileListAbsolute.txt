@@ -1,0 +1,15 @@
+/Users/matthewaquiles/Documents/Programming/walletLess/dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.csprojResolveAssemblyReference.cache
+/Users/matthewaquiles/Documents/Programming/walletLess/dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.csproj.CoreCompileInputs.cache
+/Users/matthewaquiles/Documents/Programming/walletLess/dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.AssemblyInfoInputs.cache
+/Users/matthewaquiles/Documents/Programming/walletLess/dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.AssemblyInfo.cs
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.csprojResolveAssemblyReference.cache
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.csproj.CoreCompileInputs.cache
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.AssemblyInfoInputs.cache
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.AssemblyInfo.cs
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/bin/Debug/netcoreapp2.0/WalletLessWebAPI.deps.json
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/bin/Debug/netcoreapp2.0/WalletLessWebAPI.runtimeconfig.json
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/bin/Debug/netcoreapp2.0/WalletLessWebAPI.runtimeconfig.dev.json
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/bin/Debug/netcoreapp2.0/WalletLessWebAPI.dll
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/bin/Debug/netcoreapp2.0/WalletLessWebAPI.pdb
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.dll
+/Users/matthewaquiles/Documents/Programming/walletLess/WalletLessWebAPI/WalletLessWebAPI/obj/Debug/netcoreapp2.0/WalletLessWebAPI.pdb
