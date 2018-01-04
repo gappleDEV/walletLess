@@ -1,2 +1,0 @@
-INDEX VERSION 1.129+/Users/Gregory/Desktop/walletLess/sp-node-mysql/Web_App/.metadata/.plugins/org.eclipse.jdt.core
-3377240794.index

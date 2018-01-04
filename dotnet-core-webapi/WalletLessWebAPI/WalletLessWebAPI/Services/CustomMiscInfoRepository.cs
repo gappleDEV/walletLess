@@ -29,12 +29,12 @@ namespace WalletLessWebAPI.Services
             _context.CustomMiscInfo.Remove(info);
         }
 
-        public CustomMiscInfo GetCustomMiscInfo(CustomMiscInfo id)
+        public CustomMiscInfo GetCustomMiscInfo(int id)
         {
             return _context.CustomMiscInfo.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<CustomMiscInfo> GetCustomMiscInfo()
+        public IEnumerable<CustomMiscInfo> GetAllCustomMiscInfo()
         {
             return _context.CustomMiscInfo.OrderBy(x => x.Id).ToList();
         }
@@ -44,7 +44,7 @@ namespace WalletLessWebAPI.Services
             return _context.CustomMiscInfo.Where(x => ids.Contains(x.Id)).OrderBy(y => y.Id).ToList();
         }
 
-        public void updateCustomMiscInfo(int id, CustomMiscInfo info)
+        public void UpdateCustomMiscInfo(int id, CustomMiscInfo info)
         {
             //copy the other files so i guess im still feeling lazy and ill do this another time
             var currUser = _context.CustomMiscInfo.FirstOrDefault(x => x.Id == id);
