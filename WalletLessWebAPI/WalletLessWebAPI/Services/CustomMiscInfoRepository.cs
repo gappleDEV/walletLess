@@ -49,9 +49,9 @@ namespace WalletLessWebAPI.Services
             //copy the other files so i guess im still feeling lazy and ill do this another time
             var currUser = _context.CustomMiscInfo.FirstOrDefault(x => x.Id == id);
 
-            currUser.user_info = info.user_info;
-            currUser.type = info.type;
-            currUser.cardNum = info.cardNum;
+            currUser.User_info = info.User_info;
+            currUser.Type = info.Type;
+            currUser.CardNum = info.CardNum;
 
             _context.CustomMiscInfo.Update(currUser);
             _context.SaveChanges();

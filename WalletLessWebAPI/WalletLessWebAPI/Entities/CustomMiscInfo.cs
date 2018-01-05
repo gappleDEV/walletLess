@@ -9,8 +9,8 @@ namespace WalletLessWebAPI.Entities
         [Key]
         public int Id { get; set; }
 
-        public int user_info { get; set; }
-        public string type { get; set; }
-        public int cardNum { get; set; }
+        public int User_info { get; set; }
+        public string Type { get; set; }
+        public int CardNum { get; set; }
     }
 }
