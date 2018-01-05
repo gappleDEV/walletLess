@@ -59,6 +59,7 @@ class PersonalInfo: TableData {
     }
     
     override var tableRepresentation: [MyTableData] {
+        let five = socialSecurity.count == 9 ? socialSecurity.index(socialSecurity.startIndex, offsetBy: 5) : nil
         return [
             ("Mother's First Name", motherFirstName),
             ("Mother's Middle Name", motherMiddleName),
@@ -69,7 +70,7 @@ class PersonalInfo: TableData {
             ("Race", race),
             ("Denomination", denomination),
             ("Preferred Language", preferredLanguage),
-            ("Social Security", "\(socialSecurity.count == 9 ? "*****" + socialSecurity.substring(from: socialSecurity.index(socialSecurity.startIndex, offsetBy: min(socialSecurity.count, 5))) : "")"),
+            ("Social Security", "\(socialSecurity.count == 9 ? "*****" + String(socialSecurity[five!...]) : "")"),
             ("Address", address),
             ("Zip Code", zipCode),
             ("County Code", countyCode),

@@ -17,9 +17,17 @@ class MenuCollectionViewController: ExpandingViewController {
     fileprivate let titles: [String] = ["Personal Information", "Insurance Information", "Police Search"]
     fileprivate var cellsIsOpen = [Bool]()
     
+    var selectedView:UIView?
+    let transition = PopAnimator()
+    
     override func viewDidLoad() {
         itemSize = CGSize(width: 225, height: 275)
         super.viewDidLoad()
+        
+        // For pop animation
+        transition.dismissCompletion = {
+            //self.selectedView!.isHidden = false
+        }
         
         // initialize background colors
         self.bgColor = Array(repeating: greenBrand, count: titles.count)
@@ -130,15 +138,19 @@ extension MenuCollectionViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         guard let cell = collectionView.cellForItem(at: indexPath) as? MenuCollectionViewCell
             , currentIndex == indexPath.row else { return }
+        
+        // Used for the pop animation
+        selectedView = cell.frontContainerView
         
         if cell.isOpened == false {
             cell.cellIsOpen(true)
         } else {
             //pushToViewController(getViewController())
             let v1: View3 = View3(nibName: "View3", bundle: nil)
-            v1.modalTransitionStyle = .crossDissolve
+            v1.transitioningDelegate = self
             self.present(v1, animated: true) {
                 print("Done moving to nib")
             }
@@ -149,6 +161,21 @@ extension MenuCollectionViewController {
              }*/
         }
     }
+}
+
+extension MenuCollectionViewController: UIViewControllerTransitioningDelegate {
     
+    func animationController(forPresented presented: UIViewController, presenting:
+        UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.originFrame = selectedView!.superview!.convert(selectedView!.frame, to: nil)
+        transition.presenting = true
+        //selectedView!.isHidden = true
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
+    }
 }
 

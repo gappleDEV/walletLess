@@ -17,6 +17,7 @@
 		92094F651F3FAD3D00DCC1C3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F641F3FAD3D00DCC1C3 /* UserRepository.swift */; };
 		92094F671F3FE5A800DCC1C3 /* TouchIDAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */; };
 		920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920FCC841E5C00C500A79E7D /* LoginViewController.swift */; };
+		92409E0C20000AB6006B76BC /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92409E0B20000AB6006B76BC /* PopAnimator.swift */; };
 		9243FCD21F55DD140055A8E4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */; };
 		9243FCD41F55DE420055A8E4 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9243FCD31F55DE420055A8E4 /* Register.storyboard */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
@@ -94,6 +95,7 @@
 		92094F641F3FAD3D00DCC1C3 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuth.swift; sourceTree = "<group>"; };
 		920FCC841E5C00C500A79E7D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		92409E0B20000AB6006B76BC /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9243FCD31F55DE420055A8E4 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,14 @@
 			name = DAO;
 			sourceTree = "<group>";
 		};
+		92409E0A20000A95006B76BC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				92409E0B20000AB6006B76BC /* PopAnimator.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		9262EA101FB2B39600082249 /* Nib */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +314,7 @@
 		F3AF14E61CBD8711001782EA /* Medical_App */ = {
 			isa = PBXGroup;
 			children = (
+				92409E0A20000A95006B76BC /* Service */,
 				9262EA101FB2B39600082249 /* Nib */,
 				92DDAA321F4392070085B143 /* Storyboard */,
 				92094F611F3F9FB100DCC1C3 /* DAO */,
@@ -576,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92409E0C20000AB6006B76BC /* PopAnimator.swift in Sources */,
 				92DDAA3A1F43B0580085B143 /* CustomLabelView.swift in Sources */,
 				928E5E741FBBBCA500D50794 /* LoginViewController_v2.swift in Sources */,
 				92E630DE1E84C12C004E8434 /* MessagesViewController.swift in Sources */,

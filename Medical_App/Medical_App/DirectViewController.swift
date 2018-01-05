@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Used to present the login view xib
+
 class DirectViewController: UIViewController {
 
     @IBOutlet var logo: UIImageView!
