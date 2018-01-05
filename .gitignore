@@ -2,12 +2,3 @@ Medical_App/Pods/*
 .DS_Store
 Medical_App/.DS_Store
 /.metadata/
-spring-boot/target/*
-Medical_App/.DS_Store
-.DS_Store
-Medical_App/.DS_Store
-Medical_App/.DS_Store
-dotnet-core-webapi/WalletLessWebAPI/.vs/*
-dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/bin/*
-dotnet-core-webapi/WalletLessWebAPI/WalletLessWebAPI/obj/*
-
