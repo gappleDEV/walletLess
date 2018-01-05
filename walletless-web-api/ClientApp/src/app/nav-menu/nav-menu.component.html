@@ -7,14 +7,14 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>walletless_web_api</a>
+            <a class='navbar-brand' [routerLink]='["/"]'>WalletLess</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
             <ul class='nav navbar-nav'>
-                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-home'></span> Home
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/login"]' (click)="collapse()">
+                        <span class='glyphicon glyphicon-log-in'></span> Log In
                     </a>
                 </li>
                 <li [routerLinkActive]='["link-active"]'>

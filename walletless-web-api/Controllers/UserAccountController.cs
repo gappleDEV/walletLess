@@ -55,7 +55,7 @@ namespace WalletLessWebAPI.Controllers
 
         //patch
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public IActionResult DeleteUser(UserAccount user)
         {
             _userAccountRepository.DeleteUserAccount(user);
