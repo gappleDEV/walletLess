@@ -20,14 +20,19 @@ class MenuCollectionViewController: ExpandingViewController {
     var selectedView:UIView?
     let transition = PopAnimator()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.collectionView!.alpha = 1
+        }) { (_) in
+            print("Finished fading in")
+        }
+    }
+    
     override func viewDidLoad() {
         itemSize = CGSize(width: 225, height: 275)
         super.viewDidLoad()
-        
-        // For pop animation
-        transition.dismissCompletion = {
-            //self.selectedView!.isHidden = false
-        }
         
         // initialize background colors
         self.bgColor = Array(repeating: greenBrand, count: titles.count)
@@ -38,6 +43,8 @@ class MenuCollectionViewController: ExpandingViewController {
         fillCellIsOpenArray()
         // add gesture recognizer
         addGesture(to: collectionView!)
+        // setting up for animation
+        self.collectionView!.alpha = 0
     }
     
     override func didReceiveMemoryWarning() {

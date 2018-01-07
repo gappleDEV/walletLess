@@ -19,7 +19,6 @@
 		920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920FCC841E5C00C500A79E7D /* LoginViewController.swift */; };
 		92409E0C20000AB6006B76BC /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92409E0B20000AB6006B76BC /* PopAnimator.swift */; };
 		9243FCD21F55DD140055A8E4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */; };
-		9243FCD41F55DE420055A8E4 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9243FCD31F55DE420055A8E4 /* Register.storyboard */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
 		9262EA121FB2B3C600082249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262EA111FB2B3C600082249 /* ViewController.swift */; };
@@ -97,7 +96,6 @@
 		920FCC841E5C00C500A79E7D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92409E0B20000AB6006B76BC /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		9243FCD31F55DE420055A8E4 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		9262EA111FB2B3C600082249 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
 				F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */,
 				927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */,
-				9243FCD31F55DE420055A8E4 /* Register.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -451,7 +448,6 @@
 				92DDAA311F4391F60085B143 /* PersonalInfo.storyboard in Resources */,
 				9262EA161FB2B53300082249 /* View1.xib in Resources */,
 				F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */,
-				9243FCD41F55DE420055A8E4 /* Register.storyboard in Resources */,
 				928E5E8D1FCF6C2E00D50794 /* MenuCollectionViewCell.xib in Resources */,
 				9262EA1A1FB2B54000082249 /* View2.xib in Resources */,
 			);

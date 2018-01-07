@@ -29,7 +29,8 @@ class TabBarController: UIViewController {
     
     private let backImageView: [UIImageView] = [UIImageView(image: UIImage(named: "tab_mailSelected")), UIImageView(image: UIImage(named: "tab_homeSelected")), UIImageView(image: UIImage(named: "tab_cardSelected"))]
     private let frontImageView: [UIImageView] = [UIImageView(image: UIImage(named: "tab_mail")), UIImageView(image: UIImage(named: "tab_home")), UIImageView(image: UIImage(named: "tab_card"))]
-    private var showingBack: Int = 1
+    //private var showingBack: Int = 1
+    private var tabSelected = -1 //0: mail, 1: home, 2: cards
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +55,14 @@ class TabBarController: UIViewController {
         b_cards.setImage(UIImage(named: "tab_card"), for: .normal)
         buttonLabels[2].textColor = greyUnselected
         
-        UIView.transition(with: sender, duration: 0.25, options: .transitionFlipFromLeft, animations: {
-            sender.setImage(self.backImageView[sender.tag].image, for: .normal)
-            self.buttonLabels[sender.tag].textColor = self.greenSelected
-        }, completion: { _ in
+        if tabSelected != sender.tag { //only change if selecting something different
+            UIView.transition(with: sender, duration: 0.25, options: .transitionFlipFromLeft, animations: {
+                sender.setImage(self.backImageView[sender.tag].image, for: .normal)
+                self.buttonLabels[sender.tag].textColor = self.greenSelected
+            }, completion: { _ in
+                print("Done tabe bar animation")
+            })
+
             switch sender.tag {
             case 0: // mail
                 self.clearSubViewControllers()
@@ -78,12 +83,12 @@ class TabBarController: UIViewController {
             case 2:
                 print("cards")
                 self.clearSubViewControllers()
+                
             default:
                 print("Something went wrong")
             }
-        })
-        
-        
+            tabSelected = sender.tag
+        }
     }
     
     func clearSubViewControllers() {
