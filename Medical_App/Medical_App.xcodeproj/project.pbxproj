@@ -16,9 +16,9 @@
 		92094F631F3FA72600DCC1C3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F621F3FA72600DCC1C3 /* Repository.swift */; };
 		92094F651F3FAD3D00DCC1C3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F641F3FAD3D00DCC1C3 /* UserRepository.swift */; };
 		92094F671F3FE5A800DCC1C3 /* TouchIDAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */; };
-		920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920FCC841E5C00C500A79E7D /* LoginViewController.swift */; };
 		92409E0C20000AB6006B76BC /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92409E0B20000AB6006B76BC /* PopAnimator.swift */; };
-		9243FCD21F55DD140055A8E4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */; };
+		92409E0F2002DCDA006B76BC /* ViewDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92409E0D2002DCDA006B76BC /* ViewDataViewController.swift */; };
+		92409E102002DCDA006B76BC /* ViewDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92409E0E2002DCDA006B76BC /* ViewDataViewController.xib */; };
 		924EEE4E1DF7B9ED00791FCB /* HelpPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */; };
 		924EEE501DF7C23700791FCB /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EEE4F1DF7C23700791FCB /* GlobalData.swift */; };
 		9262EA121FB2B3C600082249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262EA111FB2B3C600082249 /* ViewController.swift */; };
@@ -42,11 +42,9 @@
 		928E5E8D1FCF6C2E00D50794 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */; };
 		928E5E921FCF79E700D50794 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */; };
 		928E5E931FCF79E700D50794 /* MenuCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */; };
-		928E5E991FD0B8C900D50794 /* PersonalInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E5E981FD0B8C900D50794 /* PersonalInfoTableViewController.swift */; };
 		92DDAA2B1F411AD60085B143 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2A1F411AD60085B143 /* TableData.swift */; };
 		92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */; };
 		92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA2E1F4380810085B143 /* PanelHeader.swift */; };
-		92DDAA311F4391F60085B143 /* PersonalInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DDAA301F4391F60085B143 /* PersonalInfo.storyboard */; };
 		92DDAA341F4396570085B143 /* PersonalInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA331F4396570085B143 /* PersonalInfoHeaderView.swift */; };
 		92DDAA361F4398940085B143 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA351F4398940085B143 /* PersonalInfoViewController.swift */; };
 		92DDAA381F43AE8D0085B143 /* MotherNameBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DDAA371F43AE8D0085B143 /* MotherNameBodyView.swift */; };
@@ -57,18 +55,13 @@
 		92F4738D1F448E70006A513F /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4738C1F448E70006A513F /* CustomProgressBar.swift */; };
 		CB36BA6D9B0CBAD09C1AE990 /* Pods_Medical_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BF493821F6F535142449E /* Pods_Medical_AppTests.framework */; };
 		F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */; };
-		F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */; };
-		F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA61D6604C8003EBFBB /* Cell_Data.swift */; };
-		F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CA81D6607DE003EBFBB /* MenuViewController.swift */; };
 		F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3295CAA1D68A25A003EBFBB /* GradientView.swift */; };
 		F3AF14E81CBD8711001782EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14E71CBD8711001782EA /* AppDelegate.swift */; };
-		F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */; };
 		F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14EB1CBD8711001782EA /* Main.storyboard */; };
 		F3AF14EF1CBD8711001782EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14EE1CBD8711001782EA /* Assets.xcassets */; };
 		F3AF14F21CBD8711001782EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */; };
 		F3AF14FD1CBD8712001782EA /* Medical_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF14FC1CBD8712001782EA /* Medical_AppTests.swift */; };
 		F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */; };
-		F3FF57071E5A26FA000EA17B /* SubCompartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FF57061E5A26FA000EA17B /* SubCompartmentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,9 +86,9 @@
 		92094F621F3FA72600DCC1C3 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		92094F641F3FAD3D00DCC1C3 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		92094F661F3FE5A800DCC1C3 /* TouchIDAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuth.swift; sourceTree = "<group>"; };
-		920FCC841E5C00C500A79E7D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92409E0B20000AB6006B76BC /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
-		9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		92409E0D2002DCDA006B76BC /* ViewDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDataViewController.swift; sourceTree = "<group>"; };
+		92409E0E2002DCDA006B76BC /* ViewDataViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewDataViewController.xib; sourceTree = "<group>"; };
 		924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopupViewController.swift; sourceTree = "<group>"; };
 		924EEE4F1DF7C23700791FCB /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		9262EA111FB2B3C600082249 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,11 +112,9 @@
 		928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewController.xib; sourceTree = "<group>"; };
-		928E5E981FD0B8C900D50794 /* PersonalInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoTableViewController.swift; sourceTree = "<group>"; };
 		92DDAA2A1F411AD60085B143 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
 		92DDAA2C1F42A9330085B143 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA2E1F4380810085B143 /* PanelHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelHeader.swift; sourceTree = "<group>"; };
-		92DDAA301F4391F60085B143 /* PersonalInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfo.storyboard; sourceTree = "<group>"; };
 		92DDAA331F4396570085B143 /* PersonalInfoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoHeaderView.swift; sourceTree = "<group>"; };
 		92DDAA351F4398940085B143 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		92DDAA371F43AE8D0085B143 /* MotherNameBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotherNameBodyView.swift; sourceTree = "<group>"; };
@@ -136,13 +127,9 @@
 		A26138843A7D9EBDFB97DDF4 /* Pods-Medical_AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medical_AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Medical_AppTests/Pods-Medical_AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ECCFDDE72D284BC92723785E /* Pods_Medical_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Medical_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsurCardPicViewController.swift; sourceTree = "<group>"; };
-		F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDataTableViewCell.swift; sourceTree = "<group>"; };
-		F3295CA61D6604C8003EBFBB /* Cell_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell_Data.swift; sourceTree = "<group>"; };
-		F3295CA81D6607DE003EBFBB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F3295CAA1D68A25A003EBFBB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F3AF14E41CBD8711001782EA /* Medical_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medical_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AF14E71CBD8711001782EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoController.swift; sourceTree = "<group>"; };
 		F3AF14EC1CBD8711001782EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3AF14EE1CBD8711001782EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3AF14F11CBD8711001782EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,7 +138,6 @@
 		F3AF14FC1CBD8712001782EA /* Medical_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medical_AppTests.swift; sourceTree = "<group>"; };
 		F3AF14FE1CBD8712001782EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3B3FFAC1DBFCFA200AE1BDE /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
-		F3FF57061E5A26FA000EA17B /* SubCompartmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCompartmentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +192,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		92094F5F1F3F9EE200DCC1C3 /* View */ = {
+		92094F5F1F3F9EE200DCC1C3 /* View_old */ = {
 			isa = PBXGroup;
 			children = (
 				92094F551F3BEBDE00DCC1C3 /* CategoryTableCell.swift */,
@@ -219,19 +205,17 @@
 				92F4738C1F448E70006A513F /* CustomProgressBar.swift */,
 				927E8C7E1F44C9AA008092DE /* CustomPickerView.swift */,
 			);
-			name = View;
+			name = View_old;
 			sourceTree = "<group>";
 		};
-		92094F601F3F9EE600DCC1C3 /* Controller */ = {
+		92094F601F3F9EE600DCC1C3 /* Controller_old */ = {
 			isa = PBXGroup;
 			children = (
-				920FCC841E5C00C500A79E7D /* LoginViewController.swift */,
 				92094F591F3BEE0600DCC1C3 /* HomeViewController.swift */,
 				92DDAA351F4398940085B143 /* PersonalInfoViewController.swift */,
-				9243FCD11F55DD140055A8E4 /* RegisterViewController.swift */,
 				928E5E761FBBFBC300D50794 /* DirectViewController.swift */,
 			);
-			name = Controller;
+			name = Controller_old;
 			sourceTree = "<group>";
 		};
 		92094F611F3F9FB100DCC1C3 /* DAO */ = {
@@ -247,12 +231,26 @@
 		92409E0A20000A95006B76BC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				F3295CAA1D68A25A003EBFBB /* GradientView.swift */,
 				92409E0B20000AB6006B76BC /* PopAnimator.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
 		};
-		9262EA101FB2B39600082249 /* Nib */ = {
+		92409E112002DD37006B76BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				928E5E721FBBBCA500D50794 /* LoginViewController_v2.swift */,
+				928E5E781FBC03A800D50794 /* SignUpViewController.swift */,
+				928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */,
+				928E5E8A1FCF6C2E00D50794 /* MenuCollectionViewCell.swift */,
+				928E5E7C1FCE537400D50794 /* TabBarController.swift */,
+				92409E0D2002DCDA006B76BC /* ViewDataViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9262EA101FB2B39600082249 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				9262EA111FB2B3C600082249 /* ViewController.swift */,
@@ -262,25 +260,19 @@
 				9262EA181FB2B54000082249 /* View2.xib */,
 				9262EA1B1FB2B72B00082249 /* View3.swift */,
 				9262EA1C1FB2B72B00082249 /* View3.xib */,
-				928E5E721FBBBCA500D50794 /* LoginViewController_v2.swift */,
 				928E5E731FBBBCA500D50794 /* LoginViewController_v2.xib */,
-				928E5E781FBC03A800D50794 /* SignUpViewController.swift */,
 				928E5E791FBC03A800D50794 /* SignUpViewController.xib */,
-				928E5E7C1FCE537400D50794 /* TabBarController.swift */,
 				928E5E7D1FCE537400D50794 /* TabBarController.xib */,
-				928E5E8A1FCF6C2E00D50794 /* MenuCollectionViewCell.swift */,
 				928E5E8B1FCF6C2E00D50794 /* MenuCollectionViewCell.xib */,
-				928E5E901FCF79E700D50794 /* MenuCollectionViewController.swift */,
 				928E5E911FCF79E700D50794 /* MenuCollectionViewController.xib */,
-				928E5E981FD0B8C900D50794 /* PersonalInfoTableViewController.swift */,
+				92409E0E2002DCDA006B76BC /* ViewDataViewController.xib */,
 			);
-			name = Nib;
+			name = View;
 			sourceTree = "<group>";
 		};
 		92DDAA321F4392070085B143 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				92DDAA301F4391F60085B143 /* PersonalInfo.storyboard */,
 				F3AF14EB1CBD8711001782EA /* Main.storyboard */,
 				F3AF14F01CBD8711001782EA /* LaunchScreen.storyboard */,
 				927E8C7C1F44BB41008092DE /* InsuranceCardPic.storyboard */,
@@ -311,27 +303,22 @@
 		F3AF14E61CBD8711001782EA /* Medical_App */ = {
 			isa = PBXGroup;
 			children = (
+				92094F5E1F3F9ED200DCC1C3 /* Model */,
+				92094F5F1F3F9EE200DCC1C3 /* View_old */,
+				9262EA101FB2B39600082249 /* View */,
+				92409E112002DD37006B76BC /* Controller */,
 				92409E0A20000A95006B76BC /* Service */,
-				9262EA101FB2B39600082249 /* Nib */,
 				92DDAA321F4392070085B143 /* Storyboard */,
 				92094F611F3F9FB100DCC1C3 /* DAO */,
-				92094F601F3F9EE600DCC1C3 /* Controller */,
-				92094F5F1F3F9EE200DCC1C3 /* View */,
-				92094F5E1F3F9ED200DCC1C3 /* Model */,
+				92094F601F3F9EE600DCC1C3 /* Controller_old */,
 				F3AF14E71CBD8711001782EA /* AppDelegate.swift */,
 				F322A0501DAC6228005C40DE /* InsurCardPicViewController.swift */,
 				924EEE4D1DF7B9ED00791FCB /* HelpPopupViewController.swift */,
 				9202528F1E492EAF00DC979A /* InsuranceInfo.swift */,
-				F3AF14E91CBD8711001782EA /* PersonalInfoController.swift */,
-				F3295CA81D6607DE003EBFBB /* MenuViewController.swift */,
-				F3295CA21D65F6B4003EBFBB /* MyDataTableViewCell.swift */,
-				F3295CA61D6604C8003EBFBB /* Cell_Data.swift */,
 				92E630DB1E84BF70004E8434 /* MessagesTableViewCell.swift */,
 				F3AF14EE1CBD8711001782EA /* Assets.xcassets */,
 				F3AF14F31CBD8711001782EA /* Info.plist */,
-				F3295CAA1D68A25A003EBFBB /* GradientView.swift */,
 				924EEE4F1DF7C23700791FCB /* GlobalData.swift */,
-				F3FF57061E5A26FA000EA17B /* SubCompartmentCell.swift */,
 				92E630DD1E84C12C004E8434 /* MessagesViewController.swift */,
 			);
 			path = Medical_App;
@@ -445,10 +432,10 @@
 				9262EA1E1FB2B72B00082249 /* View3.xib in Resources */,
 				F3AF14EF1CBD8711001782EA /* Assets.xcassets in Resources */,
 				928E5E7B1FBC03A800D50794 /* SignUpViewController.xib in Resources */,
-				92DDAA311F4391F60085B143 /* PersonalInfo.storyboard in Resources */,
 				9262EA161FB2B53300082249 /* View1.xib in Resources */,
 				F3AF14ED1CBD8711001782EA /* Main.storyboard in Resources */,
 				928E5E8D1FCF6C2E00D50794 /* MenuCollectionViewCell.xib in Resources */,
+				92409E102002DCDA006B76BC /* ViewDataViewController.xib in Resources */,
 				9262EA1A1FB2B54000082249 /* View2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,27 +575,22 @@
 				928E5E741FBBBCA500D50794 /* LoginViewController_v2.swift in Sources */,
 				92E630DE1E84C12C004E8434 /* MessagesViewController.swift in Sources */,
 				928E5E8C1FCF6C2E00D50794 /* MenuCollectionViewCell.swift in Sources */,
-				F3AF14EA1CBD8711001782EA /* PersonalInfoController.swift in Sources */,
-				F3295CA31D65F6B4003EBFBB /* MyDataTableViewCell.swift in Sources */,
 				F322A0511DAC6228005C40DE /* InsurCardPicViewController.swift in Sources */,
 				927E8C811F44F3D8008092DE /* PersonalInfoRepository.swift in Sources */,
 				927E8C7F1F44C9AA008092DE /* CustomPickerView.swift in Sources */,
 				928E5E7A1FBC03A800D50794 /* SignUpViewController.swift in Sources */,
-				F3295CA71D6604C8003EBFBB /* Cell_Data.swift in Sources */,
 				92094F5A1F3BEE0600DCC1C3 /* HomeViewController.swift in Sources */,
 				F3295CAB1D68A25A003EBFBB /* GradientView.swift in Sources */,
 				9262EA191FB2B54000082249 /* View2.swift in Sources */,
 				92DDAA2F1F4380810085B143 /* PanelHeader.swift in Sources */,
 				92F4738B1F4478BE006A513F /* CustomTextInputView.swift in Sources */,
 				92094F581F3BED8100DCC1C3 /* ValuesTableCell.swift in Sources */,
-				9243FCD21F55DD140055A8E4 /* RegisterViewController.swift in Sources */,
 				92094F671F3FE5A800DCC1C3 /* TouchIDAuth.swift in Sources */,
 				92DDAA341F4396570085B143 /* PersonalInfoHeaderView.swift in Sources */,
 				92DDAA361F4398940085B143 /* PersonalInfoViewController.swift in Sources */,
 				92E630DC1E84BF70004E8434 /* MessagesTableViewCell.swift in Sources */,
+				92409E0F2002DCDA006B76BC /* ViewDataViewController.swift in Sources */,
 				92094F561F3BEBDE00DCC1C3 /* CategoryTableCell.swift in Sources */,
-				F3295CA91D6607DE003EBFBB /* MenuViewController.swift in Sources */,
-				920FCC851E5C00C500A79E7D /* LoginViewController.swift in Sources */,
 				928E5E771FBBFBC300D50794 /* DirectViewController.swift in Sources */,
 				92DDAA2D1F42A9330085B143 /* CategoryHeaderView.swift in Sources */,
 				9262EA151FB2B53300082249 /* View1.swift in Sources */,
@@ -623,8 +605,6 @@
 				920252901E492EAF00DC979A /* InsuranceInfo.swift in Sources */,
 				F3B3FFAD1DBFCFA200AE1BDE /* PersonalInfo.swift in Sources */,
 				92094F651F3FAD3D00DCC1C3 /* UserRepository.swift in Sources */,
-				F3FF57071E5A26FA000EA17B /* SubCompartmentCell.swift in Sources */,
-				928E5E991FD0B8C900D50794 /* PersonalInfoTableViewController.swift in Sources */,
 				92094F631F3FA72600DCC1C3 /* Repository.swift in Sources */,
 				928E5E7E1FCE537500D50794 /* TabBarController.swift in Sources */,
 				92094F5D1F3BF3A000DCC1C3 /* User.swift in Sources */,

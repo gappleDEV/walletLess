@@ -52,17 +52,6 @@ class MenuCollectionViewController: ExpandingViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 // MARK: Helpers
@@ -75,13 +64,6 @@ extension MenuCollectionViewController {
     
     fileprivate func fillCellIsOpenArray() {
         cellsIsOpen = Array(repeating: false, count: titles.count)
-    }
-    
-    fileprivate func getViewController() -> ExpandingTableViewController {
-        print("called")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let toViewController: PersonalInfoTableViewController = storyboard.instantiateViewController(withIdentifier: "PersonalInfoTableViewController") as! PersonalInfoTableViewController
-        return toViewController
     }
 }
 
@@ -103,7 +85,12 @@ extension MenuCollectionViewController {
         guard let cell = collectionView?.cellForItem(at: indexPath) as? MenuCollectionViewCell else { return }
         // double swipe Up transition
         if cell.isOpened == true && sender.direction == .up {
-            pushToViewController(getViewController())
+            //pushToViewController(getViewController())
+            let v1: View3 = View3(nibName: "View3", bundle: nil)
+            v1.transitioningDelegate = self
+            self.present(v1, animated: true) {
+                print("Done moving to nib")
+            }
             print("open fully")
             
             /*if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
