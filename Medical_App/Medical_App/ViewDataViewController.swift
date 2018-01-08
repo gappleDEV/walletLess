@@ -21,7 +21,12 @@ class ViewDataViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true) {
+            print("data view dismissed")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

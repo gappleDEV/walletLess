@@ -47,6 +47,16 @@ class MenuCollectionViewController: ExpandingViewController {
         self.collectionView!.alpha = 0
     }
     
+    func getViewController() -> ViewDataViewController {
+        let v1: ViewDataViewController = ViewDataViewController(nibName: "ViewDataViewController", bundle: nil)
+        v1.transitioningDelegate = self
+        
+        // Customize per compartment clicked
+        // TBD
+        
+        return v1
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,19 +93,15 @@ extension MenuCollectionViewController {
     @objc func swipeHandler(_ sender: UISwipeGestureRecognizer) {
         let indexPath = IndexPath(row: currentIndex, section: 0)
         guard let cell = collectionView?.cellForItem(at: indexPath) as? MenuCollectionViewCell else { return }
+        selectedView = cell.frontContainerView
+        
         // double swipe Up transition
         if cell.isOpened == true && sender.direction == .up {
-            //pushToViewController(getViewController())
-            let v1: View3 = View3(nibName: "View3", bundle: nil)
-            v1.transitioningDelegate = self
-            self.present(v1, animated: true) {
+            let dataView = getViewController()
+            self.present(dataView, animated: true) {
                 print("Done moving to nib")
             }
             print("open fully")
-            
-            /*if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
-                rightButton.animationSelected(true)
-            }*/
         }
         
         let open = sender.direction == .up ? true : false
@@ -143,16 +149,11 @@ extension MenuCollectionViewController {
             cell.cellIsOpen(true)
         } else {
             //pushToViewController(getViewController())
-            let v1: View3 = View3(nibName: "View3", bundle: nil)
-            v1.transitioningDelegate = self
-            self.present(v1, animated: true) {
+            let dataView = getViewController()
+            self.present(dataView, animated: true) {
                 print("Done moving to nib")
             }
             print("open fully - here")
-            
-            /*if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
-             rightButton.animationSelected(true)
-             }*/
         }
     }
 }
@@ -163,7 +164,6 @@ extension MenuCollectionViewController: UIViewControllerTransitioningDelegate {
         UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.originFrame = selectedView!.superview!.convert(selectedView!.frame, to: nil)
         transition.presenting = true
-        //selectedView!.isHidden = true
         return transition
     }
     

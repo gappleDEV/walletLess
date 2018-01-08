@@ -12,7 +12,6 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var t_categories: UITableView!
-    var headerView:CategoryHeaderView!
     var headerHeightConstraint:NSLayoutConstraint!
     
     internal let cellDefaultHeight:CGFloat = 75.0
@@ -47,20 +46,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = self
-        
-        t_categories.delegate = self
-        t_categories.dataSource = self
-        
-        t_categories.backgroundColor = self.view.backgroundColor
-        
-        setUpHeader()
-        setUpTableView()
-        
-        print("In view")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,37 +65,9 @@ class HomeViewController: UIViewController {
         
     }
     
-    func setUpHeader() {
-        //Sets header view to the custom view that was created
-        headerView = CategoryHeaderView(frame: .zero, title: "WalletLess LLC", name: "Michael Harrison")
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.collapseButton.addTarget(self, action: #selector(collapsePressed), for: .touchUpInside)
-        view.addSubview(headerView)
-        headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: headerExpandedMax)
-        headerHeightConstraint.isActive = true
-        let constraints:[NSLayoutConstraint] = [
-            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-    }
-    
-    func setUpTableView() {
-        t_categories.translatesAutoresizingMaskIntoConstraints = false
-        let constraints:[NSLayoutConstraint] = [
-            t_categories.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
-            t_categories.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            t_categories.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            t_categories.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-    }
-    
     @objc func collapsePressed() {
         self.headerHeightConstraint.constant = headerExpandedMin
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-            self.headerView.incrementTitleAlpha(self.headerHeightConstraint.constant)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -174,20 +131,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("Cell for row at called")
         //Create cell
-        let cell = t_categories.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
-        //Set properties
-        cell.l_title.text = panels[indexPath.section].title
-        cell.i_icon.image = UIImage(named: panels[indexPath.section].icon)
-        cell.b_help.tag = indexPath.section
-        cell.b_help.addTarget(self, action: #selector(showHelp), for: .touchUpInside)
-        cell.b_edit.tag = indexPath.section
-        cell.b_edit.addTarget(self, action: #selector(HomeViewController.moveToStoryboard(_:)), for: .touchUpInside)
-        
-        cell.setTableDataWith(subArrTypes[indexPath.section])
-        
-        DispatchQueue.main.async{
-            cell.t_values.reloadData()
-        }
+        let cell = UITableViewCell()
         
         return cell
     }
@@ -217,32 +161,4 @@ extension HomeViewController: UITableViewDataSource {
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
-}
-
-extension HomeViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < 0 {
-            self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
-            headerView.incrementTitleAlpha(self.headerHeightConstraint.constant)
-        } else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= 65 {
-            self.headerHeightConstraint.constant -= scrollView.contentOffset.y/100
-            headerView.decrementTitleAlpha(self.headerHeightConstraint.constant)
-            if self.headerHeightConstraint.constant < 65 {
-                self.headerHeightConstraint.constant = 65
-            }
-        }
-    }
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if self.headerHeightConstraint.constant > headerExpandedMax {
-            animateHeader()
-        }
-    }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if self.headerHeightConstraint.constant > headerExpandedMax {
-            animateHeader()
-        }
-    }
-}
-extension HomeViewController:UITableViewDelegate {
 }

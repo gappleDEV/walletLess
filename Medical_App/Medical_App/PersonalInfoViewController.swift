@@ -6,12 +6,17 @@
 //  Copyright © 2017 Gregory Johnson. All rights reserved.
 //
 
+
+/*****************************************
+ *
+ * FILE TO BE DELETED
+ *
+ *****************************************/
+
 import UIKit
 
 class PersonalInfoViewController: UIViewController {
     
-    var headerView:PersonalInfoHeaderView!
-    var progressBar:CustomProgressBar!
     var bodyView:UIStackView!
     @IBOutlet weak var b_next:UIButton!
     
@@ -43,73 +48,10 @@ class PersonalInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        b_next.layer.cornerRadius = 50
-        b_next.layer.shadowColor = UIColor.black.cgColor
-        b_next.layer.shadowOffset = CGSize(width: 0, height: 5)
-        b_next.layer.shadowRadius = 3
-        b_next.layer.shadowOpacity = 0.5
-        b_next.isEnabled = false
-        b_next.alpha = bDisAlpha
-        
-        let screenTap = UITapGestureRecognizer()
-        screenTap.addTarget(self, action: #selector(resignKeyboard))
-        self.view.addGestureRecognizer(screenTap)
-        
-        setUpHeader()
-        setUpProgressBar()
-        setUpBody()
-        reloadPage()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-    }
-    
-    func setUpHeader() {
-        //Sets header view to the custom view that was created
-        headerView = PersonalInfoHeaderView(frame: .zero, title: titles[0])
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(headerView)
-        headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: headerHeight)
-        headerHeightConstraint.isActive = true
-        let constraints:[NSLayoutConstraint] = [
-            headerView.topAnchor.constraint(equalTo: view.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ]
-        headerView.backButton.addTarget(self, action: #selector(decrementPageIndex), for: .touchUpInside)
-        headerView.homeButton.addTarget(self, action: #selector(moveToHomeView), for: .touchUpInside)
-        NSLayoutConstraint.activate(constraints)
-    }
-    
-    func setUpProgressBar() {
-        progressBar = CustomProgressBar(frame: .zero, numPages: titles.count)
-        progressBar.height = 10.0
-        progressBar.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(progressBar)
-        let constraints:[NSLayoutConstraint] = [
-            progressBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 115),
-            progressBar.widthAnchor.constraint(equalToConstant: self.view.frame.width/2),
-            progressBar.heightAnchor.constraint(equalToConstant: 10),
-            progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-    }
-    
-    func setUpBody() {
-        bodyView = UIStackView(frame: .zero)
-        bodyView.axis = .vertical
-        bodyView.distribution = .fillEqually
-        bodyView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bodyView)
-        bodyView.spacing = 35
-        let constraints:[NSLayoutConstraint] = [
-            bodyView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-            bodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            bodyView.heightAnchor.constraint(equalToConstant: 300)
-        ]
-        NSLayoutConstraint.activate(constraints)
     }
     
     //Called when screen is tapped
@@ -125,7 +67,6 @@ class PersonalInfoViewController: UIViewController {
             print("Did finish fade in: \(finished)")
             self.b_next.isEnabled = true
             self.b_next.alpha = 1
-            self.progressBar.setProgress(Float(self.pageIndex + 1)/Float(self.titles.count), animated: true)
             completion(finished)
         })
     }
@@ -147,166 +88,7 @@ class PersonalInfoViewController: UIViewController {
         })
     }
     
-    func reloadPage() {
-        if(pageIndex == -1) {
-            moveToHomeView()
-        } else if (pageIndex == titles.count) {
-            moveToHomeView()
-        } else {
-            headerView.titleLabel.text = titles[pageIndex]
-            fadeOutBody({ finished in
-                switch self.pageIndex {
-                case 0:
-                    self.loadMotherName()
-                case 1:
-                    self.loadBirthday()
-                case 2:
-                    self.loadBasicInformationOne()
-                case 3:
-                    self.loadBasicInformationTwo()
-                case 4:
-                    self.loadSocialSecurity()
-                case 5:
-                    self.loadLocation()
-                case 6:
-                    self.loadPhone()
-                default:
-                    print("Page \(self.pageIndex) not implemented yet")
-                }
-                self.fadeInBody({ finished in
-                    //nothing to do
-                })
-            })
-            
-        }
-    }
     
-    //Mother first name, middle name, maiden name
-    func loadMotherName() {
-        bodyView.addArrangedSubview(getInputStack(personalInfo.motherFirstName, placeholder: "Mother's First Name"))
-        bodyView.addArrangedSubview(getInputStack(personalInfo.motherMiddleName, placeholder: "Mother's Middle Name"))
-        bodyView.addArrangedSubview(getInputStack(personalInfo.motherLastName, placeholder: "Mother's Maiden Last Name"))
-    }
-    
-    //Birthday
-    func loadBirthday() {
-        //Create date picker
-        let datePicker: UIDatePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: bodyView.frame.height))
-        // Set some of UIDatePicker properties
-        datePicker.timeZone = TimeZone.ReferenceType.local
-        datePicker.datePickerMode = .date
-        datePicker.backgroundColor = UIColor(red:0.74, green:0.67, blue:0.64, alpha:1.0)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/dd/yyyy"
-        let strng = "\(personalInfo.birthMonth)/\(personalInfo.birthDay)/\(personalInfo.birthYear)"
-        print(strng)
-        let date = dateFormatter.date(from: strng)
-        datePicker.date = date!
-        // Add DataPicker to the view
-        bodyView.addArrangedSubview(datePicker)
-        let constraints:[NSLayoutConstraint] = [
-            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-    }
-    
-    //Marital status, sex, race
-    func loadBasicInformationOne() {
-        bodyView.addArrangedSubview(getPickerStack("Marital Status", tagStart: 0))
-        bodyView.addArrangedSubview(getPickerStack("Sex", tagStart: 1))
-        bodyView.addArrangedSubview(getPickerStack("Race", tagStart: 2))
-        
-    }
-    
-    //Denomination, preferred language
-    func loadBasicInformationTwo() {
-        bodyView.addArrangedSubview(getPickerStack("Denomination", tagStart: 3))
-        bodyView.addArrangedSubview(getPickerStack("Preferred Language", tagStart: 4))
-    }
-    
-    //Social Security
-    func loadSocialSecurity() {
-        let myStackView = getInputStack("", placeholder: "Social Security #")
-        for e in myStackView.arrangedSubviews {
-            if e is UITextField {
-                (e as! UITextField).isSecureTextEntry = true
-                break
-            }
-        }
-        bodyView.addArrangedSubview(UIView())
-        bodyView.addArrangedSubview(myStackView)
-        bodyView.addArrangedSubview(UIView())
-    }
-    
-    //Location
-    func loadLocation() {
-        bodyView.addArrangedSubview(getInputStack(personalInfo.address, placeholder: "Address"))
-        var stack = getInputStack(personalInfo.zipCode, placeholder: "Zip Code")
-        for e in stack.arrangedSubviews {
-            if e is UITextField {
-                (e as! UITextField).keyboardType = .numberPad
-            }
-        }
-        bodyView.addArrangedSubview(stack)
-        stack = getInputStack(personalInfo.countyCode, placeholder: "County Code")
-        for e in stack.arrangedSubviews {
-            if e is UITextField {
-                (e as! UITextField).keyboardType = .numberPad
-            }
-        }
-        bodyView.addArrangedSubview(stack)
-    }
-    
-    //Phone Numbers
-    func loadPhone() {
-        var stack = getInputStack(personalInfo.homePhone, placeholder: "Home Phone #")
-        for e in stack.arrangedSubviews {
-            if e is UITextField {
-                (e as! UITextField).keyboardType = .numberPad
-            }
-        }
-        bodyView.addArrangedSubview(stack)
-        stack = getInputStack(personalInfo.cellPhone, placeholder: "Cell Phone #")
-        for e in stack.arrangedSubviews {
-            if e is UITextField {
-                (e as! UITextField).keyboardType = .numberPad
-            }
-        }
-        bodyView.addArrangedSubview(stack)
-        stack = getInputStack(personalInfo.workPhone, placeholder: "Work Phone #")
-        for e in stack.arrangedSubviews {
-            if e is UITextField {
-                (e as! UITextField).keyboardType = .numberPad
-            }
-        }
-        bodyView.addArrangedSubview(stack)
-    }
-    
-    //Stackview with text input
-    func getInputStack(_ text:String, placeholder:String) -> UIStackView {
-        let label = CustomLabelView(frame: .zero, title: placeholder, top: true)
-        let input = CustomTextInputView(frame: CGRect(x: 0, y: 0, width: 300, height: 50), text: text, placeholder: placeholder, del: self)
-        let stack:UIStackView = UIStackView()
-        stack.axis = .vertical
-        stack.addArrangedSubview(label)
-        stack.addArrangedSubview(input)
-        
-        return stack
-    }
-    
-    //Stackview with picker
-    func getPickerStack(_ text:String, tagStart:Int) -> UIStackView {
-        let label = CustomLabelView(frame: .zero, title: text, top: false)
-        let picker:CustomPickerView = CustomPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 75), del: self, dat: self)
-        //picker.selectRow(self.data_marStatus.index(of: personInfo.maritalStatus)!, inComponent: 0, animated: false)
-        picker.tag = tagStart
-        let stack:UIStackView = UIStackView()
-        stack.axis = .horizontal
-        stack.addArrangedSubview(label)
-        stack.addArrangedSubview(picker)
-        
-        return stack
-    }
     
     @IBAction func nextPressed(_ sender: Any) {
         let user = PersonalInfoRepository.persRep.getUser()
@@ -334,7 +116,6 @@ class PersonalInfoViewController: UIViewController {
             print("Saving for \(pageIndex) not implemented yet")
         }
         pageIndex = pageIndex + 1
-        reloadPage()
     }
     
     func getValuesFromTextInput() -> [String] {
@@ -364,7 +145,6 @@ class PersonalInfoViewController: UIViewController {
     
     @objc func decrementPageIndex() {
         pageIndex = pageIndex - 1
-        reloadPage()
     }
     
     @objc func moveToHomeView() {

@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewDataViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewDataViewController" customModule="Medical_App" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,8 +19,52 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gn-yl-fO0">
+                    <rect key="frame" x="74" y="49" width="226" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="226" id="Gw8-qI-zTV"/>
+                        <constraint firstAttribute="height" constant="50" id="Pi2-EQ-RF6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                    <color key="textColor" red="0.30196078430000001" green="0.60784313729999995" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvg-cy-pLT">
+                    <rect key="frame" x="16" y="49" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="2T4-kB-knN"/>
+                        <constraint firstAttribute="width" constant="50" id="KWp-3a-DYX"/>
+                    </constraints>
+                    <state key="normal" image="icons8-cancel"/>
+                    <connections>
+                        <action selector="cancelPressed:" destination="-1" eventType="touchUpInside" id="oCf-jI-qu5"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ch9-OS-8o9">
+                    <rect key="frame" x="15" y="114" width="345" height="553"/>
+                    <color key="backgroundColor" red="0.90588235294117647" green="0.77254901960784317" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="553" id="D4n-JF-byK"/>
+                        <constraint firstAttribute="width" constant="345" id="rvp-Id-bQ6"/>
+                    </constraints>
+                    <color key="sectionIndexColor" red="0.18823529411764706" green="0.20392156862745098" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Pvg-cy-pLT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="SAV-1y-X2D"/>
+                <constraint firstItem="Ch9-OS-8o9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="aXl-qs-t4p"/>
+                <constraint firstItem="2gn-yl-fO0" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="bCQ-jf-pPv"/>
+                <constraint firstItem="Ch9-OS-8o9" firstAttribute="top" secondItem="2gn-yl-fO0" secondAttribute="bottom" constant="15" id="k6B-c7-2q4"/>
+                <constraint firstItem="Pvg-cy-pLT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="29" id="pvo-Dr-TfY"/>
+                <constraint firstItem="2gn-yl-fO0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="29" id="qAe-Fo-sBL"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icons8-cancel" width="100" height="100"/>
+    </resources>
 </document>
