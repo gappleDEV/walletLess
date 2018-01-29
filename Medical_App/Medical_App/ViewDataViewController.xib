@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewDataViewController" customModule="Medical_App" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="Ch9-OS-8o9" id="Ivc-qJ-xtn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,9 +42,9 @@
                         <action selector="cancelPressed:" destination="-1" eventType="touchUpInside" id="oCf-jI-qu5"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ch9-OS-8o9">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ch9-OS-8o9">
                     <rect key="frame" x="15" y="114" width="345" height="553"/>
-                    <color key="backgroundColor" red="0.90588235294117647" green="0.77254901960784317" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="553" id="D4n-JF-byK"/>
                         <constraint firstAttribute="width" constant="345" id="rvp-Id-bQ6"/>

@@ -58,26 +58,25 @@ class PersonalInfo: TableData {
         return "email"
     }
     
-    override var tableRepresentation: [MyTableData] {
+    override var tableRepresentation: [String : String] {
         let five = socialSecurity.count == 9 ? socialSecurity.index(socialSecurity.startIndex, offsetBy: 5) : nil
-        return [
-            ("Mother's First Name", motherFirstName),
-            ("Mother's Middle Name", motherMiddleName),
-            ("Mother's Maiden Name", motherLastName),
-            ("Birthday", "\(birthMonth)/\(birthDay)/\(birthYear)"),
-            ("Marital Status", maritalStatus),
-            ("Sex", sex),
-            ("Race", race),
-            ("Denomination", denomination),
-            ("Preferred Language", preferredLanguage),
-            ("Social Security", "\(socialSecurity.count == 9 ? "*****" + String(socialSecurity[five!...]) : "")"),
-            ("Address", address),
-            ("Zip Code", zipCode),
-            ("County Code", countyCode),
-            ("Home Phone", homePhone),
-            ("Cell Phone", cellPhone),
-            ("Work Phone", workPhone)
-        ]
+        return
+            ["Mother's First Name": motherFirstName,
+            "Mother's Middle Name": motherMiddleName,
+            "Mother's Maiden Name": motherLastName,
+            "Birthday": "\(birthMonth)/\(birthDay)/\(birthYear)",
+            "Marital Status": maritalStatus,
+            "Sex": sex,
+            "Race": race,
+            "Denomination": denomination,
+            "Preferred Language": preferredLanguage,
+            "Social Security": "\(socialSecurity.count == 9 ? "*****" + String(socialSecurity[five!...]) : "")",
+            "Address": address,
+            "Zip Code": zipCode,
+            "County Code": countyCode,
+            "Home Phone": homePhone,
+            "Cell Phone": cellPhone,
+            "Work Phone": workPhone]
     }
     
 }

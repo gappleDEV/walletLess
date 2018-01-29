@@ -30,14 +30,14 @@ class User: TableData {
         return "email"
     }
     
-    override var tableRepresentation: [MyTableData] {
+    override var tableRepresentation: [String: String] {
         return [
-            ("First Name", firstName),
-            ("Middle Name", middleName),
-            ("Last Name", lastName),
-            ("Email", email),
-            ("Password", password),
-            ("Remember Me", "\(rememberMe)")
+            "First Name": firstName,
+            "Middle Name": middleName,
+            "Last Name": lastName,
+            "Email": email,
+            "Password": password,
+             "Remember Me": "\(rememberMe)"
         ]
     }
 

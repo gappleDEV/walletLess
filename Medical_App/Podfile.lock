@@ -3,11 +3,11 @@ PODS:
   - CircleMenu (3.0.0)
   - expanding-collection (1.1.1)
   - IQKeyboardManagerSwift (5.0.7)
-  - Realm (3.0.2):
-    - Realm/Headers (= 3.0.2)
-  - Realm/Headers (3.0.2)
-  - RealmSwift (3.0.2):
-    - Realm (= 3.0.2)
+  - Realm (3.1.0):
+    - Realm/Headers (= 3.1.0)
+  - Realm/Headers (3.1.0)
+  - RealmSwift (3.1.0):
+    - Realm (= 3.1.0)
   - SwiftyJSON (4.0.0)
   - TextFieldEffects (1.4.0)
 
@@ -25,8 +25,8 @@ SPEC CHECKSUMS:
   CircleMenu: 63d02351f5cb550777b47aa19cc336e09fec2a98
   expanding-collection: b345a597665ed4a133d6e3f9b79e0f6091d7114c
   IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
-  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
-  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
+  RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
 

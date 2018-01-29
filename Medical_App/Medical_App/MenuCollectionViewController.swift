@@ -47,12 +47,22 @@ class MenuCollectionViewController: ExpandingViewController {
         self.collectionView!.alpha = 0
     }
     
-    func getViewController() -> ViewDataViewController {
+    func getViewController(index: Int) -> ViewDataViewController {
         let v1: ViewDataViewController = ViewDataViewController(nibName: "ViewDataViewController", bundle: nil)
         v1.transitioningDelegate = self
         
         // Customize per compartment clicked
         // TBD
+        print(index)
+        switch index {
+        case 0:
+            v1.myData = (PersonalInfoRepository.persRep.getUser()?.tableRepresentation)!
+        default:
+            v1.myData = ["Key1": "value1", "Key2": "value2", "Key3": "value3", "Key4": "value4", "Key5": "value5"]
+        }
+        
+        
+        
         
         return v1
     }
@@ -97,7 +107,7 @@ extension MenuCollectionViewController {
         
         // double swipe Up transition
         if cell.isOpened == true && sender.direction == .up {
-            let dataView = getViewController()
+            let dataView = getViewController(index: indexPath.row)
             self.present(dataView, animated: true) {
                 print("Done moving to nib")
             }
@@ -149,7 +159,7 @@ extension MenuCollectionViewController {
             cell.cellIsOpen(true)
         } else {
             //pushToViewController(getViewController())
-            let dataView = getViewController()
+            let dataView = getViewController(index: indexPath.row)
             self.present(dataView, animated: true) {
                 print("Done moving to nib")
             }

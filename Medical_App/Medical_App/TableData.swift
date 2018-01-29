@@ -11,9 +11,7 @@ import RealmSwift
 class TableData: Object {
     typealias MyTableData = (title: String, value: String)
     
-    var tableRepresentation: [MyTableData] {
-        return [
-        
-        ]
+    var tableRepresentation: [String: String] {
+        return [:]
     }
 }
