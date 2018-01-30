@@ -35,9 +35,9 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+      { path: '', component: HomeComponent },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'fetch-data', component: FetchDataComponent, pathMatch: 'full', canActivate: [AuthGuard] },
       { path: 'view-users', component: UsersComponent },
       { path: 'login', component: LoginComponent },
 
