@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import FloatingLabelInput from './src/components/FloatingLabelInput';
+import FloatingLabelInputIcon from './src/components/FloatingLabelInputIcon';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -32,8 +33,13 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <FloatingLabelInput
+        <FloatingLabelInputIcon
           icon={Icons.envelope}
+          label="Email"
+          value={this.state.value}
+          onChangeText={this.handleTextChange}
+        />
+        <FloatingLabelInput
           label="Email"
           value={this.state.value}
           onChangeText={this.handleTextChange}

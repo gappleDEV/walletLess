@@ -7,13 +7,15 @@ import {
   Animated,
   StyleSheet
 } from 'react-native';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 const labelData = {
   topPadding: 18,
   startFontSize: 20,
+  paddingFromIcon: 10,
 };
 
-export default class FloatingLabelInput extends Component {
+export default class FloatingLabelInputIcon extends Component {
   state = {
     isFocused: false,
   };
@@ -45,7 +47,7 @@ export default class FloatingLabelInput extends Component {
     const { label, ...props } = this.props;
     const labelStyle = {
       position: 'absolute',
-      left: 0,
+      left: labelData.paddingFromIcon + labelData.startFontSize,
       top: this._animatedIsFocused.interpolate({
         inputRange: [0, 1],
         outputRange: [labelData.topPadding, 0],
@@ -62,12 +64,15 @@ export default class FloatingLabelInput extends Component {
     
     return (
       <View style={styles.container}>
+        <FontAwesome style={styles.icon}>{
+          this.props.icon}
+        </FontAwesome>
         <Animated.Text style={labelStyle}>
           {label}
         </Animated.Text>
         <TextInput
           {...props}
-          style={[styles.textInput, this.state.isFocused && styles.borderHighlight]}
+          style={styles.textInput}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           blurOnSubmit
@@ -82,15 +87,14 @@ const styles = StyleSheet.create({
     paddingTop: labelData.topPadding,
     flexDirection: 'row',
   },
+  icon: {
+    fontSize: labelData.startFontSize,
+    paddingRight: labelData.paddingFromIcon,
+  },
   textInput: {
     width: 200,
     height: 26, 
     fontSize: labelData.startFontSize, 
     color: '#000',
-    borderBottomWidth: 3, 
-    borderBottomColor: '#000',
   },
-  borderHighlight: {
-    borderBottomColor: '#0F0',
-  }
 });
