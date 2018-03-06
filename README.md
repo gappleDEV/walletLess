@@ -1,2 +1,0 @@
-# walletLess
-walletLess app repository
