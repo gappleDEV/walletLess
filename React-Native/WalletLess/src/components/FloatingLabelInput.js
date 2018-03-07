@@ -80,10 +80,9 @@ export default class FloatingLabelInput extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: labelData.topPadding,
-    flexDirection: 'row',
   },
   textInput: {
-    width: 200,
+    alignSelf: 'stretch',
     height: 26, 
     fontSize: labelData.startFontSize, 
     color: '#000',

@@ -8,12 +8,16 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
-  View
+  View,
+  Text
 } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
+
+//Custom components and styles
 import FloatingLabelInput from './src/components/FloatingLabelInput';
 import FloatingLabelInputIcon from './src/components/FloatingLabelInputIcon';
+import commonStyles from './src/styles/common';
+import Card from './src/components/Card';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -44,6 +48,16 @@ export default class App extends Component {
           value={this.state.value}
           onChangeText={this.handleTextChange}
         />
+        <Card>
+          <Text>This is a card?</Text>
+        </Card>
+        <Card>
+          <FloatingLabelInput
+            label="Input"
+            value={this.state.value}
+            onChangeText={this.handleTextChange}
+          />
+        </Card>
       </View>
     );
   }
