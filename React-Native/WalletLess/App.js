@@ -20,6 +20,7 @@ import commonStyles from './src/styles/common';
 import Card from './src/components/Card';
 import CompartmentCard from './src/components/CompartmentCard';
 import MenuHeader from './src/components/MenuHeader';
+import Menu from './src/components/Menu';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -27,6 +28,8 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
+
+
 
 export default class App extends Component {
 
@@ -36,10 +39,39 @@ export default class App extends Component {
 
   handleTextChange = (newText) => this.setState({ value: newText });
 
+  comp = [{
+    key: 0,
+    compartmentName: "Personal and Employment",
+    leftColor: '#0000FF',
+    subComps:[{
+      key: 0,
+      name: "- Patient"
+    },
+    {
+      key: 1,
+      name: "- Next of Kin"
+    }  
+  ]},
+  {
+    key: 1,
+    compartmentName: "Medical Insurance",
+    leftColor: '#00FF00',
+    subComps:[{
+      key: 0,
+      name: "- Policy"
+    },
+    {
+      key: 1,
+      name: "- Guarantor"
+    }  
+  ]}
+  ];
+
   render() {
     return (
       <View>
-        <MenuHeader name={"Gregory"}></MenuHeader>
+        <Menu myCompartments={this.comp}/>
+        {/*<MenuHeader name={"Gregory"}></MenuHeader>
         <FloatingLabelInputIcon
           icon={Icons.envelope}
           label="Email"
@@ -50,7 +82,7 @@ export default class App extends Component {
           label="Email"
           value={this.state.value}
           onChangeText={this.handleTextChange}
-        />
+        /> 
         <CompartmentCard compartmentName={"Personal and Employment"} leftColor={"#0000FF"}
         subComps={[{
           key: 0,
@@ -59,7 +91,8 @@ export default class App extends Component {
           key: 1,
           name: "- Next of Kin"
         }]}>
-        </CompartmentCard>
+      </CompartmentCard>*/}
+
       </View>
     );
   }
@@ -70,5 +103,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
+  }
 });
