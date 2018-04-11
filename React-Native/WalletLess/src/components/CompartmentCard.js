@@ -20,7 +20,7 @@ export default class CompartmentCard extends Component {
     render() {
         return(
             <View style={styles.center}>
-                <Card myWidth={350} myHeight={80} borRadius={0} lborWidth={10} lborColor={"blue"}>
+                <Card myWidth={350} myHeight={80} borRadius={0} lborWidth={10} lborColor={this.props.leftColor}>
                     <Text style={styles.title}>{this.props.compartmentName}</Text>
                     {this.subcompartments}
                 </Card>
