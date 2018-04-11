@@ -14,7 +14,12 @@ export default class Card extends Component {
     render() {
         return (
             <View style={styles.center}>
-                <View style={styles.cardView}>
+                <View style={[styles.cardView, 
+                    {borderRadius: this.props.borRadius, 
+                    borderLeftWidth: this.props.lborWidth, 
+                    borderLeftColor: this.props.lborColor,
+                    width: this.props.myWidth,
+                    height: this.props.myHeight}]}>
                     {this.props.children}
                 </View>
             </View>
@@ -24,13 +29,10 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
     cardView: {
-        marginTop: 15,
         paddingLeft: 10,
         paddingRight: 10,
         paddingTop: 5,
         paddingBottom: 5,
-        borderRadius: 5,
-        borderWidth: 1,
         borderColor: 'rgb(240, 240, 240)',
         backgroundColor: 'rgb(245, 245, 245)',
         shadowOpacity: 0.3,
@@ -38,8 +40,7 @@ const styles = StyleSheet.create({
         shadowOffset: {
             height: 3,
             width: 3
-        },
-        width: 350,
+        }
     },
     center: {  
         justifyContent: 'center',
