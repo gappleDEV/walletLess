@@ -6,16 +6,20 @@ import {
     TextInput,
     Text,
     Animated,
-    StyleSheet
+    StyleSheet,
+    Dimensions
 } from 'react-native';
 
 import CompartmentCard from './CompartmentCard';
 import MenuHeader from './MenuHeader';
 
-export default class MenuH extends Component {
+let screenHeight = Dimensions.get('window').height;
+
+
+export default class Menu extends Component {
 
     compartments = this.props.myCompartments.map(info => (
-        <CompartmentCard key={info.key} compartmentName={info.compartmentName} leftColor={info.leftColor} subComps={info.subComps} />
+        <CompartmentCard key={info.key} compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps} />
     ));
 
     render() {
@@ -40,5 +44,6 @@ const styles = StyleSheet.create({
     },
     scroll: {
         backgroundColor: '#f8f8f8',
+        height: screenHeight
     }
 });

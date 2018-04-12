@@ -43,6 +43,7 @@ export default class App extends Component {
     key: 0,
     compartmentName: "Personal and Employment",
     leftColor: '#0000FF',
+    percent: 20,
     subComps:[{
       key: 0,
       name: "- Patient"
@@ -50,12 +51,17 @@ export default class App extends Component {
     {
       key: 1,
       name: "- Next of Kin"
+    },
+    {
+      key: 2,
+      name: "- More"
     }  
   ]},
   {
     key: 1,
     compartmentName: "Medical Insurance",
     leftColor: '#00FF00',
+    percent: 60,
     subComps:[{
       key: 0,
       name: "- Policy"
@@ -63,11 +69,24 @@ export default class App extends Component {
     {
       key: 1,
       name: "- Guarantor"
+    },
+    {
+      key: 2,
+      name: "- Motor"
+    },
+    {
+      key: 3,
+      name: "- Home"
+    },
+    {
+      key: 4,
+      name: "- More"
     }  
   ]}
   ];
 
   render() {
+
     return (
       <View>
         <Menu myCompartments={this.comp}/>
