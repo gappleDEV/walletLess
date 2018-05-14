@@ -7,38 +7,56 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "Users")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt",}, allowGetters = true)
-public class UserAccount {
+public class UserAccount implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final String id;
+    private String id;
 
     @NotBlank
-    private final String username;
+    private String username;
 
     @NotBlank
-    private final String password;
+    private String password;
 
     @NotBlank
-    private final int acctType;
+    private int acctType;
+
+    @Column(nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
+    private Date createDate;
 
     @NotBlank
-    private final LocalDateTime createDate;
+    private int isActive;
 
-    @NotBlank
-    private final int isActive;
-
-    public UserAccount(String id, String username, String password, int acctType, int isActive){
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAcctType(int acctType) {
         this.acctType = acctType;
-        this.createDate = LocalDateTime.now();
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public void setIsActive(int isActive) {
         this.isActive = isActive;
     }
 
