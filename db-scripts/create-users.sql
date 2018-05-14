@@ -1,5 +1,5 @@
-CREATE TABLE `Users` (
-  `id` varchar(120) NOT NULL,
+CREATE TABLE 'Users' (
+  `id` float() NOT NULL,
   `username` varchar(120) NOT NULL,
   `password` varchar(120) NOT NULL,
   `acctType` int(11) NOT NULL DEFAULT '0',

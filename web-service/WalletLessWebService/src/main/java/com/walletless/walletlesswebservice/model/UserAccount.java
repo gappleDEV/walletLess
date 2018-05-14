@@ -1,7 +1,6 @@
-package com.walletless.walletlesswebservice;
+package com.walletless.walletlesswebservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -17,7 +16,7 @@ import java.util.Date;
 public class UserAccount implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @NotBlank
     private String username;
@@ -25,18 +24,16 @@ public class UserAccount implements Serializable {
     @NotBlank
     private String password;
 
-    @NotBlank
-    private int acctType;
+    private Integer acctType;
 
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date createDate;
 
-    @NotBlank
-    private int isActive;
+    private Integer isActive;
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,7 +45,7 @@ public class UserAccount implements Serializable {
         this.password = password;
     }
 
-    public void setAcctType(int acctType) {
+    public void setAcctType(Integer acctType) {
         this.acctType = acctType;
     }
 
@@ -56,11 +53,11 @@ public class UserAccount implements Serializable {
         this.createDate = createDate;
     }
 
-    public void setIsActive(int isActive) {
+    public void setIsActive(Integer isActive) {
         this.isActive = isActive;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -72,15 +69,15 @@ public class UserAccount implements Serializable {
         return password;
     }
 
-    public int getAcctType() {
+    public Integer getAcctType() {
         return acctType;
     }
 
-    public LocalDateTime getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public int getIsActive() {
+    public Integer getIsActive() {
         return isActive;
     }
 }
