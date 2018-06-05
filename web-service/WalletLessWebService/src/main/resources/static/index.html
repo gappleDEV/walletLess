@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React + Spring</title>
+</head>
+<body>
+    <div id='root'></div>
+
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/babel">
+        var User = React.createClass({
+            render: function(){
+                return (
+                    <tr>
+                        <td>{this.props.user.id}</td>
+                        <td>{this.props.user.username}</td>
+                        <td>{this.props.user.password}</td>
+                        <td>{this.props.user.acctType}</td>
+                        <td>{this.props.user.createDate}</td>
+                        <td>{this.props.user.isActive}</td>
+                    </tr>
+                );
+            }
+        });
+
+        var UserTable = React.createClass({
+            render: function(){
+                var rows = [];
+                this.props.users.forEach(function(user){
+                    rows.push(<User user={user}/>);
+                });
+                return (
+                    <div className="container">
+                        <table className="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th><th>Username</th><th>Password</th><th>Account Type</th><th>Create Date</th><th>Active</th>
+                                </tr>
+                            </thead>
+                            <tbody>{rows}</tbody>
+                        </table>
+                    </div>
+                );
+            }
+        });
+
+        var App = React.createClass({
+            loadUsersFromServer: function() {
+                var self = this;
+                $.ajax({
+                    url: "http://localhost:8080/api/users"
+                }).then(function(data){
+                    self.setState({users: data._embedded.users});
+                });
+            },
+            getInitialState: function(){
+                return {users: []};
+            },
+            componentDidMount: function(){
+                this.loadUsersFromServer();
+            },
+            render() {
+                return ( <UserTable users={this.state.users}/>);
+            }
+        });
+
+        ReactDOM.render(
+            <App />, document.getElementById('root')
+        );
+    </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</body>
+</html>
