@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     },
     subContainer: {
         flexDirection: 'column',
-        width: 100
+        width: 150
     },
     sub: {
         color: '#aaaaaa',
