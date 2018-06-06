@@ -22,6 +22,9 @@ import CompartmentCard from './src/components/CompartmentCard';
 import MenuHeader from './src/components/MenuHeader';
 import Menu from './src/components/Menu';
 
+//Data
+import comp from './src/data/compartments.json'
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -39,57 +42,13 @@ export default class App extends Component {
 
   handleTextChange = (newText) => this.setState({ value: newText });
 
-  comp = [{
-    key: 0,
-    compartmentName: "Personal and Employment",
-    leftColor: '#0000FF',
-    percent: 20,
-    subComps:[{
-      key: 0,
-      name: "- Patient"
-    },
-    {
-      key: 1,
-      name: "- Next of Kin"
-    },
-    {
-      key: 2,
-      name: "- More"
-    }  
-  ]},
-  {
-    key: 1,
-    compartmentName: "Medical Insurance",
-    leftColor: '#00FF00',
-    percent: 60,
-    subComps:[{
-      key: 0,
-      name: "- Policy"
-    },
-    {
-      key: 1,
-      name: "- Guarantor"
-    },
-    {
-      key: 2,
-      name: "- Motor"
-    },
-    {
-      key: 3,
-      name: "- Home"
-    },
-    {
-      key: 4,
-      name: "- More"
-    }  
-  ]}
-  ];
+  //comp = ;
 
   render() {
 
     return (
       <View>
-        <Menu myCompartments={this.comp}/>
+        <Menu myCompartments={comp}/>
         {/*<MenuHeader name={"Gregory"}></MenuHeader>
         <FloatingLabelInputIcon
           icon={Icons.envelope}

@@ -1,0 +1,121 @@
+[
+    {
+       "key":0,
+       "compartmentName":"Personal and Employment",
+       "leftColor":"#1976d2",
+       "percent":75,
+       "subComps":[]
+    },
+    {
+       "key":1,
+       "compartmentName":"Insurance",
+       "leftColor":"#1976d2",
+       "percent":0,
+       "subComps":[
+          {
+             "key":0,
+             "name":"- Health"
+          },
+          {
+             "key":1,
+             "name":"- Motor Vehicle"
+          },
+          {
+             "key":2,
+             "name":"- Homeowners"
+          },
+          {
+             "key":3,
+             "name":"- Other"
+          }
+       ]
+    },
+    {
+       "key":2,
+       "compartmentName":"Motor Vehicle",
+       "leftColor":"#1976d2",
+       "percent":0,
+       "subComps":[
+          {
+             "key":0,
+             "name":"- License(P)"
+          },
+          {
+             "key":1,
+             "name":"- Auto Insurance(P)"
+          },
+          {
+             "key":2,
+             "name":"- Registration(P)"
+          }
+       ]
+    },
+    {
+        "key":3,
+        "compartmentName":"Credit / Debit Cards",
+        "leftColor":"#1976d2",
+        "percent":0,
+        "subComps":[
+           {
+              "key":0,
+              "name":"- Major Cards"
+           },
+           {
+              "key":4,
+              "name":"- Gas"
+           },
+           {
+              "key":5,
+              "name":"- Store"
+           }
+        ]
+     },
+     {
+        "key":4,
+        "compartmentName":"Bank",
+        "leftColor":"#1976d2",
+        "percent":0,
+        "subComps":[
+           {
+              "key":0,
+              "name":"- Checking"
+           },
+           {
+              "key":1,
+              "name":"- Savings"
+           },
+           {
+              "key":2,
+              "name":"- Other"
+           }
+        ]
+     },
+     {
+        "key":5,
+        "compartmentName":"Allergies / Prescriptions",
+        "leftColor":"#1976d2",
+        "percent":0,
+        "subComps":[]
+     },
+     {
+        "key":6,
+        "compartmentName":"Identification Documents",
+        "leftColor":"#1976d2",
+        "percent":0,
+        "subComps":[]
+     },
+     {
+        "key":7,
+        "compartmentName":"Store Memberships",
+        "leftColor":"#1976d2",
+        "percent":0,
+        "subComps":[]
+     },
+     {
+        "key":8,
+        "compartmentName":"Tickets / Vouchers",
+        "leftColor":"#1976d2",
+        "percent":0,
+        "subComps":[]
+     }
+ ]

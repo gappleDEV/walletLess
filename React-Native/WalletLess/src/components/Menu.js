@@ -13,7 +13,7 @@ import {
 import CompartmentCard from './CompartmentCard';
 import MenuHeader from './MenuHeader';
 
-let screenHeight = Dimensions.get('window').height;
+let screenHeight = Dimensions.get('window').height - 85; //subtract height of MenuHeader comp
 
 
 export default class Menu extends Component {
@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
     },
     scroll: {
         backgroundColor: '#f8f8f8',
-        height: screenHeight
+        height: screenHeight,
     }
 });
