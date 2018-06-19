@@ -11,7 +11,7 @@ import ProgressCircle from 'react-native-progress-circle'
 
 import Card from './Card';
 
-export default class CompartmentCard extends Component {
+export default class CardCompartment extends Component {
 
     getSubs = () => {
         toRet = [];

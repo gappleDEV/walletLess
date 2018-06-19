@@ -12,15 +12,27 @@ import {
   Text
 } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
+import * as Keychain from 'react-native-keychain';
+
+//Realm
+const Realm = require('realm');
+
+import PersonalInformation from './src/schema/PersonalInformation';
+
+//Base 64 encoding/decoding
+var base64js = require('base64-js');
+
+// 512 bit encryption
+var CryptoJs = require('crypto-js'); //CryptoJs.SHA256("");
 
 //Custom components and styles
-import FloatingLabelInput from './src/components/FloatingLabelInput';
-import FloatingLabelInputIcon from './src/components/FloatingLabelInputIcon';
+import FloatingLabelInput from './src/components/FloatingLabelInput/FloatingLabelInput';
+import FloatingLabelInputIcon from './src/components/FloatingLabelInput/FloatingLabelInputIcon';
 import commonStyles from './src/styles/common';
-import Card from './src/components/Card';
-import CompartmentCard from './src/components/CompartmentCard';
-import MenuHeader from './src/components/MenuHeader';
-import Menu from './src/components/Menu';
+import Card from './src/components/Card/Card';
+import CardCompartment from './src/components/Card/CardCompartment';
+import MenuHeader from './src/components/Menu/MenuHeader';
+import Menu from './src/components/Menu/Menu';
 
 //Data
 import comp from './src/data/compartments.json'
@@ -32,20 +44,78 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-
+const password = 'q2w3e4r5t'; //TBD to user's password when account creation is implemented
 
 export default class App extends Component {
 
   state = {
     value: '',
+    realm: null
   };
+
+  wordNum = ''
+  key = '';
+
+  componentWillMount() {
+    console.log("Will mount");
+    var credentials = Keychain.getGenericPassword();
+    var tries = 0;
+    while(!credentials && tries < 5) {
+      tries++;
+      console.log("Attempting to set up keychain. Attempt number " + tries);
+      Keychain.setGenericPassword('WalletLess', password);
+      credentials = Keychain.getGenericPassword();
+    }
+    if(tries < 5) {
+      this.wordNum = CryptoJs.SHA512(credentials.password).words;
+      var keyTemp = new Int8Array(64);
+      this.wordNum.forEach(function(n, i) {
+        var temp = "";
+        if(n >= 0) {
+          temp = n.toString(2);
+        } else {
+          temp = (~n).toString(2);
+        }
+
+        //All need to be exactly 32 bits long
+        if(temp.length > 32) {
+          temp = temp.substring(0, 32);
+        }
+        while(temp.length < 32) {
+          temp = '0' + temp;
+        }
+
+        //For every 8 bits create next number in the key
+        for(var j = i * 4; j < i * 4 + 4; j++) {
+          keyTemp[j] = parseInt(temp.substring(0,8), 2);
+          temp = temp.substring(8);
+        }
+        
+      });
+      console.log(keyTemp);
+      this.key = keyTemp;
+    } else {
+      console.log("All tries to get realm key used. Realm cannot be opened at this time");
+    }
+
+    Realm.open({
+      schema: [PersonalInformation], encryptionKey: this.key
+    }).then(realm => {
+      realm.write(() => {
+        let allInfo = realm.objects('PersonalInformation');
+        //realm.delete(allInfo); // to delete all in the table
+        if(allInfo.length == 0) {
+          const personInfo = realm.create('PersonalInformation', {id: 1});
+        }
+        console.log(Array.from(realm.objects('PersonalInformation')));
+      });
+      this.setState({realm});
+    });
+  }
 
   handleTextChange = (newText) => this.setState({ value: newText });
 
-  //comp = ;
-
   render() {
-
     return (
       <View>
         <Menu myCompartments={comp}/>
@@ -69,8 +139,7 @@ export default class App extends Component {
           key: 1,
           name: "- Next of Kin"
         }]}>
-      </CompartmentCard>*/}
-
+        </CompartmentCard>*/}
       </View>
     );
   }

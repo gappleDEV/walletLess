@@ -10,7 +10,7 @@ import {
     Dimensions
 } from 'react-native';
 
-import CompartmentCard from './CompartmentCard';
+import CardCompartment from './../Card/CardCompartment';
 import MenuHeader from './MenuHeader';
 
 let screenHeight = Dimensions.get('window').height - 85; //subtract height of MenuHeader comp
@@ -19,7 +19,7 @@ let screenHeight = Dimensions.get('window').height - 85; //subtract height of Me
 export default class Menu extends Component {
 
     compartments = this.props.myCompartments.map(info => (
-        <CompartmentCard key={info.key} compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps} />
+        <CardCompartment key={info.key} compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps} />
     ));
 
     render() {
