@@ -13,12 +13,12 @@ import {
 import CardCompartment from './../Card/CardCompartment';
 import MenuHeader from './MenuHeader';
 
-let screenHeight = Dimensions.get('window').height - 85; //subtract height of MenuHeader comp
-
+//Data
+import comp from './../../data/compartments.json'
 
 export default class Menu extends Component {
 
-    compartments = this.props.myCompartments.map(info => (
+    compartments = comp.map(info => (
         <CardCompartment key={info.key} compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps} />
     ));
 
@@ -36,14 +36,13 @@ export default class Menu extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        /*flex: 1,
-        flexDirection: 'column'*/
+        flex: 1,
+        //flexDirection: 'column'
     },
     header: {
         //flex: 1
     },
     scroll: {
         backgroundColor: '#f8f8f8',
-        height: screenHeight,
     }
 });

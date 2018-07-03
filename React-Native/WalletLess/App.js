@@ -11,7 +11,7 @@ import {
   View,
   Text
 } from 'react-native';
-import FontAwesome, { Icons } from 'react-native-fontawesome';
+import { createStackNavigator } from 'react-navigation';
 import * as Keychain from 'react-native-keychain';
 
 //Realm
@@ -19,23 +19,13 @@ const Realm = require('realm');
 
 import PersonalInformation from './src/schema/PersonalInformation';
 
-//Base 64 encoding/decoding
-var base64js = require('base64-js');
-
 // 512 bit encryption
 var CryptoJs = require('crypto-js'); //CryptoJs.SHA256("");
 
 //Custom components and styles
-import FloatingLabelInput from './src/components/FloatingLabelInput/FloatingLabelInput';
-import FloatingLabelInputIcon from './src/components/FloatingLabelInput/FloatingLabelInputIcon';
-import commonStyles from './src/styles/common';
-import Card from './src/components/Card/Card';
-import CardCompartment from './src/components/Card/CardCompartment';
-import MenuHeader from './src/components/Menu/MenuHeader';
 import Menu from './src/components/Menu/Menu';
+import FloatingLabelInput from './src/components/FloatingLabelInput/FloatingLabelInput';
 
-//Data
-import comp from './src/data/compartments.json'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -44,7 +34,21 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const password = 'q2w3e4r5t'; //TBD to user's password when account creation is implemented
+const RootStack = createStackNavigator(
+  {
+    MenuScreen: Menu,
+    FloatingLabelInputScreen: FloatingLabelInput
+  },
+  {
+    initialRouteName: 'MenuScreen',
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false
+    }
+  }
+);
+
+const username = 'gsoccer'; //TBD to user's username when account creation is implemented
 
 export default class App extends Component {
 
@@ -56,6 +60,7 @@ export default class App extends Component {
   wordNum = ''
   key = '';
 
+  //Open the realm
   componentWillMount() {
     console.log("Will mount");
     var credentials = Keychain.getGenericPassword();
@@ -63,7 +68,7 @@ export default class App extends Component {
     while(!credentials && tries < 5) {
       tries++;
       console.log("Attempting to set up keychain. Attempt number " + tries);
-      Keychain.setGenericPassword('WalletLess', password);
+      Keychain.setGenericPassword('WalletLess', username);
       credentials = Keychain.getGenericPassword();
     }
     if(tries < 5) {
@@ -117,8 +122,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <View>
-        <Menu myCompartments={comp}/>
+      <View style={{flex: 1}}>
+        <RootStack />
+        {/*<Menu />*/}
         {/*<MenuHeader name={"Gregory"}></MenuHeader>
         <FloatingLabelInputIcon
           icon={Icons.envelope}
@@ -144,11 +150,3 @@ export default class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-});
