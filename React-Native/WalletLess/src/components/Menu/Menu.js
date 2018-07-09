@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {
+    Alert,
     View,
     ScrollView,
+    TouchableHighlight,
     StatusBar,
     TextInput,
     Text,
@@ -19,7 +21,9 @@ import comp from './../../data/compartments.json'
 export default class Menu extends Component {
 
     compartments = comp.map(info => (
-        <CardCompartment key={info.key} compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps} />
+        <TouchableHighlight key={info.key} onPress={() => this.props.navigation.navigate('DataInputScreen')} underlayColor="transparent">
+            <CardCompartment compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps}/>
+        </TouchableHighlight>
     ));
 
     render() {

@@ -25,7 +25,7 @@ var CryptoJs = require('crypto-js'); //CryptoJs.SHA256("");
 //Custom components and styles
 import Menu from './src/components/Menu/Menu';
 import FloatingLabelInput from './src/components/FloatingLabelInput/FloatingLabelInput';
-
+import DataInput from './src/components/DataInput/DataInput';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -37,7 +37,7 @@ const instructions = Platform.select({
 const RootStack = createStackNavigator(
   {
     MenuScreen: Menu,
-    FloatingLabelInputScreen: FloatingLabelInput
+    DataInputScreen: DataInput
   },
   {
     initialRouteName: 'MenuScreen',
