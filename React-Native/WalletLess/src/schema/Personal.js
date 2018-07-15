@@ -1,10 +1,10 @@
 
-export default class PersonalAndEmployment {
+export default class Personal {
     // Any functions to manipulate or view the data
 }
 
-PersonalAndEmployment.schema = {
-    name: 'PersonalAndEmployment',
+Personal.schema = {
+    name: 'Personal',
     primaryKey: 'id',
     properties: {
         id: 'int',
@@ -26,20 +26,24 @@ PersonalAndEmployment.schema = {
         homePhone: {type: 'string', default: ''},
         cellPhone: {type: 'string', default: ''},
         workPhone: {type: 'string', default: ''},
+
         primaryCarePhysicianName: {type: 'string', default: ''},
         primaryCarePhysicianAddress: {type: 'string', default: ''},
         primaryCarePhysicianPhone: {type: 'string', default: ''},
+
         nextOfKinFirstName: {type: 'string', default: ''},
         nextOfKinLastName: {type: 'string', default: ''},
         nextOfKinRelationship: {type: 'string', default: ''},
         nextOfKinCellPhone: {type: 'string', default: ''},
         nextOfKinHomePhone: {type: 'string', default: ''},
+
         emergencyContact: {type: 'string', default: ''}, //next of kin or other
         emergencyContactFirstName: {type: 'string', default: ''}, //if not next of kin -> the following is required
         emergencyContactLastName: {type: 'string', default: ''},
         emergencyContactAddress: {type: 'string', default: ''},
         emergencyContactPhone: {type: 'string', default: ''},
         emergencyContactRelationship: {type: 'string', default: ''},
+
         guarantor: {type: 'string', default: ''}, //next of kin or other
         guarantorFirstName: {type: 'string', default: ''}, //if not next of kin -> the following is required
         guarantorLastName: {type: 'string', default: ''},
@@ -47,10 +51,6 @@ PersonalAndEmployment.schema = {
         guarantorPhone: {type: 'string', default: ''},
         guarantorSSN: {type: 'string', default: ''},
         guarantorDateOfBirth: {type: 'date?'},
-        guarantorRelationship: {type: 'string', default: ''},  
-        employerName: {type: 'string', default: ''},
-        employerAddress: {type: 'string', default: ''},
-        employerPhone: {type: 'string', default: ''},
-        employeePosition: {type: 'string', default: ''},
+        guarantorRelationship: {type: 'string', default: ''}
     }
 }
