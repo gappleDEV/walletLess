@@ -19,7 +19,10 @@ export default class Card extends Component {
                     borderLeftWidth: this.props.lborWidth, 
                     borderLeftColor: this.props.lborColor,
                     width: this.props.myWidth,
-                    height: this.props.myHeight}]}>
+                    height: this.props.myHeight,
+                    paddingBottom: this.props.padBot,
+                    marginTop: this.props.marTop,
+                    marginBottom: this.props.marBot}]}>
                     {this.props.children}
                 </View>
             </View>
