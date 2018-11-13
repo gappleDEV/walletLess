@@ -16,15 +16,16 @@ const labelData = {
 export default class FloatingLabelInput extends Component {
   state = {
     isFocused: false,
+    text: this.props.value
   };
 
   componentWillMount() {
-    this._animatedIsFocused = new Animated.Value(this.props.value === '' ? 0 : 1);
+    this._animatedIsFocused = new Animated.Value(this.state.text === '' ? 0 : 1);
   }
 
   componentDidUpdate() {
     Animated.timing(this._animatedIsFocused, {
-      toValue: (this.state.isFocused || this.props.value !== '') ? 1 : 0,
+      toValue: (this.state.isFocused || this.state.text !== '') ? 1 : 0,
       duration: 200,
     }).start();
   }
@@ -70,6 +71,7 @@ export default class FloatingLabelInput extends Component {
           style={[styles.textInput, this.state.isFocused && styles.borderHighlight]}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
+          onChangeText={(inputText) => this.setState(prevState => ({...prevState, text: inputText}))}
           blurOnSubmit
         />
       </View>
