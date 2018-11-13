@@ -34,8 +34,8 @@ export default class MenuHeader extends Component {
 const styles = StyleSheet.create({
     banner: {
         backgroundColor: '#c0c0c0',
-        height: 85,
-        paddingTop: 20,
+        height: 80,
+        paddingTop: 5,
         flexDirection: 'row'
     },
     container: {

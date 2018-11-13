@@ -1,0 +1,324 @@
+[
+    {
+        "key": 0,
+        "sectionName": "My Information",
+        "input": [
+            {
+                "key": 0,
+                "label": "First Name",
+                "dataName": "firstName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Last Name",
+                "dataName": "lastName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Date Of Birth",
+                "dataName": "dateOfBirth",
+                "type": "date?",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Home Phone",
+                "dataName": "homePhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Cell Phone",
+                "dataName": "cellPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Work Phone",
+                "dataName": "workPhone",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 1,
+        "sectionName": "More About Me",
+        "input": [
+            {
+                "key": 0,
+                "label": "Marital Status",
+                "dataName": "maritalStatus",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Sex",
+                "dataName": "sex",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Race",
+                "dataName": "race",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Religion",
+                "dataName": "religion",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Primary Language",
+                "dataName": "primaryLanguage",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Social Security Number",
+                "dataName": "socialSecurityNumber",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 2,
+        "sectionName": "Where I Live",
+        "input": [
+            {
+                "key": 0,
+                "label": "Street Address",
+                "dataName": "streetAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "City",
+                "dataName": "city",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "County",
+                "dataName": "county",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "State",
+                "dataName": "state",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "ZIP Code",
+                "dataName": "zipCode",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Country",
+                "dataName": "country",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 3,
+        "sectionName": "Primary Care Physician",
+        "input": [
+            {
+                "key": 0,
+                "label": "Primary Care Physician Name",
+                "dataName": "primaryCarePhysicianName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Primary Care Physician Address",
+                "dataName": "primaryCarePhysicianAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Primary Care Physician Phone",
+                "dataName": "primaryCarePhysicianPhone",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 4,
+        "sectionName": "Next Of Kin",
+        "input": [
+            {
+                "key": 0,
+                "label": "Next Of Kin First Name",
+                "dataName": "nextOfKinFirstName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Next Of Kin Last Name",
+                "dataName": "nextOfKinLastName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Next Of Kin Relationship",
+                "dataName": "nextOfKinRelationship",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Next Of Kin Cell Phone",
+                "dataName": "nextOfKinCellPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Next Of Kin Home Phone",
+                "dataName": "nextOfKinHomePhone",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 5,
+        "sectionName": "Emergency Contact",
+        "input": [
+            {
+                "key": 0,
+                "label": "Emergency Contact",
+                "dataName": "emergencyContact",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Emergency Contact First Name",
+                "dataName": "emergencyContactFirstName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Emergency Contact Last Name",
+                "dataName": "emergencyContactLastName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Emergency Contact Address",
+                "dataName": "emergencyContactAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Emergency Contact Phone",
+                "dataName": "emergencyContactPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Emergency Contact Relationship",
+                "dataName": "emergencyContactRelationship",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 6,
+        "sectionName": "Guarantor",
+        "input": [
+            {
+                "key": 0,
+                "label": "Guarantor",
+                "dataName": "guarantor",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Guarantor First Name",
+                "dataName": "guarantorFirstName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Guarantor Last Name",
+                "dataName": "guarantorLastName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Guarantor Address",
+                "dataName": "guarantorAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Guarantor Phone",
+                "dataName": "guarantorPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 6,
+                "label": "Guarantor SSN",
+                "dataName": "guarantorSSN",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 7,
+                "label": "Guarantor Date Of Birth",
+                "dataName": "guarantor",
+                "type": "date?",
+                "default": ""
+            },
+            {
+                "key": 8,
+                "label": "Guarantor Relationship",
+                "dataName": "guarantorRelationship",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    }
+]

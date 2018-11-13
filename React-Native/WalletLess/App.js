@@ -14,10 +14,13 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import * as Keychain from 'react-native-keychain';
 
+//For IPhone X
+import SafeAreaView from 'react-native-safe-area-view';
+
 //Realm
 const Realm = require('realm');
 
-import PersonalInformation from './src/schema/PersonalInformation';
+import Personal from './src/schema/Personal';
 
 // 512 bit encryption
 var CryptoJs = require('crypto-js'); //CryptoJs.SHA256("");
@@ -42,6 +45,7 @@ const RootStack = createStackNavigator(
   {
     initialRouteName: 'MenuScreen',
     headerMode: 'none',
+    cardStyle: { shadowColor: 'transparent' },
     navigationOptions: {
       headerVisible: false
     }
@@ -104,15 +108,15 @@ export default class App extends Component {
     }
 
     Realm.open({
-      schema: [PersonalInformation], encryptionKey: this.key
+      schema: [Personal], encryptionKey: this.key
     }).then(realm => {
       realm.write(() => {
-        let allInfo = realm.objects('PersonalInformation');
+        let allInfo = realm.objects('Personal');
         //realm.delete(allInfo); // to delete all in the table
         if(allInfo.length == 0) {
-          const personInfo = realm.create('PersonalInformation', {id: 1});
+          const personInfo = realm.create('Personal', {id: 1});
         }
-        console.log(Array.from(realm.objects('PersonalInformation')));
+        console.log(Array.from(realm.objects('Personal')));
       });
       this.setState({realm});
     });
@@ -122,7 +126,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      //<View style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: '#c0c0c0'}}>
         <RootStack />
         {/*<Menu />*/}
         {/*<MenuHeader name={"Gregory"}></MenuHeader>
@@ -146,7 +151,8 @@ export default class App extends Component {
           name: "- Next of Kin"
         }]}>
         </CompartmentCard>*/}
-      </View>
+        </SafeAreaView>
+      //</View>
     );
   }
 }
