@@ -1,0 +1,50 @@
+[
+    {
+        "key": 0,
+        "sectionName": "Health",
+        "input": [
+            {
+                "key": 0,
+                "label": "General Insurance",
+                "dataName": "generalInsurance",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Insurance Company Name",
+                "dataName": "generalCompanyName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Insurance Company Address",
+                "dataName": "generalCompanyAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Insurance Company Phone",
+                "dataName": "generalCompanyPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Insurance Company Card Front",
+                "dataName": "generalCompanyCardFront",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Insurance Company Card Back",
+                "dataName": "generalCompanyCardBack",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    }
+]

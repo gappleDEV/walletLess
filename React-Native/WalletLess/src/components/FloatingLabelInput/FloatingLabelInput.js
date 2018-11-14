@@ -92,6 +92,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000',
   },
   borderHighlight: {
-    borderBottomColor: '#0F0',
+    borderBottomColor: '#55DD00',
   }
 });

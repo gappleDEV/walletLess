@@ -18,14 +18,16 @@ import MenuHeader from './MenuHeader';
 //Data
 import comp from './../../data/compartments.json'
 import personal from './../../data/personal.json'
+import insurance from './../../data/insurance.json'
+
+ind = 0;
 
 export default class Menu extends Component {
 
-    compartmentInputs = [personal];
-
+    compartmentInputs = [personal, insurance];
     compartments = comp.map(info => (
         <TouchableHighlight key={info.key} onPress={() => this.props.navigation.navigate('DataInputScreen',{
-            sections: this.compartmentInputs[0], //must be changed to point to compartmentInputs[info.key]
+            sections: this.compartmentInputs[ind++ % 2], //must be changed to point to compartmentInputs[info.key]
           })} underlayColor="transparent">
             <CardCompartment compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps}/>
         </TouchableHighlight>
