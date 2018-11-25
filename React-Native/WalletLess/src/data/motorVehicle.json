@@ -1,0 +1,119 @@
+[
+    {
+        "key": 0,
+        "sectionName": "Motor Vehicle Insurance",
+        "input": [
+            {
+                "key": 0,
+                "label": "Motor Vehicle Insurance",
+                "dataName": "motorVehicleInsurance",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Insurance Company Name",
+                "dataName": "motorVehicleCompanyName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Insurance Company Address",
+                "dataName": "motorVehicleCompanyAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Insurance Company Phone",
+                "dataName": "motorVehicleCompanyPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Insurance Identification Number",
+                "dataName": "motorVehicleCompanyIdentificationNum",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Limits of Liability",
+                "dataName": "motorVehicleCompanyLimitsOfLiability",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 6,
+                "label": "Limits of PIP",
+                "dataName": "motorVehicleCompanyLimitsOfPIP",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 7,
+                "label": "PIP Documents to Complete",
+                "dataName": "motorVehicleCompanyPIPDocsToComplete",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 8,
+                "label": "Motor Vehicle Insurance Primary",
+                "dataName": "motorVehicleCompanyPrimary",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 9,
+                "label": "Insurance Card Front",
+                "dataName": "motorVehicleCompanyCardFront",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 10,
+                "label": "Insurance Card Back",
+                "dataName": "motorVehicleCompanyCardBack",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 1,
+        "sectionName": "Motor Vehicle Documents",
+        "input": [
+            {
+                "key": 0,
+                "label": "Motor Vehicle License",
+                "dataName": "motorVehicleLicense",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Motor Vehicle Registration One",
+                "dataName": "motorVehicleRegistrationOne",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Motor Vehicle Registration Two",
+                "dataName": "motorVehicleRegistrationTwo",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Motor Vehicle Registration three",
+                "dataName": "motorVehicleRegistrationThree",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    }
+]

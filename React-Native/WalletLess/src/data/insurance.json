@@ -1,7 +1,7 @@
 [
     {
         "key": 0,
-        "sectionName": "Health",
+        "sectionName": "General",
         "input": [
             {
                 "key": 0,
@@ -42,6 +42,137 @@
                 "key": 5,
                 "label": "Insurance Company Card Back",
                 "dataName": "generalCompanyCardBack",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 1,
+        "sectionName": "Healthcare",
+        "input": [
+            {
+                "key": 0,
+                "label": "Healthcare Insurance",
+                "dataName": "healthcareInsurance",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Healthcare Company Name",
+                "dataName": "healthcareCompanyName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Healthcare Company Address",
+                "dataName": "healthcareCompanyAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Healthcare Company Phone",
+                "dataName": "healthcareCompanyPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Healthcare Company Subscriber ID",
+                "dataName": "healthcareCompanySubscriberID",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Healthcare Company Group ID",
+                "dataName": "healthcareCompanyGroupID",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 6,
+                "label": "Healthcare Company Claim Address",
+                "dataName": "healthcareCompanyClaimAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 7,
+                "label": "Healthcare Company Card Front",
+                "dataName": "healthcareCompanyCardFront",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 8,
+                "label": "Healthcare Company Card Back",
+                "dataName": "healthcareCompanyCardBack",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 9,
+                "label": "Healthcare Company Effective Date",
+                "dataName": "healthcareCompanyEffectiveDate",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 10,
+                "label": "Healthcare Company Claim Number",
+                "dataName": "healthcareCompanyClaimNumber",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 11,
+                "label": "Healthcare Company Claim Date of Service",
+                "dataName": "healthcareCompanyClaimDateOfService",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 2,
+        "sectionName": "Homeowners",
+        "input": [
+            {
+                "key": 0,
+                "label": "Homeowners Insurance",
+                "dataName": "homeownersInsurance",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Homeowners Company Name",
+                "dataName": "homeownersCompanyName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Homeowners Company Address",
+                "dataName": "homeownersCompanyAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Homeowners Company Phone",
+                "dataName": "homeownersCompanyPhone",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Homeowners Claim Submission",
+                "dataName": "homeownersClaimSubmission",
                 "type": "string",
                 "default": ""
             }

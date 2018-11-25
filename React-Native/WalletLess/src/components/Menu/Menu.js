@@ -16,27 +16,20 @@ import CardCompartment from './../Card/CardCompartment';
 import MenuHeader from './MenuHeader';
 
 //Data
-import comp from './../../data/compartments.json'
-import personal from './../../data/personal.json'
-import insurance from './../../data/insurance.json'
-
-
-import bank from './../../data/bank.json'
+import comp from './../../data/compartments.json';
+import personal from './../../data/personal.json';
+import insurance from './../../data/insurance.json';
+import motorVehicle from './../../data/motorVehicle.json';
+import creditCard from './../../data/creditCard.json';
+import bank from './../../data/bank.json';
+import prescription from './../../data/prescription.json';
 
 export default class Menu extends Component {
-
-    /*compartments = comp.map(info => (
-        <TouchableHighlight key={info.key} onPress={() => this.props.navigation.navigate('DataInputScreen',{
-            sections: this.compartmentInputs[ind++ % this.compartmentInputs.length], //must be changed to point to compartmentInputs[info.key]
-          })} underlayColor="transparent">
-            <CardCompartment compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps}/>
-        </TouchableHighlight>
-    ));*/
 
     getCompartments() {
         let toRet = [];
 
-        compartmentInputs = [personal, insurance, bank];
+        compartmentInputs = [personal, insurance, motorVehicle, creditCard, bank, prescription];
     
         for(let i = 0; i < compartmentInputs.length; i++) {
             info = comp[i];

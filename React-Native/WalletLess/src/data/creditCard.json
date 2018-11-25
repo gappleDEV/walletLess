@@ -1,0 +1,43 @@
+[
+    {
+        "key": 0,
+        "sectionName": "Card",
+        "input": [
+            {
+                "key": 0,
+                "label": "Credit Card Type",
+                "dataName": "creditCardType",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Name on Card",
+                "dataName": "creditCardNameOnCard",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Card Number",
+                "dataName": "creditCardNum",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Card Expiration Date",
+                "dataName": "creditCardExpireDate",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Card Security Code",
+                "dataName": "creditCardSecurityCode",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    }
+]

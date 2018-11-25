@@ -1,0 +1,64 @@
+[
+    {
+        "key": 0,
+        "sectionName": "Prescription",
+        "input": [
+            {
+                "key": 0,
+                "label": "Pharmacy name",
+                "dataName": "pharmacyName",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Pharmacy Address",
+                "dataName": "pharmacyAddress",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 2,
+                "label": "Date of Prescription",
+                "dataName": "dateOfPrescription",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 3,
+                "label": "Prescription Number",
+                "dataName": "prescriptionNumber",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 4,
+                "label": "Strength",
+                "dataName": "strength",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 5,
+                "label": "Quantity",
+                "dataName": "quantity",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 6,
+                "label": "Ordering Physician",
+                "dataName": "orderingPhysician",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 7,
+                "label": "Refills Remaining",
+                "dataName": "refillsRemaining",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    }
+]

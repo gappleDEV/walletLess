@@ -4,7 +4,24 @@
        "compartmentName":"Personal and Employment",
        "leftColor":"#1976d2",
        "percent":75,
-       "subComps":[]
+       "subComps":[
+          {
+             "key": 0,
+             "name":"- My Info"
+          },
+          {
+            "key": 1,
+            "name":"- Primary Phys."
+         },
+         {
+            "key": 2,
+            "name":"- Next of Kin"
+         },
+         {
+            "key": 3,
+            "name":"- Guarantor"
+         }
+       ]
     },
     {
        "key":1,
@@ -14,19 +31,15 @@
        "subComps":[
           {
              "key":0,
-             "name":"- Health"
+             "name":"- General"
           },
           {
              "key":1,
-             "name":"- Motor Vehicle"
+             "name":"- Health"
           },
           {
              "key":2,
              "name":"- Homeowners"
-          },
-          {
-             "key":3,
-             "name":"- Other"
           }
        ]
     },
