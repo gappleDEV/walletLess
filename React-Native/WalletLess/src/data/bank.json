@@ -1,0 +1,35 @@
+[
+    {
+        "key": 0,
+        "sectionName": "Checking",
+        "input": [
+            {
+                "key": 0,
+                "label": "Checking Account Number",
+                "dataName": "checkingAccountNum",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 1,
+                "label": "Checking Account MICR Number",
+                "dataName": "checkingAccountMICRNum",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    },
+    {
+        "key": 1,
+        "sectionName": "Savings",
+        "input": [
+            {
+                "key": 0,
+                "label": "Savings Account Number",
+                "dataName": "savingsAccountNum",
+                "type": "string",
+                "default": ""
+            }
+        ]
+    }
+]

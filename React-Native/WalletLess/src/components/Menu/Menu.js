@@ -20,25 +20,42 @@ import comp from './../../data/compartments.json'
 import personal from './../../data/personal.json'
 import insurance from './../../data/insurance.json'
 
-ind = 0;
+
+import bank from './../../data/bank.json'
 
 export default class Menu extends Component {
 
-    compartmentInputs = [personal, insurance];
-    compartments = comp.map(info => (
+    /*compartments = comp.map(info => (
         <TouchableHighlight key={info.key} onPress={() => this.props.navigation.navigate('DataInputScreen',{
-            sections: this.compartmentInputs[ind++ % 2], //must be changed to point to compartmentInputs[info.key]
+            sections: this.compartmentInputs[ind++ % this.compartmentInputs.length], //must be changed to point to compartmentInputs[info.key]
           })} underlayColor="transparent">
             <CardCompartment compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps}/>
         </TouchableHighlight>
-    ));
+    ));*/
+
+    getCompartments() {
+        let toRet = [];
+
+        compartmentInputs = [personal, insurance, bank];
+    
+        for(let i = 0; i < compartmentInputs.length; i++) {
+            info = comp[i];
+            toRet.push( 
+            <TouchableHighlight key={info.key} onPress={() => this.props.navigation.navigate('DataInputScreen',{
+                sections: compartmentInputs[i], //must be changed to point to compartmentInputs[info.key]
+              })} underlayColor="transparent">
+                <CardCompartment compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps}/>
+            </TouchableHighlight>);
+        }
+        return toRet;
+    }
 
     render() {
         return (
             <View style={styles.container}>
-                <MenuHeader style={styles.header} name={'Gregory'}/>
+                <MenuHeader style={styles.header} name={'Michael'}/>
                 <ScrollView style={styles.scroll}>
-                    {this.compartments}
+                    {this.getCompartments()}
                 </ScrollView>
             </View>
         );
