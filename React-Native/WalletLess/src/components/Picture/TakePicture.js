@@ -10,40 +10,6 @@ import {
 } from 'react-native';
 import { RNCamera as Camera } from 'react-native-camera';
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#000',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width
-  },
-  capture: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-    borderWidth: 5,
-    borderColor: '#FFF',
-    marginBottom: 15,
-  },
-  cancel: {
-    position: 'absolute',
-    right: 40,
-    bottom: 20,
-    backgroundColor: 'blue',
-    color: '#FFF',
-    fontWeight: '600',
-    fontSize: 17,
-  }
-});
-
 export default class TakePicture extends Component {
 
   constructor(props) {
@@ -95,8 +61,13 @@ export default class TakePicture extends Component {
         />
         <Text
           style={styles.cancel}
-          onPress={() => this.setState({ path: null })}
-        >Cancel
+          onPress={() => this.setState({ path: null })}>
+          Cancel
+        </Text>
+        <Text
+          style={styles.save}
+          onPress={() => this.setState({ path: null })}>
+          Save
         </Text>
       </View>
     );
@@ -110,3 +81,47 @@ export default class TakePicture extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#000',
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width
+  },
+  capture: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    borderWidth: 5,
+    borderColor: '#FFF',
+    marginBottom: 15,
+  },
+  cancel: {
+    position: 'absolute',
+    padding: 10,
+    right: 40,
+    bottom: 20,
+    backgroundColor: 'red',
+    color: '#FFF',
+    fontWeight: '600',
+    fontSize: 17,
+  },
+  save: {
+    position: 'absolute',
+    padding: 10,
+    left: 40,
+    bottom: 20,
+    backgroundColor: 'blue',
+    color: '#FFF',
+    fontWeight: '600',
+    fontSize: 17,
+  }
+});

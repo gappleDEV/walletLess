@@ -11,8 +11,9 @@ import {
   View,
   Text
 } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import * as Keychain from 'react-native-keychain';
+import TakePicture from './src/components/Picture/TakePicture';
 
 //For IPhone X
 import SafeAreaView from 'react-native-safe-area-view';
@@ -51,6 +52,21 @@ const RootStack = createStackNavigator(
     }
   }
 );
+
+class SettingsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
+
+const TabNavigator = createBottomTabNavigator({
+  Home: { screen: RootStack },
+  Picture: { screen: TakePicture },
+});
 
 const username = 'gsoccer'; //TBD to user's username when account creation is implemented
 
@@ -122,36 +138,15 @@ export default class App extends Component {
     });
   }
 
-  handleTextChange = (newText) => this.setState({ value: newText });
+  //handleTextChange = (newText) => this.setState({ value: newText });
 
   render() {
     return (
       //<View style={{flex: 1}}>
       <SafeAreaView style={{flex: 1, backgroundColor: '#c0c0c0'}}>
-        <RootStack />
-        {/*<Menu />*/}
-        {/*<MenuHeader name={"Gregory"}></MenuHeader>
-        <FloatingLabelInputIcon
-          icon={Icons.envelope}
-          label="Email"
-          value={this.state.value}
-          onChangeText={this.handleTextChange}
-        />
-        <FloatingLabelInput
-          label="Email"
-          value={this.state.value}
-          onChangeText={this.handleTextChange}
-        /> 
-        <CompartmentCard compartmentName={"Personal and Employment"} leftColor={"#0000FF"}
-        subComps={[{
-          key: 0,
-          name: "- Patient"
-        },{
-          key: 1,
-          name: "- Next of Kin"
-        }]}>
-        </CompartmentCard>*/}
-        </SafeAreaView>
+        {/*<RootStack />*/}
+        <TabNavigator />
+      </SafeAreaView>
       //</View>
     );
   }

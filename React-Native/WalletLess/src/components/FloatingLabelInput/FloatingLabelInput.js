@@ -60,6 +60,10 @@ export default class FloatingLabelInput extends Component {
         outputRange: ['#aaa', '#000'],
       }),
     };
+
+    changeText = (inputText) => {
+      this.setState(prevState => ({...prevState, text: inputText}));
+    }
     
     return (
       <View style={styles.container}>
@@ -71,7 +75,8 @@ export default class FloatingLabelInput extends Component {
           style={[styles.textInput, this.state.isFocused && styles.borderHighlight]}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
-          onChangeText={(inputText) => this.setState(prevState => ({...prevState, text: inputText}))}
+          onChangeText={(inputText) => changeText(inputText)}
+          value={this.state.text}
           blurOnSubmit
         />
       </View>
