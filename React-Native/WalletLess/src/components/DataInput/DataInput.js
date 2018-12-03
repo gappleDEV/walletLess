@@ -20,7 +20,7 @@ export default class DataInput extends Component {
 
         inputSections = sections.map(section => (
             <Card key={section.key} myWidth={350} borRadius={0} padBot={20} marBot={20} marTop={5}>
-                <Text key={section.key}>{section.sectionName}</Text>
+                <Text style={styles.sectionHeader} key={section.key}>{section.sectionName}</Text>
                 {section.input.map(input => (
                     <FloatingLabelInput
                         key={input.key}
@@ -37,14 +37,14 @@ export default class DataInput extends Component {
                 <ScrollView style={styles.scroll}>
                     {inputSections}
                 </ScrollView>
-                <View style={styles.buttonContainer}>
+                {/*<View style={styles.buttonContainer}>
                     <TouchableHighlight onPress={() => this.props.navigation.navigate('MenuScreen')} underlayColor="transparent">
                         <View style={styles.button}><Text style={styles.text}>Save</Text></View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={() => this.props.navigation.navigate('MenuScreen')} underlayColor="transparent">
                         <View style={styles.button}><Text style={styles.text}>Cancel</Text></View>
                     </TouchableHighlight>
-                </View>
+                </View>*/}
             </View>
         );
     }
@@ -76,5 +76,11 @@ const styles = StyleSheet.create({
     },
     text: {
       color: '#f0f0f0'
+    },
+    sectionHeader: {
+        color: '#888888',
+        height: 25,
+        fontSize: 22,
+        fontWeight: '200',
     }
 });

@@ -46,7 +46,7 @@ export default class Menu extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <MenuHeader style={styles.header} name={'Michael'}/>
+                <MenuHeader style={styles.header} name={'Gregory'}/>
                 <ScrollView style={styles.scroll}>
                     {this.getCompartments()}
                 </ScrollView>

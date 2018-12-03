@@ -58,7 +58,7 @@ export default class CardCompartment extends Component {
                         <View style={styles.center}>
                             <ProgressCircle
                                 percent={this.props.percent}
-                                radius={25}
+                                radius={20}
                                 borderWidth={4}
                                 color="#3399FF"
                                 shadowColor="#999"

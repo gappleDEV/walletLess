@@ -15,6 +15,9 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import * as Keychain from 'react-native-keychain';
 import TakePicture from './src/components/Picture/TakePicture';
 
+//Icons on tab nav
+import FontAwesome, { Icons } from 'react-native-fontawesome';
+
 //For IPhone X
 import SafeAreaView from 'react-native-safe-area-view';
 
@@ -40,8 +43,8 @@ const instructions = Platform.select({
 
 const RootStack = createStackNavigator(
   {
-    MenuScreen: Menu,
-    DataInputScreen: DataInput
+    MenuScreen: { screen: Menu },
+    DataInputScreen: { screen: DataInput }
   },
   {
     initialRouteName: 'MenuScreen',
@@ -64,8 +67,33 @@ class SettingsScreen extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-  Home: { screen: RootStack },
-  Picture: { screen: TakePicture },
+  Home: { screen: RootStack, navigationOptions: ({ navigation }) => ({
+    title: "Menu",
+    tabBarIcon: ({ focused, horizontal, tintColor }) => {
+      return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.listUl}</FontAwesome>;
+    },
+  })},
+  Picture: { screen: TakePicture,
+  navigationOptions: ({ navigation }) => ({
+    title: "Take Picture",
+    tabBarIcon: ({ focused, horizontal, tintColor }) => {
+      return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.camera}</FontAwesome>;
+    },
+  })
+  }
+},
+{
+    tabBarOptions : {
+      activeTintColor: '#1262B2',
+      inactiveTintColor: '#888888',
+      style: {
+        paddingTop: 10,
+        backgroundColor: '#c0c0c0',
+      },
+      labelStyle: { 
+        fontSize: 14
+      }
+    }
 });
 
 const username = 'gsoccer'; //TBD to user's username when account creation is implemented

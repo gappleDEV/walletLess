@@ -3,7 +3,7 @@
        "key":0,
        "compartmentName":"Personal and Employment",
        "leftColor":"#1976d2",
-       "percent":75,
+       "percent":0,
        "subComps":[
           {
              "key": 0,
@@ -108,7 +108,16 @@
         "compartmentName":"Allergies / Prescriptions",
         "leftColor":"#1976d2",
         "percent":0,
-        "subComps":[]
+        "subComps":[
+           {
+              "key":0,
+              "name":"- Pharmacy"
+           },
+           {
+            "key":1,
+            "name":"- Physician"
+         }
+        ]
      },
      {
         "key":6,

@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { RNCamera as Camera } from 'react-native-camera';
 
+
 export default class TakePicture extends Component {
 
   constructor(props) {
@@ -31,6 +32,7 @@ export default class TakePicture extends Component {
   };
 
   renderCamera() {
+
     return (
       <Camera
         ref={(cam) => {
@@ -59,16 +61,20 @@ export default class TakePicture extends Component {
           source={{ uri: this.state.path }}
           style={styles.preview}
         />
-        <Text
-          style={styles.cancel}
-          onPress={() => this.setState({ path: null })}>
-          Cancel
-        </Text>
-        <Text
-          style={styles.save}
-          onPress={() => this.setState({ path: null })}>
-          Save
-        </Text>
+        <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent">
+          <View style={[styles.retakeContainer,  styles.common]}>
+            <Text>
+              Retake
+            </Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent">
+          <View style={[styles.saveContainer,  styles.common]}>
+            <Text>
+              Save
+            </Text>
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -104,24 +110,39 @@ const styles = StyleSheet.create({
     borderColor: '#FFF',
     marginBottom: 15,
   },
-  cancel: {
+  retakeContainer: {
     position: 'absolute',
-    padding: 10,
     right: 40,
     bottom: 20,
-    backgroundColor: 'red',
-    color: '#FFF',
-    fontWeight: '600',
-    fontSize: 17,
+    borderWidth: 2,
+    borderColor: '#FF584C',
   },
-  save: {
+  saveContainer: {
     position: 'absolute',
-    padding: 10,
     left: 40,
     bottom: 20,
-    backgroundColor: 'blue',
-    color: '#FFF',
+    borderWidth: 2,
+    borderColor: '#3399FF',
+  },
+  common: {
+    color: '#888888',
     fontWeight: '600',
+    width: 100,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
     fontSize: 17,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 50,
+    backgroundColor: 'rgba(245, 245, 245, 0.6)',
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    shadowOffset: {
+        height: 3,
+        width: 3
+    }
   }
 });
