@@ -9,24 +9,25 @@ import {
 } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 
-const labelData = {
-  topPadding: 18,
+let labelData = {
+  topPadding: 10,
   startFontSize: 20,
-  paddingFromIcon: 10,
+  paddingFromIcon: 20,
 };
 
 export default class FloatingLabelInputIcon extends Component {
   state = {
     isFocused: false,
+    text: this.props.value
   };
 
   componentWillMount() {
-    this._animatedIsFocused = new Animated.Value(this.props.value === '' ? 0 : 1);
+    this._animatedIsFocused = new Animated.Value(this.state.text === '' ? 0 : 1);
   }
 
   componentDidUpdate() {
     Animated.timing(this._animatedIsFocused, {
-      toValue: (this.state.isFocused || this.props.value !== '') ? 1 : 0,
+      toValue: (this.state.isFocused || this.state.text !== '') ? 1 : 0,
       duration: 200,
     }).start();
   }
@@ -58,23 +59,29 @@ export default class FloatingLabelInputIcon extends Component {
       }),
       color: this._animatedIsFocused.interpolate({
         inputRange: [0, 1],
-        outputRange: ['#aaa', '#000'],
+        outputRange: ['#aaa', 'rgba(0, 0, 0, 0.0)'],
       }),
     };
+
+    changeText = (inputText) => {
+      this.setState(prevState => ({...prevState, text: inputText}));
+    }
     
     return (
       <View style={styles.container}>
-        <FontAwesome style={styles.icon}>{
+        <FontAwesome style={[styles.icon, {fontSize: this.props.newFontSize ? this.props.newFontSize : labelData.startFontSize,}]}>{
           this.props.icon}
         </FontAwesome>
         <Animated.Text style={labelStyle}>
           {label}
         </Animated.Text>
         <TextInput
-          {...props}
-          style={styles.textInput}
+          style={[styles.textInput, this.state.isFocused && styles.textInputNormal]}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
+          onChangeText={(inputText) => changeText(inputText)}
+          keyboardType={this.props.myKeyboardType}
+          secureTextEntry={this.props.hasSecureTextEntry}
           blurOnSubmit
         />
       </View>
@@ -84,17 +91,22 @@ export default class FloatingLabelInputIcon extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingLeft: 10,
     paddingTop: labelData.topPadding,
     flexDirection: 'row',
   },
   icon: {
-    fontSize: labelData.startFontSize,
+    width: 30,
     paddingRight: labelData.paddingFromIcon,
+    color: '#1976D2'
   },
   textInput: {
-    width: 200,
+    width: 250,
     height: 26, 
     fontSize: labelData.startFontSize, 
-    color: '#000',
+    color: '#389CFF'
   },
+  textInputNormal: {
+    color: "#1976D2"
+  }
 });

@@ -71,7 +71,6 @@ export default class FloatingLabelInput extends Component {
           {label}
         </Animated.Text>
         <TextInput
-          {...props}
           style={[styles.textInput, this.state.isFocused && styles.borderHighlight]}
           onFocus={this.onFocus}
           onBlur={this.onBlur}

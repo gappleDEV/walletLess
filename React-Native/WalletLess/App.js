@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import * as Keychain from 'react-native-keychain';
-import TakePicture from './src/components/Picture/TakePicture';
 
 //Icons on tab nav
 import FontAwesome, { Icons } from 'react-native-fontawesome';
@@ -31,8 +30,10 @@ var CryptoJs = require('crypto-js'); //CryptoJs.SHA256("");
 
 //Custom components and styles
 import Menu from './src/components/Menu/Menu';
-import FloatingLabelInput from './src/components/FloatingLabelInput/FloatingLabelInput';
 import DataInput from './src/components/DataInput/DataInput';
+import TakePicture from './src/components/Picture/TakePicture';
+import Login from './src/components/Login/Login';
+import Register from './src/components/Login/Register';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -44,10 +45,11 @@ const instructions = Platform.select({
 const RootStack = createStackNavigator(
   {
     MenuScreen: { screen: Menu },
-    DataInputScreen: { screen: DataInput }
+    DataInputScreen: { screen: DataInput },
+    LoginScreen: {screen: Login}
   },
   {
-    initialRouteName: 'MenuScreen',
+    initialRouteName: 'LoginScreen',
     headerMode: 'none',
     cardStyle: { shadowColor: 'transparent' },
     navigationOptions: {
@@ -172,8 +174,8 @@ export default class App extends Component {
     return (
       //<View style={{flex: 1}}>
       <SafeAreaView style={{flex: 1, backgroundColor: '#c0c0c0'}}>
-        {/*<RootStack />*/}
-        <TabNavigator />
+        <RootStack />
+        {/*<TabNavigator />*/}
       </SafeAreaView>
       //</View>
     );
