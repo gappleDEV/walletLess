@@ -173,7 +173,7 @@ export default class App extends Component {
   render() {
     return (
       //<View style={{flex: 1}}>
-      <SafeAreaView style={{flex: 1, backgroundColor: '#c0c0c0'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: '#2f3c51'}}>
         <RootStack />
         {/*<TabNavigator />*/}
       </SafeAreaView>

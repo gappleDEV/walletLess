@@ -7,7 +7,8 @@ import {
   Animated,
   StyleSheet
 } from 'react-native';
-import FontAwesome, { Icons } from 'react-native-fontawesome';
+//import FontAwesome, { Icons } from 'react-native-fontawesome';
+import FontAwesome5, { Icons } from 'react-native-vector-icons/FontAwesome5';
 
 let labelData = {
   topPadding: 10,
@@ -69,9 +70,9 @@ export default class FloatingLabelInputIcon extends Component {
     
     return (
       <View style={styles.container}>
-        <FontAwesome style={[styles.icon, {fontSize: this.props.newFontSize ? this.props.newFontSize : labelData.startFontSize,}]}>{
+        <FontAwesome5 style={[styles.icon, {fontSize: this.props.newFontSize ? this.props.newFontSize : labelData.startFontSize,}]}>{
           this.props.icon}
-        </FontAwesome>
+        </FontAwesome5>
         <Animated.Text style={labelStyle}>
           {label}
         </Animated.Text>
