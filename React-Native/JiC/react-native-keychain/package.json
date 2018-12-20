@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-keychain@^3.0.0-rc.3",
+        "scope": null,
+        "escapedName": "react-native-keychain",
+        "name": "react-native-keychain",
+        "rawSpec": "^3.0.0-rc.3",
+        "spec": ">=3.0.0-rc.3 <4.0.0",
+        "type": "range"
+      },
+      "/Users/gregoryjohnson/Documents/GitHub/walletLess/React-Native/WalletLess"
+    ]
+  ],
+  "_from": "react-native-keychain@>=3.0.0-rc.3 <4.0.0",
+  "_id": "react-native-keychain@3.0.0",
+  "_inCache": true,
+  "_location": "/react-native-keychain",
+  "_nodeVersion": "10.7.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-native-keychain_3.0.0_1532074476949_0.39096973026309856"
+  },
+  "_npmUser": {
+    "name": "oblador",
+    "email": "joel@oblador.se"
+  },
+  "_npmVersion": "6.1.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-keychain@^3.0.0-rc.3",
+    "scope": null,
+    "escapedName": "react-native-keychain",
+    "name": "react-native-keychain",
+    "rawSpec": "^3.0.0-rc.3",
+    "spec": ">=3.0.0-rc.3 <4.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-keychain/-/react-native-keychain-3.0.0.tgz",
+  "_shasum": "29da1dfa43c2581f76bf9420914fd38a1558cf18",
+  "_shrinkwrap": null,
+  "_spec": "react-native-keychain@^3.0.0-rc.3",
+  "_where": "/Users/gregoryjohnson/Documents/GitHub/walletLess/React-Native/WalletLess",
+  "author": {
+    "name": "Joel Arvidsson",
+    "email": "joel@oblador.se"
+  },
+  "bugs": {
+    "url": "https://github.com/oblador/react-native-keychain/issues"
+  },
+  "dependencies": {},
+  "description": "Keychain Access for React Native",
+  "devDependencies": {
+    "flow-bin": "0.61.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-0incABt1+aXsZvG34mDV57KKanSB+iMHmxvWv+N6lgpNLaSoqrCxazjbZdeqD4qJ7Z+Etp5CLf/4v1aI+sNLBw==",
+    "shasum": "29da1dfa43c2581f76bf9420914fd38a1558cf18",
+    "tarball": "https://registry.npmjs.org/react-native-keychain/-/react-native-keychain-3.0.0.tgz",
+    "fileCount": 29,
+    "unpackedSize": 151822,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbUZntCRA9TVsSAnZWagAAyoQP/2fsLh9JWPvpARRdh1DW\nTJvgCbx436cOZZfPSKHnXfmj2Veh+/w8+lwWlyUL49DlX2QgGRXE8YTrVdh4\nNl4BFr4WNzGZbWkdvz2n/Oy4fJlI/tBRqHJ4ipqjlZZkwoRb6GWNPOK8mvTZ\nMY1dmmZbvICbJoMU4e09QabL/7tPXHLC1CQV4ouMWrkHAmfSmBh7y3n9UAtg\nFxpv3y5FOEetXDHo+M7uXVTtG4/rOvrOlmlqv1CsxaHrwJ2hz9VmwhjegMGl\nOnF9B3AhQyniiA7zKaoMGUfrXRMARrzt1hV+WL6GczqnJyAG4S7zr0LHE2mw\nhKQy1KIMgxtkR2kT/Q5ZhKaRWIqrBeToxmgiBf3y3gvSTnzL9Qhpwv6r0igO\nfwxzL3KgA768/M1Pr/npZ9AFNt9iS48FzWQbBFDe4lXAt/Z0GRzM01yhpA5J\nPyVMSSa25gNevkINJQGx/SUBV+pyMOTs/yMlCLMUlgBF7La1zmIIkGnpIXso\n4aMEcQTGZ2qrBrtbhwv8N5qepjsjm7At2BIfXUUtei+qLGDkHEaPNxu7uF3w\naZ8vmzojgXBv+JUVkTBWyAGQiopEdCUubscR69IIUrPk0PKx1e1IbOteDq/c\nK6GpktrGZiT7rpgL/U/xGGcW2XKRFqE0Y+E55IaMD0ekaMtY3Wr9BO69ip1X\nG2kB\r\n=SPvr\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "554701f5be0745f6ba5e752f15cddc89816ce581",
+  "homepage": "https://github.com/oblador/react-native-keychain",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "mobile",
+    "ios",
+    "android",
+    "keychain"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "oblador",
+      "email": "joel@oblador.se"
+    }
+  ],
+  "name": "react-native-keychain",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oblador/react-native-keychain.git"
+  },
+  "scripts": {
+    "test": "flow"
+  },
+  "types": "typings/react-native-keychain.d.ts",
+  "typescript": {
+    "definition": "typings/react-native-keychain.d.ts"
+  },
+  "version": "3.0.0"
+}

@@ -1,0 +1,110 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-progress-circle@^2.0.0",
+        "scope": null,
+        "escapedName": "react-native-progress-circle",
+        "name": "react-native-progress-circle",
+        "rawSpec": "^2.0.0",
+        "spec": ">=2.0.0 <3.0.0",
+        "type": "range"
+      },
+      "/Users/gregoryjohnson/Documents/GitHub/walletLess/React-Native/WalletLess"
+    ]
+  ],
+  "_from": "react-native-progress-circle@>=2.0.0 <3.0.0",
+  "_hasShrinkwrap": false,
+  "_id": "react-native-progress-circle@2.0.1",
+  "_inCache": true,
+  "_location": "/react-native-progress-circle",
+  "_nodeVersion": "8.2.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-native-progress-circle_2.0.1_1540732952660_0.8372999616896235"
+  },
+  "_npmUser": {
+    "name": "cmichel",
+    "email": "mail@cmichel.io"
+  },
+  "_npmVersion": "5.3.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-progress-circle@^2.0.0",
+    "scope": null,
+    "escapedName": "react-native-progress-circle",
+    "name": "react-native-progress-circle",
+    "rawSpec": "^2.0.0",
+    "spec": ">=2.0.0 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-progress-circle/-/react-native-progress-circle-2.0.1.tgz",
+  "_shasum": "6a034bef69a13c3b7f1a33722527046d088c233d",
+  "_shrinkwrap": null,
+  "_spec": "react-native-progress-circle@^2.0.0",
+  "_where": "/Users/gregoryjohnson/Documents/GitHub/walletLess/React-Native/WalletLess",
+  "author": {
+    "name": "Christoph Michel"
+  },
+  "bugs": {
+    "url": "https://github.com/MrToph/react-native-progress-circle/issues"
+  },
+  "dependencies": {},
+  "description": "A light-weight progress circle indicator for React Native.",
+  "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-Cb2bBJ+m4DIcUnv7zaRvhMuaZAb1cWrd0UUMFJz/F7Z5yMga3A7SrQGDhtUrcpBju4peyqtUMoQG8dOFEuCVog==",
+    "shasum": "6a034bef69a13c3b7f1a33722527046d088c233d",
+    "tarball": "https://registry.npmjs.org/react-native-progress-circle/-/react-native-progress-circle-2.0.1.tgz",
+    "fileCount": 9,
+    "unpackedSize": 162228,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb1bgZCRA9TVsSAnZWagAAkdgQAI0wOAqIXYmGZpHIcEGe\nZRAFRO841uA8CVq1PLTBDNwU/xGyELBiyJYIa8R+goa3PaYaeo8TlPg3/Np5\nxI27VNgxwAg6MIEZdIpKDJ8qIj0mndIhBLH+L22vzoPLHzZbB8VoztdQ6Cub\nWQ7M9XAXr4LntdwGpCTBJPeArLDnzQTrYoAr15RqtjfN6uTAfZPnPRBPywa3\n94QIo9LIaGCyfUIywDVN1qQa0zUmF7xLUgM9biqAMTkWTy21e4cwnI8OZqoY\nQYY0r9vkBt24TtS+Am7VMJHBWViKmyM6rqte2w8B4f+7tW4AZdUnZFlIH4zI\nbAHsL90Y8gNnYeBMryPZWEZmavB7rEZoVZ3F6h94igDHLO8xy6y8cSnIEzL9\nY5zBTxTMJG1tjFo71prdjq7aJru0jD8b9QCKkHj+6LzMWQ439J7qX9LnqDU6\nxJKdNbQjvxT5iKJwgCIP7Hi/thTk/+YZ121wlaSsE227lkoUKa+XNzobrW3X\n2lTLWJ4JkmNgJ2R1w1Jk7+ZOLvMJXW7JHb4x2MuPaWvDWYX7sdbEmkv03k+l\ntnTuYAW9X2lEyBQQxaDkPPTL+krB5kvDK+opCLTqrd+oleEsX5goX7CITLN7\nh7exSWMheJi9haJs35vSAsPOoPuH70bvQvxNDyoNC90ShUEQSmRmysNlr500\n7fzT\r\n=4w/e\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "dfc5c39b1f576f446f872cb82b85d728cde542fb",
+  "homepage": "https://github.com/MrToph/react-native-progress-circle#readme",
+  "keywords": [
+    "react",
+    "react native",
+    "percentage",
+    "circle",
+    "progress",
+    "indicator"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "maintainers": [
+    {
+      "name": "cmichel",
+      "email": "mail@cmichel.io"
+    }
+  ],
+  "name": "react-native-progress-circle",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": "*",
+    "react": "*",
+    "prop-types": "*"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MrToph/react-native-progress-circle.git"
+  },
+  "scripts": {},
+  "version": "2.0.1"
+}

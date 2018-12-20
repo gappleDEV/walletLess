@@ -1,0 +1,191 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-navigation@^2.5.5",
+        "scope": null,
+        "escapedName": "react-navigation",
+        "name": "react-navigation",
+        "rawSpec": "^2.5.5",
+        "spec": ">=2.5.5 <3.0.0",
+        "type": "range"
+      },
+      "/Users/gregoryjohnson/Documents/GitHub/walletLess/React-Native/WalletLess"
+    ]
+  ],
+  "_from": "react-navigation@>=2.5.5 <3.0.0",
+  "_hasShrinkwrap": false,
+  "_id": "react-navigation@2.18.3",
+  "_inCache": true,
+  "_location": "/react-navigation",
+  "_nodeVersion": "10.9.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-navigation_2.18.3_1543269728998_0.42759380005272396"
+  },
+  "_npmUser": {
+    "name": "brentvatne",
+    "email": "brentvatne@gmail.com"
+  },
+  "_npmVersion": "6.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-navigation@^2.5.5",
+    "scope": null,
+    "escapedName": "react-navigation",
+    "name": "react-navigation",
+    "rawSpec": "^2.5.5",
+    "spec": ">=2.5.5 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-navigation/-/react-navigation-2.18.3.tgz",
+  "_shasum": "de9a24dc37dfc33f3e4779a9f13f45ea97dfe19e",
+  "_shrinkwrap": null,
+  "_spec": "react-navigation@^2.5.5",
+  "_where": "/Users/gregoryjohnson/Documents/GitHub/walletLess/React-Native/WalletLess",
+  "author": {
+    "name": "Adam Miskiewicz",
+    "email": "adam@sk3vy.com"
+  },
+  "bugs": {
+    "url": "https://github.com/react-navigation/react-navigation/issues"
+  },
+  "dependencies": {
+    "clamp": "^1.0.1",
+    "create-react-context": "0.2.2",
+    "hoist-non-react-statics": "^2.2.0",
+    "path-to-regexp": "^1.7.0",
+    "query-string": "^6.1.0",
+    "react-is": "^16.5.2",
+    "react-lifecycles-compat": "^3",
+    "react-native-safe-area-view": "0.11.0",
+    "react-native-screens": "^1.0.0-alpha.11",
+    "react-navigation-deprecated-tab-navigator": "1.3.0",
+    "react-navigation-drawer": "0.5.0",
+    "react-navigation-stack": "0.7.0",
+    "react-navigation-tabs": "0.8.4"
+  },
+  "description": "Routing and navigation for your React Native apps",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^22.4.1",
+    "babel-preset-react-native": "^2.1.0",
+    "codecov": "^2.2.0",
+    "eslint": "^4.2.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.14.3",
+    "jest": "^22.1.3",
+    "jest-expo": "^25.1.0",
+    "lint-staged": "^4.2.1",
+    "prettier": "^1.12.1",
+    "prettier-eslint": "^8.8.1",
+    "react": "16.5.2",
+    "react-native": "^0.52.0",
+    "react-native-vector-icons": "^4.2.0",
+    "react-test-renderer": "^16.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-/5KGMG1Oj5LN/x/7AKF0MWrpX9Qe29307RxEsMCiRT/A4jCYT0DPY99Bl7ZAGtROxExEy3rwTfTrtvpIT+CU7A==",
+    "shasum": "de9a24dc37dfc33f3e4779a9f13f45ea97dfe19e",
+    "tarball": "https://registry.npmjs.org/react-navigation/-/react-navigation-2.18.3.tgz",
+    "fileCount": 97,
+    "unpackedSize": 360050,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/G1hCRA9TVsSAnZWagAAAL8P/1EJAXWVcoA9SEHyXky0\nN3TaxNJ4oydXSMhiwzsYgs0oAGeUCH2YiOKrW1UlWrBUOQ/iiJ+tLiW1QX1E\n02rNDNqPVBVHj3MINWxi3jINqXn/MNRe6wfb5hsRNU1wjzcKWSr4KaExcgpJ\naUbake1iunTkHYm1wzXmZBXGEoBCYcsQtZNyJqGb2f+7Btwp6LZX3JAkkIqG\n7aRA+287YywWbV5c1qLrqxYo04gfZpe9BuG2W3EsHN4IttbrWWizzs6V7ywk\nHapbz0Yg5COyIgLSsJYzId97Gdk4xARHRELAw57T3xuQ69SmCBNgcn6xBhpk\nJygX8XniW0RodSg9EDOFJcpkIUhxrZ9iG/9aEadChEquPpF98/6eDsPIU85x\nC9A8MS8R3kc/sc6X8hpoaZlneFJjKLl6RtBWNIGZ7P/3kzcpjQMOTAmzcvit\ngSdVm76Dvk0GDaNP8y/FEn/+vX9JJiytzy8qaVkSG6Zo3p5jr2tkWZQhFmjC\neMLfsCav0zJJsVmvSQFQXd1IS14L+PDpxv4KAPNr5CXYSUGtvYv1yw7bnmlh\nud4Y5vtKC56wfSgAFxkyUrFwVPJbZx+SGsgbMtDvmunsNaFboSmagx2GUCe0\nrm9urLc/tF3iomEHbNKqwSviefuwIKfLZFbkJDgQc685uttTNe5tLrzVCoOZ\nZsgq\r\n=lGxq\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "ed9ee4d5e55750a2bb84832615500a6ed3ec920d",
+  "homepage": "https://github.com/react-navigation/react-navigation#readme",
+  "jest": {
+    "notify": true,
+    "preset": "react-native",
+    "testRegex": "/__tests__/[^/]+-test\\.js$",
+    "setupFiles": [
+      "<rootDir>/jest-setup.js"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "jest-setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.png$": "<rootDir>/assetsTransformer.js"
+    },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/examples/"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|react-navigation-deprecated-tab-navigator|react-navigation-stack)"
+    ]
+  },
+  "license": "BSD-2-Clause",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write flow/react-navigation.js",
+      "git add"
+    ]
+  },
+  "main": "src/react-navigation.js",
+  "maintainers": [
+    {
+      "name": "brentvatne",
+      "email": "brentvatne@gmail.com"
+    },
+    {
+      "name": "ericvicenti",
+      "email": "ericvicenti@gmail.com"
+    },
+    {
+      "name": "grabbou",
+      "email": "grabbou@gmail.com"
+    },
+    {
+      "name": "satya164",
+      "email": "satyajit.happy@gmail.com"
+    },
+    {
+      "name": "skevy",
+      "email": "adam@sk3vy.com"
+    }
+  ],
+  "name": "react-navigation",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "readme": "# React Navigation\n\n[![npm version](https://badge.fury.io/js/react-navigation.svg)](https://badge.fury.io/js/react-navigation) [![codecov](https://codecov.io/gh/react-navigation/react-navigation/branch/master/graph/badge.svg)](https://codecov.io/gh/react-navigation/react-navigation) [![CircleCI badge](https://circleci.com/gh/react-navigation/react-navigation/tree/master.svg?style=shield)](https://circleci.com/gh/react-navigation/react-navigation/tree/master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactnavigation.org/docs/contributing.html)\n\nReact Navigation is born from the React Native community's need for an extensible yet easy-to-use navigation solution based on Javascript.\n\n## Installation\n\nSince the library is a JS-based solution, to install the latest version of react-navigation you only need to run:\n\n```bash\nyarn add react-navigation\n```\n\nor\n\n```bash\nnpm install --save react-navigation\n```\n\n## Documentation\n\n* The best way to learn is to follow the [Getting started guide](https://reactnavigation.org/docs/getting-started.html). It guides you through the fundamentals of React Navigation.\n* The documentation includes solutions for common use cases in the \"How do I do ...?\" section, such as [tab navigation](https://reactnavigation.org/docs/tab-based-navigation.html) and [Redux integration](https://reactnavigation.org/docs/redux-integration.html).\n* If you need to build your own navigator, [there's a section for that](https://reactnavigation.org/docs/custom-navigator-overview.html) too.\n* The [API reference](https://reactnavigation.org/docs/api-reference.html) lists all public APIs.\n* The [Community Resources](https://github.com/react-navigation/react-navigation/blob/master/COMMUNITY_RESOURCES.md) document lists some other resources submitted to us by people who use React Navigation. Feel free to open a pull request to add your resource to the list.\n* You can contribute improvements to the documentation [in the website repository](https://github.com/react-navigation/react-navigation.github.io).\n\n## Try it out\n\nYou can also try out the [Navigation Playground app](https://exp.host/@react-navigation/NavigationPlayground) to get a sense for some of the tools built in to React Navigation. The \"Fundamentals\" in the documentation also include examples you can play with.\n\n## FAQs\n\n#### I'm having troubles using the library, what can I do?\n\nSee [the help page](https://reactnavigation.org/en/help.html).\n\n#### How can I help?\n\nSee our [Contributing Guide](CONTRIBUTING.md)!\n\n#### Is this the only library available for navigation?\n\nCertainly not! There other libraries - which, depending on your needs, can be better or worse suited for your project. Read more in the [alternative libraries](https://reactnavigation.org/docs/alternatives.html) documentation, and read React Navigation's [pitch & anti-pitch](https://reactnavigation.org/docs/pitch.html) to understand the tradeoffs.\n\n#### Can I use this library for web?\n\nWeb support was [not a priority for the 1.0 release](https://github.com/react-community/react-navigation/issues/2585#issuecomment-330338793), but the architecture of this library allows for it (and it has worked in the past). If you would like to lead this charge, please reach out with your ideas for how to move forward on the [RFCs repository](https://github.com/react-navigation/rfcs) and we would be happy to discuss.\n\n## Code of conduct\n\nThis library has adopted a Code of Conduct that we expect project participants to adhere to. Please read the [full text](https://github.com/react-community/react-navigation/blob/master/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.\n\n## License\n\nReact Navigation is licensed under the [BSD 2-clause \"Simplified\" License](https://github.com/react-community/react-navigation/blob/master/LICENSE).\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "url": "git+ssh://git@github.com/react-navigation/react-navigation.git",
+    "type": "git"
+  },
+  "scripts": {
+    "android": "cd examples/NavigationPlayground && yarn && yarn android",
+    "codecov": "codecov",
+    "format": "eslint --fix .",
+    "ios": "cd examples/NavigationPlayground && yarn && yarn ios",
+    "jest": "jest",
+    "lint": "eslint .",
+    "precommit": "lint-staged",
+    "start": "npm run ios",
+    "test": "npm run lint && npm run jest",
+    "test-update-snapshot": "jest --updateSnapshot"
+  },
+  "version": "2.18.3"
+}
