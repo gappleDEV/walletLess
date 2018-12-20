@@ -15,7 +15,17 @@ import LinearGradient from 'react-native-linear-gradient';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Card from '../Card/Card';
+import Bank from '../../schema/Bank';
+import CreditCard from '../../schema/CreditCard';
+import Employment from '../../schema/Employment';
+import GeneralInsurance from '../../schema/GeneralInsurance';
+import HealthcareInsurance from '../../schema/HealthcareInsurance';
+import HomeownersInsurance from '../../schema/HomeownersInsurance';
+import MotorVehicleDocs from '../../schema/MotorVehicleDocs';
+import MotorVehicleInsurance from '../../schema/MotorVehicleInsurance';
+import Personal from '../../schema/Personal';
+import Prescription from '../../schema/Prescription';
+import User from '../../schema/User';
 
 const font = Platform.select({
     ios: 'System',
@@ -35,9 +45,46 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            realm: null,
             email: '',
             password: ''
         };
+    }
+
+    /* componentWillMount() {
+        Realm.open({
+            schema: [Personal], encryptionKey: this.props.screenProps.key
+        }).then(realm => {
+            this.setState({ realm });
+        });
+    } */
+
+    checkLoginAndOpenRealm = () => {
+        //TBD: Check if the email and password match an account
+
+        Realm.open({
+            schema: [Bank, CreditCard, Employment, GeneralInsurance, HealthcareInsurance, HomeownersInsurance,
+                MotorVehicleDocs, MotorVehicleInsurance, Personal, Prescription, User], encryptionKey: this.props.screenProps.key
+        }).then(realm => {
+            let allInfo = realm.objects('User');
+            if(allInfo.length == 0) {
+                realm.write(() => {
+                    realm.create('User', { id: 1, email: 'walletless@gmail.com', password: 'password' }, true);
+                })
+            } else {
+                let myUser = allInfo[0]; //at most 1 user saved locally
+                if(myUser.email.toUpperCase() == this.state.email.toUpperCase() && myUser.password == this.state.password) {
+                    realm.write(() => {
+                        realm.create('Personal', { id: 1, firstName: 'Gregory' }, true);
+                    });
+                    this.setState({realm});
+                    this.props.navigation.navigate('MenuScreen', {
+                        realm: this.state.realm
+                    });
+                }
+            }        
+        });
+
     }
 
     render() {
@@ -45,11 +92,16 @@ export default class Login extends Component {
         const { navigation } = this.props;
         //const sections = navigation.getParam('sections', {});
 
+        /* const info = this.state.realm
+      ? 'Name: ' + this.state.realm.objects('Personal')[0].firstName
+      : 'Loading...'; */
+
         return (
             <View style={styles.dataInputContainer}>
                 <View style={styles.imageContainer}>
                     <Image source={require('./Logo.png')} style={styles.image} />
                     <Text style={styles.companyText}>{'WalletLess'}</Text>
+                    {/* <Text style={{borderColor: 'black', borderWidth: 2}}>{info}</Text> */}
                 </View>
                 <View style={styles.inputContainer}>
                     <View style={styles.emailInput}>
@@ -79,7 +131,8 @@ export default class Login extends Component {
                     <TouchableHighlight onPress={() => console.log('Forgot password Pressed')} underlayColor="transparent">
                         <Text style={styles.forgotText}>Forgot password?</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={() => this.props.navigation.navigate('MenuScreen')} underlayColor={colors.bg}>
+                    <TouchableHighlight
+                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor={colors.bg}>
                         <LinearGradient
                             start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                             colors={[colors.gradStart, colors.gradEnd]}

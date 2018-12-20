@@ -26,6 +26,13 @@ import prescription from './../../data/prescription.json';
 
 export default class Menu extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            realm: null
+        };
+    }
+
     getCompartments() {
         let toRet = [];
 
@@ -44,9 +51,17 @@ export default class Menu extends Component {
     }
 
     render() {
+
+        const { navigation } = this.props;
+        const realm = navigation.getParam('realm', {});
+
+        const fName = realm
+      ? realm.objects('Personal')[0].firstName
+      : 'Loading...';
+
         return (
             <View style={styles.container}>
-                <MenuHeader style={styles.header} name={'Gregory'}/>
+                <MenuHeader style={styles.header} name={fName}/>
                 <ScrollView style={styles.scroll}>
                     {this.getCompartments()}
                 </ScrollView>

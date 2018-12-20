@@ -102,10 +102,13 @@ const username = 'gsoccer'; //TBD to user's username when account creation is im
 
 export default class App extends Component {
 
-  state = {
-    value: '',
-    realm: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = { 
+      realm: null,
+      key: '' 
+    };
+  }
 
   wordNum = ''
   key = '';
@@ -149,32 +152,18 @@ export default class App extends Component {
       });
       console.log(keyTemp);
       this.key = keyTemp;
+      this.state.key = keyTemp;
     } else {
       console.log("All tries to get realm key used. Realm cannot be opened at this time");
     }
 
-    Realm.open({
-      schema: [Personal], encryptionKey: this.key
-    }).then(realm => {
-      realm.write(() => {
-        let allInfo = realm.objects('Personal');
-        //realm.delete(allInfo); // to delete all in the table
-        if(allInfo.length == 0) {
-          const personInfo = realm.create('Personal', {id: 1});
-        }
-        console.log(Array.from(realm.objects('Personal')));
-      });
-      this.setState({realm});
-    });
   }
-
-  //handleTextChange = (newText) => this.setState({ value: newText });
 
   render() {
     return (
       //<View style={{flex: 1}}>
       <SafeAreaView style={{flex: 1, backgroundColor: '#2f3c51'}}>
-        <RootStack />
+        <RootStack screenProps={this.state}/>
         {/*<TabNavigator />*/}
       </SafeAreaView>
       //</View>
