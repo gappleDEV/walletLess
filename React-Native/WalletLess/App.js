@@ -11,7 +11,7 @@ import {
   View,
   Text
 } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 import * as Keychain from 'react-native-keychain';
 
 //Icons on tab nav
@@ -42,33 +42,74 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const RootStack = createStackNavigator(
-  {
-    MenuScreen: { screen: Menu },
-    DataInputScreen: { screen: DataInput },
-    LoginScreen: {screen: Login}
+const ScreenStack = createStackNavigator({
+  LoginScreen: {
+    screen: Login,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    }),
   },
-  {
-    initialRouteName: 'LoginScreen',
-    headerMode: 'none',
-    cardStyle: { shadowColor: 'transparent' },
-    navigationOptions: {
-      headerVisible: false
-    }
+  RegisterScreen: {
+    screen: Register,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    }),
+  },
+  DataInputScreen: {
+    screen: DataInput,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    }),
+  },
+  HomeScreen: {
+    screen: createBottomTabNavigator({
+      MenuScreen: {
+        screen: Menu,
+        navigationOptions: ({ navigation }) => ({
+          title: 'Home',
+          tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.listUl}</FontAwesome>;
+          },
+        }),
+      },
+      TakePictureScreen: {
+        screen: TakePicture,
+        navigationOptions: ({ navigation }) => ({
+          title: 'Reports',
+          tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.camera}</FontAwesome>;
+          },
+        }),
+      },
+    }, {
+      initialRouteName: 'MenuScreen',
+      tabBarOptions : {
+        activeTintColor: '#1262B2',
+        inactiveTintColor: '#888888',
+        style: {
+          paddingTop: 10,
+          backgroundColor: '#c0c0c0',
+        },
+        labelStyle: { 
+          fontSize: 14
+        }
+      }
+    }),
+    navigationOptions: ({ navigation }) => ({
+      title: 'Home',
+    }),
+  },
+},
+{
+  initialRouteName: 'LoginScreen',
+  headerMode: 'none',
+  cardStyle: { shadowColor: 'transparent' },
+  navigationOptions: {
+    headerVisible: false
   }
-);
+});
 
-class SettingsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
-
-const TabNavigator = createBottomTabNavigator({
+/* const TabNavigator = createBottomTabNavigator({
   Home: { screen: RootStack, navigationOptions: ({ navigation }) => ({
     title: "Menu",
     tabBarIcon: ({ focused, horizontal, tintColor }) => {
@@ -96,7 +137,7 @@ const TabNavigator = createBottomTabNavigator({
         fontSize: 14
       }
     }
-});
+}); */
 
 const username = 'gsoccer'; //TBD to user's username when account creation is implemented
 
@@ -163,7 +204,7 @@ export default class App extends Component {
     return (
       //<View style={{flex: 1}}>
       <SafeAreaView style={{flex: 1, backgroundColor: '#2f3c51'}}>
-        <RootStack screenProps={this.state}/>
+        <ScreenStack screenProps={this.state}/>
         {/*<TabNavigator />*/}
       </SafeAreaView>
       //</View>

@@ -60,7 +60,6 @@ export default class Login extends Component {
     } */
 
     checkLoginAndOpenRealm = () => {
-        //TBD: Check if the email and password match an account
 
         Realm.open({
             schema: [Bank, CreditCard, Employment, GeneralInsurance, HealthcareInsurance, HomeownersInsurance,
@@ -78,7 +77,7 @@ export default class Login extends Component {
                         realm.create('Personal', { id: 1, firstName: 'Gregory' }, true);
                     });
                     this.setState({realm});
-                    this.props.navigation.navigate('MenuScreen', {
+                    this.props.navigation.navigate('HomeScreen', {
                         realm: this.state.realm
                     });
                 }
@@ -99,7 +98,7 @@ export default class Login extends Component {
         return (
             <View style={styles.dataInputContainer}>
                 <View style={styles.imageContainer}>
-                    <Image source={require('./Logo.png')} style={styles.image} />
+                    <Image source={require('./../../images/Logo.png')} style={styles.image} />
                     <Text style={styles.companyText}>{'WalletLess'}</Text>
                     {/* <Text style={{borderColor: 'black', borderWidth: 2}}>{info}</Text> */}
                 </View>

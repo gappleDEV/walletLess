@@ -5,6 +5,7 @@ import {
     TextInput,
     Text,
     Animated,
+    Image,
     StyleSheet
 } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
@@ -24,7 +25,8 @@ export default class MenuHeader extends Component {
                     <Text style={styles.dateText}>{this.months[this.today.getMonth()] + " " + this.today.getDate() + ", " + this.today.getFullYear()}</Text>
                 </View>
                 <View style={styles.center}>
-                    <FontAwesome style={styles.icon}>{Icons.userCircleO}</FontAwesome>
+                    {/* <FontAwesome style={styles.icon}>{Icons.userCircleO}</FontAwesome> */}
+                    <Image source={require('./../../images/Logo.png')} style={styles.image} />
                 </View>
             </View>
         );
@@ -33,7 +35,7 @@ export default class MenuHeader extends Component {
 
 const styles = StyleSheet.create({
     banner: {
-        backgroundColor: '#c0c0c0',
+        backgroundColor: '#2F3C51',
         height: 80,
         paddingTop: 5,
         flexDirection: 'row'
@@ -43,21 +45,25 @@ const styles = StyleSheet.create({
         paddingLeft: 10
     },
     helloText: {
-        color: '#efefef',
+        color: '#AFB6C0',
         height: 38,
         fontSize: 32,
         fontWeight: '200',
         //paddingBottom: 10
     },
     dateText: {
-        color: '#efefef',
-        fontSize: 16,
-        fontWeight: '400'
+        color: '#AFB6C0',
+        fontSize: 18,
+        fontWeight: '200'
     },
     center: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    image: {
+        width: 70,
+        height: 70
     },
     icon: {
         fontSize: 48,
