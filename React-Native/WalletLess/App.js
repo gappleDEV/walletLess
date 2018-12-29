@@ -9,7 +9,8 @@ import {
   Platform,
   StyleSheet,
   View,
-  Text
+  Text,
+  Dimensions
 } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 import * as Keychain from 'react-native-keychain';
@@ -42,6 +43,10 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+let d = Dimensions.get('window');
+const { height, width } = d;
+const isIphoneX = Platform.OS === 'ios' && (height === 812 || width === 812);
+
 const ScreenStack = createStackNavigator({
   LoginScreen: {
     screen: Login,
@@ -67,7 +72,7 @@ const ScreenStack = createStackNavigator({
         screen: Menu,
         navigationOptions: ({ navigation }) => ({
           title: 'Home',
-          tabBarIcon: ({ focused, horizontal, tintColor }) => {
+           tabBarIcon: ({ focused, horizontal, tintColor }) => {
             return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.listUl}</FontAwesome>;
           },
         }),
@@ -76,7 +81,7 @@ const ScreenStack = createStackNavigator({
         screen: TakePicture,
         navigationOptions: ({ navigation }) => ({
           title: 'Reports',
-          tabBarIcon: ({ focused, horizontal, tintColor }) => {
+           tabBarIcon: ({ focused, horizontal, tintColor }) => {
             return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.camera}</FontAwesome>;
           },
         }),
@@ -84,11 +89,12 @@ const ScreenStack = createStackNavigator({
     }, {
       initialRouteName: 'MenuScreen',
       tabBarOptions : {
-        activeTintColor: '#1262B2',
-        inactiveTintColor: '#888888',
-        style: {
+        activeTintColor: '#17B7C8',
+        inactiveTintColor: '#AFB6C0',
+         style: {
           paddingTop: 10,
-          backgroundColor: '#c0c0c0',
+          backgroundColor: '#2F3C51',
+          paddingBottom: 0
         },
         labelStyle: { 
           fontSize: 14
@@ -108,36 +114,6 @@ const ScreenStack = createStackNavigator({
     headerVisible: false
   }
 });
-
-/* const TabNavigator = createBottomTabNavigator({
-  Home: { screen: RootStack, navigationOptions: ({ navigation }) => ({
-    title: "Menu",
-    tabBarIcon: ({ focused, horizontal, tintColor }) => {
-      return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.listUl}</FontAwesome>;
-    },
-  })},
-  Picture: { screen: TakePicture,
-  navigationOptions: ({ navigation }) => ({
-    title: "Take Picture",
-    tabBarIcon: ({ focused, horizontal, tintColor }) => {
-      return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.camera}</FontAwesome>;
-    },
-  })
-  }
-},
-{
-    tabBarOptions : {
-      activeTintColor: '#1262B2',
-      inactiveTintColor: '#888888',
-      style: {
-        paddingTop: 10,
-        backgroundColor: '#c0c0c0',
-      },
-      labelStyle: { 
-        fontSize: 14
-      }
-    }
-}); */
 
 const username = 'gsoccer'; //TBD to user's username when account creation is implemented
 
@@ -203,10 +179,12 @@ export default class App extends Component {
   render() {
     return (
       //<View style={{flex: 1}}>
-      <SafeAreaView style={{flex: 1, backgroundColor: '#2f3c51'}}>
+      //<SafeAreaView style={{flex: 1, backgroundColor: 'grey'}}>
+      <View style={[{flex: 1, backgroundColor: '#2F3C51'}, , isIphoneX && {paddingTop: 44}]}>
         <ScreenStack screenProps={this.state}/>
-        {/*<TabNavigator />*/}
-      </SafeAreaView>
+      </View>
+        //<TabNavigator />
+      //</SafeAreaView>
       //</View>
     );
   }

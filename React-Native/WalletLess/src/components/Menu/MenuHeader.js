@@ -25,7 +25,6 @@ export default class MenuHeader extends Component {
                     <Text style={styles.dateText}>{this.months[this.today.getMonth()] + " " + this.today.getDate() + ", " + this.today.getFullYear()}</Text>
                 </View>
                 <View style={styles.center}>
-                    {/* <FontAwesome style={styles.icon}>{Icons.userCircleO}</FontAwesome> */}
                     <Image source={require('./../../images/Logo.png')} style={styles.image} />
                 </View>
             </View>
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     container: {
-        flex: 4,
+        flex: 3,
         paddingLeft: 10
     },
     helloText: {
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
         height: 38,
         fontSize: 32,
         fontWeight: '200',
-        //paddingBottom: 10
     },
     dateText: {
         color: '#AFB6C0',
@@ -58,15 +56,10 @@ const styles = StyleSheet.create({
     },
     center: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     image: {
-        width: 70,
-        height: 70
-    },
-    icon: {
-        fontSize: 48,
-        color: '#efefef'
+        width: 60,
+        height: 60
     }
 })
