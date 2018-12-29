@@ -17,6 +17,8 @@ import * as Keychain from 'react-native-keychain';
 
 //Icons on tab nav
 import FontAwesome, { Icons } from 'react-native-fontawesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 //For IPhone X
 import SafeAreaView from 'react-native-safe-area-view';
@@ -82,7 +84,7 @@ const ScreenStack = createStackNavigator({
         navigationOptions: ({ navigation }) => ({
           title: 'Reports',
            tabBarIcon: ({ focused, horizontal, tintColor }) => {
-            return <FontAwesome style={{color: tintColor, fontSize: 20}}>{Icons.camera}</FontAwesome>;
+            return <MaterialCommunityIcon name={'view-grid'} style={{color: tintColor, fontSize: 20}} />;
           },
         }),
       },
