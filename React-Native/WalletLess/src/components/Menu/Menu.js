@@ -79,6 +79,6 @@ const styles = StyleSheet.create({
         //flex: 1
     },
     scroll: {
-        backgroundColor: '#f8f8f8',
+        backgroundColor: '#AFB6C0',
     }
 });

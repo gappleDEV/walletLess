@@ -7,11 +7,20 @@ import {
     Animated,
     StyleSheet
 } from 'react-native';
-import ProgressCircle from 'react-native-progress-circle'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 import Card from './Card';
 
 export default class CardCompartment extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { 
+          percent: 0 
+        };
+      }
 
     getSubs = () => {
         toRet = [];
@@ -24,14 +33,23 @@ export default class CardCompartment extends Component {
             if(subInfo2) {
                 toRet.push(
                     <View key={i} style={styles.subContainer}>
-                        <Text style={styles.sub} key={subInfo1.key}>{subInfo1.name}</Text>
-                        <Text style={styles.sub} key={subInfo2.key}>{subInfo2.name}</Text>
+                        <View style={{flexDirection: 'row', marginTop: 5}}>
+                            <View style={styles.bullet}></View>
+                            <Text style={styles.sub} key={subInfo1.key}>{subInfo1.name}</Text>
+                        </View>
+                        <View style={{flexDirection: 'row', marginTop: 5}}>
+                            <View style={styles.bullet}></View>
+                            <Text style={styles.sub} key={subInfo2.key}>{subInfo2.name}</Text>
+                        </View>
                     </View>
                 );
             } else {
                 toRet.push(
                     <View key={i} style={styles.subContainer}>
-                        <Text style={styles.sub} key={subInfo1.key}>{subInfo1.name}</Text>
+                        <View style={{flexDirection: 'row', marginTop: 5}}>
+                            <View style={styles.bullet}></View>
+                            <Text style={styles.sub} key={subInfo1.key}>{subInfo1.name}</Text>
+                        </View>
                     </View>
                 );
             }
@@ -39,15 +57,10 @@ export default class CardCompartment extends Component {
         return toRet;
     };
 
-    /*subcompartments = this.props.subComps.map((subInfo, i) => (
-        <Text style={styles.sub} key={subInfo.key}>{subInfo.name}</Text>
-        )
-    );*/
-
     render() {
         return(
             <View style={styles.outerView}>
-                <Card myWidth={350} myHeight={80} borRadius={0} lborWidth={10} lborColor={this.props.leftColor}>
+                <Card myWidth={350} myHeight={84} borRadius={0}>
                     <View style={styles.rowAlign}>
                         <View style={styles.container}>
                             <Text style={styles.title}>{this.props.compartmentName}</Text>
@@ -56,15 +69,10 @@ export default class CardCompartment extends Component {
                             </View>
                         </View>
                         <View style={styles.center}>
-                            <ProgressCircle
-                                percent={this.props.percent}
-                                radius={20}
-                                borderWidth={4}
-                                color="#3399FF"
-                                shadowColor="#999"
-                                bgColor="#fff">
-                                <Text style={{ fontSize: 9 }}>{this.props.percent + "%"}</Text>
-                            </ProgressCircle>
+                            <View style={styles.percentContainer}>
+                                <MaterialIcon name={'bookmark'} style={styles.bookmark} />
+                                <Text style={styles.percentText}>{this.state.percent + '%'}</Text>
+                            </View>
                         </View>
                     </View>
                 </Card>
@@ -81,25 +89,50 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     container: {
-        flex: 6
+        flex: 5
     },
     title: {
-        color: '#aaaaaa',
-        fontSize: 24,
+        color: '#D4DCE8',
+        fontSize: 22,
         fontWeight: '300'
     },
     center: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        flex: 2,
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end'
     },
     subContainer: {
         flexDirection: 'column',
-        width: 150
+        width: 135,
+        paddingLeft: 5
+    },
+    bullet: {
+        backgroundColor: '#AFB6C0', 
+        height: 6, 
+        width: 6, 
+        borderRadius: 6, 
+        marginTop: 6, 
+        marginRight: 3
     },
     sub: {
-        color: '#aaaaaa',
-        fontSize: 16,
+        color: '#AFB6C0',
+        fontSize: 14,
         fontWeight: '400'
+    },
+    percentContainer: {
+        flex: 1,
+        position: 'absolute',
+        top: -20,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    bookmark: {
+        color: '#17B7C8', 
+        fontSize: 70,
+    },
+    percentText: {
+        position: 'absolute',
+        color: '#5F6368',
+        fontSize: 16
     }
 })

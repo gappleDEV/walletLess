@@ -33,11 +33,11 @@ export default class Card extends Component {
 const styles = StyleSheet.create({
     cardView: {
         paddingLeft: 10,
-        paddingRight: 10,
+        //paddingRight: 10,
         paddingTop: 5,
         paddingBottom: 5,
         borderColor: 'rgb(240, 240, 240)',
-        backgroundColor: 'rgb(245, 245, 245)',
+        backgroundColor: '#5F6368',
         shadowOpacity: 0.3,
         shadowRadius: 3,
         shadowOffset: {

@@ -7,19 +7,19 @@
        "subComps":[
           {
              "key": 0,
-             "name":"- My Info"
+             "name":"My Info"
           },
           {
             "key": 1,
-            "name":"- Primary Phys."
+            "name":"Physician"
          },
          {
             "key": 2,
-            "name":"- Next of Kin"
+            "name":"Next of Kin"
          },
          {
             "key": 3,
-            "name":"- Guarantor"
+            "name":"Guarantor"
          }
        ]
     },
@@ -31,15 +31,15 @@
        "subComps":[
           {
              "key":0,
-             "name":"- General"
+             "name":"General"
           },
           {
              "key":1,
-             "name":"- Health"
+             "name":"Health"
           },
           {
              "key":2,
-             "name":"- Homeowners"
+             "name":"Homeowners"
           }
        ]
     },
@@ -51,15 +51,15 @@
        "subComps":[
           {
              "key":0,
-             "name":"- License(P)"
+             "name":"License(P)"
           },
           {
              "key":1,
-             "name":"- Auto Insurance(P)"
+             "name":"Auto Insurance(P)"
           },
           {
              "key":2,
-             "name":"- Registration(P)"
+             "name":"Registration(P)"
           }
        ]
     },
@@ -71,15 +71,15 @@
         "subComps":[
            {
               "key":0,
-              "name":"- Major Cards"
+              "name":"Major Cards"
            },
            {
               "key":4,
-              "name":"- Gas"
+              "name":"Gas"
            },
            {
               "key":5,
-              "name":"- Store"
+              "name":"Store Memberships"
            }
         ]
      },
@@ -91,15 +91,15 @@
         "subComps":[
            {
               "key":0,
-              "name":"- Checking"
+              "name":"Checking"
            },
            {
               "key":1,
-              "name":"- Savings"
+              "name":"Savings"
            },
            {
               "key":2,
-              "name":"- Other"
+              "name":"Other"
            }
         ]
      },
@@ -111,11 +111,11 @@
         "subComps":[
            {
               "key":0,
-              "name":"- Pharmacy"
+              "name":"Pharmacy"
            },
            {
             "key":1,
-            "name":"- Physician"
+            "name":"Physician"
          }
         ]
      },
