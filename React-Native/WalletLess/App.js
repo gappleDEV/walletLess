@@ -37,6 +37,7 @@ import DataInput from './src/components/DataInput/DataInput';
 import TakePicture from './src/components/Picture/TakePicture';
 import Login from './src/components/Login/Login';
 import Register from './src/components/Login/Register';
+import Messages from './src/components/Messages/Messages';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -70,6 +71,15 @@ const ScreenStack = createStackNavigator({
   },
   HomeScreen: {
     screen: createBottomTabNavigator({
+      MessagesScreen: {
+        screen: Messages,
+        navigationOptions: ({ navigation }) => ({
+          title: 'Messages',
+           tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            return <MaterialCommunityIcon name={'mailbox'} style={{color: tintColor, fontSize: 20}} />;
+          },
+        }),
+      },
       MenuScreen: {
         screen: Menu,
         navigationOptions: ({ navigation }) => ({
