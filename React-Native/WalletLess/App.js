@@ -38,6 +38,7 @@ import TakePicture from './src/components/Picture/TakePicture';
 import Login from './src/components/Login/Login';
 import Register from './src/components/Login/Register';
 import Messages from './src/components/Messages/Messages';
+import Reports from './src/components/Reports/Reports';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -89,8 +90,8 @@ const ScreenStack = createStackNavigator({
           },
         }),
       },
-      TakePictureScreen: {
-        screen: TakePicture,
+      ReportsScreen: {
+        screen: Reports,
         navigationOptions: ({ navigation }) => ({
           title: 'Reports',
            tabBarIcon: ({ focused, horizontal, tintColor }) => {
