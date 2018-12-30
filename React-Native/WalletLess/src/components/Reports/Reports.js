@@ -8,7 +8,12 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+//Custom components
 import SingleReport from './SingleReport';
+
+//Data
+import pureform from './../../data/reports/pureform';
+import pulledOver from './../../data/reports/pulledOver';
 
 export default class Reports extends Component {
 
@@ -21,12 +26,9 @@ export default class Reports extends Component {
   }
 
   componentDidMount() {
-    var that = this;
-    let items = Array.apply(null, Array(60)).map((v, i) => {
-      return { id: i, num: (i + 1) };
-    });
-    that.setState({
-      dataSource: items,
+    reportInputs = [pureform, pulledOver]
+    this.setState({
+      dataSource: reportInputs,
     });
   }
 
@@ -51,9 +53,9 @@ export default class Reports extends Component {
           renderItem={({ item }) => (
 
             <View style={{ flex: 1, flexDirection: 'column', margin: 1 }}>
-              <SingleReport id={item.id}
+              <SingleReport id={item.title}
                 onPressItem={this._onPressItem}
-                selected={!!this.state.selected.get(item.id)}></SingleReport>
+                selected={!!this.state.selected.get(item.title)}></SingleReport>
             </View>
 
           )}          
@@ -67,11 +69,5 @@ const styles = StyleSheet.create({
   MainContainer: {
     justifyContent: 'center',
     flex: 1,
-  },
-  imageThumbnail: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    height: 100,
-  },
+  }
 });
