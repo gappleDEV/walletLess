@@ -28,8 +28,9 @@ export default class Menu extends Component {
 
     constructor(props) {
         super(props);
+        const { navigation } = this.props;
         this.state = {
-            realm: null
+            realm: navigation.getParam('realm', {})
         };
     }
 
@@ -37,12 +38,13 @@ export default class Menu extends Component {
         let toRet = [];
 
         compartmentInputs = [personal, insurance, motorVehicle, creditCard, bank, prescription];
-    
+
         for(let i = 0; i < compartmentInputs.length; i++) {
             info = comp[i];
             toRet.push( 
             <TouchableHighlight key={info.key} onPress={() => this.props.navigation.navigate('DataInputScreen',{
                 sections: compartmentInputs[i], //must be changed to point to compartmentInputs[info.key]
+                realm: this.state.realm
               })} underlayColor="transparent">
                 <CardCompartment compartmentName={info.compartmentName} leftColor={info.leftColor} percent={info.percent} subComps={info.subComps}/>
             </TouchableHighlight>);
@@ -52,11 +54,8 @@ export default class Menu extends Component {
 
     render() {
 
-        const { navigation } = this.props;
-        const realm = navigation.getParam('realm', {});
-
-        const fName = realm
-      ? realm.objects('Personal')[0].firstName
+        const fName = this.state.realm
+      ? this.state.realm.objects('Personal')[0].firstName
       : 'Loading...';
 
         return (

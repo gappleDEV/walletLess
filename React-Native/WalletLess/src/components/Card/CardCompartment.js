@@ -60,7 +60,7 @@ export default class CardCompartment extends Component {
     render() {
         return(
             <View style={styles.outerView}>
-                <Card myWidth={350} myHeight={84} borRadius={0}>
+                <Card myWidth={350} myHeight={84} borRadius={5}>
                     <View style={styles.rowAlign}>
                         <View style={styles.container}>
                             <Text style={styles.title}>{this.props.compartmentName}</Text>

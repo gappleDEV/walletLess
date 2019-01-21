@@ -2,6 +2,7 @@
     {
         "key": 0,
         "sectionName": "Prescription",
+        "schemaName": "Prescription",
         "input": [
             {
                 "key": 0,

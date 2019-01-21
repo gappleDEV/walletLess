@@ -2,6 +2,7 @@
     {
         "key": 0,
         "sectionName": "Card",
+        "schemaName": "CreditCard",
         "input": [
             {
                 "key": 0,

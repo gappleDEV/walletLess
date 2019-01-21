@@ -14,10 +14,14 @@ const labelData = {
 };
 
 export default class FloatingLabelInput extends Component {
-  state = {
-    isFocused: false,
-    text: this.props.value
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFocused: false,
+      text: this.props.value
+    };
+  }
 
   componentWillMount() {
     this._animatedIsFocused = new Animated.Value(this.state.text === '' ? 0 : 1);
@@ -40,6 +44,7 @@ export default class FloatingLabelInput extends Component {
     this.setState({
       isFocused: false,
     })
+    this.props.valueChange(this.props.schemaName, this.props.dataName, this.state.text);
   }
 
   render() {

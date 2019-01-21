@@ -2,6 +2,7 @@
     {
         "key": 0,
         "sectionName": "Checking",
+        "schemaName": "Bank",
         "input": [
             {
                 "key": 0,
@@ -22,6 +23,7 @@
     {
         "key": 1,
         "sectionName": "Savings",
+        "schemaName": "Bank",
         "input": [
             {
                 "key": 0,

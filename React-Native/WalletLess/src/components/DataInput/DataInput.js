@@ -13,10 +13,62 @@ import Card from '../Card/Card';
 
 export default class DataInput extends Component {
 
+    constructor(props) {
+        super(props);
+        const { navigation } = this.props;
+        this.state = {
+            realm: navigation.getParam('realm', {}),
+            saveObj: {}
+        };
+
+    }
+
+    valueChange = (schemaName, dataName, value) => {
+        if(!this.state.saveObj[schemaName]) {
+            let obj = this.state.saveObj;
+            obj[schemaName] = {
+                id: 1
+            };
+            this.setState(prevState => ({
+                ...prevState,
+                saveObj: obj
+            }));
+        }
+        let obj = this.state.saveObj;
+        obj[schemaName][dataName] = value;
+        this.setState(prevState => ({
+            ...prevState,
+            saveObj: obj
+        }));
+        this.saveChangesMadeToRealm();
+    }
+
+    saveChangesMadeToRealm() {
+        let keys = Object.keys(this.state.saveObj);
+        for(let i = 0; i < keys.length; i++) {
+            let schema = keys[i];
+            if(this.state.saveObj.hasOwnProperty(schema)) {
+                this.state.realm.write(() => {
+                    this.state.realm.create(schema, this.state.saveObj[schema], true);
+                });
+            }
+        }
+    }
+
     render() {
 
         const { navigation } = this.props;
         const sections = navigation.getParam('sections', {});
+
+        //Ensure that a realm object is created for each that we need to save to
+        sections.forEach((section) => {
+            let schemaInfo = this.state.realm.objects(section.schemaName);
+            if(schemaInfo.length == 0) {
+                this.state.realm.write(() => {
+                    this.state.realm.create(section.schemaName, {id: 1}, true);
+                });
+            }
+        });
 
         inputSections = sections.map(section => (
             <Card key={section.key} myWidth={350} borRadius={0} padBot={20} marBot={20} marTop={5}>
@@ -25,8 +77,12 @@ export default class DataInput extends Component {
                     <FloatingLabelInput
                         key={input.key}
                         label={input.label}
+                        valueChange={this.valueChange}
+                        schemaName={section.schemaName}
                         dataName={input.dataName}
-                        value=""
+                        value={this.state.realm.objects(section.schemaName)[0][input.dataName] ? 
+                            this.state.realm.objects(section.schemaName)[0][input.dataName].toString() : 
+                            ""}
                     />
                 ))}
             </Card>
