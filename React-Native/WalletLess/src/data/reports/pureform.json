@@ -37,43 +37,35 @@
                     "default": ""
                 },
                 {
-                    "key": 5,
+                    "key": 4,
                     "label": "Cell Phone",
                     "dataName": "cellPhone",
                     "type": "string",
                     "default": ""
-                }
-            ]
-            
-        },
-        {
-            "key": 1,
-            "type": "text",
-            "schemaName": "Personal",
-            "input": [
+                },
                 {
-                    "key": 6,
+                    "key": 5,
                     "label": "Street Address",
                     "dataName": "streetAddress",
                     "type": "string",
                     "default": ""
                 },
                 {
-                    "key": 7,
+                    "key": 6,
                     "label": "City",
                     "dataName": "city",
                     "type": "string",
                     "default": ""
                 },
                 {
-                    "key": 8,
+                    "key": 7,
                     "label": "Province",
                     "dataName": "province",
                     "type": "string",
                     "default": ""
                 },
                 {
-                    "key": 9,
+                    "key": 8,
                     "label": "ZIP Code",
                     "dataName": "zipCode",
                     "type": "string",
@@ -82,9 +74,9 @@
             ]
         },
         {
-            "key": 2,
+            "key": 1,
             "type": "text",
-            "schemaName": "",
+            "schemaName": "Personal",
             "input": [
                 {
                     "key": 0,
@@ -103,10 +95,17 @@
             ]
         },
         {
-            "key": 3,
+            "key": 2,
             "label": "Picture of Requisition Form",
             "dataName": "",
             "type": "picture",
+            "default": ""
+        },
+        {
+            "key": 3,
+            "label": "Call Pureform",
+            "dataName": "",
+            "type": "call",
             "default": ""
         }
     ]

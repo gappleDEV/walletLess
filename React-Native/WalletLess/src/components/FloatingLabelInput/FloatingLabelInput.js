@@ -91,6 +91,7 @@ export default class FloatingLabelInput extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: labelData.topPadding,
+    marginTop: 5
   },
   textInput: {
     alignSelf: 'stretch',
