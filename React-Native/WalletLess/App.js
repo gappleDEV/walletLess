@@ -136,7 +136,8 @@ export default class App extends Component {
     super(props);
     this.state = { 
       realm: null,
-      key: '' 
+      key: '',
+      setRealm: this.setStateRealm 
     };
   }
 
@@ -187,6 +188,13 @@ export default class App extends Component {
       console.log("All tries to get realm key used. Realm cannot be opened at this time");
     }
 
+  }
+
+  setStateRealm = (openedRealm) => {
+    this.setState(prevState => ({
+      ...prevState,
+      realm: openedRealm
+    }));
   }
 
   render() {

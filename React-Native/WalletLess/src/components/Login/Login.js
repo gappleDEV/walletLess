@@ -77,6 +77,7 @@ export default class Login extends Component {
                         realm.create('Personal', { id: 1, firstName: 'Gregory' }, true);
                     });
                     this.setState({realm});
+                    this.props.screenProps.setRealm(this.state.realm);
                     this.props.navigation.navigate('HomeScreen', {
                         realm: this.state.realm
                     });

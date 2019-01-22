@@ -17,7 +17,8 @@ export default class SingleReport extends Component {
     }
 
     onPress = () => {
-        this.props.onPressItem(this.props.id);
+        this.props.onPressItem(this.props.id, this.props.index);
+
     }
 
     render() {

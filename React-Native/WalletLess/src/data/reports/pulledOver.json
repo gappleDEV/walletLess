@@ -2,6 +2,14 @@
     "key": 0,
     "title": "Pulled Over",
     "imageName": "",
-    "input": [
+    "sections": [
+        {
+            "key": 0,
+            "type": "text",
+            "schemaName": "",
+            "input": [
+                
+            ]
+        }
     ]
 }

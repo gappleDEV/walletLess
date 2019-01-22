@@ -2,86 +2,108 @@
     "key": 0,
     "title": "Pureform Radiology",
     "imageName": "pureform_icon.png",
-    "input": [
+    "sections": [
         {
             "key": 0,
-            "label": "First Name",
-            "dataName": "firstName",
-            "type": "string",
-            "default": ""
+            "type": "text",
+            "schemaName": "Personal",
+            "input": [
+                {
+                    "key": 0,
+                    "label": "First Name",
+                    "dataName": "firstName",
+                    "type": "string",
+                    "default": ""
+                },
+                {
+                    "key": 1,
+                    "label": "Last Name",
+                    "dataName": "lastName",
+                    "type": "string",
+                    "default": ""
+                },
+                {
+                    "key": 2,
+                    "label": "Sex",
+                    "dataName": "sex",
+                    "type": "string",
+                    "default": ""
+                },
+                {
+                    "key": 3,
+                    "label": "Date Of Birth",
+                    "dataName": "dateOfBirth",
+                    "type": "date?",
+                    "default": ""
+                },
+                {
+                    "key": 5,
+                    "label": "Cell Phone",
+                    "dataName": "cellPhone",
+                    "type": "string",
+                    "default": ""
+                }
+            ]
+            
         },
         {
             "key": 1,
-            "label": "Last Name",
-            "dataName": "lastName",
-            "type": "string",
-            "default": ""
+            "type": "text",
+            "schemaName": "Personal",
+            "input": [
+                {
+                    "key": 6,
+                    "label": "Street Address",
+                    "dataName": "streetAddress",
+                    "type": "string",
+                    "default": ""
+                },
+                {
+                    "key": 7,
+                    "label": "City",
+                    "dataName": "city",
+                    "type": "string",
+                    "default": ""
+                },
+                {
+                    "key": 8,
+                    "label": "Province",
+                    "dataName": "province",
+                    "type": "string",
+                    "default": ""
+                },
+                {
+                    "key": 9,
+                    "label": "ZIP Code",
+                    "dataName": "zipCode",
+                    "type": "string",
+                    "default": ""
+                }
+            ]
         },
         {
             "key": 2,
-            "label": "Sex",
-            "dataName": "sex",
-            "type": "string",
-            "default": ""
+            "type": "text",
+            "schemaName": "",
+            "input": [
+                {
+                    "key": 0,
+                    "label": "AHC or WCB #",
+                    "dataName": "ahcOrWcb",
+                    "type": "string",
+                    "default": ""
+                },
+                {
+                    "key": 1,
+                    "label": "Date Of Request",
+                    "dataName": "",
+                    "type": "date?",
+                    "default": ""
+                }
+            ]
         },
         {
             "key": 3,
-            "label": "Date Of Birth",
-            "dataName": "dateOfBirth",
-            "type": "date?",
-            "default": ""
-        },
-        {
-            "key": 4,
-            "label": "AHC or WCB #",
-            "dataName": "ahcOrWcb",
-            "type": "string",
-            "default": ""
-        },
-        {
-            "key": 5,
-            "label": "Cell Phone",
-            "dataName": "cellPhone",
-            "type": "string",
-            "default": ""
-        },
-        {
-            "key": 6,
-            "label": "Street Address",
-            "dataName": "streetAddress",
-            "type": "string",
-            "default": ""
-        },
-        {
-            "key": 7,
-            "label": "City",
-            "dataName": "city",
-            "type": "string",
-            "default": ""
-        },
-        {
-            "key": 8,
-            "label": "Province",
-            "dataName": "province",
-            "type": "string",
-            "default": ""
-        },
-        {
-            "key": 9,
-            "label": "ZIP Code",
-            "dataName": "zipCode",
-            "type": "string",
-            "default": ""
-        },
-        {
-            "key": 10,
-            "label": "Date Of Request",
-            "dataName": "",
-            "type": "date?",
-            "default": ""
-        },
-        {
-            "key": 10,
             "label": "Picture of Requisition Form",
             "dataName": "",
             "type": "picture",
