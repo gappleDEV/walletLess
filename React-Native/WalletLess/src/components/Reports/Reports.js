@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
+import call from 'react-native-phone-call';
 
 //Custom components
 import SingleReport from './SingleReport';
@@ -146,7 +147,23 @@ export default class Reports extends Component {
         case "picture":
           break;
         case "call":
-            
+          const args = {
+            number: section.phoneNumber, // Use commas to add time between digits.
+            prompt: true
+          }
+          inputSections.push(
+            <View key={s}>
+              <TouchableHighlight
+                style={styles.callButton}
+                activeOpacity={0.5}
+                underlayColor='transparent'
+                onPress={() => {
+                  call(args).catch(console.error);
+                }}>
+                <Text style={styles.callText}>{section.phoneNumber}</Text>
+              </TouchableHighlight>
+            </View>
+          );
         default:
           console.log("Unrecognized section type");
       }
@@ -294,5 +311,20 @@ const styles = StyleSheet.create({
     fontFamily: font,
     fontWeight: '300',
     fontSize: 20
+  },
+  callButton: {
+    padding: 10,
+    width: 300,
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    marginTop: 100
+  },
+  callText: {
+    color: colors.logIn,
+    fontFamily: font,
+    fontWeight: '300',
+    fontSize: 24
   }
 });

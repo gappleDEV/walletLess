@@ -15,6 +15,7 @@
     "react-native-fontawesome": "^5.7.0",
     "react-native-keychain": "^3.0.0-rc.3",
     "react-native-linear-gradient": "^2.5.3",
+    "react-native-phone-call": "^1.0.9",
     "react-native-progress-circle": "^2.0.0",
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^2.5.5",

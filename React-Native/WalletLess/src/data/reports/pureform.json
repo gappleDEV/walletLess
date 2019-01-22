@@ -104,9 +104,8 @@
         {
             "key": 3,
             "label": "Call Pureform",
-            "dataName": "",
             "type": "call",
-            "default": ""
+            "phoneNumber": "7329215993"
         }
     ]
 }
