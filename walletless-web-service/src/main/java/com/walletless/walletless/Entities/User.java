@@ -1,8 +1,6 @@
 package com.walletless.walletless.Entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -11,7 +9,7 @@ public class User extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId;
+    private Integer userId;
 
     @Column(name="email", nullable = false)
     private String email;
@@ -19,7 +17,7 @@ public class User extends AuditModel {
     @Column(name="upw", nullable = false)
     private String upw;
 
-    @Column(name="last_login", nullable = false)
+    @Column(name="last_login")
     private Date lastLogin;
 
     public int getId() {

@@ -14,7 +14,7 @@ public class HealthInsurance extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "health_insurance_id")
-    private int healthInsuranceId;
+    private Integer healthInsuranceId;
 
     @Column(name = "healthcare_insurance")
     private String healthcareInsurance; //primary, secondary, tertiary

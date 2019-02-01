@@ -13,7 +13,7 @@ public class HomeOwnersInsurance extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "homeowners_insurance_id")
-    private int homeOwnersInsuranceId;
+    private Integer homeOwnersInsuranceId;
 
     @Column(name = "homeowners_insurance")
     private String homeownersInsurance; //primary, secondary, tertiary

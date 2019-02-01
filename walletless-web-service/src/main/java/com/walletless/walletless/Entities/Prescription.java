@@ -14,7 +14,7 @@ public class Prescription extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "prescription_id")
-    private int prescriptionId;
+    private Integer prescriptionId;
 
     @Column(name = "pharmacy_name")
     private String pharmacyName;

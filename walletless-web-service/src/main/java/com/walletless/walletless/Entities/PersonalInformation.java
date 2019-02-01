@@ -13,7 +13,7 @@ public class PersonalInformation extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "personal_id")
-    private int personalId;
+    private Integer personalId;
 
     @Column(name = "first_name")
     private String firstName;

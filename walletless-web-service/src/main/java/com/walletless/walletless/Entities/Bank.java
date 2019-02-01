@@ -12,7 +12,7 @@ public class Bank extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bank_id")
-    private int bankId;
+    private Integer bankId;
 
     @Column(name = "checking_acct_num")
     private String checkingAccountNum;

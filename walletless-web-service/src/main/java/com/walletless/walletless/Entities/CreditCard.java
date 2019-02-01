@@ -12,7 +12,7 @@ public class CreditCard extends  AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "credit_card_id")
-    private int creditCardId;
+    private Integer creditCardId;
 
     @Column(name = "credit_card_type")
     private String creditCardType;

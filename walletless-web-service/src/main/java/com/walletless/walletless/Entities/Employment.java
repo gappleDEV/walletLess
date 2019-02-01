@@ -13,7 +13,7 @@ public class Employment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employment_id")
-    private int employmentId;
+    private Integer employmentId;
 
     @Column(name = "employer_name")
     private String employerName;

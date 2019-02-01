@@ -13,7 +13,7 @@ public class MotorVehicle extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "vehicle_id")
-    private int vehicleId;
+    private Integer vehicleId;
 
     @Column(name = "license")
     private String motorVehicleLicense;
