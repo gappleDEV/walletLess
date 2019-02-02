@@ -160,7 +160,7 @@ export default class Reports extends Component {
                 onPress={() => {
                   call(args).catch(console.error);
                 }}>
-                <Text style={styles.callText}>{section.phoneNumber}</Text>
+                <Text style={styles.callText}>{section.label}</Text>
               </TouchableHighlight>
             </View>
           );

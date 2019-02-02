@@ -9,7 +9,7 @@ export default class Messages extends Component {
     render() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Messages willbe available soon!</Text>
+            <Text>Messages will be available soon!</Text>
           </View>
         );
       }
