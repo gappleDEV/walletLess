@@ -4,6 +4,7 @@ import Widget01 from './Widget01';
 import Widget02 from './Widget02';
 import Widget03 from './Widget03';
 import Widget04 from './Widget04';
+import Widget05 from './Widget05';
 import { Line } from 'react-chartjs-2';
 
 
@@ -222,6 +223,27 @@ class Widgets extends Component {
           </Col>
           <Col sm="6" md="2">
             <Widget04 icon="icon-speech" color="info" header="972" value="25" invert>Comments</Widget04>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col sm="6" md="2">
+            <Widget05 icon="icon-people" color="info" header="87.500" invert>Visitors</Widget05>
+          </Col>
+          <Col sm="6" md="2">
+            <Widget05 icon="icon-user-follow" color="success" header="385" invert>New Clients</Widget05>
+          </Col>
+          <Col sm="6" md="2">
+            <Widget05 icon="icon-basket-loaded" color="warning" header="1238" invert>Products sold</Widget05>
+          </Col>
+          <Col sm="6" md="2">
+            <Widget05 icon="icon-pie-chart" color="primary" header="28%" invert>Returning Visitors</Widget05>
+          </Col>
+          <Col sm="6" md="2">
+            <Widget05 icon="icon-speedometer" color="danger" header="5:34:11" invert>Avg. Time</Widget05>
+          </Col>
+          <Col sm="6" md="2">
+            <Widget05 icon="icon-speech" color="info" header="972" invert>Comments</Widget05>
           </Col>
         </Row>
       </div>

@@ -19,11 +19,23 @@ import {
   Progress,
   Row,
   Table,
+  Collapse,
+  Fade,
+  Form,
+  FormGroup,
+  FormText,
+  FormFeedback,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButtonDropdown,
+  InputGroupText,
+  Label,
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
 
-const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
+const Widget05 = lazy(() => import('../../views/Widgets/Widget05'));
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -271,7 +283,7 @@ const mainChartOpts = {
     mode: 'index',
     position: 'nearest',
     callbacks: {
-      labelColor: function(tooltipItem, chart) {
+      labelColor: function (tooltipItem, chart) {
         return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
       }
     }
@@ -317,6 +329,8 @@ class Dashboard extends Component {
     this.state = {
       dropdownOpen: false,
       radioSelected: 2,
+      fadeIn: true,
+      timeout: 300
     };
   }
 
@@ -340,50 +354,49 @@ class Dashboard extends Component {
       <div className="animated fadeIn">
         <Row>
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
-                <div className="text-value">0</div>
-                <div>Expire (3 Days)</div>
-              </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                {/* <Line data={cardChartData1} options={cardChartOpts1} height={70} /> */}
-              </div>
-            </Card>
+            <Widget05 icon="icon-bell" color="danger" header="0" invert>Expire (3 Days)</Widget05>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-warning">
-              <CardBody className="pb-0">
-                <div className="text-value">0</div>
-                <div>Expire (7 days)</div>
-              </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                {/* <Line data={cardChartData2} options={cardChartOpts2} height={70} /> */}
-              </div>
-            </Card>
+            <Widget05 icon="icon-bell" color="warning" header="0" invert>Expire (7 Days)</Widget05>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-info">
-              <CardBody className="pb-0">
-                <div className="text-value">0</div>
-                <div>Expire (1 month)</div>
-              </CardBody>
-              <div className="chart-wrapper" style={{ height: '70px' }}>
-                {/* <Line data={cardChartData3} options={cardChartOpts3} height={70} /> */}
-              </div>
-            </Card>
+            <Widget05 icon="icon-bell" color="info" header="0" invert>Expire (1 Month)</Widget05>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-success">
-              <CardBody className="pb-0">
-                <div className="text-value">0</div>
-                <div>All Users</div>
+            <Widget05 icon="icon-people" color="success" header="0" invert>All Users</Widget05>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs="12">
+            <Card>
+              <CardHeader>
+                <i className="fa fa-user"></i>Request User
+                </CardHeader>
+              <CardBody>
+                <Form className="form-horizontal">
+                  <FormGroup>
+                    <Label htmlFor="userId">User ID</Label>
+                    <div className="controls">
+                      <InputGroup className="input-prepend">
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i class="fa fa-search"></i>
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input id="prependedInput" size="16" type="text" />
+                        <InputGroupAddon addonType="append">
+                          <Button color="primary">Request</Button>
+                          <Button color="secondary">Clear</Button>
+                        </InputGroupAddon>
+                      </InputGroup>
+                    </div>
+                  </FormGroup>
+                </Form>
               </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                {/* <Bar data={cardChartData4} options={cardChartOpts4} height={70} /> */}
-              </div>
             </Card>
           </Col>
         </Row>
