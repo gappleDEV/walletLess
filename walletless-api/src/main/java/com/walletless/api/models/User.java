@@ -1,6 +1,9 @@
 package com.walletless.api.models;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -16,11 +19,20 @@ public class User {
     @Column(name="upw", nullable = false)
     private Integer upw;
 
+    @Column(name="create_date", nullable = false)
+    private String createDate;
+
+    @OneToOne(mappedBy = "user")
+    private PersonalInformation personalInformation;
+
     public User(){}
 
     public User(String email, Integer upw) {
         this.email = email;
         this.upw = upw;
+
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+        this.createDate = df.format(new Date());
     }
 
     public Integer getUserId() { return userId; }
@@ -29,4 +41,6 @@ public class User {
     public void setEmail(String email) { this.email = email; }
     public Integer getUpw() { return upw; }
     public void setUpw(Integer upw) { this.upw = upw; }
+    public String getCreateDate() { return createDate; }
+    public void setCreateDate(String createDate) { this.createDate = createDate; }
 }

@@ -12,7 +12,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @GetMapping(path="/add")
+    @GetMapping(path="/create")
     public @ResponseBody User createUser(@RequestParam String email, @RequestParam String upw) {
         return userService.createNewUser(email, upw);
     }
