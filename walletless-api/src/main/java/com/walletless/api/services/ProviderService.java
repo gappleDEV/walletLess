@@ -11,9 +11,9 @@ public class ProviderService implements IProviderService{
     @Autowired
     private ProviderRepository providerRepository;
 
-    public Provider createNewProvider(String email, String upw) {
+    public Provider createNewProvider(String email, String upw, String provName, String provUserName) {
         if (providerRepository.findByEmail(email) == null){
-            return providerRepository.save(new Provider(email, upw.hashCode()));
+            return providerRepository.save(new Provider(email, upw.hashCode(), provName, provUserName));
         }
         return null;
     }

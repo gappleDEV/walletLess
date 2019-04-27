@@ -13,12 +13,14 @@ public class UserController {
     private IUserService userService;
 
     @GetMapping(path="/create")
-    public @ResponseBody User createUser(@RequestParam String email, @RequestParam String upw) {
+    @ResponseBody
+    public User createUser(@RequestParam String email, @RequestParam String upw) {
         return userService.createNewUser(email, upw);
     }
 
     @GetMapping(path="/authenticate")
-    public @ResponseBody User authenticateUser(@RequestParam String email, @RequestParam String upw) {
+    @ResponseBody
+    public User authenticateUser(@RequestParam String email, @RequestParam String upw) {
         return userService.authenticate(email, upw);
     }
 }

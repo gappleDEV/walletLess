@@ -13,13 +13,14 @@ public class ProviderController {
     private IProviderService providerService;
 
     @GetMapping(path="/create")
-    public @ResponseBody
-    Provider createProvider(@RequestParam String email, @RequestParam String ppw) {
-        return providerService.createNewProvider(email, ppw);
+    @ResponseBody
+    public Provider createProvider(@RequestParam String email, @RequestParam String ppw, @RequestParam String provName, @RequestParam String provUserName) {
+        return providerService.createNewProvider(email, ppw, provName, provUserName);
     }
 
     @GetMapping(path="/authenticate")
-    public @ResponseBody Provider authenticateProvider(@RequestParam String email, @RequestParam String ppw) {
+    @ResponseBody
+    public Provider authenticateProvider(@RequestParam String email, @RequestParam String ppw) {
         return providerService.authenticate(email, ppw);
     }
 }

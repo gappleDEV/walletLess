@@ -44,6 +44,56 @@ public class PersonalInformationVO {
     public String guarantorSSN;
     public Date guarantorDateOfBirth;
     public String guarantorRelationship;
-
     public User user;
+
+    PersonalInformationVO(){}
+
+    PersonalInformationVO(String firstName,String lastName,String socialSecurityNumber,String streetAddress,String city, String county, String state,String zipCode,String country,
+                          String sex,String maritalStatus,Date dateOfBirth,String race,String religion,String primaryLanguage,String homePhone,String cellPhone,String workPhone,
+                          String primaryCarePhysicianName,String primaryCarePhysicianAddress,String primaryCarePhysicianPhone,String nextOfKinFirstName,String nextOfKinLastName,
+                          String nextOfKinRelationship,String nextOfKinCellPhone,String nextOfKinHomePhone,String emergencyContact,String emergencyContactFirstName,String emergencyContactAddress,
+                          String emergencyContactPhone,String emergencyContactRelationship,String guarantor,String guarantorFirstName,String guarantorLastName,String guarantorAddress,
+                          String guarantorPhone,String guarantorSSN,Date guarantorDateOfBirth,String guarantorRelationship,User user){
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.socialSecurityNumber = socialSecurityNumber;
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.county = county;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.country = country;
+        this.sex = sex;
+        this.maritalStatus = maritalStatus;
+        this.dateOfBirth = dateOfBirth;
+        this.race = race;
+        this.religion = religion;
+        this.primaryLanguage = primaryLanguage;
+        this.homePhone = homePhone;
+        this.cellPhone = cellPhone;
+        this.workPhone = workPhone;
+        this.primaryCarePhysicianName = primaryCarePhysicianName;
+        this.primaryCarePhysicianAddress = primaryCarePhysicianAddress;
+        this.primaryCarePhysicianPhone = primaryCarePhysicianPhone;
+        this.nextOfKinFirstName = nextOfKinFirstName;
+        this.nextOfKinLastName = nextOfKinLastName;
+        this.nextOfKinRelationship = nextOfKinRelationship;
+        this.nextOfKinCellPhone = nextOfKinCellPhone;
+        this.nextOfKinHomePhone = nextOfKinHomePhone;
+        this.emergencyContact = emergencyContact;
+        this.emergencyContactFirstName = emergencyContactFirstName;
+        this.emergencyContactAddress = emergencyContactAddress;
+        this.emergencyContactPhone = emergencyContactPhone;
+        this.emergencyContactRelationship = emergencyContactRelationship;
+        this.guarantor = guarantor;
+        this.guarantorFirstName = guarantorFirstName;
+        this.guarantorLastName = guarantorLastName;
+        this.guarantorAddress = guarantorAddress;
+        this.guarantorPhone = guarantorPhone;
+        this.guarantorSSN = guarantorSSN;
+        this.guarantorDateOfBirth = guarantorDateOfBirth;
+        this.guarantorRelationship = guarantorRelationship;
+        this.user = user;
+    }
 }

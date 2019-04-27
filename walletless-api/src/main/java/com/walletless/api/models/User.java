@@ -25,6 +25,9 @@ public class User {
     @OneToOne(mappedBy = "user")
     private PersonalInformation personalInformation;
 
+    @OneToMany(mappedBy = "user")
+    private Request request;
+
     public User(){}
 
     public User(String email, Integer upw) {
@@ -43,4 +46,8 @@ public class User {
     public void setUpw(Integer upw) { this.upw = upw; }
     public String getCreateDate() { return createDate; }
     public void setCreateDate(String createDate) { this.createDate = createDate; }
+    public PersonalInformation getPersonalInformation() { return personalInformation; }
+    public void setPersonalInformation(PersonalInformation personalInformation) { this.personalInformation = personalInformation; }
+    public Request getRequest() { return request; }
+    public void setRequest(Request request) { this.request = request; }
 }
