@@ -9,7 +9,10 @@ import {
   Image
 } from 'react-native';
 import { RNCamera as Camera } from 'react-native-camera';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+// Colors
+import { c } from '../../styles/common';
 
 export default class TakePicture extends Component {
 
@@ -62,20 +65,9 @@ export default class TakePicture extends Component {
           style={[styles.preview, {height: this.props.pHeight, width: this.props.pWidth}]}
         />
         <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent"
-         style={[styles.retakeContainer,  styles.common]}>
-          <View >
-            <Text>
-              Retake
-            </Text>
-          </View>
+         style={[styles.retakeContainer,  styles.common, {right: (this.props.pWidth / 2) - 35}]}>
+          <MaterialCommunityIcon name={'camera-party-mode'} style={styles.retakeIcon}/>
         </TouchableHighlight>
-        {/* <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent">
-          <View style={[styles.saveContainer,  styles.common]}>
-            <Text>
-              Save
-            </Text>
-          </View>
-        </TouchableHighlight> */}
       </View>
     );
   }
@@ -107,33 +99,23 @@ const styles = StyleSheet.create({
   },
   retakeContainer: {
     position: 'absolute',
-    right: 40,
     bottom: 20,
-    borderWidth: 2,
-    borderColor: '#FF584C',
   },
-  saveContainer: {
-    position: 'absolute',
-    left: 40,
-    bottom: 20,
-    borderWidth: 2,
-    borderColor: '#3399FF',
+  retakeIcon: {
+    fontSize: 70,
+    color: c.gray2.color,
+    opacity: 0.85,
   },
   common: {
-    color: '#888888',
-    fontWeight: '600',
-    width: 100,
-    height: 50,
+    width: 70,
+    height: 70,
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 17,
-    borderRadius: 50,
-    backgroundColor: 'rgba(245, 245, 245, 0.6)',
     shadowOpacity: 0.3,
     shadowRadius: 3,
     shadowOffset: {
         height: 3,
         width: 3
-    }
+    },
   }
 });

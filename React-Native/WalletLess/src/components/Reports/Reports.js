@@ -148,7 +148,7 @@ export default class Reports extends Component {
           break;
         case "picture":
           inputSections.push(
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <View key={s} style={{justifyContent: 'center', alignItems: 'center'}}>
               <TakePicture pHeight={455} pWidth={310}>
               </TakePicture>
             </View>
