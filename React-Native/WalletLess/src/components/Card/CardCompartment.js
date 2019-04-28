@@ -10,8 +10,11 @@ import {
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+// Common Styles
+import { c } from '../../styles/common';
 
 import Card from './Card';
+import CardHeader from './CardHeader';
 
 export default class CardCompartment extends Component {
 
@@ -60,20 +63,20 @@ export default class CardCompartment extends Component {
     render() {
         return(
             <View style={styles.outerView}>
-                <Card myWidth={350} myHeight={84} borRadius={5}>
+                <Card myWidth={350} myHeight={84} borRadius={3}>
                     <View style={styles.rowAlign}>
                         <View style={styles.container}>
-                            <Text style={styles.title}>{this.props.compartmentName}</Text>
-                            <View style={{flexDirection: 'row'}}>
+                            <CardHeader title={this.props.compartmentName}></CardHeader>
+                            <View style={{flexDirection: 'row', paddingLeft: 12}}>
                                 {this.getSubs()}
                             </View>
                         </View>
-                        <View style={styles.center}>
+                        {/* <View style={styles.center}>
                             <View style={styles.percentContainer}>
                                 <MaterialIcon name={'bookmark'} style={styles.bookmark} />
                                 <Text style={styles.percentText}>{this.state.percent + '%'}</Text>
                             </View>
-                        </View>
+                        </View> */}
                     </View>
                 </Card>
             </View>
@@ -91,11 +94,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 5
     },
-    title: {
-        color: '#D4DCE8',
-        fontSize: 22,
-        fontWeight: '300'
-    },
     center: {
         flex: 2,
         justifyContent: 'flex-end',
@@ -107,7 +105,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5
     },
     bullet: {
-        backgroundColor: '#AFB6C0', 
+        backgroundColor: c.gray3.backgroundColor,
         height: 6, 
         width: 6, 
         borderRadius: 6, 
@@ -115,9 +113,9 @@ const styles = StyleSheet.create({
         marginRight: 3
     },
     sub: {
-        color: '#AFB6C0',
+        color: c.gray4.color,
         fontSize: 14,
-        fontWeight: '400'
+        fontWeight: '300'
     },
     percentContainer: {
         flex: 1,
@@ -127,12 +125,12 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     bookmark: {
-        color: '#17B7C8', 
+        color: c.blue.borderColor, 
         fontSize: 70,
     },
     percentText: {
-        position: 'absolute',
-        color: '#5F6368',
+        position: 'absolute', 
+        color: c.gray2.color,
         fontSize: 16
     }
 })

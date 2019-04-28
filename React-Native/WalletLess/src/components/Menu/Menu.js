@@ -24,6 +24,9 @@ import creditCard from './../../data/creditCard.json';
 import bank from './../../data/bank.json';
 import prescription from './../../data/prescription.json';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 export default class Menu extends Component {
 
     constructor(props) {
@@ -78,6 +81,6 @@ const styles = StyleSheet.create({
         //flex: 1
     },
     scroll: {
-        backgroundColor: '#AFB6C0',
+        backgroundColor: c.grayBodyBg.backgroundColor,
     }
 });

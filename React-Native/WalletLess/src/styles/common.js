@@ -37,6 +37,13 @@ const c = StyleSheet.create({
         backgroundColor: '#2f353a',
         color: '#2f353a'
     },
+    grayBodyBg: {
+        backgroundColor: '#e4e5e6'
+    },
+    offWhite: {
+        color: '#f8f8f8'
+    }
+
 })
 
 const cust = StyleSheet.create({

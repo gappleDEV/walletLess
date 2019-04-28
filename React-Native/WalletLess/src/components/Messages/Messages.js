@@ -4,6 +4,9 @@ import {
     Text,
 } from 'react-native';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 export default class Messages extends Component {
 
     render() {

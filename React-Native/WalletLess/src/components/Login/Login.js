@@ -132,7 +132,7 @@ export default class Login extends Component {
                         <Text style={styles.forgotText}>Forgot password?</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor={c.gray1.backgroundColor}>
+                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor="transparent"> 
                         <LinearGradient
                             start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                             colors={[colors.gradStart, colors.gradEnd]}
@@ -152,7 +152,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     dataInputContainer: {
         flex: 1,
-        backgroundColor: c.gray1.backgroundColor,
+        backgroundColor: c.grayBodyBg.backgroundColor,
     },
     imageContainer: {
         flex: 3,

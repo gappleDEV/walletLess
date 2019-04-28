@@ -103,11 +103,11 @@ const ScreenStack = createStackNavigator({
     }, {
       initialRouteName: 'MenuScreen',
       tabBarOptions : {
-        activeTintColor: '#17B7C8',
-        inactiveTintColor: '#AFB6C0',
+        activeTintColor: c.blue.backgroundColor,
+        inactiveTintColor: c.gray1.color,
          style: {
           paddingTop: 10,
-          backgroundColor: '#2F3C51',
+          backgroundColor: c.gray4.backgroundColor,
           paddingBottom: 0
         },
         labelStyle: { 
@@ -202,7 +202,7 @@ export default class App extends Component {
     return (
       //<View style={{flex: 1}}>
       //<SafeAreaView style={{flex: 1, backgroundColor: 'grey'}}>
-      <View style={[{flex: 1, backgroundColor: c.gray1.backgroundColor}, , isIphoneX && {paddingTop: 44}]}>
+      <View style={[{flex: 1, backgroundColor: c.grayBodyBg.backgroundColor}, , isIphoneX && {paddingTop: 44}]}>
         <ScreenStack screenProps={this.state}/>
       </View>
         //<TabNavigator />
