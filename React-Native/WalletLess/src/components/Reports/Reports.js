@@ -151,6 +151,8 @@ export default class Reports extends Component {
             <View key={s} style={{justifyContent: 'center', alignItems: 'center'}}>
               <TakePicture pHeight={455} pWidth={310}>
               </TakePicture>
+              <Text style={styles.picTitle}>
+              {section.label}</Text>
             </View>
           );
           break;
@@ -377,5 +379,17 @@ const styles = StyleSheet.create({
     fontFamily: font,
     fontWeight: '300',
     fontSize: 24
+  },
+  picTitle: {
+    backgroundColor: c.gray1.backgroundColor, 
+    fontSize: 16,
+    width: 300,
+    textAlign: 'center',
+    color: c.gray4.color, 
+    position: 'absolute', 
+    top: 7,  
+    paddingTop: 5,
+    paddingBottom: 5,
+    opacity: 0.5
   }
 });

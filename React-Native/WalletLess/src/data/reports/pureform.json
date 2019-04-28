@@ -96,7 +96,7 @@
         },
         {
             "key": 2,
-            "label": "Picture of Requisition Form",
+            "label": "Requisition Form",
             "dataName": "",
             "type": "picture",
             "default": ""
