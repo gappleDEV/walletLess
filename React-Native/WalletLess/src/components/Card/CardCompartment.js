@@ -66,7 +66,11 @@ export default class CardCompartment extends Component {
                 <Card myWidth={350} myHeight={84} borRadius={3}>
                     <View style={styles.rowAlign}>
                         <View style={styles.container}>
-                            <CardHeader title={this.props.compartmentName}></CardHeader>
+                            <CardHeader title={this.props.compartmentName}>
+                                <View style={styles.progressBox}>
+                                    <Text style={styles.progressText}>{this.state.percent + '%'}</Text>
+                                </View>
+                            </CardHeader>
                             <View style={{flexDirection: 'row', paddingLeft: 12}}>
                                 {this.getSubs()}
                             </View>
@@ -87,6 +91,18 @@ export default class CardCompartment extends Component {
 const styles = StyleSheet.create({
     outerView: {
         marginTop: 15
+    },
+    progressBox: {
+        width: 30, 
+        height: 15, 
+        backgroundColor: c.green.backgroundColor,
+        borderRadius: 3,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    progressText: {
+        color: c.gray1.color,
+        fontSize: 10
     },
     rowAlign: {
         flexDirection: 'row'
