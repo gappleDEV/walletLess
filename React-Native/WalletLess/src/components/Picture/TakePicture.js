@@ -38,7 +38,7 @@ export default class TakePicture extends Component {
         ref={(cam) => {
           this.camera = cam;
         }}
-        style={styles.preview}
+        style={[styles.preview, {height: this.props.pHeight, width: this.props.pWidth}]}
         flashMode={Camera.Constants.FlashMode.off}
         permissionDialogTitle={'Permission to use camera'}
         permissionDialogMessage={'We need your permission to use your camera phone'}
@@ -59,22 +59,23 @@ export default class TakePicture extends Component {
       <View>
         <Image
           source={{ uri: this.state.path }}
-          style={styles.preview}
+          style={[styles.preview, {height: this.props.pHeight, width: this.props.pWidth}]}
         />
-        <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent">
-          <View style={[styles.retakeContainer,  styles.common]}>
+        <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent"
+         style={[styles.retakeContainer,  styles.common]}>
+          <View >
             <Text>
               Retake
             </Text>
           </View>
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent">
+        {/* <TouchableHighlight onPress={() => this.setState({ path: null })} underlayColor="transparent">
           <View style={[styles.saveContainer,  styles.common]}>
             <Text>
               Save
             </Text>
           </View>
-        </TouchableHighlight>
+        </TouchableHighlight> */}
       </View>
     );
   }
@@ -90,17 +91,11 @@ export default class TakePicture extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: '#000',
   },
   preview: {
-    flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width
   },
   capture: {
     width: 70,
@@ -132,10 +127,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 17,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
     borderRadius: 50,
     backgroundColor: 'rgba(245, 245, 245, 0.6)',
     shadowOpacity: 0.3,

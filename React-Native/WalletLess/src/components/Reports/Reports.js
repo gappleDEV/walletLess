@@ -18,6 +18,7 @@ import call from 'react-native-phone-call';
 import SingleReport from './SingleReport';
 import Card from '../Card/Card';
 import FloatingLabelInput from './../FloatingLabelInput/FloatingLabelInput';
+import TakePicture from './../Picture/TakePicture';
 
 //Data
 import pureform from './../../data/reports/pureform';
@@ -146,6 +147,12 @@ export default class Reports extends Component {
           );
           break;
         case "picture":
+          inputSections.push(
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <TakePicture pHeight={455} pWidth={310}>
+              </TakePicture>
+            </View>
+          );
           break;
         case "call":
           const args = {
@@ -165,6 +172,7 @@ export default class Reports extends Component {
               </TouchableHighlight>
             </View>
           );
+          break;
         default:
           console.log("Unrecognized section type");
       }

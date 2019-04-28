@@ -2,4 +2,4 @@ Medical_App/Pods/*
 .DS_Store
 Medical_App/.DS_Store
 /.metadata/
-
+walletless-api/target/*

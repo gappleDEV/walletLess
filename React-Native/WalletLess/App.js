@@ -34,7 +34,6 @@ var CryptoJs = require('crypto-js'); //CryptoJs.SHA256("");
 //Custom components and styles
 import Menu from './src/components/Menu/Menu';
 import DataInput from './src/components/DataInput/DataInput';
-import TakePicture from './src/components/Picture/TakePicture';
 import Login from './src/components/Login/Login';
 import Register from './src/components/Login/Register';
 import Messages from './src/components/Messages/Messages';
