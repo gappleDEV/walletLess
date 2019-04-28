@@ -21,16 +21,15 @@ public class RequestController {
     @ResponseBody
     public Request newRequest(@RequestBody RequestVO requestVO){
         if (requestVO.message == null || requestVO.message.isEmpty()){
-            requestVO.message = "You have recieved a request for information from " + requestVO.provider.getProviderUserName()
-                            + "with " + requestVO.provider.getProviderName();
+            requestVO.message = "You have recieved a request for information from " + requestVO.providerEmail;
         }
 
-        return requestService.createNewRequest(requestVO.message, requestVO.user, requestVO.provider);
+        return requestService.createNewRequest(requestVO.message, requestVO.userEmail, requestVO.providerEmail);
     }
 
-    @PostMapping(path="/approve")
+    @GetMapping(path="/approve")
     @ResponseBody
-    public Request approveRequest(@RequestBody Integer requestId){
+    public Request approveRequest(@RequestParam Integer requestId){
         return requestService.updateRequestStatus(requestId, "open");
     }
 

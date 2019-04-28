@@ -133,13 +133,13 @@ public class PersonalInformation {
     @Column(name = "guarantor_relationship")
     private String guarantorRelationship;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
     public PersonalInformation(){}
 
-    public PersonalInformation(PersonalInformationVO pi){
+    public PersonalInformation(PersonalInformationVO pi, User user){
         this.firstName = pi.firstName;
         this.lastName = pi.lastName;
         this.socialSecurityNumber = pi.socialSecurityNumber;
@@ -179,7 +179,7 @@ public class PersonalInformation {
         this.guarantorSSN = pi.guarantorSSN;
         this.guarantorDateOfBirth = pi.guarantorDateOfBirth;
         this.guarantorRelationship = pi.guarantorRelationship;
-        this.user = pi.user;
+        this.user = user;
     }
 
     public Integer getPersonalInformationId() { return personalInformationId; }

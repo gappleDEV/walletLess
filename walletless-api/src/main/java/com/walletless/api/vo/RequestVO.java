@@ -5,14 +5,14 @@ import com.walletless.api.models.User;
 
 public class RequestVO {
     public String message;
-    public User user;
-    public Provider provider;
+    public String userEmail;
+    public String providerEmail;
 
     public RequestVO() {}
 
-    public RequestVO(String message, User user, Provider provider){
+    public RequestVO(String message, String user, String provider){
         this.message = message;
-        this.user = user;
-        this.provider = provider;
+        this.userEmail = user;
+        this.providerEmail = provider;
     }
 }

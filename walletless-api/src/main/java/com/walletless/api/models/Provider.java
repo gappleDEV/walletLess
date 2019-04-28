@@ -28,9 +28,6 @@ public class Provider {
     @Column(name="create_date", nullable = false)
     private String createDate;
 
-    @OneToMany(mappedBy = "provider")
-    private Set<Request> request;
-
     public Provider(){}
 
     public Provider(String email, Integer ppw, String provName, String provUserName) {
@@ -55,6 +52,4 @@ public class Provider {
     public void setProviderName(String providerName) { this.providerName = providerName; }
     public String getProviderUserName() { return providerUserName; }
     public void setProviderUserName(String providerUserName) { this.providerUserName = providerUserName; }
-    public Set<Request> getRequest() { return request; }
-    public void setRequest(Set<Request> request) { this.request = request; }
 }

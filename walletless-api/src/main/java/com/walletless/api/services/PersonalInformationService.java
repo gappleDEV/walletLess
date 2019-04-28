@@ -19,28 +19,39 @@ public class PersonalInformationService implements IPersonalInformationService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
+    private IUserService userService;
+    @Autowired
+    private IProviderService providerService;
+    @Autowired
     private RequestRepository requestRepository;
 
     public PersonalInformation createNewPersonalInformation(PersonalInformationVO personalInformationVO) {
-        if(userRepository.findByEmail(personalInformationVO.user.getEmail()) == null) {
-            //cannot create personal information if user does not exist
-            //todo should probably create my own exception but not worried about that right now
-            return null;
-        } else if(personalInformationRepository.findByUser(personalInformationVO.user) == null) {
-            return personalInformationRepository.save(new PersonalInformation(personalInformationVO));
+        User user = userRepository.findByEmail(personalInformationVO.userEmail);
+
+        if(personalInformationRepository.findByUser_Email(personalInformationVO.userEmail) == null) {
+            System.out.println("NO, i am here");
+            return personalInformationRepository.save(new PersonalInformation(personalInformationVO, user));
         } else { return null; }
     }
 
-    public PersonalInformation userGetPersonalInformation(User user) {
-        return personalInformationRepository.findByUser(user);
+    public PersonalInformation getPersonalInformationAsUser(String email, String upw) {
+        User user = userService.authenticate(email, upw);
+        if (user != null) {
+            return personalInformationRepository.findByUser_Email(email);
+        }
+        return null;
     }
 
-    public PersonalInformation providerGetPersonalInformation(Provider provider, String userEmail) {
+    public PersonalInformation getPersonalInformationAsProvider(String userEmail, String providerEmail, String ppw) {
+        Provider provider = providerService.authenticate(providerEmail, ppw);
         User user = userRepository.findByEmail(userEmail);
-        Request request = requestRepository.findByUserInAndProviderIn(user, provider);
 
-        if (request != null && !request.isExpired() && request.getStatus().equals("open")) {
-            return personalInformationRepository.findByUser(user);
+        if (provider != null && user != null) {
+            Request request = requestRepository.findByUserInAndProviderIn(user, provider);
+
+            if (request != null && !request.isExpired() && request.getStatus().equals("open")) {
+                return personalInformationRepository.findByUser_Email(userEmail);
+            }
         }
         return null;
     }

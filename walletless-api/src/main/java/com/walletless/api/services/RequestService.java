@@ -1,6 +1,8 @@
 package com.walletless.api.services;
 
+import com.walletless.api.dao.ProviderRepository;
 import com.walletless.api.dao.RequestRepository;
+import com.walletless.api.dao.UserRepository;
 import com.walletless.api.models.Provider;
 import com.walletless.api.models.Request;
 import com.walletless.api.models.User;
@@ -15,9 +17,19 @@ public class RequestService implements IRequestService {
 
     @Autowired
     private RequestRepository requestRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private ProviderRepository providerRepository;
 
-    public Request createNewRequest(String message, User user, Provider provider){
-        return requestRepository.save(new Request(message, user, provider));
+    public Request createNewRequest(String message, String userEmail, String providerEmail){
+        User user = userRepository.findByEmail(userEmail);
+        Provider provider = providerRepository.findByEmail(providerEmail);
+
+        if (user != null && provider != null) {
+            return requestRepository.save(new Request(message, user, provider));
+        }
+        return null;
     }
 
     public Request updateRequestStatus(Integer requestId, String status) {

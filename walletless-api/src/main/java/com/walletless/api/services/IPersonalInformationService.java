@@ -7,6 +7,6 @@ import com.walletless.api.vo.PersonalInformationVO;
 
 public interface IPersonalInformationService {
     PersonalInformation createNewPersonalInformation(PersonalInformationVO pi);
-    PersonalInformation userGetPersonalInformation(User user);
-    PersonalInformation providerGetPersonalInformation(Provider provider, String userEmail);
+    PersonalInformation getPersonalInformationAsUser(String email, String upw);
+    PersonalInformation getPersonalInformationAsProvider(String userEmail, String providerEmail, String ppw);
 }

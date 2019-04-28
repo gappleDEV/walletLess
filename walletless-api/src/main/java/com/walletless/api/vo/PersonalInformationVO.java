@@ -44,7 +44,7 @@ public class PersonalInformationVO {
     public String guarantorSSN;
     public Date guarantorDateOfBirth;
     public String guarantorRelationship;
-    public User user;
+    public String userEmail;
 
     PersonalInformationVO(){}
 
@@ -53,7 +53,7 @@ public class PersonalInformationVO {
                           String primaryCarePhysicianName,String primaryCarePhysicianAddress,String primaryCarePhysicianPhone,String nextOfKinFirstName,String nextOfKinLastName,
                           String nextOfKinRelationship,String nextOfKinCellPhone,String nextOfKinHomePhone,String emergencyContact,String emergencyContactFirstName,String emergencyContactAddress,
                           String emergencyContactPhone,String emergencyContactRelationship,String guarantor,String guarantorFirstName,String guarantorLastName,String guarantorAddress,
-                          String guarantorPhone,String guarantorSSN,Date guarantorDateOfBirth,String guarantorRelationship,User user){
+                          String guarantorPhone,String guarantorSSN,Date guarantorDateOfBirth,String guarantorRelationship,String userEmail){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -94,6 +94,6 @@ public class PersonalInformationVO {
         this.guarantorSSN = guarantorSSN;
         this.guarantorDateOfBirth = guarantorDateOfBirth;
         this.guarantorRelationship = guarantorRelationship;
-        this.user = user;
+        this.userEmail = userEmail;
     }
 }
