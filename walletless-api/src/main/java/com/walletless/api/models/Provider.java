@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "providers")
@@ -28,7 +29,7 @@ public class Provider {
     private String createDate;
 
     @OneToMany(mappedBy = "provider")
-    private Request request;
+    private Set<Request> request;
 
     public Provider(){}
 
@@ -54,6 +55,6 @@ public class Provider {
     public void setProviderName(String providerName) { this.providerName = providerName; }
     public String getProviderUserName() { return providerUserName; }
     public void setProviderUserName(String providerUserName) { this.providerUserName = providerUserName; }
-    public Request getRequest() { return request; }
-    public void setRequest(Request request) { this.request = request; }
+    public Set<Request> getRequest() { return request; }
+    public void setRequest(Set<Request> request) { this.request = request; }
 }

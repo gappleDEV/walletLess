@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -26,7 +27,7 @@ public class User {
     private PersonalInformation personalInformation;
 
     @OneToMany(mappedBy = "user")
-    private Request request;
+    private Set<Request> request;
 
     public User(){}
 
@@ -48,6 +49,6 @@ public class User {
     public void setCreateDate(String createDate) { this.createDate = createDate; }
     public PersonalInformation getPersonalInformation() { return personalInformation; }
     public void setPersonalInformation(PersonalInformation personalInformation) { this.personalInformation = personalInformation; }
-    public Request getRequest() { return request; }
-    public void setRequest(Request request) { this.request = request; }
+    public Set<Request> getRequest() { return request; }
+    public void setRequest(Set<Request> request) { this.request = request; }
 }
