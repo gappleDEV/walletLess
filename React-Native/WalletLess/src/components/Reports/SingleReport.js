@@ -8,6 +8,9 @@ import {
     TouchableHighlight
 } from 'react-native';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 export default class SingleReport extends Component {
 
     constructor() {
@@ -23,11 +26,11 @@ export default class SingleReport extends Component {
 
     render() {
 
-        const bgColor = this.props.selected ? '#4F6581' : '#5F6368';
+        //const bgColor = this.props.selected ? '#4F6581' : '#5F6368';
 
         return (
             <TouchableHighlight 
-            style={{ backgroundColor: bgColor }} 
+            style={{ backgroundColor: c.offWhite.color, borderRadius: 3}} 
             onPress={this.onPress}
             underlayColor='#4E5051'>
                 <View style={styles.imageThumbnail}>
@@ -44,9 +47,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         height: 100,
+        borderRadius: 3
     },
     title: {
-        color: '#D4DCE8',
+        color: c.gray4.color,
         fontSize: 22,
         fontWeight: '300'
     }

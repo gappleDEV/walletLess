@@ -22,6 +22,7 @@ import FloatingLabelInput from './../FloatingLabelInput/FloatingLabelInput';
 //Data
 import pureform from './../../data/reports/pureform';
 import pulledOver from './../../data/reports/pulledOver';
+import { c } from '../../styles/common';
 
 const font = Platform.select({
   ios: 'System',
@@ -202,6 +203,7 @@ export default class Reports extends Component {
     return (
       <View style={styles.MainContainer}>
         <FlatList
+          style={{marginTop:10}}
           data={this.state.dataSource}
           extraData={this.state}
           numColumns={2}
@@ -209,7 +211,7 @@ export default class Reports extends Component {
 
           renderItem={({ item, index }) => (
 
-            <View style={{ flex: 1, flexDirection: 'column', margin: 1 }}>
+            <View style={{flex: 1, width: 150, flexDirection: 'column', marginLeft: 15, marginRight: 15}}>
               <SingleReport id={item.title}
                 index={index}
                 onPressItem={this._onPressItem}
@@ -266,6 +268,7 @@ const styles = StyleSheet.create({
   MainContainer: {
     justifyContent: 'center',
     flex: 1,
+    backgroundColor: c.grayBodyBg.backgroundColor
   },
   modalView: {
     flex: 1,
