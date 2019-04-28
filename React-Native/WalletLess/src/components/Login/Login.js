@@ -36,9 +36,6 @@ const font = Platform.select({
 });
 
 const colors = {
-    bg: '#2f3c51',
-    text: '#afb6c0',
-    logIn: '#e4ebed',
     gradStart: '#17b7c8',
     gradEnd: '#3abcb4'
 }
@@ -135,7 +132,7 @@ export default class Login extends Component {
                         <Text style={styles.forgotText}>Forgot password?</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor={colors.bg}>
+                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor={c.gray1.backgroundColor}>
                         <LinearGradient
                             start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                             colors={[colors.gradStart, colors.gradEnd]}
@@ -218,7 +215,7 @@ const styles = StyleSheet.create({
         marginTop: 100
     },
     loginText: {
-        color: colors.logIn,
+        color: c.gray1.color,
         fontFamily: font,
         fontWeight: '300',
         fontSize: 24
