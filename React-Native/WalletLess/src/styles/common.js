@@ -43,7 +43,6 @@ const c = StyleSheet.create({
     offWhite: {
         color: '#f8f8f8'
     }
-
 })
 
 const cust = StyleSheet.create({
