@@ -12,13 +12,15 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @GetMapping(path="/add")
-    public @ResponseBody User createUser(@RequestParam String email, @RequestParam String upw) {
+    @GetMapping(path="/create")
+    @ResponseBody
+    public User createUser(@RequestParam String email, @RequestParam String upw) {
         return userService.createNewUser(email, upw);
     }
 
     @GetMapping(path="/authenticate")
-    public @ResponseBody User authenticateUser(@RequestParam String email, @RequestParam String upw) {
+    @ResponseBody
+    public User authenticateUser(@RequestParam String email, @RequestParam String upw) {
         return userService.authenticate(email, upw);
     }
 }

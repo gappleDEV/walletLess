@@ -12,7 +12,6 @@ public class UserService implements IUserService{
     @Autowired
     private UserRepository userRepository;
 
-
     public User createNewUser(String email, String upw) {
         if (userRepository.findByEmail(email) == null){
             return userRepository.save(new User(email, upw.hashCode()));
