@@ -135,7 +135,7 @@ export default class Login extends Component {
                         onPress={() => this.checkLoginAndOpenRealm()} underlayColor="transparent"> 
                         <LinearGradient
                             start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-                            colors={[colors.gradStart, colors.gradEnd]}
+                            colors={[c.blue.backgroundColor, c.blue.borderColor]}
                             style={styles.loginButton}>
                             <Text style={styles.loginText}>Log In</Text>
                         </LinearGradient>

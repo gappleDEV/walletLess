@@ -153,7 +153,7 @@ export default class Reports extends Component {
             prompt: true
           }
           inputSections.push(
-            <View key={s}>
+            <View key={s} style={{justifyContent: 'center', alignItems: 'center',}}>
               <TouchableHighlight
                 style={styles.callButton}
                 activeOpacity={0.5}
@@ -175,6 +175,19 @@ export default class Reports extends Component {
       buttonText: buttonText
     }));
 
+  }
+
+  previouslInputForReport() {
+    if (this.state.pageInd - 1 < 0) {
+      this.setModalVisible(false);
+    } else {
+      let buttonText = "Next";
+      this.setState(prevState => ({
+        ...prevState,
+        pageInd: this.state.pageInd - 1,
+        buttonText: buttonText
+      }));
+    }
   }
 
   continueWithReport() {
@@ -239,22 +252,40 @@ export default class Reports extends Component {
               </View>
               <View style={styles.bodyContent}>
                 <Card myWidth={310} myHeight={455} borRadius={5}>
-                  {viewToShow}
+                  <View style={{paddingLeft: 12, paddingRight: 12}}>
+                    {viewToShow}
+                  </View>
                 </Card>
-                <TouchableHighlight
-                  style={styles.continueButton}
-                  activeOpacity={0.5}
-                  underlayColor='transparent'
-                  onPress={() => {
-                    this.continueWithReport();
-                  }}>
-                  <LinearGradient
-                    start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-                    colors={[colors.gradStart, colors.gradEnd]}
-                    style={styles.continueButton}>
-                    <Text style={styles.buttonText}>{this.state.buttonText}</Text>
-                  </LinearGradient>
-                </TouchableHighlight>
+                <View style={styles.buttonContainer}>
+                  <TouchableHighlight
+                    style={styles.bcButton}
+                    activeOpacity={0.5}
+                    underlayColor='transparent'
+                    onPress={() => {
+                      this.previouslInputForReport();
+                    }}>
+                    <LinearGradient
+                      start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+                      colors={[c.purple.backgroundColor, c.purple.borderColor]}
+                      style={styles.bcButton}>
+                      <Text style={styles.buttonText}>Back</Text>
+                    </LinearGradient>
+                  </TouchableHighlight>
+                  <TouchableHighlight
+                    style={styles.bcButton}
+                    activeOpacity={0.5}
+                    underlayColor='transparent'
+                    onPress={() => {
+                      this.continueWithReport();
+                    }}>
+                    <LinearGradient
+                      start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+                      colors={[c.blue.backgroundColor, c.blue.borderColor]}
+                      style={styles.bcButton}>
+                      <Text style={styles.buttonText}>{this.state.buttonText}</Text>
+                    </LinearGradient>
+                  </TouchableHighlight>
+                </View>
               </View>
             </View>
           </View>
@@ -277,9 +308,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.5)'
   },
   inputArea: {
-    backgroundColor: '#AFB6C0',
+    backgroundColor: c.gray2.backgroundColor,
     width: 345,
-    height: 625
+    height: 600
   },
   titleContainer: {
     display: 'flex',
@@ -289,43 +320,52 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 26
+    fontSize: 26,
+    color: c.gray4.color
   },
   cancelIcon: {
     flex: 1,
     textAlign: 'right',
     fontSize: 24,
-    color: '#2f3c51'
+    color: c.gray4.color
   },
   bodyContent: {
     alignItems: 'center'
   },
-  continueButton: {
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  bcButton: {
     padding: 10,
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
+    borderRadius: 40,
     marginTop: 10,
+    marginLeft: 40,
+    marginRight: 40
   },
   buttonText: {
-    color: colors.logIn,
+    color: c.gray1.color,
     fontFamily: font,
     fontWeight: '300',
-    fontSize: 20
+    fontSize: 18
   },
   callButton: {
     padding: 10,
-    width: 300,
+    width: 275,
     height: 48,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
-    marginTop: 100
+    marginTop: 100,
+    borderColor: c.gray3.color,
+    borderWidth: 1
   },
   callText: {
-    color: colors.logIn,
+    color: c.gray3.color,
     fontFamily: font,
     fontWeight: '300',
     fontSize: 24

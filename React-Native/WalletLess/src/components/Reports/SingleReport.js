@@ -32,7 +32,7 @@ export default class SingleReport extends Component {
             <TouchableHighlight 
             style={{ backgroundColor: c.offWhite.color, borderRadius: 3}} 
             onPress={this.onPress}
-            underlayColor='#4E5051'>
+            underlayColor={c.gray2.color}>
                 <View style={styles.imageThumbnail}>
                     <Text style={styles.title}>{this.props.id}</Text>
                 </View>
