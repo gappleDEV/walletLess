@@ -10,6 +10,8 @@ import FloatingLabelInput from './../FloatingLabelInput/FloatingLabelInput';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 import Card from '../Card/Card';
+import CardHeader from '../Card/CardHeader';
+import { c } from '../../styles/common';
 
 export default class DataInput extends Component {
 
@@ -71,20 +73,22 @@ export default class DataInput extends Component {
         });
 
         inputSections = sections.map(section => (
-            <Card key={section.key} myWidth={350} borRadius={0} padBot={20} marBot={20} marTop={5}>
-                <Text style={styles.sectionHeader} key={section.key}>{section.sectionName}</Text>
-                {section.input.map(input => (
-                    <FloatingLabelInput
-                        key={input.key}
-                        label={input.label}
-                        valueChange={this.valueChange}
-                        schemaName={section.schemaName}
-                        dataName={input.dataName}
-                        value={this.state.realm.objects(section.schemaName)[0][input.dataName] ? 
-                            this.state.realm.objects(section.schemaName)[0][input.dataName].toString() : 
-                            ""}
-                    />
-                ))}
+            <Card key={section.key} myWidth={350} borRadius={3} padBot={20} marBot={20} marTop={5}>
+                <CardHeader key={section.key} title={section.sectionName}></CardHeader>
+                <View style={{paddingLeft: 12, paddingRight: 12}}>
+                    {section.input.map(input => (
+                        <FloatingLabelInput
+                            key={input.key}
+                            label={input.label}
+                            valueChange={this.valueChange}
+                            schemaName={section.schemaName}
+                            dataName={input.dataName}
+                            value={this.state.realm.objects(section.schemaName)[0][input.dataName] ? 
+                                this.state.realm.objects(section.schemaName)[0][input.dataName].toString() : 
+                                ""}
+                        />
+                    ))}
+                </View>
             </Card>
         ));
 
@@ -93,14 +97,6 @@ export default class DataInput extends Component {
                 <ScrollView style={styles.scroll}>
                     {inputSections}
                 </ScrollView>
-                {/*<View style={styles.buttonContainer}>
-                    <TouchableHighlight onPress={() => this.props.navigation.navigate('MenuScreen')} underlayColor="transparent">
-                        <View style={styles.button}><Text style={styles.text}>Save</Text></View>
-                    </TouchableHighlight>
-                    <TouchableHighlight onPress={() => this.props.navigation.navigate('MenuScreen')} underlayColor="transparent">
-                        <View style={styles.button}><Text style={styles.text}>Cancel</Text></View>
-                    </TouchableHighlight>
-                </View>*/}
             </View>
         );
     }
@@ -111,32 +107,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     scroll: {
-        backgroundColor: "#f8f8f8",
+        backgroundColor: c.grayBodyBg.backgroundColor,
         flex: 9,
     },
-    buttonContainer: {
-        height: 50,
-        flexDirection: 'row', 
-        justifyContent: 'space-around',
-        backgroundColor: '#c0c0c0',
-        paddingTop: 5
-    },
-    button: {
-      width: 150,
-      height: 50,
-      backgroundColor: '#1976d2',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginBottom: 25,
-      borderRadius: 10
-    },
-    text: {
-      color: '#f0f0f0'
-    },
-    sectionHeader: {
-        color: '#888888',
-        height: 25,
-        fontSize: 22,
-        fontWeight: '200',
-    }
 });

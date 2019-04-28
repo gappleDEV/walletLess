@@ -75,12 +75,6 @@ export default class CardCompartment extends Component {
                                 {this.getSubs()}
                             </View>
                         </View>
-                        {/* <View style={styles.center}>
-                            <View style={styles.percentContainer}>
-                                <MaterialIcon name={'bookmark'} style={styles.bookmark} />
-                                <Text style={styles.percentText}>{this.state.percent + '%'}</Text>
-                            </View>
-                        </View> */}
                     </View>
                 </Card>
             </View>
@@ -133,20 +127,4 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '300'
     },
-    percentContainer: {
-        flex: 1,
-        position: 'absolute',
-        top: -20,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    bookmark: {
-        color: c.blue.borderColor, 
-        fontSize: 70,
-    },
-    percentText: {
-        position: 'absolute', 
-        color: c.gray2.color,
-        fontSize: 16
-    }
 })
