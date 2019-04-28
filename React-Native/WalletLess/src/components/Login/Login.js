@@ -27,6 +27,9 @@ import Personal from '../../schema/Personal';
 import Prescription from '../../schema/Prescription';
 import User from '../../schema/User';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 const font = Platform.select({
     ios: 'System',
     android: 'Roboto',
@@ -152,7 +155,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     dataInputContainer: {
         flex: 1,
-        backgroundColor: colors.bg
+        backgroundColor: c.gray1.backgroundColor,
     },
     imageContainer: {
         flex: 3,
@@ -160,14 +163,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     image: {
-        width: 200,
+        width: 250,
         height: 200,
         justifyContent: 'center',
         alignItems: 'center',
     },
     companyText: {
         fontSize: 24,
-        color: colors.text,
+        color: c.gray3.color,
         fontFamily: font,
         fontWeight: '200'
     },
@@ -179,25 +182,25 @@ const styles = StyleSheet.create({
         width: 300,
         height: 40,
         borderBottomWidth: 1,
-        borderBottomColor: colors.text,
+        borderBottomColor: c.gray3.color,
         flexDirection: 'row'
     },
     passInput: {
         width: 300,
         height: 40,
         borderBottomWidth: 1,
-        borderBottomColor: colors.text,
+        borderBottomColor: c.gray3.color,
         flexDirection: 'row',
         marginTop: 25
     },
     email: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 24,
         marginTop: 12,
         alignSelf: 'flex-start'
     },
     textInput: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 18,
         marginTop: 14,
         fontFamily: font,
@@ -221,7 +224,7 @@ const styles = StyleSheet.create({
         fontSize: 24
     },
     forgotText: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 12,
         marginTop: 5,
         fontFamily: font,
@@ -230,7 +233,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start'
     },
     signUpText: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 18,
         marginTop: 10,
         width: 300,
@@ -238,7 +241,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: font,
         fontWeight: '200',
-        borderColor: colors.text,
+        borderColor: c.gray3.color,
         borderWidth: 1,
         borderRadius: 5
     }
