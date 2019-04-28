@@ -27,15 +27,15 @@ import Personal from '../../schema/Personal';
 import Prescription from '../../schema/Prescription';
 import User from '../../schema/User';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 const font = Platform.select({
     ios: 'System',
     android: 'Roboto',
 });
 
 const colors = {
-    bg: '#2f3c51',
-    text: '#afb6c0',
-    logIn: '#e4ebed',
     gradStart: '#17b7c8',
     gradEnd: '#3abcb4'
 }
@@ -132,10 +132,10 @@ export default class Login extends Component {
                         <Text style={styles.forgotText}>Forgot password?</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor={colors.bg}>
+                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor="transparent"> 
                         <LinearGradient
                             start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-                            colors={[colors.gradStart, colors.gradEnd]}
+                            colors={[c.blue.backgroundColor, c.blue.borderColor]}
                             style={styles.loginButton}>
                             <Text style={styles.loginText}>Log In</Text>
                         </LinearGradient>
@@ -152,7 +152,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     dataInputContainer: {
         flex: 1,
-        backgroundColor: colors.bg
+        backgroundColor: c.grayBodyBg.backgroundColor,
     },
     imageContainer: {
         flex: 3,
@@ -160,14 +160,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     image: {
-        width: 200,
+        width: 250,
         height: 200,
         justifyContent: 'center',
         alignItems: 'center',
     },
     companyText: {
         fontSize: 24,
-        color: colors.text,
+        color: c.gray3.color,
         fontFamily: font,
         fontWeight: '200'
     },
@@ -179,25 +179,25 @@ const styles = StyleSheet.create({
         width: 300,
         height: 40,
         borderBottomWidth: 1,
-        borderBottomColor: colors.text,
+        borderBottomColor: c.gray3.color,
         flexDirection: 'row'
     },
     passInput: {
         width: 300,
         height: 40,
         borderBottomWidth: 1,
-        borderBottomColor: colors.text,
+        borderBottomColor: c.gray3.color,
         flexDirection: 'row',
         marginTop: 25
     },
     email: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 24,
         marginTop: 12,
         alignSelf: 'flex-start'
     },
     textInput: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 18,
         marginTop: 14,
         fontFamily: font,
@@ -215,13 +215,13 @@ const styles = StyleSheet.create({
         marginTop: 100
     },
     loginText: {
-        color: colors.logIn,
+        color: c.gray1.color,
         fontFamily: font,
         fontWeight: '300',
         fontSize: 24
     },
     forgotText: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 12,
         marginTop: 5,
         fontFamily: font,
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start'
     },
     signUpText: {
-        color: colors.text,
+        color: c.gray3.color,
         fontSize: 18,
         marginTop: 10,
         width: 300,
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: font,
         fontWeight: '200',
-        borderColor: colors.text,
+        borderColor: c.gray3.color,
         borderWidth: 1,
         borderRadius: 5
     }

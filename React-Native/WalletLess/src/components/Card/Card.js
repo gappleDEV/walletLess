@@ -8,6 +8,9 @@ import {
     StyleSheet
 } from 'react-native';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 export default class Card extends Component {
 
 
@@ -32,12 +35,11 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
     cardView: {
-        paddingLeft: 10,
+        paddingLeft: 0,
         //paddingRight: 10,
-        paddingTop: 5,
+        paddingTop: 0,
         paddingBottom: 5,
-        borderColor: 'rgb(240, 240, 240)',
-        backgroundColor: '#5F6368',
+        backgroundColor: c.offWhite.color,
         shadowOpacity: 0.3,
         shadowRadius: 3,
         shadowOffset: {

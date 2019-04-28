@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 export default class MenuHeader extends Component {
 
     months = ["January", "February", "March", "April", "May", "June", 
@@ -34,7 +37,7 @@ export default class MenuHeader extends Component {
 
 const styles = StyleSheet.create({
     banner: {
-        backgroundColor: '#2F3C51',
+        backgroundColor: c.gray4.backgroundColor,
         height: 80,
         paddingTop: 5,
         flexDirection: 'row'
@@ -44,13 +47,13 @@ const styles = StyleSheet.create({
         paddingLeft: 10
     },
     helloText: {
-        color: '#AFB6C0',
+        color: c.gray1.color,
         height: 38,
         fontSize: 32,
         fontWeight: '200',
     },
     dateText: {
-        color: '#AFB6C0',
+        color: c.gray3.color,
         fontSize: 18,
         fontWeight: '200'
     },
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     image: {
-        width: 60,
-        height: 60
+        width: 70,
+        height: 70
     }
 })

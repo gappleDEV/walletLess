@@ -8,9 +8,12 @@ import {
   StyleSheet
 } from 'react-native';
 
+// Common Styles
+import { c } from '../../styles/common';
+
 const labelData = {
   topPadding: 18,
-  startFontSize: 20,
+  startFontSize: 16,
 };
 
 export default class FloatingLabelInput extends Component {
@@ -58,11 +61,11 @@ export default class FloatingLabelInput extends Component {
       }),
       fontSize: this._animatedIsFocused.interpolate({
         inputRange: [0, 1],
-        outputRange: [labelData.startFontSize, 14],
+        outputRange: [labelData.startFontSize, 12],
       }),
       color: this._animatedIsFocused.interpolate({
         inputRange: [0, 1],
-        outputRange: ['#aaa', '#000'],
+        outputRange: [c.gray2.color, c.gray4.color],
       }),
     };
 
@@ -95,13 +98,13 @@ const styles = StyleSheet.create({
   },
   textInput: {
     alignSelf: 'stretch',
-    height: 26, 
+    height: 18, 
     fontSize: labelData.startFontSize, 
-    color: '#000',
-    borderBottomWidth: 3, 
-    borderBottomColor: '#000',
+    color: c.gray4.color,
+    borderBottomWidth: 2, 
+    borderBottomColor: c.gray3.color,
   },
   borderHighlight: {
-    borderBottomColor: '#3399FF',
+    borderBottomColor: c.blue.backgroundColor,
   }
 });

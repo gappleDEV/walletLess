@@ -10,8 +10,11 @@ import {
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+// Common Styles
+import { c } from '../../styles/common';
 
 import Card from './Card';
+import CardHeader from './CardHeader';
 
 export default class CardCompartment extends Component {
 
@@ -60,18 +63,16 @@ export default class CardCompartment extends Component {
     render() {
         return(
             <View style={styles.outerView}>
-                <Card myWidth={350} myHeight={84} borRadius={5}>
+                <Card myWidth={350} myHeight={84} borRadius={3}>
                     <View style={styles.rowAlign}>
                         <View style={styles.container}>
-                            <Text style={styles.title}>{this.props.compartmentName}</Text>
-                            <View style={{flexDirection: 'row'}}>
+                            <CardHeader title={this.props.compartmentName}>
+                                <View style={styles.progressBox}>
+                                    <Text style={styles.progressText}>{this.state.percent + '%'}</Text>
+                                </View>
+                            </CardHeader>
+                            <View style={{flexDirection: 'row', paddingLeft: 12}}>
                                 {this.getSubs()}
-                            </View>
-                        </View>
-                        <View style={styles.center}>
-                            <View style={styles.percentContainer}>
-                                <MaterialIcon name={'bookmark'} style={styles.bookmark} />
-                                <Text style={styles.percentText}>{this.state.percent + '%'}</Text>
                             </View>
                         </View>
                     </View>
@@ -85,16 +86,23 @@ const styles = StyleSheet.create({
     outerView: {
         marginTop: 15
     },
+    progressBox: {
+        width: 30, 
+        height: 15, 
+        backgroundColor: c.green.backgroundColor,
+        borderRadius: 3,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    progressText: {
+        color: c.gray1.color,
+        fontSize: 10
+    },
     rowAlign: {
         flexDirection: 'row'
     },
     container: {
         flex: 5
-    },
-    title: {
-        color: '#D4DCE8',
-        fontSize: 22,
-        fontWeight: '300'
     },
     center: {
         flex: 2,
@@ -107,7 +115,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5
     },
     bullet: {
-        backgroundColor: '#AFB6C0', 
+        backgroundColor: c.gray3.backgroundColor,
         height: 6, 
         width: 6, 
         borderRadius: 6, 
@@ -115,24 +123,8 @@ const styles = StyleSheet.create({
         marginRight: 3
     },
     sub: {
-        color: '#AFB6C0',
+        color: c.gray4.color,
         fontSize: 14,
-        fontWeight: '400'
+        fontWeight: '300'
     },
-    percentContainer: {
-        flex: 1,
-        position: 'absolute',
-        top: -20,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    bookmark: {
-        color: '#17B7C8', 
-        fontSize: 70,
-    },
-    percentText: {
-        position: 'absolute',
-        color: '#5F6368',
-        fontSize: 16
-    }
 })
