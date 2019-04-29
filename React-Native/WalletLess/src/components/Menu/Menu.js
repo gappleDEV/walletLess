@@ -57,13 +57,22 @@ export default class Menu extends Component {
 
     render() {
 
-        const fName = this.state.realm
-      ? this.state.realm.objects('Personal')[0].firstName
+        const personal = this.state.realm
+        ? this.state.realm.objects('Personal')[0]
+        : null;
+
+        const fName = personal
+      ? personal.firstName
       : 'Loading...';
+
+        const id = personal
+        ? personal.id
+        : 'Loading...';
+
 
         return (
             <View style={styles.container}>
-                <MenuHeader style={styles.header} name={fName}/>
+                <MenuHeader style={styles.header} name={fName} userId={id}/>
                 <ScrollView style={styles.scroll}>
                     {this.getCompartments()}
                 </ScrollView>

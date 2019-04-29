@@ -25,7 +25,7 @@ export default class MenuHeader extends Component {
             <View style={styles.banner}>
                 <View style={styles.container}>
                     <Text style={styles.helloText}>Hello, {this.props.name}!</Text>
-                    <Text style={styles.dateText}>{this.months[this.today.getMonth()] + " " + this.today.getDate() + ", " + this.today.getFullYear()}</Text>
+                    <Text style={styles.dateText}>{this.months[this.today.getMonth()] + " " + this.today.getDate() + ", " + this.today.getFullYear() + " (ID: " + this.props.userId + ")"}</Text>
                 </View>
                 <View style={styles.center}>
                     <Image source={require('./../../images/Logo.png')} style={styles.image} />

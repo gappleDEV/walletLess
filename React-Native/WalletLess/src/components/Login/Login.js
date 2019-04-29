@@ -7,6 +7,7 @@ import {
     TouchableHighlight,
     Image,
     StyleSheet,
+    Alert
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 //import FloatingLabelInputIcon from './../FloatingLabelInput/FloatingLabelInputIcon';
@@ -26,6 +27,9 @@ import MotorVehicleInsurance from '../../schema/MotorVehicleInsurance';
 import Personal from '../../schema/Personal';
 import Prescription from '../../schema/Prescription';
 import User from '../../schema/User';
+
+// API Request
+import { type, CallApi } from '../../api/CallApi';
 
 // Common Styles
 import { c } from '../../styles/common';
@@ -61,6 +65,12 @@ export default class Login extends Component {
 
     checkLoginAndOpenRealm = () => {
 
+        let requestType = type.GET;
+        let url = '/user/create?';
+        let params = 'email=walletless@gmail.com&upw=password';
+
+        const apiCall = new CallApi(requestType, url, params);
+
         Realm.open({
             schema: [Bank, CreditCard, Employment, GeneralInsurance, HealthcareInsurance, HomeownersInsurance,
                 MotorVehicleDocs, MotorVehicleInsurance, Personal, Prescription, User],
@@ -68,23 +78,33 @@ export default class Login extends Component {
             encryptionKey: this.props.screenProps.key,
         }).then(realm => {
             let allInfo = realm.objects('User');
-            if(allInfo.length == 0) {
+            if (allInfo.length == 0) {
                 realm.write(() => {
                     realm.create('User', { id: 1, email: 'walletless@gmail.com', password: 'password' }, true);
+                    apiCall.request().then((response) => {
+                        Alert.alert(JSON.stringify(response));
+                    }, (error) => {
+                        Alert.alert(JSON.stringify(error));
+                    });
                 })
             } else {
                 let myUser = allInfo[0]; //at most 1 user saved locally
-                if(myUser.email.toUpperCase() == this.state.email.toUpperCase() && myUser.password == this.state.password) {
-                    realm.write(() => {
-                        realm.create('Personal', { id: 1, firstName: 'Gregory' }, true);
-                    });
-                    this.setState({realm});
-                    this.props.screenProps.setRealm(this.state.realm);
-                    this.props.navigation.navigate('HomeScreen', {
-                        realm: this.state.realm
+                if (myUser.email.toUpperCase() == this.state.email.toUpperCase() && myUser.password == this.state.password) {
+                    apiCall.request().then((response) => {
+                        Alert.alert(JSON.stringify(response));
+                        realm.write(() => {
+                            realm.create('Personal', { id: response.userId, firstName: 'Gregory' }, true);
+                        });
+                        this.setState({ realm });
+                        this.props.screenProps.setRealm(this.state.realm);
+                        this.props.navigation.navigate('HomeScreen', {
+                            realm: this.state.realm
+                        });
+                    }, (error) => {
+                        Alert.alert(JSON.stringify(error));
                     });
                 }
-            }        
+            }
         });
 
     }
@@ -134,7 +154,7 @@ export default class Login extends Component {
                         <Text style={styles.forgotText}>Forgot password?</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor="transparent"> 
+                        onPress={() => this.checkLoginAndOpenRealm()} underlayColor="transparent">
                         <LinearGradient
                             start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                             colors={[c.blue.backgroundColor, c.blue.borderColor]}
