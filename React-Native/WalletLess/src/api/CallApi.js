@@ -31,7 +31,7 @@ class CallApi {
     }
 
     request = async () => {
-        const domain = 'http://12103740.ngrok.io'; //'http://192.168.1.152:8080';
+        const domain = 'http://192.168.1.152:8080';//'http://12103740.ngrok.io';
         switch (this.requestType) {
             case type.GET:
                 let getResponse = await fetch(domain + this.url + this.params).then((response) => {
