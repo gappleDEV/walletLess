@@ -29,7 +29,6 @@ public class PersonalInformationService implements IPersonalInformationService {
         User user = userRepository.findByEmail(personalInformationVO.userEmail);
 
         if(personalInformationRepository.findByUser_Email(personalInformationVO.userEmail) == null) {
-            System.out.println("NO, i am here");
             return personalInformationRepository.save(new PersonalInformation(personalInformationVO, user));
         } else { return null; }
     }

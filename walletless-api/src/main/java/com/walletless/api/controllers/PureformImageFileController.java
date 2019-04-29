@@ -23,7 +23,8 @@ public class PureformImageFileController {
     private PureformImageFileService pureformImageFileService;
 
     @PostMapping("/uploadFile")
-    public PureformImageFile uploadFile(@RequestParam MultipartFile file, User user) throws Exception{
+    @ResponseBody
+    public PureformImageFile uploadFile(@RequestParam MultipartFile file, @RequestBody User user) throws Exception{
         return pureformImageFileService.storeFile(file, user);
     }
 
