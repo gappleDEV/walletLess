@@ -32,14 +32,14 @@ public class RequestService implements IRequestService {
         return null;
     }
 
-    public Request updateRequestStatus(Integer requestId, String status) {
+    public Request updateRequestStatus(Integer requestId) {
         Optional<Request> reqOp = requestRepository.findById(requestId);
 
         if (reqOp.isPresent()){
             Request req = reqOp.get();
 
-            if (!req.getStatus().equals(status)){
-                req.setStatus(status);
+            if (!req.isApproved() && !req.isExpired()){
+                req.setApproved(true);
                 return requestRepository.save(req);
             }
         }
