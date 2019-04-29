@@ -49,7 +49,7 @@ public class PersonalInformationService implements IPersonalInformationService {
         if (provider != null && user != null) {
             Request request = requestRepository.findByUserInAndProviderIn(user, provider);
 
-            if (request != null && !request.isExpired() && request.getStatus().equals("open")) {
+            if (request != null && !request.isExpired() && request.isApproved()) {
                 return personalInformationRepository.findByUser_Email(userEmail);
             }
         }

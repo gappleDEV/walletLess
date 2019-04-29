@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IRequestService {
     Request createNewRequest(String message, String userEmail, String providerEmail);
-    Request updateRequestStatus(Integer requestId, String status);
+    Request updateRequestStatus(Integer requestId);
     List<Request> getAllRequestsByUser(User user);
     List<Request> getAllRequestsByProvider(Provider provider);
 }

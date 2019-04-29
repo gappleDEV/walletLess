@@ -22,8 +22,8 @@ public class Request {
     @Column(name = "end_date")
     private String endDate;
 
-    @Column(name = "status")
-    private String status; //open, pending, or closed
+    @Column(name = "approved")
+    private boolean approved; //open, pending, or closed
     //todo: make enum maybe
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -38,7 +38,7 @@ public class Request {
 
     public Request(String message, User user, Provider provider){
         this.message = message;
-        this.status = "pending";
+        this.approved = false;
 
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyy-MM-dd HH:mm");
         LocalDateTime now = LocalDateTime.now(ZoneId.of("America/New_York"));
@@ -57,8 +57,8 @@ public class Request {
     public void setStartDate(String startDate) { this.startDate = startDate; }
     public String getEndDate() { return endDate; }
     public void setEndDate(String endDate) { this.endDate = endDate; }
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public boolean isApproved() { return approved; }
+    public void setApproved(boolean status) { this.approved = status; }
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
     public Provider getProvider() { return provider; }

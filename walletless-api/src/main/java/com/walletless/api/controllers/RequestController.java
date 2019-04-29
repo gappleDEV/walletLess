@@ -30,7 +30,7 @@ public class RequestController {
     @GetMapping(path="/approve")
     @ResponseBody
     public Request approveRequest(@RequestParam Integer requestId){
-        return requestService.updateRequestStatus(requestId, "open");
+        return requestService.updateRequestStatus(requestId);
     }
 
     @PostMapping(path="/getAllByUser")

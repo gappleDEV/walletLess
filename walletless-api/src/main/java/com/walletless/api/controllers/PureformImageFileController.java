@@ -40,9 +40,9 @@ public class PureformImageFileController {
         return resultList;
     }
 
-    @PostMapping("/downloadFile/{fileId}")
-    public PureformImageFile downloadFile(@PathVariable String fileId, @RequestBody User user) throws Exception{
-        return pureformImageFileService.getFile(fileId, user);
+    @PostMapping("/downloadFile/{fileId}/{requestId}")
+    public PureformImageFile downloadFile(@PathVariable String fileId, @PathVariable Integer requestId) throws Exception{
+        return pureformImageFileService.getFile(fileId, requestId);
 
         //ResponseEntity<Reource>
 //        return ResponseEntity.ok().contentType(MediaType.parseMediaType(pfImageFile.getFileType()))
