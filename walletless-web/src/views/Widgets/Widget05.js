@@ -49,7 +49,7 @@ class Widget05 extends Component {
             <i className={card.icon}></i>
           </div>
           <div className="h4 mb-0">{header}</div>
-          <small className="text-muted text-uppercase font-weight-bold">{children}</small>
+          <small className="text-uppercase font-weight-bold">{children}</small>
         </CardBody>
       </Card>
     );
