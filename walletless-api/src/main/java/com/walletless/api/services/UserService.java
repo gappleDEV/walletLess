@@ -13,10 +13,13 @@ public class UserService implements IUserService{
     private UserRepository userRepository;
 
     public User createNewUser(String email, String upw) {
-        if (userRepository.findByEmail(email) == null){
+        User user = userRepository.findByEmail(email);
+        if (user == null){
             return userRepository.save(new User(email, upw.hashCode()));
         }
-        return null;
+        else{
+            return user;
+        }
     }
 
     public User authenticate(String email, String upw) {
