@@ -1,7 +1,5 @@
 package com.walletless.api.vo;
 
-import com.walletless.api.models.User;
-
 import java.util.Date;
 
 public class PersonalInformationVO {
@@ -44,6 +42,8 @@ public class PersonalInformationVO {
     public String guarantorSSN;
     public Date guarantorDateOfBirth;
     public String guarantorRelationship;
+    public String socialInsuranceNumber;
+    public String province;
     public String userEmail;
 
     PersonalInformationVO(){}
@@ -53,7 +53,7 @@ public class PersonalInformationVO {
                           String primaryCarePhysicianName,String primaryCarePhysicianAddress,String primaryCarePhysicianPhone,String nextOfKinFirstName,String nextOfKinLastName,
                           String nextOfKinRelationship,String nextOfKinCellPhone,String nextOfKinHomePhone,String emergencyContact,String emergencyContactFirstName,String emergencyContactAddress,
                           String emergencyContactPhone,String emergencyContactRelationship,String guarantor,String guarantorFirstName,String guarantorLastName,String guarantorAddress,
-                          String guarantorPhone,String guarantorSSN,Date guarantorDateOfBirth,String guarantorRelationship,String userEmail){
+                          String guarantorPhone,String guarantorSSN,Date guarantorDateOfBirth,String guarantorRelationship,String socialInsuranceNumber, String province, String userEmail){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -94,6 +94,8 @@ public class PersonalInformationVO {
         this.guarantorSSN = guarantorSSN;
         this.guarantorDateOfBirth = guarantorDateOfBirth;
         this.guarantorRelationship = guarantorRelationship;
+        this.socialInsuranceNumber = socialInsuranceNumber;
+        this.province = province;
         this.userEmail = userEmail;
     }
 }

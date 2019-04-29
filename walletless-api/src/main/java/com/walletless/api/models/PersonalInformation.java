@@ -25,6 +25,9 @@ public class PersonalInformation {
     @Column(name = "ssn")
     private String socialSecurityNumber;
 
+    @Column(name = "sin")
+    private String socialInsuranceNumber;
+
     @Column(name = "street_address")
     private String streetAddress;
 
@@ -42,6 +45,9 @@ public class PersonalInformation {
 
     @Column(name = "country")
     private String country;
+
+    @Column(name = "province")
+    private String province;
 
     @Column(name = "sex")
     private String sex;
@@ -179,6 +185,9 @@ public class PersonalInformation {
         this.guarantorSSN = pi.guarantorSSN;
         this.guarantorDateOfBirth = pi.guarantorDateOfBirth;
         this.guarantorRelationship = pi.guarantorRelationship;
+        this.socialInsuranceNumber = pi.socialInsuranceNumber;
+        this.province = pi.province;
+
         this.user = user;
     }
 
@@ -262,6 +271,10 @@ public class PersonalInformation {
     public void setGuarantorDateOfBirth(Date guarantorDateOfBirth) { this.guarantorDateOfBirth = guarantorDateOfBirth; }
     public String getGuarantorRelationship() { return guarantorRelationship; }
     public void setGuarantorRelationship(String guarantorRelationship) { this.guarantorRelationship = guarantorRelationship; }
+    public String getSocialInsuranceNumber() { return socialInsuranceNumber; }
+    public void setSocialInsuranceNumber(String socialInsuranceNumber) { this.socialInsuranceNumber = socialInsuranceNumber; }
+    public String getProvince() { return province; }
+    public void setProvince(String province) { this.province = province; }
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
 }
