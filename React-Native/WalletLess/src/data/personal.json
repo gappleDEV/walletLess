@@ -94,6 +94,13 @@
                 "dataName": "socialSecurityNumber",
                 "type": "string",
                 "default": ""
+            },
+            {
+                "key": 6,
+                "label": "Social Insurance Number",
+                "dataName": "socialInsuranceNumber",
+                "type": "string",
+                "default": ""
             }
         ]
     },
@@ -139,6 +146,13 @@
             },
             {
                 "key": 5,
+                "label": "Province",
+                "dataName": "province",
+                "type": "string",
+                "default": ""
+            },
+            {
+                "key": 6,
                 "label": "Country",
                 "dataName": "country",
                 "type": "string",

@@ -63,7 +63,9 @@ export default class Login extends Component {
 
         Realm.open({
             schema: [Bank, CreditCard, Employment, GeneralInsurance, HealthcareInsurance, HomeownersInsurance,
-                MotorVehicleDocs, MotorVehicleInsurance, Personal, Prescription, User], encryptionKey: this.props.screenProps.key
+                MotorVehicleDocs, MotorVehicleInsurance, Personal, Prescription, User],
+            schemaVersion: 2,
+            encryptionKey: this.props.screenProps.key,
         }).then(realm => {
             let allInfo = realm.objects('User');
             if(allInfo.length == 0) {
