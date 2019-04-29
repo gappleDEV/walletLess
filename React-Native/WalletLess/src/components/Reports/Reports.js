@@ -4,6 +4,7 @@ import {
   View,
   Alert,
   Text,
+  TextInput,
   StyleSheet,
   Image,
   Modal,
@@ -51,7 +52,8 @@ export default class Reports extends Component {
       buttonText: "Next",
       pageInd: -1,
       dataInd: -1,
-      dataSource: {}
+      dataSource: {},
+      search: ""
     };
   }
 
@@ -148,11 +150,11 @@ export default class Reports extends Component {
           break;
         case "picture":
           inputSections.push(
-            <View key={s} style={{justifyContent: 'center', alignItems: 'center'}}>
+            <View key={s} style={{ justifyContent: 'center', alignItems: 'center' }}>
               <TakePicture pHeight={455} pWidth={310}>
               </TakePicture>
               <Text style={styles.picTitle}>
-              {section.label}</Text>
+                {section.label}</Text>
             </View>
           );
           break;
@@ -162,7 +164,7 @@ export default class Reports extends Component {
             prompt: true
           }
           inputSections.push(
-            <View key={s} style={{justifyContent: 'center', alignItems: 'center',}}>
+            <View key={s} style={{ justifyContent: 'center', alignItems: 'center', }}>
               <TouchableHighlight
                 style={styles.callButton}
                 activeOpacity={0.5}
@@ -225,8 +227,22 @@ export default class Reports extends Component {
 
     return (
       <View style={styles.MainContainer}>
+        <View style={{justifyContent: 'center', alignItems: 'center', paddingTop: 10}}>
+          <View style={styles.searchInputContainer}>
+            <MaterialIcon name={'search'} style={styles.searchIcon} />
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={(text) => this.setState({ ...this.state, search: text })}
+              value={this.state.search}
+              placeholder='Search...'
+              placeholderTextColor={'#707A88'}
+              keyboardType='default'
+              keyboardAppearance='dark'>
+            </TextInput>
+          </View>
+        </View>
         <FlatList
-          style={{marginTop:10}}
+          style={{ marginTop: 10 }}
           data={this.state.dataSource}
           extraData={this.state}
           numColumns={2}
@@ -234,7 +250,7 @@ export default class Reports extends Component {
 
           renderItem={({ item, index }) => (
 
-            <View style={{flex: 1, width: 150, flexDirection: 'column', marginLeft: 15, marginRight: 15}}>
+            <View style={{ flex: 1, width: 150, flexDirection: 'column', marginLeft: 15, marginRight: 15 }}>
               <SingleReport id={item.title}
                 index={index}
                 onPressItem={this._onPressItem}
@@ -262,7 +278,7 @@ export default class Reports extends Component {
               </View>
               <View style={styles.bodyContent}>
                 <Card myWidth={310} myHeight={455} borRadius={5}>
-                  <View style={{paddingLeft: 12, paddingRight: 12}}>
+                  <View style={{ paddingLeft: 12, paddingRight: 12 }}>
                     {viewToShow}
                   </View>
                 </Card>
@@ -310,6 +326,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     backgroundColor: c.grayBodyBg.backgroundColor
+  },
+  searchInputContainer: {
+    width: 310,
+    height: 40,
+    borderBottomWidth: 1,
+    borderBottomColor: c.gray3.color,
+    flexDirection: 'row',
+  },
+  searchIcon: {
+    color: c.gray3.color,
+    fontSize: 25,
+    marginTop: 14,
+    alignSelf: 'flex-start'
+  },
+  searchInput: {
+    color: c.gray3.color,
+    fontSize: 20,
+    marginTop: 14,
+    fontFamily: font,
+    fontWeight: '200',
+    alignSelf: 'flex-start',
+    marginLeft: 20,
+    width: 250
   },
   modalView: {
     flex: 1,
@@ -381,13 +420,13 @@ const styles = StyleSheet.create({
     fontSize: 24
   },
   picTitle: {
-    backgroundColor: c.gray1.backgroundColor, 
+    backgroundColor: c.gray1.backgroundColor,
     fontSize: 16,
     width: 300,
     textAlign: 'center',
-    color: c.gray4.color, 
-    position: 'absolute', 
-    top: 7,  
+    color: c.gray4.color,
+    position: 'absolute',
+    top: 7,
     paddingTop: 5,
     paddingBottom: 5,
     opacity: 0.5
