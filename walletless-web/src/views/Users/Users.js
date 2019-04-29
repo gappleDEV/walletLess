@@ -29,9 +29,44 @@ function UserRow(props) {
 
 class Users extends Component {
 
-  render() {
+  constructor(props) {
+    super(props);
 
-    const userList = usersData.filter((user) => user.id < 15)
+    this.state = {
+      data: usersData.filter((user) => user.id < 15),
+    }
+  }
+
+  loadUsers = () => {
+    let domain = "http://localhost:8080";
+    let url = "/pi/providerGet?";
+    let params = {
+      userEmail: "walletless@gmail.com",
+      providerEmail: "provider@gmail.com",
+      ppw: "password"
+    }
+    fetch(domain + url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(params),
+    }).then((response) => {
+      let userToAdd = {
+        id: response.user.userId,
+        name: response.firstName + " " + response.lastName,
+        registered: response.user.createDate,
+        role: "Member",
+        status: "Active"
+      }
+      let currData = this.state.data;
+      this.setState({data: currData.append(userToAdd)});
+    });
+  }
+
+  render() {
+    this.loadUsers();
 
     return (
       <div className="animated fadeIn">
@@ -53,7 +88,7 @@ class Users extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {userList.map((user, index) =>
+                    {this.state.data.map((user, index) =>
                       <UserRow key={index} user={user}/>
                     )}
                   </tbody>
