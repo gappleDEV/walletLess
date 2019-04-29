@@ -33,7 +33,7 @@ class Login extends Component {
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
+                          <Button color="primary" className="px-4" onClick={() => window.location.hash = "/dashboard"}>Login</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
@@ -46,10 +46,9 @@ class Login extends Component {
                   <CardBody className="text-center">
                     <div>
                       <h2>Sign up</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                      <p>Want to become a WalletLess provider? Register here and we will let you know when your account has been activated!</p>
                       <Link to="/register">
-                        <Button color="primary" className="mt-3" active tabIndex={-1}>Register Now!</Button>
+                        <Button color="primary" className="mt-3" active tabIndex={-1} onClick={() => window.location.hash = "/register"}>Register Now!</Button>
                       </Link>
                     </div>
                   </CardBody>

@@ -354,19 +354,19 @@ class Dashboard extends Component {
       <div className="animated fadeIn">
         <Row>
           <Col xs="12" sm="6" lg="3">
-            <Widget05 icon="icon-bell" color="danger" header="0" invert>Expire (3 Days)</Widget05>
+            <Widget05 icon="icon-bell" color="danger" header="4" invert onClick={() => window.location.hash = "/users"}>Expire (3 Days)</Widget05>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Widget05 icon="icon-bell" color="warning" header="0" invert>Expire (7 Days)</Widget05>
+            <Widget05 icon="icon-bell" color="warning" header="2" invert onClick={() => window.location.hash = "/users"}>Expire (7 Days)</Widget05>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Widget05 icon="icon-bell" color="info" header="0" invert>Expire (1 Month)</Widget05>
+            <Widget05 icon="icon-bell" color="info" header="15" invert onClick={() => window.location.hash = "/users"}>Expire (1 Month)</Widget05>
           </Col>
 
           <Col xs="12" sm="6" lg="3">
-            <Widget05 icon="icon-people" color="success" header="0" invert>All Users</Widget05>
+            <Widget05 icon="icon-people" color="success" header="15" invert onClick={() => window.location.hash = "/users"}>All Users</Widget05>
           </Col>
         </Row>
 

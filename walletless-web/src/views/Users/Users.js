@@ -12,7 +12,7 @@ function UserRow(props) {
     return status === 'Active' ? 'success' :
       status === 'Inactive' ? 'secondary' :
         status === 'Pending' ? 'warning' :
-          status === 'Banned' ? 'danger' :
+          status === 'Expires Soon' ? 'danger' :
             'primary'
   }
 
@@ -31,12 +31,12 @@ class Users extends Component {
 
   render() {
 
-    const userList = usersData.filter((user) => user.id < 10)
+    const userList = usersData.filter((user) => user.id < 15)
 
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xl={6}>
+          <Col xl={12}>
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Users <small className="text-muted">example</small>
