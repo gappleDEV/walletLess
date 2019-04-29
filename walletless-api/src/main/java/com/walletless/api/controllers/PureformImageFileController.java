@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin
 @RestController
 public class PureformImageFileController {
 
@@ -23,7 +24,8 @@ public class PureformImageFileController {
     private PureformImageFileService pureformImageFileService;
 
     @PostMapping("/uploadFile")
-    public PureformImageFile uploadFile(@RequestParam MultipartFile file, User user) throws Exception{
+    @ResponseBody
+    public PureformImageFile uploadFile(@RequestParam MultipartFile file, @RequestBody User user) throws Exception{
         return pureformImageFileService.storeFile(file, user);
     }
 
@@ -41,6 +43,7 @@ public class PureformImageFileController {
     }
 
     @PostMapping("/downloadFile/{fileId}/{requestId}")
+    @ResponseBody
     public PureformImageFile downloadFile(@PathVariable String fileId, @PathVariable Integer requestId) throws Exception{
         return pureformImageFileService.getFile(fileId, requestId);
 

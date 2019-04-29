@@ -5,6 +5,7 @@ import com.walletless.api.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path="/user")
 public class UserController {
