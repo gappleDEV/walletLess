@@ -42,6 +42,7 @@ public class PureformImageFileController {
     }
 
     @PostMapping("/downloadFile/{fileId}/{requestId}")
+    @ResponseBody
     public PureformImageFile downloadFile(@PathVariable String fileId, @PathVariable Integer requestId) throws Exception{
         return pureformImageFileService.getFile(fileId, requestId);
 
