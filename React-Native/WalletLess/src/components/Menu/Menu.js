@@ -65,8 +65,8 @@ export default class Menu extends Component {
       ? personal.firstName
       : 'Loading...';
 
-        const id = personal
-        ? personal.id
+        const id = this.state.realm
+        ? this.state.realm.objects('User')[0].id
         : 'Loading...';
 
 

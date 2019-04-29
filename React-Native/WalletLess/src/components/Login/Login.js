@@ -82,7 +82,7 @@ export default class Login extends Component {
                 realm.write(() => {
                     realm.create('User', { id: 1, email: 'walletless@gmail.com', password: 'password' }, true);
                     apiCall.request().then((response) => {
-                        Alert.alert(JSON.stringify(response));
+                        //Alert.alert(JSON.stringify(response));
                     }, (error) => {
                         Alert.alert(JSON.stringify(error));
                     });
@@ -91,9 +91,10 @@ export default class Login extends Component {
                 let myUser = allInfo[0]; //at most 1 user saved locally
                 if (myUser.email.toUpperCase() == this.state.email.toUpperCase() && myUser.password == this.state.password) {
                     apiCall.request().then((response) => {
-                        Alert.alert(JSON.stringify(response));
+                        //Alert.alert(JSON.stringify(response));
                         realm.write(() => {
                             realm.create('Personal', { id: response.userId, firstName: 'Gregory' }, true);
+                            realm.create('User', { id: response.userId, email: 'walletless@gmail.com', password: 'password' }, true);
                         });
                         this.setState({ realm });
                         this.props.screenProps.setRealm(this.state.realm);

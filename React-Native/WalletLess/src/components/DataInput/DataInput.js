@@ -5,13 +5,16 @@ import {
     TouchableHighlight,
     ScrollView,
     StyleSheet,
+    Alert
 } from 'react-native';
+import { NavigationEvents } from 'react-navigation';
 import FloatingLabelInput from './../FloatingLabelInput/FloatingLabelInput';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 import Card from '../Card/Card';
 import CardHeader from '../Card/CardHeader';
 import { c } from '../../styles/common';
+import { type, CallApi } from '../../api/CallApi';
 
 export default class DataInput extends Component {
 
@@ -62,6 +65,22 @@ export default class DataInput extends Component {
         const { navigation } = this.props;
         const sections = navigation.getParam('sections', {});
 
+        const didBlurSubscription = this.props.navigation.addListener(
+            'didBlur',
+            () => {
+                const personal = JSON.parse(JSON.stringify(this.state.realm.objects('Personal')[0]));
+                personal["userEmail"] = this.state.realm.objects('User')[0].email;
+                delete personal["id"];
+                console.warn('didBlur', personal);
+                const apiCall = new CallApi(type.POST, "/pi/add", personal);
+                apiCall.request().then((response) => {
+                    //Alert.alert(JSON.stringify(response));
+                }, (error) => {
+                    Alert.alert(JSON.stringify(error));
+                });
+            }
+        )
+
         //Ensure that a realm object is created for each that we need to save to
         sections.forEach((section) => {
             let schemaInfo = this.state.realm.objects(section.schemaName);
@@ -94,6 +113,10 @@ export default class DataInput extends Component {
 
         return (
             <View style={styles.dataInputContainer}>
+                {/* <NavigationEvents
+                    onWillFocus={payload => console.warn('will focus')}
+                    onDidFocus={payload => console.warn('did focus')}
+                    /> */}
                 <ScrollView style={styles.scroll}>
                     {inputSections}
                 </ScrollView>
