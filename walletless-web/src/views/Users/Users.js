@@ -41,17 +41,18 @@ class Users extends Component {
     let domain = "http://localhost:8080";
     let url = "/pi/providerGet?";
     let params = {
-      userEmail: "walletless@gmail.com",
-      providerEmail: "provider@gmail.com",
-      ppw: "password"
+      "userEmail": "walletless@gmail.com",
+      "providerEmail": "provider@gmail.com",
+      "ppw": "password"
     }
-    fetch(domain + url, {
+    let params2 = "userEmail=walletless@gmail.com&providerEmail=provider@gmail.com&ppw=password";
+    fetch(domain + url + params2, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(params),
+      //body: JSON.stringify(params),
     }).then((response) => {
       let userToAdd = {
         id: response.user.userId,
@@ -66,7 +67,7 @@ class Users extends Component {
   }
 
   render() {
-    this.loadUsers();
+    //this.loadUsers();
 
     return (
       <div className="animated fadeIn">
