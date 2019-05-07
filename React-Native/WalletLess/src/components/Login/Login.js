@@ -39,11 +39,6 @@ const font = Platform.select({
     android: 'Roboto',
 });
 
-const colors = {
-    gradStart: '#17b7c8',
-    gradEnd: '#3abcb4'
-}
-
 export default class Login extends Component {
 
     constructor(props) {
@@ -53,23 +48,6 @@ export default class Login extends Component {
             email: '',
             password: ''
         };
-    }
-
-    /* componentWillMount() {
-        Realm.open({
-            schema: [Personal], encryptionKey: this.props.screenProps.key
-        }).then(realm => {
-            this.setState({ realm });
-        });
-    } */
-
-    checkLoginAndOpenRealm = () => {
-
-        let requestType = type.GET;
-        let url = '/user/create?';
-        let params = 'email=walletless@gmail.com&upw=password';
-
-        const apiCall = new CallApi(requestType, url, params);
 
         Realm.open({
             schema: [Bank, CreditCard, Employment, GeneralInsurance, HealthcareInsurance, HomeownersInsurance,
@@ -77,37 +55,50 @@ export default class Login extends Component {
             schemaVersion: 2,
             encryptionKey: this.props.screenProps.key,
         }).then(realm => {
-            let allInfo = realm.objects('User');
-            if (allInfo.length == 0) {
-                realm.write(() => {
-                    realm.create('User', { id: 1, email: 'walletless@gmail.com', password: 'password' }, true);
-                    apiCall.request().then((response) => {
-                        //Alert.alert(JSON.stringify(response));
-                    }, (error) => {
-                        Alert.alert(JSON.stringify(error));
-                    });
-                })
-            } else {
-                let myUser = allInfo[0]; //at most 1 user saved locally
-                if (myUser.email.toUpperCase() == this.state.email.toUpperCase() && myUser.password == this.state.password) {
-                    apiCall.request().then((response) => {
-                        //Alert.alert(JSON.stringify(response));
-                        realm.write(() => {
-                            realm.create('Personal', { id: response.userId, firstName: 'Gregory' }, true);
-                            realm.create('User', { id: response.userId, email: 'walletless@gmail.com', password: 'password' }, true);
-                        });
-                        this.setState({ realm });
-                        this.props.screenProps.setRealm(this.state.realm);
-                        this.props.navigation.navigate('HomeScreen', {
-                            realm: this.state.realm
-                        });
-                    }, (error) => {
-                        Alert.alert(JSON.stringify(error));
-                    });
-                }
-            }
-        });
+            this.setState({ realm });
+        })
 
+    }
+
+    checkLoginAndOpenRealm = () => {
+
+        let requestType = type.GET;
+        let url = '/user/create?';
+        let params = 'email=' + this.state.email + '&upw=' + this.state.password;
+
+        const apiCall = new CallApi(requestType, url, params);
+
+        let realm = this.state.realm;
+        let allInfo = realm.objects('User');
+        if (allInfo.length == 0) {
+            Alert.alert("This device does not have a user attached. Walletless is not currently supporting logging in with a user created at another point in time. Register a new user for testing.");
+        } else {
+            let myUser = allInfo[0]; //at most 1 user saved locally
+            if (myUser.email.toUpperCase() == this.state.email.toUpperCase() && myUser.password == this.state.password) {
+                apiCall.request().then((response) => {
+                    //Alert.alert(JSON.stringify(response));
+                    this.props.screenProps.setRealm(this.state.realm);
+                    this.props.navigation.navigate('HomeScreen', {
+                        realm: this.state.realm
+                    });
+                }, (error) => {
+                    Alert.alert("Error communicating with backend: " + JSON.stringify(error));
+                    this.props.screenProps.setRealm(this.state.realm);
+                    this.props.navigation.navigate('HomeScreen', {
+                        realm: this.state.realm
+                    });
+                });
+            } else {
+                Alert.alert("Email or password is incorrect.");
+            }
+        }
+    }
+
+    openRegisterView = () => {
+        this.props.screenProps.setRealm(this.state.realm);
+        this.props.navigation.navigate('RegisterScreen', {
+            realm: this.state.realm
+        });
     }
 
     render() {
@@ -132,7 +123,7 @@ export default class Login extends Component {
                         <TextInput
                             style={styles.textInput}
                             onChangeText={(text) => this.setState({ ...this.state, email: text })}
-                            value={this.state.text}
+                            value={this.state.email}
                             placeholder='Email'
                             placeholderTextColor={'#707A88'}
                             keyboardType='email-address'
@@ -144,7 +135,7 @@ export default class Login extends Component {
                         <TextInput
                             style={styles.textInput}
                             onChangeText={(text) => this.setState({ ...this.state, password: text })}
-                            value={this.state.text}
+                            value={this.state.password}
                             placeholder='Password'
                             placeholderTextColor={'#707A88'}
                             secureTextEntry={true}
@@ -163,7 +154,7 @@ export default class Login extends Component {
                             <Text style={styles.loginText}>Log In</Text>
                         </LinearGradient>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={() => console.log('Sign Up Pressed')} underlayColor="transparent">
+                    <TouchableHighlight onPress={() => this.openRegisterView()} underlayColor="transparent">
                         <Text style={styles.signUpText}>Sign Up</Text>
                     </TouchableHighlight>
                 </View>
